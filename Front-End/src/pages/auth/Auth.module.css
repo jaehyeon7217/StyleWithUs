@@ -1,0 +1,25 @@
+@font-face {
+  font-family: "SF_Pro";
+  src: url("../../fonts/SF-Pro-Display-Regular.otf");
+}
+
+.AuthBox{
+  top: 50%;
+  left: 50%;
+  height: auto;
+  width: 300px;
+  margin: 0 auto;
+  margin-top: 40px;
+  padding: 60px 0 160px;
+  font-family: "SF_Pro";
+}
+.AuthTitle{
+  padding-bottom: 10px;
+  text-align: center;
+  font-size: 10px;
+  border-bottom: 1px solid black;
+}
+.AuthBody{
+  align-items: center;
+  text-align: center;
+}
