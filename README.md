@@ -10,7 +10,9 @@ ex) 로그인 기능 3번째
 
 커밋 메시지 : feat:Add login 3
 
+## 깃 로그 간편 확인
 
+git log --oneline --graph
 
 ## 기술 스택
 
@@ -37,13 +39,12 @@ ex) 로그인 기능 3번째
 }
 ```
 
-
-
-
-
 ## Link
 
-:notion_on_fire: [Notion](https://www.notion.so/D105-a32f3c0d0d6644bbaa9afed10fb68d7f)
-:git2: [GIT](https://lab.ssafy.com/s08-webmobile1-sub2/S08P12D105)
-:webex2: [Webex](https://ssafyclass.webex.com/meet/bingbang809w)
-:jira3: [Jira](https://ssafy.atlassian.net/jira/software/c/projects/S08P12D105/boards/1336)
+[Notion](https://www.notion.so/D105-a32f3c0d0d6644bbaa9afed10fb68d7f)
+
+[GIT](https://lab.ssafy.com/s08-webmobile1-sub2/S08P12D105)
+
+[Webex](https://ssafyclass.webex.com/meet/bingbang809w)
+
+[Jira](https://ssafy.atlassian.net/jira/software/c/projects/S08P12D105/boards/1336)
