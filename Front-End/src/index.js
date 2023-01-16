@@ -7,11 +7,10 @@ import { Provider } from "react-redux";
 import { createStore } from "redux";
 import { BrowserRouter } from 'react-router-dom';
 import reducer from "./reducer";
-import { composeWithDevTools } from "redux-devtools-extension";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 // store 생성(reducer,devtools 연결)
-const store = createStore(reducer, composeWithDevTools());
+const store = createStore(reducer);
 
 root.render(
   // 스토어 연결, 라우터 연결

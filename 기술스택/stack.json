@@ -1,0 +1,18 @@
+{
+  "Front-End" : {
+    "node.js" : "18.13.0",
+    "react" : "18.2.0",
+    "axios" : "1.2.2",
+    "react-redux" : "8.0.5",
+    "react-router-dom" : "6.6.2"
+  },
+  "Back-End" : {
+    "JAVA" : "1.8 (Julu : 8)",
+    "DB" : { 
+      "maria DB" : "10.10.2, MS Window ver",
+      "port" : "3306", 
+      "root Password" : "root"
+    },
+    "Spring Boot" : "2.5.6"
+  }
+}
