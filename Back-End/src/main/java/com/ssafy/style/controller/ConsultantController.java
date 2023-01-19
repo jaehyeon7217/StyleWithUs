@@ -34,8 +34,7 @@ public class ConsultantController {
     @PostMapping("/login")
     @ApiOperation(value = "유저 로그인")
     public ResponseEntity<?> loginConsultant(
-            @RequestBody Map<String, String> data,
-            HttpServletResponse response) {
+            @RequestBody Map<String, String> data) {
         Map<String , Object> check = new HashMap<>();
 
         logger.info("consultantLogin - 호출");
@@ -56,7 +55,7 @@ public class ConsultantController {
                 //            check.put("access-token", key);
                 check.put("msg", "success");
                 check.put("data", result);
-                response.setHeader("access-token", key);
+                check.put("auth_token", key);
                 return ResponseEntity.status(HttpStatus.OK).body(check);
             } else {
                 check.put("msg", "fail");
@@ -72,8 +71,7 @@ public class ConsultantController {
     @PutMapping("/update")
     @ApiOperation(value = "유저 회원정보 수정", response = ConsultantDto.class)
     public ResponseEntity<?> updateConsultant(
-            @RequestBody @ApiParam(value = "회원정보 수정", required = true) ConsultantDto consultantDto,
-            HttpServletResponse response
+            @RequestBody @ApiParam(value = "회원정보 수정", required = true) ConsultantDto consultantDto
     ){
 
         Map<String , Object> check = new HashMap<>();
@@ -87,9 +85,9 @@ public class ConsultantController {
                 logger.info("회원 정보 : {}", consultant);
 
                 String key = jwtProvider.createToken(consultant);
-                response.setHeader("access-token", key);
                 check.put("msg", "success");
                 check.put("data", consultant);
+                check.put("auth_token", key);
 
                 return ResponseEntity.status(HttpStatus.OK).body(check);
             } else {
