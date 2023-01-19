@@ -3,24 +3,27 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import { Provider } from "react-redux";
-import { createStore } from "redux";
+
+// Router셋팅
 import { BrowserRouter } from 'react-router-dom';
-import reducer from "./reducer";
+
+// redux 셋팅
+import { Provider } from 'react-redux';
+
+// store 불러오기
+import store from './store/index'
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
-// store 생성(reducer,devtools 연결)
-const store = createStore(reducer);
 
 root.render(
-  // 스토어 연결, 라우터 연결
-  <Provider store={store}>
-    <React.StrictMode>
-      <BrowserRouter>
+  <React.StrictMode>
+    <BrowserRouter>
+      <Provider store={store}>
         <App />
-      </BrowserRouter>
-    </React.StrictMode>
-  </Provider>,
+      </Provider>
+    </BrowserRouter>
+  </React.StrictMode>
 );
 
 reportWebVitals();

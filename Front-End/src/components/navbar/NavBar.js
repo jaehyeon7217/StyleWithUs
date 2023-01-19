@@ -1,14 +1,16 @@
 import classes from "./NavBar.module.css";
-import logo from "../../assets/logo.png";
 import NavTop from "./NavTop";
 import NavBottom from "./NavBottom";
+import logo from "../../assets/logo.png";
 
 const NavBar = () => {
   return(
     <div className={classes.header}>
-      <img className="logo" src={logo} alt="img" />
-      <NavTop/>
-      <NavBottom/>
+      <img src={logo} alt="img"/>
+      <div className={classes.box}>
+        <NavTop/>
+        <NavBottom/>
+      </div>
     </div>
   )
 }

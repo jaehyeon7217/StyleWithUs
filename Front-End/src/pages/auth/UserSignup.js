@@ -12,7 +12,7 @@ const UserSignup = () => {
   
   const signupEvent = (event) =>{
     event.preventDefault();
-    const url = "http://192.168.100.81/user"
+    const url = "http://192.168.100.82/user/register"
     axios.post(
       url,{
         userId : id,
@@ -24,7 +24,8 @@ const UserSignup = () => {
       }
     )
     .then(response =>{
-      console.log(response.data)
+      console.log(response)
+            
     })
     .catch(error =>{
       console.log(error)
@@ -45,7 +46,7 @@ const UserSignup = () => {
   // 이름 유효성 검사
   // 한글로 이루어진 문자열 20글자 아래
   const checkName = (event) => {
-    const regExp = /[ㄱ-ㅎ|ㅏ-ㅣ|가-힣]{0,20}/;
+    const regExp = /[ㄱ-ㅎ|ㅏ-ㅣ|가-힣]{4,20}/;
   }
   // 이메일 유효성 검사
   const checkEmail = (event) =>{
@@ -54,14 +55,14 @@ const UserSignup = () => {
   // 비밀번호 유효성 검사
   // 영문자, 숫자 특수문자 반드시 포함 9 ~ 16글자
   const checkPassword = (event) => {
-    const regExp = /^(?=.*\d)(?=.*[a-zA-Z])[0-9a-zA-Z]{9,16}$/;
+    const regExp = /^(?=.*[a-zA-Z])(?=.*[!@#$%^*+=-])(?=.*[0-9]).{9,16}$/;
     console.log('비밀번호 유효성 검사 :: ', regExp.test(event.target.value));
   }
   // 비밀번호 검사 유효성 검사
   // 영문자, 숫자 특수문자 반드시 포함 9 ~ 16글자
   // 비밀번호와 일치하는지 검사
   const checkConfirmPassword = (event) => {
-    const regExp = /^(?=.*\d)(?=.*[a-zA-Z])[0-9a-zA-Z]{9,16}$/;
+    const regExp = /^(?=.*[a-zA-Z])(?=.*[!@#$%^*+=-])(?=.*[0-9]).{9,16}$/;
     console.log('비밀번호 유효성 검사 :: ', regExp.test(event.target.value));
   }
   
@@ -93,7 +94,7 @@ const UserSignup = () => {
           <p>nickname</p>
           <input 
             type="text"
-            value={password}
+            value={nickName}
             placeholder="닉네임을 입력해주세요"
             onChange={(e) => {setNickName(e.target.value); checkNickName(e);}}
           />

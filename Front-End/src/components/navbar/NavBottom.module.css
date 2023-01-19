@@ -1,0 +1,12 @@
+.bottom{
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: right;
+}
+.bottom img {
+  width: 40px;
+}
+.bottom p{
+  font-size: 20px;
+}
