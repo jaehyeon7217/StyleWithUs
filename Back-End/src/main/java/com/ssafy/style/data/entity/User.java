@@ -15,14 +15,15 @@ import java.time.LocalDateTime;
 @Table(name = "user")
 public class User {
     @Id
+    @Column(length = 20)
     private String userId;
-    @Column(nullable = false)
+    @Column(nullable = false, length = 30)
     private String userPw;
-    @Column(nullable = false)
+    @Column(nullable = false, length = 20)
     private String userName;
-    @Column(nullable = false, unique = true)
+    @Column(nullable = false, unique = true, length = 20)
     private String userNickname;
-    @Column(nullable = false, unique = true)
+    @Column(nullable = false, unique = true, length = 50)
     private String userEmail;
     @Column(nullable = false)
     private Integer userGender;
