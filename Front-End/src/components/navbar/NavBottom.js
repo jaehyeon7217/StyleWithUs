@@ -1,6 +1,13 @@
+import { Link } from "react-router-dom";
+
+import classes from "./NavBottom.module.css";
+
 const NavBottom = () =>{
   return(
-    <div></div>
+    <div className={classes.bottom}>
+      <Link to="/recommend">추천</Link> | 
+      <Link to="/consultant">컨설턴트 상담</Link>
+    </div>
   )
 }
 
