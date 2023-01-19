@@ -59,8 +59,7 @@ public class UserController {
     @PostMapping("/login")
     @ApiOperation(value = "유저 로그인")
     public ResponseEntity<?> loginUser(
-            @RequestBody Map<String, String> data,
-            HttpServletResponse response) {
+            @RequestBody Map<String, String> data) {
         Map<String , Object> check = new HashMap<>();
 
         logger.info("userLogin - 호출");
@@ -81,7 +80,7 @@ public class UserController {
     //            check.put("access-token", key);
                 check.put("msg", "success");
                 check.put("data", result);
-                response.setHeader("access-token", key);
+                check.put("auth_token", key);
                 return ResponseEntity.status(HttpStatus.OK).body(check);
             } else {
                 check.put("msg", "fail");
@@ -97,8 +96,7 @@ public class UserController {
     @PutMapping("/update")
     @ApiOperation(value = "유저 회원정보 수정", response = UserDto.class)
     public ResponseEntity<?> updateUser(
-            @RequestBody @ApiParam(value = "회원정보 수정", required = true) UserDto userDto,
-            HttpServletResponse response
+            @RequestBody @ApiParam(value = "회원정보 수정", required = true) UserDto userDto
             ){
 
         Map<String , Object> check = new HashMap<>();
@@ -112,9 +110,9 @@ public class UserController {
                 logger.info("회원 정보 : {}", user);
 
                 String key = jwtProvider.createToken(user);
-                response.setHeader("access-token", key);
                 check.put("msg", "success");
                 check.put("data", user);
+                check.put("auth_token", key);
 
                 return ResponseEntity.status(HttpStatus.OK).body(check);
             } else {
