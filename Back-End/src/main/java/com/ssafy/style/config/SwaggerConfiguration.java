@@ -37,6 +37,11 @@ public class SwaggerConfiguration {
         return getDocket("컨설턴트", Predicates.or(PathSelectors.regex("/consultant.*")));
     }
 
+    @Bean
+    public Docket mailApi() {
+        return getDocket("메일", Predicates.or(PathSelectors.regex("/mail.*")));
+    }
+
     public Docket getDocket(String groupName, Predicate<String> predicate) {
         return new Docket(DocumentationType.SWAGGER_2)
                 .groupName(groupName)
