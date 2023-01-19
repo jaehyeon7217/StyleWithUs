@@ -26,7 +26,7 @@ public class Review implements Serializable {
     private Consultant consultantId;
     @Column(nullable = false)
     private Integer reviewScore;
-    @Column(nullable = false)
+    @Column(nullable = false, length = 200)
     private String reviewContent;
     @CreationTimestamp
     @Column(nullable = false, columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")

@@ -20,8 +20,8 @@ public class Item implements Serializable {
     @ManyToOne
     @JoinColumn(name="userId")
     private User userId;
-    @Column(nullable = false)
+    @Column(nullable = false, length = 20)
     private String itemName;
-    @Column(nullable = false)
+    @Column(nullable = false, length = 1024)
     private String itemUri;
 }
