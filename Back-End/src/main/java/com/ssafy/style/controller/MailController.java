@@ -6,6 +6,7 @@ import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -23,16 +24,22 @@ public class MailController {
 
     public static final Logger logger = LoggerFactory.getLogger(MailController.class);
     private final MailService mailService;
+
+    @Autowired
     public MailController(MailService mailService) {
         this.mailService = mailService;
     }
 
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    // 인증메일 발송
     @PostMapping
     @ApiOperation(value = "메일인증")
-    public ResponseEntity<?> checkMail(@RequestBody @ApiParam(value = "메일 인증", required = true) Map<String, String> data){
+    public ResponseEntity<?> checkMail(@RequestBody @ApiParam(value = "전송할 이메일", required = true) Map<String, String> data){
 
         String email = data.get("email");
-        logger.info("* -- check Mail Start");
+        logger.info("checkMail Start");
+        logger.info("email : " + email);
 
         try {
             String authCode = mailService.sendEmail(email);
@@ -48,5 +55,7 @@ public class MailController {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
         }
     }
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 }

@@ -14,26 +14,23 @@ import java.util.Map;
 public class UseServiceImpl implements UserService {
 
     private final UserDAO userDAO;
-
     @Autowired
     public UseServiceImpl(UserDAO userDAO) {
         this.userDAO = userDAO;
     }
 
+    ////////////////////////////////////////////////////////////////////////////////////////////////////
+
     @Override
     public UserDto insertUser(UserDto userDto) throws Exception {
         User user = toUser(userDto);
-
         User saveUser = userDAO.insertUser(user);
-
         UserDto saveuserDto = toUserDto(saveUser);
-
-
         return saveuserDto;
     }
 
     @Override
-    public UserDto selectUser(UserDto userDto) throws Exception {
+    public UserDto selectUser(UserDto userDto) {
 
         String userId = userDto.getUserId();
         String userPw = userDto.getUserPw();
@@ -44,10 +41,8 @@ public class UseServiceImpl implements UserService {
 
         if(user != null && user.getUserPw().equals(userPw)){
             savedDto = toUserDto(user);
-
             return savedDto;
         }else {
-
             return null;
         }
     }
@@ -55,34 +50,29 @@ public class UseServiceImpl implements UserService {
     @Override
     public UserDto updateUser(UserDto userDto) throws Exception {
         User user = toUser(userDto);
-
         user.setUserType(userDto.getUserType());
         user.setUserRegisterTime(userDto.getUserRegisterTime());
 
         User saveUser = userDAO.updateUser(user);
 
         UserDto saveuserDto = toUserDto(saveUser);
-
-
         return saveuserDto;
     }
 
     @Override
-    public void deleteUser(UserDto userDto) throws Exception {
-
+    public void deleteUser(UserDto userDto) {
+        //////////////구현?
     }
 
     @Override
     public boolean validId(String userId) {
-
         return userDAO.validId(userId);
 
     }
 
     @Override
     public boolean validEmail(String userEmail) {
-
-        return userDAO.validEamil(userEmail);
+        return userDAO.validEmail(userEmail);
     }
 
     @Override
@@ -93,15 +83,15 @@ public class UseServiceImpl implements UserService {
 
     @Override
     public UserDto getById(String userId) {
-
         User user = userDAO.getById(userId);
         if(user != null){
             return toUserDto(user);
         }else {
-
             return null;
         }
     }
+
+    /////////////////////////////////////////////////////////////////////////////////////////////////////
 
     private User toUser(UserDto userDto){
         User user = new User();

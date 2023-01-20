@@ -11,10 +11,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -28,23 +25,27 @@ public class CrawlingController {
 
     private final CrawlingService crawlingService;
     public static final Logger logger = LoggerFactory.getLogger(CrawlingController.class);
+
+    @Autowired
     public CrawlingController(CrawlingService crawlingService){
         this.crawlingService = crawlingService;
     }
 
-    @PostMapping
-    @ApiOperation(value = "크롤링 테스트")
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    // 무신사 Item 정보 크롤링
+    @GetMapping(value = "/{no}")
+    @ApiOperation(value = "무신사 Item 정보 크롤링")
     public ResponseEntity<?> crawlingTest(
-            @RequestBody @ApiParam(value = "크롤링 테스트", required = true) Map<String, String> data
-    ){
+            @PathVariable @ApiParam(value = "Item 카테고리 number", required = true) String no){
         Map<String, Object> map = new HashMap<>();
 
-        logger.info("* -- 크롤링 테스트");
-        logger.info("url : " + data.get("no"));
+        logger.info("Start Crawling");
+        logger.info("Item Category number : " + no);
 
         try {
             List<CrawlingDto> list = new ArrayList<>();
-            list = crawlingService.crawling(data.get("no"));
+            list = crawlingService.crawling(no);
 
             if(list != null) {
                 map.put("msg", "success");
@@ -62,6 +63,6 @@ public class CrawlingController {
 
     }
 
-
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 }

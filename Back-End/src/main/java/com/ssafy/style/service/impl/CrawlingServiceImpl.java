@@ -20,15 +20,12 @@ public class CrawlingServiceImpl implements CrawlingService {
         List<CrawlingDto> list = new ArrayList<>();
 
         try {
-
-
             doc = Jsoup.connect(URL)
                     .userAgent("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/33.0.1750.152 Safari/537.36")
                     .get(); // 원하는 url에서 전체 구조를 받아온다
 
             if(doc.select("#searchList > li:nth-child(1)").toString().equals(""))
                 return null;
-
 
             for(int i=1;i<=90;i++) {
                 CrawlingDto data = new CrawlingDto();

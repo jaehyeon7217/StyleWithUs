@@ -24,17 +24,19 @@ public class ConsultantController {
 
     public static final Logger logger = LoggerFactory.getLogger(ConsultantController.class);
     private final ConsultantService consultantService;
-
     private final JwtProvider jwtProvider = new JwtProvider();
 
     @Autowired
     public ConsultantController(ConsultantService consultantService) {
         this.consultantService = consultantService;
     }
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
     @PostMapping("/login")
-    @ApiOperation(value = "유저 로그인")
+    @ApiOperation(value = "컨설턴트 로그인")
     public ResponseEntity<?> loginConsultant(
-            @RequestBody Map<String, String> data) {
+            @RequestBody  @ApiParam(value = "로그인 정보", required = true)  Map<String, String> data) {
         Map<String , Object> check = new HashMap<>();
 
         logger.info("consultantLogin - 호출");
@@ -69,10 +71,9 @@ public class ConsultantController {
 
     //회원정보 업데이트
     @PutMapping("/update")
-    @ApiOperation(value = "유저 회원정보 수정", response = ConsultantDto.class)
+    @ApiOperation(value = "컨설턴트 회원정보 수정", response = ConsultantDto.class)
     public ResponseEntity<?> updateConsultant(
-            @RequestBody @ApiParam(value = "회원정보 수정", required = true) ConsultantDto consultantDto
-    ){
+            @RequestBody @ApiParam(value = "회원정보", required = true) ConsultantDto consultantDto){
 
         Map<String , Object> check = new HashMap<>();
 
@@ -101,9 +102,9 @@ public class ConsultantController {
 
     }
 
-    // 유저 회원가입
+    // 컨설턴트 회원가입
     @PostMapping("/register")
-    @ApiOperation(value = "유저 회원가입", response = ConsultantDto.class)
+    @ApiOperation(value = "컨설턴트 회원가입", response = ConsultantDto.class)
     public ResponseEntity<?> registerConsultant(
             @RequestBody @ApiParam(value = "회원가입 정보", required = true) ConsultantDto consultantDto) {
 
@@ -130,8 +131,11 @@ public class ConsultantController {
         }
     }
 
+
+    // 컨설턴트 ID를 통한 회원정보 조회
     @GetMapping("/get/{consultantId}")
-    public ResponseEntity<?> getById(@PathVariable String consultantId){
+    @ApiOperation(value = "ID 정보를 이용한 컨설턴트 정보조회")
+    public ResponseEntity<?> getById(@PathVariable @ApiParam(value = "컨설턴트 ID" , required = true) String consultantId){
 
         Map<String, Object> check = new HashMap<>();
 
@@ -153,9 +157,12 @@ public class ConsultantController {
         }
     }
 
-    /// 여기부터 Valid 중복검사
+    ///////////////////////////////// 여기부터 Valid 중복검사//////////////////////////////
+
+    // ID 중복검사
     @GetMapping("/valid/id/{consultantId}")
-    public ResponseEntity<Boolean> validId(@PathVariable String consultantId){
+    @ApiOperation(value = "ID 중복검사")
+    public ResponseEntity<Boolean> validId(@PathVariable  @ApiParam(value = "컨설턴트 ID", required = true) String consultantId){
 
         try {
             boolean isValid = consultantService.validId(consultantId);
@@ -166,8 +173,10 @@ public class ConsultantController {
 
     }
 
+    // Email 중복검사
     @GetMapping(value = "/valid/email/{consultantEmail}")
-    public ResponseEntity<Boolean> validEmail(@PathVariable String consultantEmail){
+    @ApiOperation(value = "Email 중복검사")
+    public ResponseEntity<Boolean> validEmail(@PathVariable @ApiParam(value = "컨설턴트 Email", required = true) String consultantEmail){
 
         try{
             boolean isValid = consultantService.validEmail(consultantEmail);
@@ -177,8 +186,10 @@ public class ConsultantController {
         }
     }
 
+    // NickName 중복검사
     @GetMapping(value = "/valid/nickname/{consultantNickname}")
-    public ResponseEntity<Boolean> validNickname(@PathVariable String consultantNickname){
+    @ApiOperation(value = "NickName 중복검사")
+    public ResponseEntity<Boolean> validNickname(@PathVariable @ApiParam(value = "컨설턴트 NickName", required = true) String consultantNickname){
 
         try {
             boolean isValid = consultantService.validNickname(consultantNickname);
@@ -187,5 +198,5 @@ public class ConsultantController {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
         }
     }
-    ////여기까지 Valid 중복검사
+    ///////////////////////////////////////////////////////////////////////////////////////////
 }

@@ -18,15 +18,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @EnableSwagger2
 public class SwaggerConfiguration {
 
-//    @Bean
-//    public Docket api(){
-//        return new Docket(DocumentationType.SWAGGER_2)
-//                .apiInfo(apiInfo())
-//                .select()
-//                .apis(RequestHandlerSelectors.basePackage("com.ssafy.style"))
-//                .paths(PathSelectors.any())
-//                .build();
-//    }
+    ////////////////////////////////////////////컨트롤러 위치 연결/////////////////////////////////////////
 
     @Bean
     public Docket userApi() {
@@ -44,6 +36,8 @@ public class SwaggerConfiguration {
     public Docket crawlingApi() {
         return getDocket("크롤링", Predicates.or(PathSelectors.regex("/crawling.*")));
     }
+
+    //////////////////////////////////////////////////////////////////////////////////////////////////////
 
     public Docket getDocket(String groupName, Predicate<String> predicate) {
         return new Docket(DocumentationType.SWAGGER_2)

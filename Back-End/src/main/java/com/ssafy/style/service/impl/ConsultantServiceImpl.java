@@ -14,7 +14,6 @@ import java.time.LocalDateTime;
 @Service
 public class ConsultantServiceImpl implements ConsultantService {
     private final ConsultantDAO consultantDAO;
-
     @Autowired
     public ConsultantServiceImpl(ConsultantDAO consultantDAO) {
         this.consultantDAO = consultantDAO;
@@ -22,14 +21,9 @@ public class ConsultantServiceImpl implements ConsultantService {
 
     @Override
     public ConsultantDto insertConsultant(ConsultantDto consultantDto) {
-
         Consultant consultant = toConsultant(consultantDto);
-
         Consultant saveConsultant = consultantDAO.insertConsultant(consultant);
-
         ConsultantDto saveDto = toConsultantDto(saveConsultant);
-
-
         return saveDto;
     }
 
@@ -37,17 +31,14 @@ public class ConsultantServiceImpl implements ConsultantService {
     public ConsultantDto loginConsultant(ConsultantDto consultantDto) {
         String consultantId = consultantDto.getConsultantId();
         String consultantPw = consultantDto.getConsultantPw();
-
         Consultant consultant = consultantDAO.getById(consultantId);
 
         ConsultantDto savedDto = new ConsultantDto();
 
         if(consultant != null && consultant.getConsultantPw().equals(consultantPw)){
             savedDto = toConsultantDto(consultant);
-
             return savedDto;
         }else {
-
             return null;
         }
     }
@@ -69,13 +60,11 @@ public class ConsultantServiceImpl implements ConsultantService {
 
     @Override
     public ConsultantDto getById(String consultantId) {
-
         Consultant consultant = consultantDAO.getById(consultantId);
 
         if(consultant != null){
             return toConsultantDto(consultant);
         }else {
-
             return null;
         }
     }
@@ -83,7 +72,6 @@ public class ConsultantServiceImpl implements ConsultantService {
     @Override
     public ConsultantDto updateConsultant(ConsultantDto consultantDto) throws Exception {
         Consultant consultant = toConsultant(consultantDto);
-
         consultant.setConsultantType(consultantDto.getConsultantType());
         consultant.setConsultantRegisterTime(consultantDto.getConsultantRegisterTime());
 
@@ -91,12 +79,12 @@ public class ConsultantServiceImpl implements ConsultantService {
 
         ConsultantDto saveconsultantDto = toConsultantDto(saveConsultant);
 
-
         return saveconsultantDto;
     }
 
-    private Consultant toConsultant(ConsultantDto consultantDto){
+    //////////////////////////////////////////////////////////////////////////////////////////////////
 
+    private Consultant toConsultant(ConsultantDto consultantDto){
         Consultant consultant = new Consultant();
         consultant.setConsultantId(consultantDto.getConsultantId());
         consultant.setConsultantPw(consultantDto.getConsultantPw());
@@ -122,7 +110,6 @@ public class ConsultantServiceImpl implements ConsultantService {
         saveDto.setConsultantRegisterTime(saveConsultant.getConsultantRegisterTime());
         saveDto.setConsultantResume(saveConsultant.getConsultantResume());
         saveDto.setConsultantApproval(0);
-
         return saveDto;
     }
 }

@@ -13,8 +13,6 @@ import org.springframework.stereotype.Component;
 public class AopConfig {
     private static final Logger logger = LoggerFactory.getLogger(AopConfig.class);
 
-
-
     @AfterThrowing(value = "execution(* com.ssafy.style.controller.*.*(..))", throwing = "e")
     public void AfterThrowing(JoinPoint joinPoint, Throwable e){
         logger.error("AOP : Error ");

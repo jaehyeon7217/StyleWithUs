@@ -10,12 +10,8 @@ public interface UserService {
     UserDto selectUser(UserDto userDto)  throws Exception;
     UserDto updateUser(UserDto userDto)  throws Exception;
     void deleteUser(UserDto userDto) throws Exception;
-
     boolean validId(String userId);
-
     boolean validEmail(String userEmail);
-
     boolean validNickname(String userNickname);
-
     UserDto getById(String userId);
 }
