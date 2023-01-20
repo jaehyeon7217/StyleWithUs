@@ -24,42 +24,20 @@ public class UserController {
 
     public static final Logger logger = LoggerFactory.getLogger(UserController.class);
     private final UserService userService;
-    JwtProvider jwtProvider = new JwtProvider();
+    private JwtProvider jwtProvider = new JwtProvider();
+
     @Autowired
     public UserController(UserService userService) {
         this.userService = userService;
     }
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//    // 여기는 로그인
-//    @PostMapping("/login")
-//    @ApiOperation(value = "유저 로그인")
-//    public ResponseEntity<UserDto> loginUser(
-//            @RequestBody Map<String, String> data
-////            String userId, String userPw
-//    ) {
-//        logger.info("userLogin - 호출");
-//        UserDto userDto = new UserDto();
-//        userDto.setUserId(data.get("userId"));
-//        userDto.setUserPw(data.get("userPw"));
-//
-//        try {
-//            UserDto result = userService.selectUser(userDto);
-//            if (result != null) {
-//                logger.info("로그인 정보 : {}", result);
-//                return ResponseEntity.status(HttpStatus.OK).body(result);
-//            } else {
-//                return ResponseEntity.status(HttpStatus.NO_CONTENT).body(result);
-//            }
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
-//        }
-//    }
-// 여기는 로그인
+
+    /////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    // 유저 로그인
     @PostMapping("/login")
     @ApiOperation(value = "유저 로그인")
     public ResponseEntity<?> loginUser(
-            @RequestBody Map<String, String> data) {
+            @RequestBody @ApiParam(value = "로그인 정보", required = true) Map<String, String> data) {
         Map<String , Object> check = new HashMap<>();
 
         logger.info("userLogin - 호출");
@@ -92,7 +70,7 @@ public class UserController {
         }
     }
 
-    //회원정보 업데이트
+    // 회원정보 업데이트
     @PutMapping("/update")
     @ApiOperation(value = "유저 회원정보 수정", response = UserDto.class)
     public ResponseEntity<?> updateUser(
@@ -155,8 +133,10 @@ public class UserController {
         }
     }
 
-    @GetMapping("/get/{userId}")
-    public ResponseEntity<?> getById(@PathVariable String userId){
+   // ID를 통한 유저정보 획득
+   @GetMapping("/get/{userId}")
+   @ApiOperation(value = "ID를 통한 유저정보 획득")
+    public ResponseEntity<?> getById(@PathVariable @ApiParam(value = "유저 아이디", required = true) String userId){
 
         Map<String, Object> check = new HashMap<>();
 
@@ -178,9 +158,12 @@ public class UserController {
         }
     }
 
-    /// 여기부터 Valid 중복검사
+    ////////////////////////////////////////////// 여기부터 Valid 중복검사//////////////////////////////////////////////
+
+    // ID 중복검사
     @GetMapping(value = "/valid/id/{userId}")
-    public ResponseEntity<Boolean> validId(@PathVariable String userId){
+    @ApiOperation(value = "ID 중복검사")
+    public ResponseEntity<Boolean> validId(@PathVariable @ApiParam(value = "유저 ID", required = true) String userId){
 
         try {
             boolean isValid = userService.validId(userId);
@@ -191,8 +174,10 @@ public class UserController {
 
     }
 
+    // Email 중복검사
     @GetMapping(value = "/valid/email/{userEmail}")
-    public ResponseEntity<Boolean> validEmail(@PathVariable String userEmail){
+    @ApiOperation(value = "Email 중복검사")
+    public ResponseEntity<Boolean> validEmail(@PathVariable @ApiParam(value = "유저 Email", required = true) String userEmail){
 
         try{
             boolean isValid = userService.validEmail(userEmail);
@@ -202,8 +187,10 @@ public class UserController {
         }
     }
 
+    // Nickname 중복검사
     @GetMapping(value = "/valid/nickname/{userNickname}")
-    public ResponseEntity<Boolean> validNickname(@PathVariable String userNickname){
+    @ApiOperation(value = "Nickname 중복검사")
+    public ResponseEntity<Boolean> validNickname(@PathVariable @ApiParam(value = "유저 Nickname", required = true) String userNickname){
 
         try {
             boolean isValid = userService.validNickname(userNickname);
@@ -212,6 +199,7 @@ public class UserController {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
         }
     }
-    ////여기까지 Valid 중복검사
+
+    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 }

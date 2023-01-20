@@ -20,15 +20,12 @@ public class ConsultantDAOImpl implements ConsultantDAO {
     @Override
     public Consultant insertConsultant(Consultant consultant) {
         Consultant savedconsultant = consultantRepository.save(consultant);
-        System.out.println("@@@@@@@@@@@@@@@@@@@@ : "+ savedconsultant);
         return savedconsultant;
     }
 
         @Override
     public boolean validNickname(String consultantNickname) {
         boolean isValid = consultantRepository.existsByConsultantNickname(consultantNickname);
-
-        System.out.println("@@@@@@@@@@@@@@ validId @@@@@@@@@@@ : " + isValid);
 
         // 이미 있다 : true => 회원가입 할 수 없다.
         return isValid;
@@ -38,8 +35,6 @@ public class ConsultantDAOImpl implements ConsultantDAO {
     public boolean validEmail(String consultantEmail) {
         boolean isValid = consultantRepository.existsByConsultantEmail(consultantEmail);
 
-        System.out.println("@@@@@@@@@@@@@@ validId @@@@@@@@@@@ : " + isValid);
-
         // 이미 있다 : true => 회원가입 할 수 없다.
         return isValid;
     }
@@ -48,14 +43,11 @@ public class ConsultantDAOImpl implements ConsultantDAO {
     public boolean validId(String consultantId) {
         boolean isValid = consultantRepository.existsByConsultantId(consultantId);
 
-        System.out.println("@@@@@@@@@@@@@@ validId @@@@@@@@@@@ : " + isValid);
-
         // 이미 있다 : true => 회원가입 할 수 없다.
         return isValid;
     }
     @Override
     public Consultant getById(String consultantId) {
-
         boolean isValid = consultantRepository.existsByConsultantId(consultantId);
 
         if(isValid) {
@@ -69,12 +61,9 @@ public class ConsultantDAOImpl implements ConsultantDAO {
     }
     @Transactional
     @Override
-    public Consultant updateConsultant(Consultant consultant) throws Exception {
-
+    public Consultant updateConsultant(Consultant consultant){
         Consultant temp = consultantRepository.getById(consultant.getConsultantId());
-
         consultant.setConsultantPw(temp.getConsultantPw());
-
         return consultantRepository.save(consultant);
 
 
