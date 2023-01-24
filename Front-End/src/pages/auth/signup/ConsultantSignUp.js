@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useState } from "react";
-import { IdInput, NameInput, NinkNameInput, EmailInput, PasswordInput } from "../component/Effectiveness";
+import { IdInput, NameInput, NinkNameInput, EmailInput, PasswordInput, ResumeInput } from "../component/Effectiveness";
 
 import InputLabel from "../component/InputLabel";
 
@@ -11,10 +11,83 @@ const ConsultantSignUp = () =>{
   const [email, setEmail, emailError] = EmailInput("");
   const [password, setPassword, passwordError] = PasswordInput("");
   const [confirmPassword, setConfirmPassword] = useState("");
+  const [resume, setResume, resumeError] = ResumeInput
   const [gender, setGender] = useState("");
+
+  const ConsultantSignUp = (event) => {
+    event.preventDefault();
+    const url = "http://192.168.100.82/cosultant/register";
+    axios.post(
+      url,{
+        consultantId: id,
+        consultantName: name,
+        consultantNickname: nickName,
+        consultantEmail: email,
+        consultantPw: password,
+        consultantResume: resume,
+        consultantType: 0,
+        consultantGender: gender,
+      }
+    ).then(response =>{
+      console.log(response);
+    }).catch(error =>{
+      console.log(error);
+    });
+  }
+
   return(
     <div>
-
+      <form action={ConsultantSignUp}>
+        <InputLabel
+          label="ID"
+          type="text"
+          value={id}
+          placeholder="아이디를 입력해주세요"
+          onChange={setId}
+          errorMessage={(idError ? "" : "영어와 숫자로만 입력해주세요.")}
+        />
+        <InputLabel
+          label="name"
+          type="text"
+          value={name}
+          placeholder="이름을 입력해주세요"
+          onChange={setName}
+          errorMessage={(nameError ? "" : "한글로만 입력해주세요")}
+        />
+        <InputLabel
+          label="nickname"
+          type="text"
+          value={nickName}
+          placeholder="닉네임을 입력해주세요"
+          onChange={setNickName}
+          errorMessage={(nickNameError ? "" : "영어와 숫자로만 입력해주세요.")}
+        />
+        <InputLabel
+          label="email"
+          type="email"
+          value={email}
+          placeholder="이메일을 입력해주세요"
+          onChange={setEmail}
+          errorMessage={(emailError ? "" : "이메일 양식을 지켜주세요.")}
+        />
+        <InputLabel
+          label="password"
+          type="password"
+          value={password}
+          placeholder="비밀번호를 입력해주세요"
+          onChange={setPassword}
+          errorMessage={(passwordError ? "" : "영어와 숫자 그리고 특수문자로만 입력해주세요.")}
+        />
+        <InputLabel
+          label="confirm Password"
+          type="password"
+          value={confirmPassword}
+          placeholder="비밀번호를 다시 입력해주세요"
+          onChange={(e) => {setConfirmPassword(e.target.value); checkConfirmPassword(e);}}
+          errorMessage={confirmPasswordError}        
+        />
+        <button type="submit">로그인</button>
+      </form>
     </div>
   )
 }
