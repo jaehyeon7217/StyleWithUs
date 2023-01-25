@@ -25,8 +25,7 @@ public class UseServiceImpl implements UserService {
     public UserDto insertUser(UserDto userDto) throws Exception {
         User user = toUser(userDto);
         User saveUser = userDAO.insertUser(user);
-        UserDto saveuserDto = toUserDto(saveUser);
-        return saveuserDto;
+        return toUserDto(saveUser);
     }
 
     @Override
@@ -50,7 +49,6 @@ public class UseServiceImpl implements UserService {
     @Override
     public UserDto updateUser(UserDto userDto) throws Exception {
         User user = toUser(userDto);
-        user.setUserType(userDto.getUserType());
         user.setUserRegisterTime(userDto.getUserRegisterTime());
 
         User saveUser = userDAO.updateUser(user);
@@ -91,6 +89,32 @@ public class UseServiceImpl implements UserService {
         }
     }
 
+    @Override
+    public String changePw(Map<String, String> userInfo) throws Exception {
+        String userId = userInfo.get("userId");
+
+        User user = userDAO.getById(userId);
+
+        if(user == null){
+            return "fail";
+        }
+
+        if(user.getUserPw().equals(userInfo.get("userPw"))){
+            user.setUserPw(userInfo.get("newUserPw"));
+
+            try {
+                userDAO.changePw(user);
+
+                return "OK";
+            }catch (Exception e){
+                e.printStackTrace();
+                return "Error";
+            }
+        }else{
+            return "Fail";
+        }
+    }
+
     /////////////////////////////////////////////////////////////////////////////////////////////////////
 
     private User toUser(UserDto userDto){
@@ -101,7 +125,6 @@ public class UseServiceImpl implements UserService {
         user.setUserNickname(userDto.getUserNickname());
         user.setUserEmail(userDto.getUserEmail());
         user.setUserGender(userDto.getUserGender());
-        user.setUserType(0);
         user.setUserRegisterTime(LocalDateTime.now());
 
         return user;
@@ -113,7 +136,6 @@ public class UseServiceImpl implements UserService {
         saveuserDto.setUserNickname(saveUser.getUserNickname());
         saveuserDto.setUserEmail(saveUser.getUserEmail());
         saveuserDto.setUserGender(saveUser.getUserGender());
-        saveuserDto.setUserType(saveUser.getUserType());
         saveuserDto.setUserRegisterTime(saveUser.getUserRegisterTime());
 
         return saveuserDto;

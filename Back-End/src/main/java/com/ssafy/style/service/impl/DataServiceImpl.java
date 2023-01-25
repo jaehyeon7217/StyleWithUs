@@ -1,7 +1,7 @@
 package com.ssafy.style.service.impl;
 
-import com.ssafy.style.data.dto.CrawlingDto;
-import com.ssafy.style.service.CrawlingService;
+import com.ssafy.style.data.dto.DataDto;
+import com.ssafy.style.service.DataService;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.select.Elements;
@@ -12,12 +12,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Service
-public class CrawlingServiceImpl implements CrawlingService {
+public class DataServiceImpl implements DataService {
 
-    public List<CrawlingDto> crawling(String no) {
+    public List<DataDto> getData(String no) {
         String URL = "https://www.musinsa.com/categories/item/" + no; // 원하는 url
         Document doc;
-        List<CrawlingDto> list = new ArrayList<>();
+        List<DataDto> list = new ArrayList<>();
 
         try {
             doc = Jsoup.connect(URL)
@@ -28,7 +28,7 @@ public class CrawlingServiceImpl implements CrawlingService {
                 return null;
 
             for(int i=1;i<=90;i++) {
-                CrawlingDto data = new CrawlingDto();
+                DataDto data = new DataDto();
 
                 data.setNo(i);
 

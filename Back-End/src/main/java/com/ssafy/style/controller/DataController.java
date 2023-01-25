@@ -1,8 +1,8 @@
 package com.ssafy.style.controller;
 
 
-import com.ssafy.style.data.dto.CrawlingDto;
-import com.ssafy.style.service.CrawlingService;
+import com.ssafy.style.data.dto.DataDto;
+import com.ssafy.style.service.DataService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
@@ -19,16 +19,16 @@ import java.util.List;
 import java.util.Map;
 
 @RestController
-@RequestMapping(value = "/crawling")
-@Api("Crawling Controller API V1")
-public class CrawlingController {
+@RequestMapping(value = "/data")
+@Api("data Controller API V1")
+public class DataController {
 
-    private final CrawlingService crawlingService;
-    public static final Logger logger = LoggerFactory.getLogger(CrawlingController.class);
+    private final DataService dataService;
+    public static final Logger logger = LoggerFactory.getLogger(DataController.class);
 
     @Autowired
-    public CrawlingController(CrawlingService crawlingService){
-        this.crawlingService = crawlingService;
+    public DataController(DataService dataService){
+        this.dataService = dataService;
     }
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -36,16 +36,16 @@ public class CrawlingController {
     // 무신사 Item 정보 크롤링
     @GetMapping(value = "/{no}")
     @ApiOperation(value = "무신사 Item 정보 크롤링")
-    public ResponseEntity<?> crawlingTest(
+    public ResponseEntity<?> getDataTest(
             @PathVariable @ApiParam(value = "Item 카테고리 number", required = true) String no){
         Map<String, Object> map = new HashMap<>();
 
-        logger.info("Start Crawling");
+        logger.info("Starting get data");
         logger.info("Item Category number : " + no);
 
         try {
-            List<CrawlingDto> list = new ArrayList<>();
-            list = crawlingService.crawling(no);
+            List<DataDto> list = new ArrayList<>();
+            list = dataService.getData(no);
 
             if(list != null) {
                 map.put("msg", "success");

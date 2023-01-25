@@ -23,7 +23,7 @@ public class MailConfig {
         javaMailSender.setJavaMailProperties(getMailProperties()); // 메일 인증서버 정보 가져오기
 
         return javaMailSender;
-    }
+}
 
     private Properties getMailProperties() {
         Properties properties = new Properties();

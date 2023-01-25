@@ -28,8 +28,6 @@ public class Consultant implements Serializable {
     private String consultantEmail;
     @Column(nullable = false)
     private Integer consultantGender;
-    @Column(nullable = false)
-    private Integer consultantType;
     @CreationTimestamp
     @Column(nullable = false, columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
     private LocalDateTime consultantRegisterTime;

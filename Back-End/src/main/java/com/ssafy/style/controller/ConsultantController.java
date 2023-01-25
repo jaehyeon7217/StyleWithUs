@@ -1,6 +1,8 @@
 package com.ssafy.style.controller;
 
 import com.ssafy.style.data.dto.ConsultantDto;
+import com.ssafy.style.data.dto.UserDto;
+import com.ssafy.style.data.entity.Consultant;
 import com.ssafy.style.jwt.JwtProvider;
 import com.ssafy.style.service.ConsultantService;
 import io.swagger.annotations.Api;
@@ -151,6 +153,30 @@ public class ConsultantController {
                 return ResponseEntity.status(HttpStatus.NO_CONTENT).body(check);
             }
 
+        }catch (Exception e){
+            e.printStackTrace();
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
+        }
+    }
+
+    // 비밀번호 변경
+    @PostMapping("/password")
+    @ApiOperation(value = "컨설턴트 회원가입", response = ConsultantDto.class)
+    public ResponseEntity<?> changePassword(@RequestBody @ApiParam Map<String, String> consultantInfo){
+
+        Map<String, Object> check = new HashMap<>();
+
+        try{
+            String msg = consultantService.changePw(consultantInfo);
+
+            if(msg.equals("OK")){
+
+                check.put("msg", msg);
+                return ResponseEntity.status(HttpStatus.OK).body(check);
+            }else{
+                check.put("msg", msg);
+                return ResponseEntity.status(HttpStatus.NO_CONTENT).body(check);
+            }
         }catch (Exception e){
             e.printStackTrace();
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);

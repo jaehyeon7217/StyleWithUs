@@ -36,7 +36,6 @@ public class JwtProvider {
         Claims claims = Jwts.claims();
         claims.put("userId", userDto.getUserId());
         claims.put("userEmail", userDto.getUserEmail());
-        claims.put("userType", userDto.getUserType());
 
         Date now = new Date();
         return Jwts.builder()
@@ -50,7 +49,6 @@ public class JwtProvider {
         Claims claims = Jwts.claims();
         claims.put("userId", consultantDto.getConsultantId());
         claims.put("userEmail", consultantDto.getConsultantEmail());
-        claims.put("userType", consultantDto.getConsultantType());
 
         Date now = new Date();
         return Jwts.builder()
