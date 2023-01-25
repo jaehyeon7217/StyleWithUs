@@ -25,8 +25,6 @@ public class ConsultantDto {
     private String consultantEmail;
     @ApiModelProperty(value = "컨설턴트 성별")
     private int consultantGender;
-    @ApiModelProperty(value = "유저타입(0 : 일반유저, 1 : 컨설턴트, 2 : 관리자")
-    private int consultantType;
     @ApiModelProperty(value = "컨설턴트 가입날짜")
     private LocalDateTime consultantRegisterTime;
     @ApiModelProperty(value = "컨설턴트 이력서")

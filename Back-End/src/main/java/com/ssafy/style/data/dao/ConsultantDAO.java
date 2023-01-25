@@ -10,4 +10,5 @@ public interface ConsultantDAO {
     boolean validId(String userId);
     Consultant updateConsultant(Consultant consultant) throws Exception;
     Consultant getById(String consultantId);
+    void changePw(Consultant consultant);
 }

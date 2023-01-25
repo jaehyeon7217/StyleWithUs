@@ -52,17 +52,27 @@ public class MailServiceImpl implements MailService {
         message.addRecipients(MimeMessage.RecipientType.TO, email); //보낼 이메일 설정
         message.setSubject(title); //제목 설정
         String msgg = "";
-        msgg += "<div style='margin:100px;'>";
-        msgg += "<h1> Style With us</h1>";
-        msgg += "<br>";
-        msgg += "<p>아래 코드를 회원가입 창으로 돌아가 입력해주세요<p>";
-        msgg += "<br>";
-        msgg += "<div align='center' style='border:1px solid black; font-family:verdana';>";
-        msgg += "<h3 style='color:blue;'>회원가입 인증 코드입니다.</h3>";
-        msgg += "<div style='font-size:130%'>";
-        msgg += "CODE : <strong>";
-        msgg += authNum + "</strong><div><br/> "; // 메일에 인증번호 넣기
-        msgg += "</div>";
+        msgg += "<p style=\"font-size:10pt;font-family:sans-serif;padding:0 0 0 10pt\"><br></p>";
+        msgg += "<p>";
+        msgg += "</p><table align=\"center\" width=\"670\" border=\"0\" cellpadding=\"0\" cellspacing=\"0\" style=\"border-top: 2px solid #60b9ce; border-right: 1px solid #e7e7e7; border-left: 1px solid #e7e7e7; border-bottom: 1px solid #e7e7e7;\">";
+        msgg += "<tbody><tr><td style=\"background-color: #ffffff; padding: 40px 30px 0 35px; text-align: center;\">";
+        msgg += "<table width=\"605\" border=\"0\" cellpadding=\"0\" cellspacing=\"0\" style=\"text-align: left; font-family: '맑은 고딕','돋움';\">";
+        msgg += "<tbody><tr><td style=\"color: #2daad1; font-size: 25px; text-align: left; width: 352px; word-spacing: -1px; vertical-align: top;\">";
+        msgg += "인증 번호 확인 후<br>";
+        msgg += "이메일 인증을 완료해 주세요.";
+        msgg += "</td></tr>";
+        msgg += "<tr><td style=\"font-size: 17px; vertical-align: bottom; height: 27px;\">안녕하세요? \"Style With us\"입니다.</td></tr>";
+        msgg += "<tr><td colspan=\"2\" style=\"font-size: 13px; word-spacing: -1px; height: 30px;\">아래 인증번호를 입력하시고 지원서를 계속 작성해 주세요.</td></tr></tbody></table>";
+        msgg += "</td></tr>";
+        msgg += "<tr><td style=\"padding: 39px 196px 70px;\">";
+        msgg += "<table width=\"278\" style=\"background-color: #3cbfaf; font-family: '맑은 고딕','돋움';\">";
+        msgg += "<tbody><tr><td height=\"49\" style=\"text-align: center; color: #fff\">인증번호 : <span>" + authNum + "</span></td></tr>";
+        msgg += "</tbody></table>";
+        msgg += "</td></tr>";
+        msgg += "</tbody></table>";
+        msgg += "<p></p>";
+        msgg += "<img height=\"1\" width=\"1\" border=\"0\" style=\"display:none;\" src=\"http://ems.midasit.com:4121/7I-110098I-41E-8174224742I-4uPmuPzeI-4I-3\">";
+
         message.setText(msgg, "utf-8", "html");// 내용, charset 타입, subtype
         // 보내는 사람의 이메일 주소, 보내는 사람 이름
         message.setFrom(new InternetAddress("correct1276@naver.com","Style With us")); //보내는 이메일

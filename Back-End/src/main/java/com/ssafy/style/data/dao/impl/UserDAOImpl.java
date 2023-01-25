@@ -68,4 +68,9 @@ public class UserDAOImpl implements UserDAO {
             return null;
         }
     }
+
+    @Override
+    public void changePw(User user) throws Exception {
+        userRepository.save(user);
+    }
 }

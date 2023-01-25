@@ -158,6 +158,31 @@ public class UserController {
         }
     }
 
+    // 비밀번호 변경
+    @PostMapping("/password")
+    @ApiOperation(value = "유저 회원가입", response = UserDto.class)
+    public ResponseEntity<?> changePassword(@RequestBody @ApiParam Map<String, String> userInfo){
+
+        Map<String, Object> check = new HashMap<>();
+
+        try{
+            String msg = userService.changePw(userInfo);
+
+            if(msg.equals("OK")){
+
+                check.put("msg", msg);
+                return ResponseEntity.status(HttpStatus.OK).body(check);
+            }else{
+                check.put("msg", msg);
+                return ResponseEntity.status(HttpStatus.NO_CONTENT).body(check);
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
+        }
+    }
+
+
     ////////////////////////////////////////////// 여기부터 Valid 중복검사//////////////////////////////////////////////
 
     // ID 중복검사

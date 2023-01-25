@@ -27,8 +27,6 @@ public class User {
     private String userEmail;
     @Column(nullable = false)
     private Integer userGender;
-    @Column(nullable = false)
-    private Integer userType;
     @CreationTimestamp
     @Column(nullable = false, columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
     private LocalDateTime userRegisterTime;

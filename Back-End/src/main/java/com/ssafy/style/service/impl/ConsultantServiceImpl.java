@@ -5,11 +5,13 @@ import com.ssafy.style.data.dto.ConsultantDto;
 import com.ssafy.style.data.dto.ConsultantDto;
 import com.ssafy.style.data.entity.Consultant;
 import com.ssafy.style.data.entity.Consultant;
+import com.ssafy.style.data.entity.User;
 import com.ssafy.style.service.ConsultantService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
+import java.util.Map;
 
 @Service
 public class ConsultantServiceImpl implements ConsultantService {
@@ -72,14 +74,39 @@ public class ConsultantServiceImpl implements ConsultantService {
     @Override
     public ConsultantDto updateConsultant(ConsultantDto consultantDto) throws Exception {
         Consultant consultant = toConsultant(consultantDto);
-        consultant.setConsultantType(consultantDto.getConsultantType());
         consultant.setConsultantRegisterTime(consultantDto.getConsultantRegisterTime());
 
         Consultant saveConsultant = consultantDAO.updateConsultant(consultant);
 
-        ConsultantDto saveconsultantDto = toConsultantDto(saveConsultant);
+        ConsultantDto saveConsultantDto = toConsultantDto(saveConsultant);
 
-        return saveconsultantDto;
+        return saveConsultantDto;
+    }
+
+    @Override
+    public String changePw(Map<String, String> consultantInfo) {
+        String consultantId = consultantInfo.get("consultantId");
+
+        Consultant consultant = consultantDAO.getById(consultantId);
+
+        if(consultant == null){
+            return "fail";
+        }
+
+        if(consultant.getConsultantPw().equals(consultantInfo.get("consultantPw"))){
+            consultant.setConsultantPw(consultantInfo.get("newConsultantPw"));
+
+            try {
+                consultantDAO.changePw(consultant);
+
+                return "OK";
+            }catch (Exception e){
+                e.printStackTrace();
+                return "Error";
+            }
+        }else{
+            return "Fail";
+        }
     }
 
     //////////////////////////////////////////////////////////////////////////////////////////////////
@@ -92,7 +119,6 @@ public class ConsultantServiceImpl implements ConsultantService {
         consultant.setConsultantNickname(consultantDto.getConsultantNickname());
         consultant.setConsultantEmail(consultantDto.getConsultantEmail());
         consultant.setConsultantGender(consultantDto.getConsultantGender());
-        consultant.setConsultantType(1);
         consultant.setConsultantRegisterTime(LocalDateTime.now());
         consultant.setConsultantResume(consultantDto.getConsultantResume());
         consultant.setConsultantApproval(0);
@@ -106,7 +132,6 @@ public class ConsultantServiceImpl implements ConsultantService {
         saveDto.setConsultantNickname(saveConsultant.getConsultantNickname());
         saveDto.setConsultantEmail(saveConsultant.getConsultantEmail());
         saveDto.setConsultantGender(saveConsultant.getConsultantGender());
-        saveDto.setConsultantType(saveConsultant.getConsultantType());
         saveDto.setConsultantRegisterTime(saveConsultant.getConsultantRegisterTime());
         saveDto.setConsultantResume(saveConsultant.getConsultantResume());
         saveDto.setConsultantApproval(0);

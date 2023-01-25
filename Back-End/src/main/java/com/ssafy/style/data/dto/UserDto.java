@@ -25,8 +25,6 @@ public class UserDto {
     private String userEmail;
     @ApiModelProperty(value = "유저성별(0 : 여자, 1: 남자")
     private int userGender;
-    @ApiModelProperty(value = "유저타입(0 : 일반유저, 1 : 컨설턴트, 2 : 관리자")
-    private int userType;
     @ApiModelProperty(value = "유저가입날짜")
     private LocalDateTime userRegisterTime;
     @ApiModelProperty(value = "유저키")
