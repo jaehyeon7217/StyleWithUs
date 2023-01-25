@@ -1,15 +1,15 @@
 import axios from "axios";
 import { useState } from "react";
-import { IdInput, PasswordInput, NameInput, NinkNameInput, EmailInput } from "../component/Effectiveness";
-
+// component 불러오기
+import DataInput from "../component/Effectiveness";
 import InputLabel from "../component/InputLabel";
 
-const UserSignup = () => { 
-  const [id, setId, idError] = IdInput("");
-  const [name, setName, nameError] = NameInput("");
-  const [nickName, setNickName, nickNameError] = NinkNameInput("");
-  const [email, setEmail, emailError] = EmailInput("");
-  const [password, setPassword, passwordError] = PasswordInput("");
+const UserSignup = () => {
+  const [id, setId, idError] = DataInput(/^[a-zA-z0-9]{5,20}$/);
+  const [name, setName, nameError] = DataInput(/[ㄱ-ㅎ|ㅏ-ㅣ|가-힣]{2,10}/);
+  const [nickName, setNickName, nickNameError] = DataInput(/^[a-zA-z0-9]{3,20}$/);
+  const [email, setEmail, emailError] = DataInput(/^([0-9a-zA-Z_-]+)@([0-9a-zA-Z_-]+)(\.[0-9a-zA-Z_-]+){1,2}$/);
+  const [password, setPassword, passwordError] = DataInput(/^(?=.*[a-zA-Z])(?=.*[!@#$%^*+=-])(?=.*[0-9]).{9,16}$/);
   const [confirmPassword, setConfirmPassword] = useState("");
   const [gender, setGender] = useState("");
 
@@ -42,8 +42,9 @@ const UserSignup = () => {
     }else {
       setConfirmPasswordError("");
     };
-  };
-      
+  }; 
+  
+
   return(
     <div>
       <form onSubmit={signupEvent}>
