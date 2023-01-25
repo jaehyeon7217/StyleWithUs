@@ -39,8 +39,10 @@ const Consultant = () => {
           <Shop />
         </section>
         <section className={classes.section}>
-          {!toggleChatToCart && <Cart />}
-          {toggleChatToCart && <ChatContent />}
+          <div className={classes['show-cart-chat']}>
+            <Cart className={!toggleChatToCart ? classes['toggle-animation-on'] : classes['toggle-animation-off']}/>
+            <ChatContent className={toggleChatToCart ? classes['toggle-animation-on'] : classes['toggle-animation-off']}/>
+          </div>
           <ChatForm onFocus={onFucusHandler} onBlur={onBlurHandler} />
         </section>
       </main>

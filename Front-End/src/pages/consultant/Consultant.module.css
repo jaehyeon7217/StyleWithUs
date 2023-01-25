@@ -10,3 +10,20 @@
   height: 100%;
   display: inline-block;
 }
+
+.show-cart-chat {
+  width: 100%;
+  height: 80%;
+  position: relative;
+  box-sizing: border-box;
+}
+
+.toggle-animation-on {
+  margin-top: 0;
+  opacity: 1;
+}
+
+.toggle-animation-off {
+  margin-top: 100px;
+  opacity: 0;
+}
