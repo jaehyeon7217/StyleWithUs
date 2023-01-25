@@ -9,8 +9,8 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@ApiModel(value = "CrawlingDto : 크롤링정보", description = "크롤링 데이터의 상세 정보를 나타낸다.")
-public class CrawlingDto {
+@ApiModel(value = "DataDto : 크롤링정보", description = "크롤링 데이터의 상세 정보를 나타낸다.")
+public class DataDto {
     @ApiModelProperty(value = "데이터 번호")
     private int no;
     @ApiModelProperty(value = "세일")

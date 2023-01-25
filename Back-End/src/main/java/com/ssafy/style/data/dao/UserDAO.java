@@ -12,4 +12,5 @@ public interface UserDAO {
     boolean validEmail(String userEmail);
     boolean validNickname(String userNickname);
     User getById(String userId);
+    void changePw(User user) throws Exception;
 }

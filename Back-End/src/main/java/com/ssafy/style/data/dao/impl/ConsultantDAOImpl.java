@@ -59,6 +59,12 @@ public class ConsultantDAOImpl implements ConsultantDAO {
         }
 
     }
+
+    @Override
+    public void changePw(Consultant consultant) {
+        consultantRepository.save(consultant);
+    }
+
     @Transactional
     @Override
     public Consultant updateConsultant(Consultant consultant){

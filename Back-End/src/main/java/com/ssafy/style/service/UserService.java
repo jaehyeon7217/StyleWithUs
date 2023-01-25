@@ -14,4 +14,5 @@ public interface UserService {
     boolean validEmail(String userEmail);
     boolean validNickname(String userNickname);
     UserDto getById(String userId);
+    String changePw(Map<String, String> userInfo) throws Exception;
 }
