@@ -1,20 +1,20 @@
 import axios from "axios";
 import { useState } from "react";
+
 import { useDispatch } from "react-redux";
-
 import { authActions } from '../../../store/auth';
-
-import { IdInput, PasswordInput }  from "../component/Effectiveness";
-
+// component 분리
+import  DataInput from "../component/Effectiveness";
+import InputLabel from "../component/InputLabel";
+// css 클래스
 import classes from "./Login.module.css"
 
-import InputLabel from "../component/InputLabel";
 
 const Login = () => {
   const dispatch = useDispatch();
 
-  const [id, setId, idError] = IdInput("");
-  const [password, setPassword, passwordError] = PasswordInput("");
+  const [id, setId, idError] = DataInput(/^[a-zA-z0-9]{5,20}$/);
+  const [password, setPassword, passwordError] = DataInput(/^(?=.*[a-zA-Z])(?=.*[!@#$%^*+=-])(?=.*[0-9]).{9,16}$/);
   const [isUser, setIsUser] = useState(true);
 
   // login
