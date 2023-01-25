@@ -5,7 +5,7 @@ import PersonalColor from "./PersonalColor";
 import PersonalColorPicker from "./PersonalColorPicker";
 
 const Video = () => {
-  const userType = useSelector((state) => state.auth.token);
+  const userType = useSelector((state) => state.auth.userType);
 
   // 유저타입이 User일 경우에
   // 퍼스널 컬러 피커와 퍼스널 컬러 컴포넌트를 띄운다.
