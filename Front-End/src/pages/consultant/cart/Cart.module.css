@@ -1,6 +1,7 @@
 .cart {
   width: 100%;
-  height: 80%;
-  display: inline-block;
-  border: 1px solid black;
+  height: 100%;
+  position: absolute;
+  border: 1px solid red;
+  transition: all .5s;
 }
