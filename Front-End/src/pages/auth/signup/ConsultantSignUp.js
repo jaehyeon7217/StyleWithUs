@@ -1,22 +1,24 @@
 import axios from "axios";
 import { useState } from "react";
-import { IdInput, NameInput, NinkNameInput, EmailInput, PasswordInput, ResumeInput } from "../component/Effectiveness";
-
+// 컴포넌트 호출
 import InputLabel from "../component/InputLabel";
+import {DataInput} from "../component/Effectiveness";
+
 
 const ConsultantSignUp = () =>{
-  const [id, setId, idError] = IdInput("");
-  const [name, setName, nameError] = NameInput("");
-  const [nickName, setNickName, nickNameError] = NinkNameInput("");
-  const [email, setEmail, emailError] = EmailInput("");
-  const [password, setPassword, passwordError] = PasswordInput("");
-  const [confirmPassword, setConfirmPassword] = useState("");
-  const [resume, setResume, resumeError] = ResumeInput
+  const [id, setId, idError] = DataInput(/^[a-zA-z0-9]{5,20}$/);
+  const [name, setName, nameError] = DataInput(/[ㄱ-ㅎ|ㅏ-ㅣ|가-힣]{2,10}/);
+  const [nickName, setNickName, nickNameError] = DataInput(/^[a-zA-z0-9]{3,20}$/);
+  const [email, setEmail, emailError] = DataInput(/^([0-9a-zA-Z_-]+)@([0-9a-zA-Z_-]+)(\.[0-9a-zA-Z_-]+){1,2}$/);
+  const [password, setPassword, passwordError] = DataInput(/^(?=.*[a-zA-Z])(?=.*[!@#$%^*+=-])(?=.*[0-9]).{9,16}$/);
+  const [confirmPassword, setConfirmPassword, confirmPasswordError] = CheckPassword(password);
   const [gender, setGender] = useState("");
+  const [resume, setResume, resumeError] = DataInput("")
 
-  const ConsultantSignUp = (event) => {
+  // 컨설턴트 회원가입 api 요청
+  const consultantSignUpsubmit = (event) => {
     event.preventDefault();
-    const url = "http://192.168.100.82/cosultant/register";
+    const url = "http://192.168.100.81/cosultant/register";
     axios.post(
       url,{
         consultantId: id,
@@ -30,14 +32,20 @@ const ConsultantSignUp = () =>{
       }
     ).then(response =>{
       console.log(response);
+
     }).catch(error =>{
       console.log(error);
     });
   }
 
+  // submit 활성화 & 비활성화
+  const nullError = !!id && !!name && !!nickName && !!email && !!password && !!confirmPassword
+  const effectivnessError = idError && nameError && nickNameError && emailError && passwordError && confirmPasswordError
+  const submitError = nullError && effectivnessError
+
   return(
     <div>
-      <form action={ConsultantSignUp}>
+      <form action={consultantSignUpsubmit}>
         <InputLabel
           label="ID"
           type="text"
@@ -86,7 +94,7 @@ const ConsultantSignUp = () =>{
           onChange={(e) => {setConfirmPassword(e.target.value); checkConfirmPassword(e);}}
           errorMessage={confirmPasswordError}        
         />
-        <button type="submit">로그인</button>
+        <button type="submit" disabled={!submitError}>로그인</button>
       </form>
     </div>
   )
