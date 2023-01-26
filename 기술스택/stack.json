@@ -7,7 +7,7 @@
     "react-router-dom" : "6.6.2"
   },
   "Back-End" : {
-    "JAVA" : "1.8 (Julu : 8)",
+    "JAVA" : "openjdk 11 2018-09-25",
     "DB" : { 
       "maria DB" : "10.10.2, MS Window ver",
       "port" : "3306", 

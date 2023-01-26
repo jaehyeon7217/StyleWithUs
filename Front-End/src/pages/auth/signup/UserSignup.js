@@ -1,8 +1,9 @@
 import axios from "axios";
 import { useState } from "react";
-// component 불러오기
-import DataInput from "../component/Effectiveness";
+// component 호출
 import InputLabel from "../component/InputLabel";
+import { DataInput, CheckPassword } from "../component/Effectiveness";
+import { redirect } from "react-router-dom";
 
 const UserSignup = () => {
   const [id, setId, idError] = DataInput(/^[a-zA-z0-9]{5,20}$/);
@@ -10,14 +11,13 @@ const UserSignup = () => {
   const [nickName, setNickName, nickNameError] = DataInput(/^[a-zA-z0-9]{3,20}$/);
   const [email, setEmail, emailError] = DataInput(/^([0-9a-zA-Z_-]+)@([0-9a-zA-Z_-]+)(\.[0-9a-zA-Z_-]+){1,2}$/);
   const [password, setPassword, passwordError] = DataInput(/^(?=.*[a-zA-Z])(?=.*[!@#$%^*+=-])(?=.*[0-9]).{9,16}$/);
-  const [confirmPassword, setConfirmPassword] = useState("");
+  const [confirmPassword, setConfirmPassword, confirmPasswordError] = CheckPassword(password);
   const [gender, setGender] = useState("");
 
-  const [confirmPasswordError, setConfirmPasswordError] = useState("");
-  // 회원가입
-  const signupEvent = (event) =>{
+  // 유저 회원가입 api 요청
+  const userSignupSubmit = (event) =>{
     event.preventDefault();
-    const url = "http://192.168.100.82/user/register"
+    const url = "http://192.168.100.81/user/register"
     axios.post(
       url,{
         userId : id,
@@ -29,31 +29,52 @@ const UserSignup = () => {
       }
     ).then(response =>{
       console.log(response);
+      return redirect("/login")
     }).catch(error =>{
       console.log(error);
     });
   };
-  // 비밀번호와 일치하는지 검사
-  const checkConfirmPassword = (event) => {
-    if (event.target.value === "") {
-      setConfirmPasswordError("");
-    }else if (event.target.value!==password) {
-      setConfirmPasswordError("비밀번호와 일치하지 않습니다.");
-    }else {
-      setConfirmPasswordError("");
-    };
-  }; 
+
+  const idDuplicate = (event) => {
+    event.preventDefault();
+    const url = "http://192.168.100.81/user/valid/id/" + event.target.value;
+    axios.get(url).then(response =>{
+      console.log(response)}
+    ).catch(error => {
+      console.log(error)
+    })
+  }
+
+  const confirmEmail = (event) =>{
+    event.preventDefault();
+    const url = "http://192.168.100.81/mail"
+    axios.post(
+      url,
+      {
+        email : email,
+      }
+    ).then(response=>{
+      console.log(response);
+    }).catch(error => {
+      console.log(error);
+    })
+  }
   
+
+  // sumbit 활성화 & 비활성화
+  const nullError = !!id && !!name && !!nickName && !!email && !!password && !!confirmPassword
+  const effectivnessError = idError && nameError && nickNameError && emailError && passwordError && confirmPasswordError
+  const submitError = nullError && effectivnessError
 
   return(
     <div>
-      <form onSubmit={signupEvent}>
+      <form onSubmit={userSignupSubmit}>
         <InputLabel
           label="ID"
           type="text"
           value={id}
           placeholder="아이디를 입력해주세요"
-          onChange={setId}
+          onChange={(event) => {setId(event); idDuplicate(event);}}
           errorMessage={(idError ? "" : "영어와 숫자로만 입력해주세요.")}
         />
         <InputLabel
@@ -80,6 +101,10 @@ const UserSignup = () => {
           onChange={setEmail}
           errorMessage={(emailError ? "" : "이메일 양식을 지켜주세요.")}
         />
+        <button onClick={confirmEmail}>이메일 인증 번호 전송</button>
+        <br />
+        <br />
+        <input type="text" />
         <InputLabel
           label="password"
           type="password"
@@ -93,10 +118,10 @@ const UserSignup = () => {
           type="password"
           value={confirmPassword}
           placeholder="비밀번호를 다시 입력해주세요"
-          onChange={(e) => {setConfirmPassword(e.target.value); checkConfirmPassword(e);}}
-          errorMessage={confirmPasswordError}        
+          onChange={setConfirmPassword}
+          errorMessage={(confirmPasswordError ? "" : "비밀번호가 일치하지 않습니다.")}        
         />
-        <button type="submit">로그인</button>
+        <button type="submit" disabled={!submitError}>로그인</button>
       </form>
     </div>
   )
