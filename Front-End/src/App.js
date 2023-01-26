@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import NavBar from './components/navbar/NavBar';
 import Auth from './pages/auth/Auth';
 import Home from './pages/Home/Home';
-import MyPage from './pages/MyPage';
+import MyPage from './pages/auth/mypage/MyPage';
 import Consultant from './pages/consultant/Consultant';
 
 
