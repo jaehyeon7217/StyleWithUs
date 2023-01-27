@@ -3,16 +3,21 @@ import { useState } from "react";
 // component 호출
 import InputLabel from "../component/InputLabel";
 import { DataInput, CheckPassword } from "../component/Effectiveness";
-import { redirect } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import GenderCheckbox from "../component/GenderCheckbox";
+import ModalBasic from "../component/ModalBasic"
+
 
 const UserSignup = () => {
+  const navigate = useNavigate();
   const [id, setId, idError] = DataInput(/^[a-zA-z0-9]{5,20}$/);
   const [name, setName, nameError] = DataInput(/[ㄱ-ㅎ|ㅏ-ㅣ|가-힣]{2,10}/);
   const [nickName, setNickName, nickNameError] = DataInput(/^[a-zA-z0-9]{3,20}$/);
   const [email, setEmail, emailError] = DataInput(/^([0-9a-zA-Z_-]+)@([0-9a-zA-Z_-]+)(\.[0-9a-zA-Z_-]+){1,2}$/);
   const [password, setPassword, passwordError] = DataInput(/^(?=.*[a-zA-Z])(?=.*[!@#$%^*+=-])(?=.*[0-9]).{9,16}$/);
   const [confirmPassword, setConfirmPassword, confirmPasswordError] = CheckPassword(password);
-  const [gender, setGender] = useState("");
+  const [gender, setGender] = useState(true);
+  const [modalOpen, setModalOpen] = useState(false);
 
   // 유저 회원가입 api 요청
   const userSignupSubmit = (event) =>{
@@ -29,7 +34,7 @@ const UserSignup = () => {
       }
     ).then(response =>{
       console.log(response);
-      return redirect("/login")
+      navigate("/auth/login")
     }).catch(error =>{
       console.log(error);
     });
@@ -59,7 +64,19 @@ const UserSignup = () => {
       console.log(error);
     })
   }
-  
+
+  const toLogin = (event) => {
+    event.preventDefault();
+    navigate("/auth/login")
+
+  }
+
+  // 모달창 노출
+  const showModal = () => {
+    setModalOpen(true);
+  };
+
+
 
   // sumbit 활성화 & 비활성화
   const nullError = !!id && !!name && !!nickName && !!email && !!password && !!confirmPassword
@@ -121,8 +138,18 @@ const UserSignup = () => {
           onChange={setConfirmPassword}
           errorMessage={(confirmPasswordError ? "" : "비밀번호가 일치하지 않습니다.")}        
         />
-        <button type="submit" disabled={!submitError}>로그인</button>
+        <GenderCheckbox 
+          label="gender"
+          value={gender}
+        />
+        <br />
+        <label onClick={showModal}>경력 기술서 입력하기</label>
+        {modalOpen && <ModalBasic setModalOpen={setModalOpen}/>}
+        <br /><br />
+        <button type="submit" disabled={!submitError}>회원가입</button>
       </form>
+      <br />
+      <label onClick={toLogin}>로그인 하러 가기</label>
     </div>
   )
 }
