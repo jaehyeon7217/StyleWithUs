@@ -13,4 +13,8 @@ public interface ConsultantService {
     ConsultantDto getById(String consultantId);
     ConsultantDto updateConsultant(ConsultantDto consultantDto) throws Exception;
     String changePw(Map<String, String> consultantInfo);
+
+    boolean matchIdAndEmail(String consultantId, String consultantEmail);
+
+    void changePwById(Map<String, String> consultantInfo);
 }

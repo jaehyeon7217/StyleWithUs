@@ -2,6 +2,7 @@ package com.ssafy.style.controller;
 
 import com.ssafy.style.data.dto.UserDto;
 import com.ssafy.style.jwt.JwtProvider;
+import com.ssafy.style.service.MailService;
 import com.ssafy.style.service.UserService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -24,11 +25,13 @@ public class UserController {
 
     public static final Logger logger = LoggerFactory.getLogger(UserController.class);
     private final UserService userService;
+    private final MailService mailService;
     private JwtProvider jwtProvider = new JwtProvider();
 
     @Autowired
-    public UserController(UserService userService) {
+    public UserController(UserService userService, MailService mailService) {
         this.userService = userService;
+        this.mailService = mailService;
     }
 
     /////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -160,8 +163,8 @@ public class UserController {
 
     // 비밀번호 변경
     @PostMapping("/password")
-    @ApiOperation(value = "유저 회원가입", response = UserDto.class)
-    public ResponseEntity<?> changePassword(@RequestBody @ApiParam Map<String, String> userInfo){
+    @ApiOperation(value = "유저 비밀번호 변경", response = UserDto.class)
+    public ResponseEntity<?> changePassword(@RequestBody @ApiParam(value = "유저 인포") Map<String, String> userInfo){
 
         Map<String, Object> check = new HashMap<>();
 
@@ -180,6 +183,52 @@ public class UserController {
             e.printStackTrace();
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
         }
+    }
+
+    @GetMapping(value = "/findpw")
+    @ApiOperation(value = "비밀번호 찾기 중 이메일 인증")
+    public ResponseEntity<?> findPw(@RequestParam @ApiParam(value = "유저 ID") String userId,
+                                    @RequestParam @ApiParam(value = "유저 Email") String userEmail){
+
+        boolean isValid = userService.matchIdAndEmail(userId, userEmail);
+        Map<String, String> map = new HashMap<>();
+
+        if(isValid){
+            try {
+                String authCode = mailService.sendEmail(userEmail);
+
+                map.put("msg", "success");
+                map.put("data", authCode);
+
+                return ResponseEntity.status(HttpStatus.OK).body(map);
+            }catch (Exception e){
+                e.printStackTrace();
+                return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
+            }
+        }else{
+            map.put("msg", "fail");
+            return ResponseEntity.status(HttpStatus.NO_CONTENT).body(null);
+        }
+
+    }
+
+    @PutMapping(value = "/findpw/changepw")
+    @ApiOperation(value = "이메일 인증 후 비밀번호 변경")
+    public ResponseEntity<?> changePwAfterEmailVaild(@RequestBody @ApiParam(value = "유저 정보") Map<String, String> userInfo){
+
+        try{
+            userService.changePwById(userInfo);
+
+            Map<String, String> check = new HashMap<>();
+
+            check.put("msg", "success");
+            return ResponseEntity.status(HttpStatus.OK).body(check);
+
+        }catch (Exception e){
+            e.printStackTrace();
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
+        }
+
     }
 
 

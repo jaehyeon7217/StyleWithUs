@@ -115,6 +115,33 @@ public class UseServiceImpl implements UserService {
         }
     }
 
+    @Override
+    public boolean matchIdAndEmail(String userId, String userEmail) {
+
+        User userTemp = userDAO.getById(userId);
+
+        if(userTemp.getUserEmail().equals(userEmail)){
+            return true;
+        }
+
+        return false;
+    }
+
+    @Override
+    public void changePwById(Map<String, String> userInfo) {
+        User userTemp = userDAO.getById(userInfo.get("userId"));
+
+        userTemp.setUserPw(userInfo.get("userPw"));
+
+        try {
+            userDAO.changePw(userTemp);
+
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
+    }
+
     /////////////////////////////////////////////////////////////////////////////////////////////////////
 
     private User toUser(UserDto userDto){

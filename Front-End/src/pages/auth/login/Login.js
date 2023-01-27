@@ -46,6 +46,19 @@ const Login = () => {
     setIsUser((event) => !(event))
     dispatch(authActions.userLogin("hjfghjfgdf"))
   }
+
+  // 회원가입 페이지 이동
+  const toUserSignup = (event) => {
+    event.preventDefault();
+    navigate("/auth/usersignup")
+  }
+
+  // 비밀번호 찾기 페이지 이동
+  const FindPassword = (event) => {
+    event.preventDefault();
+    navigate("/auth/findpassword")
+  }
+
   // sumbit 활성화 & 비활성화
   const nullError = (!!id && !!password) 
   const effectivnessError = idError && passwordError
@@ -77,6 +90,15 @@ const Login = () => {
         />
         <button type="submit" disabled={!submitError}>로그인</button>
       </form>
+      <br />
+      <label onClick={toUserSignup}>회원가입</label>
+      &nbsp;&nbsp;
+      &nbsp;&nbsp;
+      |
+      &nbsp;&nbsp;
+      &nbsp;&nbsp;
+
+      <label onClick={FindPassword}>비밀번호 찾기</label>
     
     </div>
   )
