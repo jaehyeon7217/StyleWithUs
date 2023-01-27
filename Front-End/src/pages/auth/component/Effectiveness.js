@@ -1,5 +1,5 @@
 import { useCallback, useState } from "react";
-
+import axios from "axios";
 // 입력값 저장 및 유효성 검사 진행
 export const DataInput = (regExp) =>{
   const [inputData, setInputData] = useState("");
@@ -39,3 +39,27 @@ export const CheckPassword = (password) => {
 
   return [inputData, handler, dataError];
 };
+
+
+export const ValidCheck = (kind) =>{
+  const [validError, setError] = useState("");
+
+  const handler = useCallback((event)=>{
+    event.preventDefault();
+    if (event.target.value !== ""){
+    const url = "http://192.168.100.81/user/valid/" + kind + "/" +event.target.value;
+    axios.get(url).then(response =>{
+      if (response.data === false){
+        setError("true")
+        console.log("true")
+      }else{
+        setError("false")
+        console.log("false")
+      }
+    }
+      ).catch(error => {
+      console.log(error)
+    });}
+  });
+  return [validError, handler];
+}

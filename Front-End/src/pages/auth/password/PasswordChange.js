@@ -5,8 +5,8 @@ import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { authActions } from '../../../store/auth';
 // component 불러오기
-import InputLabel from "../component/InputLabel"
-import { DataInput, CheckPassword } from "../component/Effectiveness"
+import InputLabel from "../component/InputLabel";
+import { DataInput, CheckPassword } from "../component/Effectiveness";
 
 
 const PasswordChange = () =>{
@@ -35,13 +35,12 @@ const PasswordChange = () =>{
     }).catch(error => {
       window.alert("비밀번호를 다시 확인해주세요!")
     })
-  }
-
+  };
 
   // sumbit 활성화 & 비활성화
-  const nullError = !!password && !!newPassword && !!confirmNewPassword
-  const effectivnessError = passwordError && newPasswordError && confirmNewPasswordError
-  const submitError = nullError && effectivnessError
+  const nullError = !!password && !!newPassword && !!confirmNewPassword;
+  const effectivnessError = passwordError && newPasswordError && confirmNewPasswordError;
+  const submitError = nullError && effectivnessError;
 
   return(
     <div>
@@ -74,6 +73,6 @@ const PasswordChange = () =>{
       </form>
     </div>
   )
-}
+};
 
-export default PasswordChange
+export default PasswordChange;

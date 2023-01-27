@@ -7,6 +7,6 @@ const FindPassword = () =>{
       
     </div>
   )
-}
+};
 
-export default FindPassword 
+export default FindPassword ;
