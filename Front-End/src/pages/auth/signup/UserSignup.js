@@ -19,6 +19,7 @@ const UserSignup = () => {
   const [gender, setGender] = useState(true);
   const [modalOpen, setModalOpen] = useState(false);
 
+  const [vlaidId, checkId] = ValidCheck("id");
   // 유저 회원가입 api 요청
   const userSignupSubmit = (event) =>{
     event.preventDefault();
@@ -39,17 +40,7 @@ const UserSignup = () => {
       console.log(error);
     });
   };
-
-  const idDuplicate = (event) => {
-    event.preventDefault();
-    const url = "http://192.168.100.81/user/valid/id/" + event.target.value;
-    axios.get(url).then(response =>{
-      console.log(response)}
-    ).catch(error => {
-      console.log(error)
-    })
-  }
-
+  
   const confirmEmail = (event) =>{
     event.preventDefault();
     const url = "http://192.168.100.81/mail"
@@ -91,9 +82,11 @@ const UserSignup = () => {
           type="text"
           value={id}
           placeholder="아이디를 입력해주세요"
-          onChange={(event) => {setId(event); idDuplicate(event);}}
+          onChange={setId}
+          onBlur={checkId}
           errorMessage={(idError ? "" : "영어와 숫자로만 입력해주세요.")}
         />
+        <p>{vlaidId}</p>
         <InputLabel
           label="name"
           type="text"

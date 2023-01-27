@@ -22,7 +22,7 @@ const Login = () => {
   // 로그인 api 요청
   const loginSubmit = (event) => {
     event.preventDefault();
-    const url = isUser ? "http://192.168.100.81/user/login" : "http://192.168.100.81/consultant/login";
+    const url = isUser ? "http://192.168.100.82/user/login" : "http://192.168.100.82/consultant/login";
     
     axios.post(
       url, isUser ? {userId : id, userPw : password} : {consultantId : id, consultantPw : password} )
@@ -41,8 +41,10 @@ const Login = () => {
       });
   };
   // toggleBtn
+
   const onChangeBtn = () =>{
     setIsUser((event) => !(event))
+    dispatch(authActions.userLogin("hjfghjfgdf"))
   }
 
   // 회원가입 페이지 이동

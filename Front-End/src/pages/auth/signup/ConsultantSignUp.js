@@ -4,7 +4,6 @@ import { useState } from "react";
 import InputLabel from "../component/InputLabel";
 import {DataInput} from "../component/Effectiveness";
 
-
 const ConsultantSignUp = () =>{
   const [id, setId, idError] = DataInput(/^[a-zA-z0-9]{5,20}$/);
   const [name, setName, nameError] = DataInput(/[ㄱ-ㅎ|ㅏ-ㅣ|가-힣]{2,10}/);
@@ -18,7 +17,7 @@ const ConsultantSignUp = () =>{
   // 컨설턴트 회원가입 api 요청
   const consultantSignUpsubmit = (event) => {
     event.preventDefault();
-    const url = "http://192.168.100.81/cosultant/register";
+    const url = "http://192.168.100.82/cosultant/register";
     axios.post(
       url,{
         consultantId: id,
@@ -36,13 +35,13 @@ const ConsultantSignUp = () =>{
     }).catch(error =>{
       console.log(error);
     });
-  }
+  };
 
   // submit 활성화 & 비활성화
-  const nullError = !!id && !!name && !!nickName && !!email && !!password && !!confirmPassword
-  const effectivnessError = idError && nameError && nickNameError && emailError && passwordError && confirmPasswordError
-  const submitError = nullError && effectivnessError
-
+  const nullError = !!id && !!name && !!nickName && !!email && !!password && !!confirmPassword;
+  const effectivnessError = idError && nameError && nickNameError && emailError && passwordError && confirmPasswordError;
+  const submitError = nullError && effectivnessError;
+  
   return(
     <div>
       <form action={consultantSignUpsubmit}>
@@ -98,6 +97,6 @@ const ConsultantSignUp = () =>{
       </form>
     </div>
   )
-}
+};
 
-export default ConsultantSignUp
+export default ConsultantSignUp;
