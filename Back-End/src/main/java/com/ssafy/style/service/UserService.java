@@ -15,4 +15,8 @@ public interface UserService {
     boolean validNickname(String userNickname);
     UserDto getById(String userId);
     String changePw(Map<String, String> userInfo) throws Exception;
+
+    boolean matchIdAndEmail(String userId, String userEmail);
+
+    void changePwById(Map<String, String> userInfo);
 }

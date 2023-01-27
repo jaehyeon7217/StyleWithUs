@@ -21,7 +21,8 @@ public class JwtConfiguration implements WebMvcConfigurer {
                 .order(1)
                 .addPathPatterns("/consultant/**","/user/**")   // 탐색 부분 설정
                 .excludePathPatterns("/user/login","/user/valid/**", "/user/register", // 탐색 제외 부분 설정
-                        "/consultant/login","/consultant/valid/**", "/consultant/register");
+                        "/consultant/login","/consultant/valid/**", "/consultant/register",
+                        "/user/findpw/**", "/consultant/findpw/**");
 
     }
 

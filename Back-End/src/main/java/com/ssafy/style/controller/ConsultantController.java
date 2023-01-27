@@ -5,6 +5,7 @@ import com.ssafy.style.data.dto.UserDto;
 import com.ssafy.style.data.entity.Consultant;
 import com.ssafy.style.jwt.JwtProvider;
 import com.ssafy.style.service.ConsultantService;
+import com.ssafy.style.service.MailService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
@@ -26,11 +27,13 @@ public class ConsultantController {
 
     public static final Logger logger = LoggerFactory.getLogger(ConsultantController.class);
     private final ConsultantService consultantService;
+    private final MailService mailService;
     private final JwtProvider jwtProvider = new JwtProvider();
 
     @Autowired
-    public ConsultantController(ConsultantService consultantService) {
+    public ConsultantController(ConsultantService consultantService, MailService mailService) {
         this.consultantService = consultantService;
+        this.mailService = mailService;
     }
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -181,6 +184,52 @@ public class ConsultantController {
             e.printStackTrace();
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
         }
+    }
+
+    @GetMapping(value = "/findpw")
+    @ApiOperation(value = "비밀번호 찾기 중 이메일 인증")
+    public ResponseEntity<?> findPw(@RequestParam @ApiParam(value = "컨설턴트 ID") String consultantId,
+                                    @RequestParam @ApiParam(value = "컨설턴트 Email") String consultantEmail){
+
+        boolean isValid = consultantService.matchIdAndEmail(consultantId, consultantEmail);
+        Map<String, String> map = new HashMap<>();
+
+        if(isValid){
+            try {
+                String authCode = mailService.sendEmail(consultantEmail);
+
+                map.put("msg", "success");
+                map.put("data", authCode);
+
+                return ResponseEntity.status(HttpStatus.OK).body(map);
+            }catch (Exception e){
+                e.printStackTrace();
+                return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
+            }
+        }else{
+            map.put("msg", "fail");
+            return ResponseEntity.status(HttpStatus.NO_CONTENT).body(null);
+        }
+
+    }
+
+    @PutMapping(value = "/findpw/changepw")
+    @ApiOperation(value = "이메일 인증 후 비밀번호 변경")
+    public ResponseEntity<?> changePwAfterEmailVaild(@RequestBody @ApiParam(value = "컨설턴트 정보") Map<String, String> consultantInfo){
+
+        try{
+            consultantService.changePwById(consultantInfo);
+
+            Map<String, String> check = new HashMap<>();
+
+            check.put("msg", "success");
+            return ResponseEntity.status(HttpStatus.OK).body(check);
+
+        }catch (Exception e){
+            e.printStackTrace();
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
+        }
+
     }
 
     ///////////////////////////////// 여기부터 Valid 중복검사//////////////////////////////
