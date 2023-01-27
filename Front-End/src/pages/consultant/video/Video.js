@@ -1,29 +1,26 @@
-import { useSelector } from "react-redux";
-import classes from "./Video.module.css";
+import React, { Component } from "react";
+import OpenViduVideoComponent from "./OvVideo";
+import "./Video.css";
 
-import PersonalColor from "./PersonalColor";
-import PersonalColorPicker from "./PersonalColorPicker";
+export default class UserVideoComponent extends Component {
+  getNicknameTag() {
+    // Gets the nickName of the user
+    return JSON.parse(this.props.streamManager.stream.connection.data)
+      .clientData;
+  }
 
-const Video = () => {
-  const userType = useSelector((state) => state.auth.userType);
-
-  // 유저타입이 User일 경우에
-  // 퍼스널 컬러 피커와 퍼스널 컬러 컴포넌트를 띄운다.
-  if (userType === 0) {
+  render() {
     return (
-      <div className={classes.video}>
-        <p>User</p>
-        <PersonalColor />
-        <PersonalColorPicker />
+      <div>
+        {this.props.streamManager !== undefined ? (
+          <div className="streamcomponent">
+            <OpenViduVideoComponent streamManager={this.props.streamManager} />
+            <div>
+              <p>{this.getNicknameTag()}</p>
+            </div>
+          </div>
+        ) : null}
       </div>
     );
   }
-
-  return (
-    <div className={classes.video}>
-      <p>Consultant</p>
-    </div>
-  );
-};
-
-export default Video;
+}
