@@ -1,8 +1,24 @@
 import { configureStore } from "@reduxjs/toolkit";
-import authReducer from "./auth";
+import storage from "redux-persist/lib/storage";
+import { combineReducers } from "redux";
+import { persistReducer } from "redux-persist";
 
-const store = configureStore({
-  reducer: { auth: authReducer, }
+import authReudcer from "./auth";
+
+const reducers = combineReducers({
+  auth: authReudcer,
 });
 
-export default store
+const persistConfig = {
+  key : 'root',
+  // 로컬 스토리지 사용
+  storage,
+};
+
+const persistedReducer = persistReducer(persistConfig, reducers);
+
+const store = configureStore({
+  reducer: persistedReducer,
+});
+
+export default store;

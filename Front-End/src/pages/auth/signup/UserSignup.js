@@ -2,10 +2,11 @@ import axios from "axios";
 import { useState } from "react";
 // component 호출
 import InputLabel from "../component/InputLabel";
-import { DataInput, CheckPassword } from "../component/Effectiveness";
-import { redirect } from "react-router-dom";
+import { DataInput, CheckPassword, ValidCheck } from "../component/Effectiveness";
+import { useNavigate } from "react-router-dom";
 
 const UserSignup = () => {
+  const navigate = useNavigate();
   const [id, setId, idError] = DataInput(/^[a-zA-z0-9]{5,20}$/);
   const [name, setName, nameError] = DataInput(/[ㄱ-ㅎ|ㅏ-ㅣ|가-힣]{2,10}/);
   const [nickName, setNickName, nickNameError] = DataInput(/^[a-zA-z0-9]{3,20}$/);
@@ -14,6 +15,7 @@ const UserSignup = () => {
   const [confirmPassword, setConfirmPassword, confirmPasswordError] = CheckPassword(password);
   const [gender, setGender] = useState("");
 
+  const [vlaidId, checkId] = ValidCheck("id");
   // 유저 회원가입 api 요청
   const userSignupSubmit = (event) =>{
     event.preventDefault();
@@ -29,22 +31,12 @@ const UserSignup = () => {
       }
     ).then(response =>{
       console.log(response);
-      return redirect("/login")
+      navigate("/auth/login")
     }).catch(error =>{
       console.log(error);
     });
   };
-
-  const idDuplicate = (event) => {
-    event.preventDefault();
-    const url = "http://192.168.100.81/user/valid/id/" + event.target.value;
-    axios.get(url).then(response =>{
-      console.log(response)}
-    ).catch(error => {
-      console.log(error)
-    })
-  }
-
+  
   const confirmEmail = (event) =>{
     event.preventDefault();
     const url = "http://192.168.100.81/mail"
@@ -60,7 +52,6 @@ const UserSignup = () => {
     })
   }
   
-
   // sumbit 활성화 & 비활성화
   const nullError = !!id && !!name && !!nickName && !!email && !!password && !!confirmPassword
   const effectivnessError = idError && nameError && nickNameError && emailError && passwordError && confirmPasswordError
@@ -74,9 +65,11 @@ const UserSignup = () => {
           type="text"
           value={id}
           placeholder="아이디를 입력해주세요"
-          onChange={(event) => {setId(event); idDuplicate(event);}}
+          onChange={setId}
+          onBlur={checkId}
           errorMessage={(idError ? "" : "영어와 숫자로만 입력해주세요.")}
         />
+        <p>{vlaidId}</p>
         <InputLabel
           label="name"
           type="text"
@@ -121,7 +114,7 @@ const UserSignup = () => {
           onChange={setConfirmPassword}
           errorMessage={(confirmPasswordError ? "" : "비밀번호가 일치하지 않습니다.")}        
         />
-        <button type="submit" disabled={!submitError}>로그인</button>
+        <button type="submit" disabled={!submitError}>회원가입</button>
       </form>
     </div>
   )
