@@ -109,6 +109,33 @@ public class ConsultantServiceImpl implements ConsultantService {
         }
     }
 
+    @Override
+    public boolean matchIdAndEmail(String consultantId, String consultantEmail) {
+
+        Consultant consultantTemp = consultantDAO.getById(consultantId);
+
+        if(consultantTemp.getConsultantEmail().equals(consultantEmail)){
+            return true;
+        }
+
+        return false;
+    }
+
+    @Override
+    public void changePwById(Map<String, String> consultantInfo) {
+        Consultant consultantTemp = consultantDAO.getById(consultantInfo.get("consultantId"));
+
+        consultantTemp.setConsultantPw(consultantInfo.get("consultantPw"));
+
+        try {
+            consultantDAO.changePw(consultantTemp);
+
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
+    }
+
     //////////////////////////////////////////////////////////////////////////////////////////////////
 
     private Consultant toConsultant(ConsultantDto consultantDto){
