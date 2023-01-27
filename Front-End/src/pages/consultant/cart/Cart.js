@@ -5,8 +5,6 @@ import CartItem from "./CartItem";
 const Cart = (props) => {
   const cssClasses = classes.cart + ' ' + props.className
 
-  console.log(cssClasses);
-
   return <div className={cssClasses}>
     <p>cart</p>
     <CartItem />
