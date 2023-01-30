@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { Fragment } from "react";
 import { useSelector } from "react-redux";
 
 import classes from "./ClothesType.module.css";
@@ -10,8 +10,6 @@ const ClothesType = (props) => {
   const category = useSelector((state) => state.cart.category);
   const type = props.type;
   const details = Object.keys(category[type]);
-
-  const detailRef = useRef();
 
   // 카테고리 옆에 추가할 내용들
   const typeEnglish = {
@@ -26,26 +24,33 @@ const ClothesType = (props) => {
 
   // 클릭을 하면 toggle을 on, off시키는 함수
   const onClickHandler = () => {
-    if (toggle === true) {
+    if (toggle === true) { // 토글이 켜져 있을 때 토글을 제거 한다.
       props.onToggle("");
       heightAnimation();
-    } else {
+    } else { // 토글이 꺼져 있을 때 토글을 켠다.
       props.onToggle(type);
+      heightAnimation();
     }
   };
 
   const heightAnimation = () => {
-    if (toggle === true) {
-      console.log(1);
-      detailRef.clientHeight = 0;
+    const container = document.getElementById(type);
+
+    if (toggle === false) {
+      container.style.height = 'auto';
+      const height = `${container.clientHeight}px`;
+      container.style.height = '0px';
+      setTimeout(function () {
+        container.style.height = height;
+      }, 0);
     } else {
-      // detailRef.clientHeight = auto;
+      container.style.height = '0px';
     }
   };
 
   return (
-    <div onClick={onClickHandler}>
-      <h3 className={classes.font}>
+    <Fragment>
+      <h3 className={classes.font} onClick={onClickHandler}>
         {type} <span>{typeEnglish[type]}</span>
         <span
           className={`${classes.toggleButton1} ${toggle ? classes.off : ""}`}
@@ -55,14 +60,14 @@ const ClothesType = (props) => {
         ></span>
       </h3>
       <div
-        className={`${classes.details} ${toggle ? classes.off : ""}`}
-        ref={detailRef}
+        id={type}
+        className={`${classes.details} ${!toggle ? classes.off : ""}`}
       >
         {details.map((detail) => {
           return <p key={detail}>{detail}</p>;
         })}
       </div>
-    </div>
+    </Fragment>
   );
 };
 
