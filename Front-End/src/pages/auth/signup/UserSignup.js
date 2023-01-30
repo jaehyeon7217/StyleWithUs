@@ -2,11 +2,9 @@ import axios from "axios";
 import { useState } from "react";
 // component 호출
 import InputLabel from "../component/InputLabel";
-import { DataInput, CheckPassword } from "../component/Effectiveness";
+import { DataInput, CheckPassword, ValidCheck } from "../component/Effectiveness";
 import { useNavigate } from "react-router-dom";
 import GenderCheckbox from "../component/GenderCheckbox";
-import ModalBasic from "../component/ModalBasic"
-
 
 const UserSignup = () => {
   const navigate = useNavigate();
@@ -17,9 +15,9 @@ const UserSignup = () => {
   const [password, setPassword, passwordError] = DataInput(/^(?=.*[a-zA-Z])(?=.*[!@#$%^*+=-])(?=.*[0-9]).{9,16}$/);
   const [confirmPassword, setConfirmPassword, confirmPasswordError] = CheckPassword(password);
   const [gender, setGender] = useState(true);
-  const [modalOpen, setModalOpen] = useState(false);
-
+  
   const [vlaidId, checkId] = ValidCheck("id");
+
   // 유저 회원가입 api 요청
   const userSignupSubmit = (event) =>{
     event.preventDefault();
@@ -40,7 +38,17 @@ const UserSignup = () => {
       console.log(error);
     });
   };
-  
+
+  const idDuplicate = (event) => {
+    event.preventDefault();
+    const url = "http://192.168.100.81/user/valid/id/" + event.target.value;
+    axios.get(url).then(response =>{
+      console.log(response)}
+    ).catch(error => {
+      console.log(error)
+    })
+  }
+
   const confirmEmail = (event) =>{
     event.preventDefault();
     const url = "http://192.168.100.81/mail"
@@ -62,13 +70,7 @@ const UserSignup = () => {
 
   }
 
-  // 모달창 노출
-  const showModal = () => {
-    setModalOpen(true);
-  };
-
-
-
+ 
   // sumbit 활성화 & 비활성화
   const nullError = !!id && !!name && !!nickName && !!email && !!password && !!confirmPassword
   const effectivnessError = idError && nameError && nickNameError && emailError && passwordError && confirmPasswordError
@@ -82,11 +84,9 @@ const UserSignup = () => {
           type="text"
           value={id}
           placeholder="아이디를 입력해주세요"
-          onChange={setId}
-          onBlur={checkId}
+          onChange={(event) => {setId(event); idDuplicate(event);}}
           errorMessage={(idError ? "" : "영어와 숫자로만 입력해주세요.")}
         />
-        <p>{vlaidId}</p>
         <InputLabel
           label="name"
           type="text"
@@ -136,9 +136,7 @@ const UserSignup = () => {
           value={gender}
         />
         <br />
-        <label onClick={showModal}>경력 기술서 입력하기</label>
-        {modalOpen && <ModalBasic setModalOpen={setModalOpen}/>}
-        <br /><br />
+        <br />
         <button type="submit" disabled={!submitError}>회원가입</button>
       </form>
       <br />
