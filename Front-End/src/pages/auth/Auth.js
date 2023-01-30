@@ -13,7 +13,7 @@ const Auth = () => {
   return(
     <div className={classes.AuthBox}>
       <div className={classes.AuthTitle}>
-        <h1>Style With Us</h1>
+        {/* <p>Style With Us</p> */}
       </div>
       <div className={classes.AuthBody}>
         <Routes>

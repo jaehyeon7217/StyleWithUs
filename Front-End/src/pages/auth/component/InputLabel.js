@@ -1,11 +1,13 @@
+import classes from "./InputLabel.module.css"
+
 const InputLabel= ({label, errorMessage, ...rest}) => {
   return(
-    <div>
+    <div className={classes.InputLabel}>
       <label>
         <p>{label}</p>
         <input {...rest} />
       </label>
-      <p>{errorMessage}</p>
+      <p className={classes.ErrorMessage}>{errorMessage}</p>
     </div>
   )
 }

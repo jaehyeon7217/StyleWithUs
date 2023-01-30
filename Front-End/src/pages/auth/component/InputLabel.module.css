@@ -1,0 +1,25 @@
+.InputLabel{
+    width :auto;
+    text-align: left;
+}
+
+.InputLabel label p{
+    font-size: 15px;
+    margin-bottom: 12px;
+    
+}
+
+.InputLabel label input{
+    width: 330px;
+    border: none;
+    border-bottom: 0.5px solid lightgray;
+    margin-bottom: 5px;
+}
+
+
+.ErrorMessage {
+    font-size: 12px;
+    color: red;
+    margin-top: 5px;
+    margin-bottom: 20px;
+}
