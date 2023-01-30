@@ -6,6 +6,7 @@ const initialAuthState = {
   userType: 0,
   isLogined : false,
   confirmEmail : "",
+  userId : "",
   userData : "",
 };
 
@@ -22,6 +23,12 @@ const authSlice = createSlice({
       state.token = action.payload;
       state.userType = 1;
       state.isLogined = true;
+    },
+    validEmail(state, action){
+      state.confirmEmail = action.payload;
+    },
+    initializeValidEmail(state){
+      state.confirmEmail = ""
     },
     logout(state) {
       state.token = null;
