@@ -1,12 +1,12 @@
 .main {
   height: 80vh;
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
 }
 
-.section {
-  width: 33%;
+section {
+  width: 29%;
   height: 100%;
   display: inline-block;
 }
