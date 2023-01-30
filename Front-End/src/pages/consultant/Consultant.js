@@ -3,6 +3,7 @@ import React, { Fragment, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from 'axios';
 import classes from "./Consultant.module.css";
+import { useSelector } from 'react-redux';
 
 import Video from "./video/Video";
 import Shop from "./shop/Shop";
@@ -10,11 +11,14 @@ import Cart from "./cart/Cart";
 import ChatContent from "./chat/ChatContent";
 import ChatForm from "./chat/ChatForm";
 
-const APPLICATION_SERVER_URL = process.env.NODE_ENV === 'production' ? '' : 'http://192.168.100.82:5000/';
+const APPLICATION_SERVER_URL = process.env.NODE_ENV === 'production' ? '' : 'http://192.168.100.82:80/openvidu/';
 
 const Consultant = () => {
   const [toggleChatToCart, setToggleChatToCart] = useState(false);
   const navigate = useNavigate();
+
+  // 유저 아이디
+  const user = useSelector(state => state.auth.userData);
 
   // openvidu useState
   const [OV, setOV] = useState(<OpenVidu />);
@@ -26,6 +30,9 @@ const Consultant = () => {
   const [publisher, setPublisher] = useState(undefined);
   const [subscribers, setSubscribers] = useState([]);
   const [session, setSession] = useState(undefined);
+
+  // 채팅창 아이템들
+  const [chatting, setChatting] = useState([]);
 
   // 돌아가기 버튼 함수
   const pageBackHandler = () => {
@@ -157,6 +164,13 @@ const Consultant = () => {
           deleteSubscriber(event.stream.streamManager);
         }
       });
+
+      newSession.on('signal', (event) => {
+        setChatting((prevState) => {
+          return [...prevState, { user: user, data: event.data }]
+        })
+      });
+
       // 1-3 예외처리
       newSession.on('exception', (exception) => {
         console.warn(exception);
@@ -214,7 +228,20 @@ const Consultant = () => {
 
   // 끝
 
-
+  // 메세지 Event
+  const messageSendHandler = (data) => {
+    session.signal({
+      data: data,                 // Any string (optional)
+      to: [],                     // Array of Connection objects (optional. Broadcast to everyone if empty)
+      type: 'my-chat'             // The type of message (optional)
+    })
+    .then(() => {
+        console.log('Message successfully sent');
+    })
+    .catch(error => {
+        console.error(error);
+    });
+  };
 
   return (
     <Fragment>
@@ -312,9 +339,9 @@ const Consultant = () => {
         <section className={classes.section}>
           <div className={classes['show-cart-chat']}>
             <Cart className={!toggleChatToCart ? classes['toggle-animation-on'] : classes['toggle-animation-off']}/>
-            <ChatContent className={toggleChatToCart ? classes['toggle-animation-on'] : classes['toggle-animation-off']}/>
+            <ChatContent className={toggleChatToCart ? classes['toggle-animation-on'] : classes['toggle-animation-off']} chatting={chatting}/>
           </div>
-          <ChatForm onFocus={onFucusHandler} onBlur={onBlurHandler} />
+          <ChatForm onFocus={onFucusHandler} onBlur={onBlurHandler} onMessageSend={messageSendHandler} />
         </section>
       </main>
       <button onClick={pageBackHandler}>Back</button>
