@@ -1,4 +1,25 @@
-.img{
+.loading-container{
+  vertical-align: middle;
+}
+
+.loading-pic{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 45%;
+}
+
+.loading-pic img{
   width: 10%;
   height: 10%;
+}
+
+.loading-rotating-pic{
+  transition: transform 10s;
+  transform: rotate(740deg);
+}
+
+.loading-text h1{
+  text-align: center;
+  color: red;
 }
