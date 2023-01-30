@@ -36,6 +36,10 @@ public class SwaggerConfiguration {
     public Docket crawlingApi() {
         return getDocket("크롤링", Predicates.or(PathSelectors.regex("/crawling.*")));
     }
+    @Bean
+    public Docket openviduApi() {
+        return getDocket("화상채팅", Predicates.or(PathSelectors.regex("/openvidu.*")));
+    }
 
     //////////////////////////////////////////////////////////////////////////////////////////////////////
 
