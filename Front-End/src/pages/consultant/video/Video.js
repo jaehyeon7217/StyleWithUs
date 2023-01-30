@@ -3,11 +3,11 @@ import OpenViduVideoComponent from "./OvVideo";
 import "./Video.css";
 
 export default class UserVideoComponent extends Component {
-  getNicknameTag() {
-    // Gets the nickName of the user
-    return JSON.parse(this.props.streamManager.stream.connection.data)
-      .clientData;
-  }
+  // getNicknameTag() {
+  //   // Gets the nickName of the user
+  //   return JSON.parse(this.props.streamManager.stream.connection.data)
+  //     .clientData;
+  // }
 
   render() {
     return (
@@ -15,9 +15,9 @@ export default class UserVideoComponent extends Component {
         {this.props.streamManager !== undefined ? (
           <div className="streamcomponent">
             <OpenViduVideoComponent streamManager={this.props.streamManager} />
-            <div>
+            {/* <div>
               <p>{this.getNicknameTag()}</p>
-            </div>
+            </div> */}
           </div>
         ) : null}
       </div>
