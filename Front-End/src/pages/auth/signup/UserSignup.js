@@ -1,27 +1,29 @@
 import axios from "axios";
-import { useState } from "react";
 // component 호출
 import InputLabel from "../component/InputLabel";
 import { DataInput, CheckPassword, ValidCheck } from "../component/Effectiveness";
 import { useNavigate } from "react-router-dom";
-import GenderCheckbox from "../component/GenderCheckbox";
+import { GenderCheckbox } from "../component/GenderCheckbox";
+import classes from "./UserSignUp.module.css"
 
 const UserSignup = () => {
   const navigate = useNavigate();
-  const [id, setId, idError] = DataInput(/^[a-zA-z0-9]{5,20}$/);
+  const [id, setId, idEffectError] = DataInput(/^[a-zA-z0-9]{5,20}$/);
   const [name, setName, nameError] = DataInput(/[ㄱ-ㅎ|ㅏ-ㅣ|가-힣]{2,10}/);
-  const [nickName, setNickName, nickNameError] = DataInput(/^[a-zA-z0-9]{3,20}$/);
-  const [email, setEmail, emailError] = DataInput(/^([0-9a-zA-Z_-]+)@([0-9a-zA-Z_-]+)(\.[0-9a-zA-Z_-]+){1,2}$/);
+  const [nickName, setNickName, nickNameEffectError] = DataInput(/^[a-zA-z0-9]{3,20}$/);
+  const [email, setEmail, emailEffectError] = DataInput(/^([0-9a-zA-Z_-]+)@([0-9a-zA-Z_-]+)(\.[0-9a-zA-Z_-]+){1,2}$/);
   const [password, setPassword, passwordError] = DataInput(/^(?=.*[a-zA-Z])(?=.*[!@#$%^*+=-])(?=.*[0-9]).{9,16}$/);
   const [confirmPassword, setConfirmPassword, confirmPasswordError] = CheckPassword(password);
-  const [gender, setGender] = useState(true);
+  const [male, female, setMale, setFemale] = GenderCheckbox();
   
-  const [vlaidId, checkId] = ValidCheck("id");
+  const [idValidError, checkId] = ValidCheck("id");
+  const [emailValidError, checkEmail] = ValidCheck("email");
+  const [nickNameValidError, checkNickname] = ValidCheck("nickname");
 
   // 유저 회원가입 api 요청
   const userSignupSubmit = (event) =>{
     event.preventDefault();
-    const url = "http://192.168.100.81/user/register"
+    const url = "http://192.168.100.82/user/register"
     axios.post(
       url,{
         userId : id,
@@ -29,25 +31,14 @@ const UserSignup = () => {
         userName : name,
         userNickname : nickName,
         userEmail : email,
-        userGender : gender,
+        userGender : male ? 1 : 0,
       }
     ).then(response =>{
-      console.log(response);
       navigate("/auth/login")
     }).catch(error =>{
       console.log(error);
     });
   };
-
-  const idDuplicate = (event) => {
-    event.preventDefault();
-    const url = "http://192.168.100.81/user/valid/id/" + event.target.value;
-    axios.get(url).then(response =>{
-      console.log(response)}
-    ).catch(error => {
-      console.log(error)
-    })
-  }
 
   const confirmEmail = (event) =>{
     event.preventDefault();
@@ -69,7 +60,9 @@ const UserSignup = () => {
     navigate("/auth/login")
 
   }
-
+  const idError = idEffectError && idValidError
+  const nickNameError = nickNameEffectError && nickNameValidError
+  const emailError = emailEffectError && emailValidError
  
   // sumbit 활성화 & 비활성화
   const nullError = !!id && !!name && !!nickName && !!email && !!password && !!confirmPassword
@@ -78,14 +71,17 @@ const UserSignup = () => {
 
   return(
     <div>
+      <h1 className={classes.PageName}>회원 가입</h1>
+      <br />
       <form onSubmit={userSignupSubmit}>
         <InputLabel
           label="ID"
           type="text"
           value={id}
           placeholder="아이디를 입력해주세요"
-          onChange={(event) => {setId(event); idDuplicate(event);}}
-          errorMessage={(idError ? "" : "영어와 숫자로만 입력해주세요.")}
+          onChange={setId}
+          onBlur={checkId}
+          errorMessage={(idEffectError ? (idValidError ? "" : "이미 있는 아이디입니다.") : "영어와 숫자로만 입력해주세요.")}
         />
         <InputLabel
           label="name"
@@ -101,20 +97,39 @@ const UserSignup = () => {
           value={nickName}
           placeholder="닉네임을 입력해주세요"
           onChange={setNickName}
-          errorMessage={(nickNameError ? "" : "영어와 숫자로만 입력해주세요.")}
+          onBlur={checkNickname}
+          errorMessage={(nickNameEffectError ? (nickNameValidError ? "" : "이미 있는 닉네임입니다.") : "영어와 숫자로만 입력해주세요.")}
         />
-        <InputLabel
-          label="email"
-          type="email"
-          value={email}
-          placeholder="이메일을 입력해주세요"
-          onChange={setEmail}
-          errorMessage={(emailError ? "" : "이메일 양식을 지켜주세요.")}
-        />
-        <button onClick={confirmEmail}>이메일 인증 번호 전송</button>
-        <br />
-        <br />
-        <input type="text" />
+        <div className={classes.EmailLabel}>
+          <label >
+            <p>이메일</p>
+            <div className={classes.EmailInput}>
+              <input
+                type="email"
+                value={email}
+                placeholder="이메일을 입력해주세요"
+                onChange={setEmail}
+              />
+          <button onClick={confirmEmail} className={classes.EmailInputBtn}>인증 번호 전송</button>
+            </div>
+          </label>
+          <p className={classes.ErrorMessage}>{(emailEffectError ? (emailValidError ? "" : "이미 있는 이메일입니다.") : "이메일 양식을 지켜주세요.")}</p>
+        </div>   
+
+        <div className={classes.EmailNumLabel}>
+          <label >
+            <p>이메일 인증 번호</p>
+            <div className={classes.EmailNumInput}>
+              <input
+                type="email"
+                value={email}
+                placeholder="이메일 인증 번호 입력해주세요"
+                onChange={setEmail}
+              />
+              <button className={classes.EmailNumBtn}>인증</button>
+            </div>
+          </label>
+        </div> 
         <InputLabel
           label="password"
           type="password"
@@ -131,13 +146,27 @@ const UserSignup = () => {
           onChange={setConfirmPassword}
           errorMessage={(confirmPasswordError ? "" : "비밀번호가 일치하지 않습니다.")}        
         />
-        <GenderCheckbox 
-          label="gender"
-          value={gender}
-        />
+        
+        <p>Gender</p>
+        <label>
+          남
+          <input
+            type="checkbox"
+            checked={male}
+            onChange={setMale}
+          />
+        </label>
+        <label>
+          여
+          <input
+            type="checkbox"
+            checked={female}
+            onChange={setFemale}
+          />
+        </label>
         <br />
         <br />
-        <button type="submit" disabled={!submitError}>회원가입</button>
+        <button type="submit" disabled={!submitError} className={classes.SignupBtn}>회원가입</button>
       </form>
       <br />
       <label onClick={toLogin}>로그인 하러 가기</label>
