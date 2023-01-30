@@ -2,9 +2,12 @@ import axios from "axios";
 import { useState } from "react";
 // 컴포넌트 호출
 import InputLabel from "../component/InputLabel";
-import {DataInput} from "../component/Effectiveness";
+import {DataInput, CheckPassword} from "../component/Effectiveness";
+import ModalBasic from "../component/ModalBasic"
+import { useNavigate } from "react-router-dom";
 
 const ConsultantSignUp = () =>{
+  const navigate = useNavigate();
   const [id, setId, idError] = DataInput(/^[a-zA-z0-9]{5,20}$/);
   const [name, setName, nameError] = DataInput(/[ㄱ-ㅎ|ㅏ-ㅣ|가-힣]{2,10}/);
   const [nickName, setNickName, nickNameError] = DataInput(/^[a-zA-z0-9]{3,20}$/);
@@ -13,11 +16,12 @@ const ConsultantSignUp = () =>{
   const [confirmPassword, setConfirmPassword, confirmPasswordError] = CheckPassword(password);
   const [gender, setGender] = useState("");
   const [resume, setResume, resumeError] = DataInput("")
+  const [modalOpen, setModalOpen] = useState(false);
 
   // 컨설턴트 회원가입 api 요청
   const consultantSignUpsubmit = (event) => {
     event.preventDefault();
-    const url = "http://192.168.100.82/cosultant/register";
+    const url = "http://192.168.100.81/cosultant/register";
     axios.post(
       url,{
         consultantId: id,
@@ -35,13 +39,25 @@ const ConsultantSignUp = () =>{
     }).catch(error =>{
       console.log(error);
     });
+  }
+
+  // 모달창 노출
+  const showModal = () => {
+    setModalOpen(true);
   };
 
+  const toLogin = (event) => {
+    event.preventDefault();
+    navigate("/auth/login")
+
+  }
+
   // submit 활성화 & 비활성화
-  const nullError = !!id && !!name && !!nickName && !!email && !!password && !!confirmPassword;
-  const effectivnessError = idError && nameError && nickNameError && emailError && passwordError && confirmPasswordError;
-  const submitError = nullError && effectivnessError;
-  
+  const nullError = !!id && !!name && !!nickName && !!email && !!password && !!confirmPassword
+  const effectivnessError = idError && nameError && nickNameError && emailError && passwordError && confirmPasswordError
+  const submitError = nullError && effectivnessError
+
+
   return(
     <div>
       <form action={consultantSignUpsubmit}>
@@ -90,13 +106,18 @@ const ConsultantSignUp = () =>{
           type="password"
           value={confirmPassword}
           placeholder="비밀번호를 다시 입력해주세요"
-          onChange={(e) => {setConfirmPassword(e.target.value); checkConfirmPassword(e);}}
+          onChange={(e) => {setConfirmPassword(e.target.value);}}
           errorMessage={confirmPasswordError}        
         />
+        <label onClick={showModal}>경력 기술서 입력하기</label>
+        {modalOpen && <ModalBasic setModalOpen={setModalOpen} />}
+        <br /><br />
+        <button type="submit" disabled={!submitError}>회원가입</button>
         <button type="submit" disabled={!submitError}>로그인</button>
       </form>
+      <label onClick={toLogin}>로그인 하러 가기</label>
     </div>
   )
-};
+}
 
-export default ConsultantSignUp;
+export default ConsultantSignUp
