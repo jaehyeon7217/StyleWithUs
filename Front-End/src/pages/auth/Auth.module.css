@@ -7,7 +7,7 @@
   top: 50%;
   left: 50%;
   height: auto;
-  width: 300px;
+  width: 340px;
   margin: 0 auto;
   margin-top: 40px;
   padding: 60px 0 160px;
@@ -16,8 +16,10 @@
 .AuthTitle{
   padding-bottom: 10px;
   text-align: center;
-  font-size: 10px;
-  border-bottom: 1px solid black;
+  font-size: 35px;
+  font-style: italic;
+  font-weight: bolder;
+  /* border-bottom: 2px solid black; */
 }
 .AuthBody{
   align-items: center;

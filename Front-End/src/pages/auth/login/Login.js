@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useState } from "react";
 
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { authActions } from '../../../store/auth';
 import { useNavigate } from "react-router-dom";
 // component 분리
@@ -41,10 +41,9 @@ const Login = () => {
       });
   };
   // toggleBtn
-
+  
   const onChangeBtn = () =>{
     setIsUser((event) => !(event))
-    dispatch(authActions.userLogin("hjfghjfgdf"))
   }
 
   // 회원가입 페이지 이동
@@ -88,16 +87,16 @@ const Login = () => {
           onChange={setPassword}
           errorMessage={(passwordError ? "" : "영어와 숫자 그리고 특수문자로만 입력해주세요.")}
         />
-        <button type="submit" disabled={!submitError}>로그인</button>
+        <button type="submit" disabled={!submitError} className={classes.LoginBtn}>로그인</button>
       </form>
       <br />
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
       <label onClick={toUserSignup}>회원가입</label>
       &nbsp;&nbsp;
       &nbsp;&nbsp;
       |
       &nbsp;&nbsp;
       &nbsp;&nbsp;
-
       <label onClick={FindPassword}>비밀번호 찾기</label>
     
     </div>
