@@ -283,7 +283,7 @@ const Consultant = () => {
 
           {session !== undefined ? (
             <div id="session">
-              <div id="session-header">
+              {/* <div id="session-header">
                 <input
                   className="btn btn-large btn-danger"
                   type="button"
@@ -291,7 +291,7 @@ const Consultant = () => {
                   onClick={leaveSession}
                   value="Leave session"
                 />
-              </div>
+              </div> */}
 
               {mainStreamManager !== undefined ? (
                 <div id="main-video" className="col-md-6">
