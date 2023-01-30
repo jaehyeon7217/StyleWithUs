@@ -6,10 +6,6 @@ import { persistReducer, FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER } fro
 import authReducer from "./auth";
 import cartReducer from "./cart";
 
-const reducers = combineReducers({
-  auth: authReducer, cart: cartReducer,
-});
-
 const persistConfig = {
   key : 'root',
   version : 1,
@@ -20,8 +16,7 @@ const persistConfig = {
 };
 
 const rootReducer = combineReducers({
-  auth: authReudcer,
-  
+  auth: authReducer, cart: cartReducer,
 });
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
