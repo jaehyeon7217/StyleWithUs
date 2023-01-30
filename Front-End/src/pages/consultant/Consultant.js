@@ -1,9 +1,9 @@
-import { OpenVidu } from 'openvidu-browser';
+import { OpenVidu } from "openvidu-browser";
 import React, { Fragment, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import axios from 'axios';
+import axios from "axios";
 import classes from "./Consultant.module.css";
-import { useSelector } from 'react-redux';
+import { useSelector } from "react-redux";
 
 import Video from "./video/Video";
 import Shop from "./shop/Shop";
@@ -11,14 +11,17 @@ import Cart from "./cart/Cart";
 import ChatContent from "./chat/ChatContent";
 import ChatForm from "./chat/ChatForm";
 
-const APPLICATION_SERVER_URL = process.env.NODE_ENV === 'production' ? '' : 'http://192.168.100.82:80/openvidu/';
+const APPLICATION_SERVER_URL =
+  process.env.NODE_ENV === "production"
+    ? ""
+    : "http://192.168.100.82:80/openvidu/";
 
 const Consultant = () => {
   const [toggleChatToCart, setToggleChatToCart] = useState(false);
   const navigate = useNavigate();
 
   // 유저 아이디
-  const user = useSelector(state => state.auth.userData);
+  const user = useSelector((state) => state.auth.userData);
 
   // openvidu useState
   const [OV, setOV] = useState(<OpenVidu />);
@@ -36,6 +39,7 @@ const Consultant = () => {
 
   // 돌아가기 버튼 함수
   const pageBackHandler = () => {
+    leaveSession();
     navigate(-1);
   };
 
@@ -47,12 +51,10 @@ const Consultant = () => {
   // 블러 될 때 카트가 보이게 하는 함수
   const onBlurHandler = () => {
     setToggleChatToCart(false);
-  }
-
-
+  };
 
   // openvidu 함수
-  const componentDidMount = () => { 
+  const componentDidMount = () => {
     window.addEventListener("beforeunload", onbeforeunload);
   };
 
@@ -72,12 +74,6 @@ const Consultant = () => {
     setMyUserName(event.target.value);
   };
 
-  const handleMainVideoStream = (stream) => {
-    if (mainStreamManager !== stream) {
-      setMainStreamManager(stream);
-    }
-  };
-
   const deleteSubscriber = (streamManager) => {
     const prevSubscribers = subscribers;
     let index = prevSubscribers.indexOf(streamManager, 0);
@@ -88,7 +84,6 @@ const Consultant = () => {
   };
 
   const joinSession = () => {
-
     // 1. openvidu 객체 생성
     const newOV = new OpenVidu();
     // socket 통신 과정에서 많은 log를 남기게 되는데 필요하지 않은 log를 띄우지 않게 하는 모드
@@ -117,19 +112,16 @@ const Consultant = () => {
               .then((mediaStream) => {
                 var videoTrack = mediaStream.getVideoTracks()[0];
 
-                var newPublisher = newOV.initPublisher(
-                  myUserName,
-                  {
-                    audioSource: undefined,
-                    videoSource: videoTrack,
-                    publishAudio: true,
-                    publishVideo: true,
-                    resolution: '1280x720',
-                    frameRate: 60,
-                    insertMode: "APPEND",
-                    mirror: true,
-                  }
-                );
+                var newPublisher = newOV.initPublisher(myUserName, {
+                  audioSource: undefined,
+                  videoSource: videoTrack,
+                  publishAudio: true,
+                  publishVideo: true,
+                  resolution: "1280x720",
+                  frameRate: 60,
+                  insertMode: "APPEND",
+                  mirror: true,
+                });
                 // 4-c publish
                 newPublisher.once("accessAllowed", () => {
                   newSession.publish(newPublisher);
@@ -147,32 +139,32 @@ const Consultant = () => {
       });
 
       // 1-1 session에 참여한 사용자 추가
-      newSession.on('streamCreated', (event) => {
+      newSession.on("streamCreated", (event) => {
         const newSubscriber = newSession.subscribe(
           event.stream,
           JSON.parse(event.stream.connection.data).clientData
         );
-        
+
         const newSubscribers = subscribers;
         newSubscribers.push(newSubscriber);
 
         setSubscribers([...newSubscribers]);
       });
       // 1-2 session에서 disconnect한 사용자 삭제
-      newSession.on('streamDestroyed', (event) => {
-        if (event.stream.typeOfVideo === 'CUSTOM') {
+      newSession.on("streamDestroyed", (event) => {
+        if (event.stream.typeOfVideo === "CUSTOM") {
           deleteSubscriber(event.stream.streamManager);
         }
       });
 
-      newSession.on('signal', (event) => {
+      newSession.on("signal", (event) => {
         setChatting((prevState) => {
-          return [...prevState, { user: user, data: event.data }]
-        })
+          return [...prevState, { user: user, data: event.data }];
+        });
       });
 
       // 1-3 예외처리
-      newSession.on('exception', (exception) => {
+      newSession.on("exception", (exception) => {
         console.warn(exception);
       });
     };
@@ -230,24 +222,25 @@ const Consultant = () => {
 
   // 메세지 Event
   const messageSendHandler = (data) => {
-    session.signal({
-      data: data,                 // Any string (optional)
-      to: [],                     // Array of Connection objects (optional. Broadcast to everyone if empty)
-      type: 'my-chat'             // The type of message (optional)
-    })
-    .then(() => {
-        console.log('Message successfully sent');
-    })
-    .catch(error => {
+    session
+      .signal({
+        data: data, // Any string (optional)
+        to: [], // Array of Connection objects (optional. Broadcast to everyone if empty)
+        type: "my-chat", // The type of message (optional)
+      })
+      .then(() => {
+        console.log("Message successfully sent");
+      })
+      .catch((error) => {
         console.error(error);
-    });
+      });
   };
 
   return (
     <Fragment>
       <h1>Consultant</h1>
-        <main className={classes.main}>
-          <div className="container">
+      <main className={classes.main}>
+        <section className="container">
           {session === undefined ? (
             <div id="join">
               <div id="join-dialog" className="jumbotron vertical-center">
@@ -291,7 +284,6 @@ const Consultant = () => {
           {session !== undefined ? (
             <div id="session">
               <div id="session-header">
-                <h1 id="session-title">{mySessionId}</h1>
                 <input
                   className="btn btn-large btn-danger"
                   type="button"
@@ -308,19 +300,12 @@ const Consultant = () => {
               ) : null}
               <div id="video-container" className="col-md-6">
                 {publisher !== undefined ? (
-                  <div
-                    className="stream-container col-md-6 col-xs-6"
-                    onClick={() => handleMainVideoStream(publisher)}
-                  >
+                  <div className="stream-container col-md-6 col-xs-6">
                     <Video streamManager={publisher} />
                   </div>
                 ) : null}
                 {subscribers.map((sub, i) => (
-                  <div
-                    key={i}
-                    className="stream-container col-md-6 col-xs-6"
-                    onClick={() => handleMainVideoStream(sub)}
-                  >
+                  <div key={i} className="stream-container col-md-6 col-xs-6">
                     <span>{sub.id}</span>
                     <Video streamManager={sub} />
                   </div>
@@ -328,20 +313,33 @@ const Consultant = () => {
               </div>
             </div>
           ) : null}
-        </div>
-        <section className={classes.section}>
-          <Video />
-          <Video />
         </section>
         <section className={classes.section}>
           <Shop />
         </section>
         <section className={classes.section}>
-          <div className={classes['show-cart-chat']}>
-            <Cart className={!toggleChatToCart ? classes['toggle-animation-on'] : classes['toggle-animation-off']}/>
-            <ChatContent className={toggleChatToCart ? classes['toggle-animation-on'] : classes['toggle-animation-off']} chatting={chatting}/>
+          <div className={classes["show-cart-chat"]}>
+            <Cart
+              className={
+                !toggleChatToCart
+                  ? classes["toggle-animation-on"]
+                  : classes["toggle-animation-off"]
+              }
+            />
+            <ChatContent
+              className={
+                toggleChatToCart
+                  ? classes["toggle-animation-on"]
+                  : classes["toggle-animation-off"]
+              }
+              chatting={chatting}
+            />
           </div>
-          <ChatForm onFocus={onFucusHandler} onBlur={onBlurHandler} onMessageSend={messageSendHandler} />
+          <ChatForm
+            onFocus={onFucusHandler}
+            onBlur={onBlurHandler}
+            onMessageSend={messageSendHandler}
+          />
         </section>
       </main>
       <button onClick={pageBackHandler}>Back</button>

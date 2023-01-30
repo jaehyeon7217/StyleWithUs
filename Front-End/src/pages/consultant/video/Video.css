@@ -1,5 +1,5 @@
 video {
-  width: 100%;
+  width: 50%;
   height: auto;
   float: left;
   cursor: pointer;
@@ -16,4 +16,3 @@ video {
 p{
   margin: 0;
 }
-
