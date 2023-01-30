@@ -11,6 +11,10 @@ const Shop = () => {
   const arrayCategory = Object.keys(category);
 
   const toggleEventHandler = (liTitle) => {
+    if (toggleOn !== "") {
+      const container = document.getElementById(toggleOn);
+      container.style.height = "0px";
+    }
     setToggleOn(liTitle);
   };
 
