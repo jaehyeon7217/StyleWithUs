@@ -1,9 +1,10 @@
 import { OpenVidu } from "openvidu-browser";
-import React, { Fragment, useState } from "react";
+import React, { Fragment, useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import classes from "./Consultant.module.css";
 import { useSelector } from "react-redux";
+import history from "./video/history";
 
 import Video from "./video/Video";
 import Shop from "./shop/Shop";
@@ -16,7 +17,7 @@ const APPLICATION_SERVER_URL =
     ? ""
     : "http://192.168.100.82:80/openvidu/";
 
-const Consultant = () => {
+const Consultant = (props) => {
   const [toggleChatToCart, setToggleChatToCart] = useState(false);
   const navigate = useNavigate();
 
@@ -37,9 +38,26 @@ const Consultant = () => {
   // 채팅창 아이템들
   const [chatting, setChatting] = useState([]);
 
+  // 뒤로가기 버튼을 누를 때 loading 상태 업데이트
+  useEffect(() => {
+    const listenBackEvent = () => {
+      props.onChangeLoading(true);
+    };
+
+    const listenHistoryEvent = history.listen(({ action }) => {
+      if (action === "POP") {
+        listenBackEvent();
+      }
+    });
+
+    return listenHistoryEvent;
+  }, []);
+
   // 돌아가기 버튼 함수
   const pageBackHandler = () => {
     leaveSession();
+    const newLoadingStatus = true;
+    props.onChangeLoading(newLoadingStatus);
     navigate(-1);
   };
 
@@ -283,7 +301,7 @@ const Consultant = () => {
 
           {session !== undefined ? (
             <div id="session">
-              <div id="session-header">
+              {/* <div id="session-header">
                 <input
                   className="btn btn-large btn-danger"
                   type="button"
@@ -291,7 +309,7 @@ const Consultant = () => {
                   onClick={leaveSession}
                   value="Leave session"
                 />
-              </div>
+              </div> */}
 
               {mainStreamManager !== undefined ? (
                 <div id="main-video" className="col-md-6">
