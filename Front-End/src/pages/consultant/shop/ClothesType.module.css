@@ -21,17 +21,15 @@
 }
 
 .details {
-  height: 100%;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  background-color: aqua;
-  transition: height .35s;
+  transition: height 0.35s ease-in-out;
   overflow: hidden;
 }
 
 .details.off {
-  
+  height: 0px;
 }
 
 .details p {
