@@ -1,0 +1,36 @@
+.speech-bubble-box {
+  width: 100%;
+  overflow: hidden;
+}
+
+.speech-bubble {
+  margin: 10px 5px;
+  padding: 12px 20px 10px;
+  border-radius: 15px;
+}
+
+.right {
+  float: right;
+  color: white;
+  background-color: rgb(14 130 246);
+}
+
+.left {
+  float: left;
+  background-color: rgb(222 222 227);
+}
+
+.span-right {
+  float: right;
+  color: black;
+  margin-top: 27px;
+  margin-right: 5px;
+  font-size: 14px;
+}
+
+.span-left {
+  float: left;
+  color: black;
+  margin-top: 27px;
+  margin-left: 5px;
+}
