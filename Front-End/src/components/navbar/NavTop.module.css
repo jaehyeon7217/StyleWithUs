@@ -1,3 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Blinker:wght@100;200;300;400;600;700;800;900&display=swap');
+
+@font-face {
+  font-family: "Apple_Gothic_Neo_Mid";
+  src: url("../../fonts/AppleSDGothicNeoM.ttf");
+}
+
 .top{
   height: 30px;
   justify-content: right;
@@ -6,10 +13,11 @@
 }
 
 .LinkTop{
+  font-family: "Apple_Gothic_Neo_Mid";
   text-decoration-line: none;
   margin-left: 30px;
   color: black;
-  font-size: 12px;
+  font-size: 14px;
   
 }
 

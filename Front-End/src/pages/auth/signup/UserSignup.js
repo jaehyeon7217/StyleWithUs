@@ -30,7 +30,7 @@ const UserSignup = () => {
   // 유저 회원가입 api 요청
   const userSignupSubmit = (event) =>{
     event.preventDefault();
-    const url = "http://192.168.100.82/user/register"
+    const url = "http://43.201.72.251:8082/user/register"
     axios.post(
       url,{
         userId : id,
@@ -53,7 +53,7 @@ const UserSignup = () => {
 
   const confirmEmail = (event) =>{
     event.preventDefault();
-    const url = "http://192.168.100.82/mail"
+    const url = "http://43.201.72.251:8082/mail"
     axios.post(
       url,
       {

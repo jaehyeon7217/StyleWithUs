@@ -1,3 +1,117 @@
+@import url('https://fonts.googleapis.com/css2?family=Blinker:wght@100;200;300;400;600;700;800;900&display=swap');
+
+@font-face {
+  font-family: "Apple_Gothic_Neo_Hard";
+  src: url("../../fonts/AppleSDGothicNeoH.ttf");
+}
+
+@font-face {
+  font-family: "Apple_Gothic_Neo_Bold";
+  src: url("../../fonts/AppleSDGothicNeoB.ttf");
+}
+
+@font-face {
+  font-family: "Apple_Gothic_Neo_SB";
+  src: url("../../fonts/AppleSDGothicNeoSB.ttf");
+}
+
+@font-face {
+  font-family: "Apple_Gothic_Neo_Light";
+  src: url("../../fonts/AppleSDGothicNeoL.ttf");
+}
+
+
 .MyPage{
-  align-items: center;
+  text-align: center;
+  
+  
+}
+
+.PageName{
+  /* font-family: "Apple_Gothic_Neo_Bold"; */
+  font-family: "Apple_Gothic_Neo_SB";
+  font-size: 40px;
+
+}
+
+.UserBox{
+  width: 800px;
+  height: 165px;
+  border: 2px solid rgb(200, 200, 200);
+  border-radius: 20px;
+  margin: auto;
+  
+}
+
+.UserCircle{
+  float: left;
+  width: 140px;
+  height: 140px;
+  border: 2px solid #4b8adc70;
+  border-radius: 100px;
+  margin-top: 10px;
+  margin-left: 15px;
+
+  font-family: "Apple_Gothic_Neo_Hard";
+  font-size: 40px;
+  text-align: center;
+  line-height: 140px;
+  color: #4B89DC;
+   
+}
+
+.userNicknameBox{
+  float: left;
+  width: 500px;
+  margin-top: 25px;
+  margin-left: 30px;
+    
+  
+}
+
+.UserDataBox {
+  font-family: "Apple_Gothic_Neo_Bold";
+  font-size: 20px;
+  float: left;
+}
+
+.UserDataBoxHi{
+  font-family: "Apple_Gothic_Neo_Light";
+  float: left;
+  font-size: 20px;
+  
+}
+
+.UserData{
+  float: left;
+}
+
+.userId{
+  font-family: "Apple_Gothic_Neo_Light";
+  font-size: 18px;
+  float: left;
+  margin-top: -5px;
+  
+}
+
+.userEmail{
+  font-family: "Apple_Gothic_Neo_Light";
+  font-size: 18px;
+  
+  
+}
+
+.UserBtn{
+  font-family: "Apple_Gothic_Neo_Light";
+  float: left;
+  margin-top: 10px;
+  border: none;
+  width: 100px;
+  height: 25px;
+  border-radius: 5px;
+
+}
+
+.MyBodyBox{
+  
 }
