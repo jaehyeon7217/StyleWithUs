@@ -22,14 +22,14 @@ const Consultant = (props) => {
   const navigate = useNavigate();
 
   // 유저 아이디
+  const userType = useSelector((state) => state.auth.userType);
   const user = useSelector((state) => state.auth.userData);
+  const nickname = userType === 1 ? user.consultantNickname : user.userNickname;
 
   // openvidu useState
   const [OV, setOV] = useState(<OpenVidu />);
   const [mySessionId, setMySessionId] = useState("SessionA");
-  const [myUserName, setMyUserName] = useState(
-    "Participant" + Math.floor(Math.random() * 100)
-  );
+  const [myUserName, setMyUserName] = useState(nickname);
   const [mainStreamManager, setMainStreamManager] = useState(undefined);
   const [publisher, setPublisher] = useState(undefined);
   const [subscribers, setSubscribers] = useState([]);
@@ -164,6 +164,9 @@ const Consultant = (props) => {
       });
 
       newSession.on("signal", (event) => {
+        // {"clientData":"bingbang"}
+        const userName = event.from.data.slice(15, -2)
+
         if (event.data.trim() !== "") {
           let today = new Date();   
 
@@ -171,11 +174,12 @@ const Consultant = (props) => {
           let ampm = hours >= 0 && hours < 12 ? '오전' : '오후';
           hours = hours > 12 ? hours - 12 : hours;
           let minutes = today.getMinutes();  // 분
+          minutes = minutes < 10 ? '0' + minutes.toString() : minutes.toString();
 
-          let time = ampm + ` ${hours} : ${minutes}`;
+          let time = ampm + ` ${hours} : ` + minutes;
 
           setChatting((prevState) => {
-            return [...prevState, { user: user.userNickname, data: event.data, time: time }];
+            return [...prevState, { user: userName, data: event.data, time: time }];
           });
         }
       });
@@ -203,7 +207,7 @@ const Consultant = (props) => {
     setSession(undefined);
     setSubscribers([]);
     setMySessionId("SessionA");
-    setMyUserName("Participant" + Math.floor(Math.random() * 100));
+    setMyUserName(nickname);
     setMainStreamManager(undefined);
     setPublisher(undefined);
   };
