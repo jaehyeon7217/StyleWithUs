@@ -22,6 +22,7 @@ const MyPage = () =>{
     ).then(response => {
       if (response.status===200){
         dispatch(authActions.getMyData(response.data.data))
+        console.log(response.data.data)
       }else{
         window.alert("회원정보가 없습니다.")
       }
