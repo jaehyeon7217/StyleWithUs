@@ -1,5 +1,5 @@
 import { configureStore } from "@reduxjs/toolkit";
-import storage from "redux-persist/lib/storage";
+import storageSession from 'redux-persist/lib/storage/session'
 import { combineReducers } from "redux";
 import { persistReducer, FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER } from 'redux-persist';
 
@@ -9,9 +9,7 @@ import cartReducer from "./cart";
 const persistConfig = {
   key : 'root',
   version : 1,
-  // 로컬 스토리지 사용
-  version : 1,
-  storage,
+  storage: storageSession,
   blacklist: ["cart",],
 };
 
