@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useState } from "react";
 
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { authActions } from '../../../store/auth';
 import { useNavigate } from "react-router-dom";
 // component 분리
@@ -27,22 +27,22 @@ const Login = () => {
     axios.post(
       url, isUser ? {userId : id, userPw : password} : {consultantId : id, consultantPw : password} )
       .then(response => {
-        console.log(response)
         if (response.status === 200){
-          isUser ? dispatch(authActions.userLogin(response.data.auth_token)) : dispatch(authActions.consultantLogin(response.data.auth_token));
-          navigate("/")
-        }
-        else{
+          isUser ? dispatch(authActions.userLogin(response.data)) : dispatch(authActions.consultantLogin(response.data));
+          navigate("/");
+
+        }else{
           window.alert("아이디와 비밀번호를 확인해주세요!")
         }
-      })
-      .catch(
+      }).catch((error)=>{
+        console.log(error)
         window.alert("서버와 연결이 끊겼습니다.")
-      );
+      });
   };
   // toggleBtn  
   const onChangeBtn = () =>{
     setIsUser((event) => !(event))
+    console.log(isUser)
   }
   // 회원가입 페이지 이동
   const toUserSignup = (event) => {
@@ -61,11 +61,12 @@ const Login = () => {
 
   return(
     <div>
-      <button 
-        className="toggleBtn"
-        onClick={onChangeBtn}>
-        {isUser ? "U" : "C"}
-      </button>
+      <h1 className={classes.PageName}>STYLE WITH US</h1>
+      <br/><br/>
+      <div className={classes.ToggleBtn}>
+        <input value={isUser} type="checkbox" name="onoff-switch" id="onoff-switch1" onClick={onChangeBtn} />
+        <label htmlFor="onoff-switch1"></label>
+      </div>
       <form onSubmit={loginSubmit}>
         <InputLabel 
           label="아이디"
@@ -76,7 +77,7 @@ const Login = () => {
           errorMessage={(idError ? "" : "영어와 숫자로만 이루어져있어야합니다.")}
         />
         <InputLabel
-          label="password"
+          label="비밀번호"
           type="password"
           value={password}
           placeholder="비밀번호를 입력해주세요"

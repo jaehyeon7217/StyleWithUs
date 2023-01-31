@@ -12,8 +12,11 @@
 .InputLabel label input{
     width: 330px;
     border: none;
+    outline: none;
     border-bottom: 0.5px solid lightgray;
     margin-bottom: 5px;
+    padding-bottom: 5px;
+    
 }
 
 

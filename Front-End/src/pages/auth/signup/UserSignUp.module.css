@@ -13,10 +13,12 @@
 }
 
 .EmailLabel label input{
-    width: 225px;
+    width: 220px;
     border: none;
     border-bottom: 0.5px solid lightgray;
     margin-bottom: 5px;
+    padding-bottom: 5px;
+    outline: none;
 }
 
 .EmailInput {
@@ -25,14 +27,15 @@
 
 .EmailInput button {
     width: 110px;
-    height: 20px;
+    height: 28px;
     float: right;
     border-radius: 8px;
     border: none;
     margin-bottom: 8px;
     color: grey;
-
-
+    font-size: 12px;
+    font-weight: bolder;
+    
 }
 
 .EmailNumLabel {
@@ -46,20 +49,24 @@
 }
 
 .EmailNumLabel label input {
-    width: 225px;
+    width: 220px;
     border: none;
+    outline: none;
     border-bottom: 0.5px solid lightgray;
     margin-bottom: 23px;
+    padding-bottom: 5px;
 }
 
 .EmailNumBtn{
     width: 110px;
-    height: 20px;
+    height: 25px;
     float: right;
     border-radius: 8px;
     border: none;
     margin-bottom: 8px;
     color: grey;
+    font-size: 12px;
+    font-weight: bolder;
 }
 
 .EmailNumInput {
@@ -73,6 +80,22 @@
     margin-top: 5px;
     margin-bottom: 20px;
 }
+
+.GenderP{
+    float: left;
+    margin-right: 300px;
+    margin-bottom: 10px;
+}
+
+.Gender{
+    float: left;
+    margin-right: 10px;
+}
+
+
+/* checkbox 디자인 */
+
+
 
 .SignupBtn{
     width: 340px;

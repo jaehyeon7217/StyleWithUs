@@ -4,9 +4,9 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialAuthState = {
   token : "",
   userType: 0,
+  userId: "",
   isLogined : false,
   confirmEmail : "",
-  userId : "",
   userData : "",
 };
 
@@ -15,12 +15,14 @@ const authSlice = createSlice({
   initialState: initialAuthState,
   reducers: {
     userLogin(state, action) {
-      state.token = action.payload;
+      state.token = action.payload.auth_token
+      state.userId = action.payload.data.userId
       state.userType = 0;
       state.isLogined = true;
     },
     consultantLogin(state, action){
-      state.token = action.payload;
+      state.token = action.payload.auth_token;
+      state.userId = action.payload.data.userId
       state.userType = 1;
       state.isLogined = true;
     },
@@ -30,11 +32,16 @@ const authSlice = createSlice({
     initializeValidEmail(state){
       state.confirmEmail = ""
     },
-    logout(state) {
-      state.token = null;
-      state.isLogined = false;
+    getMyData(state, action) {
+      state.userData = action.payload;
+    },
+    logout(state, action) {
+      state.token = action.payload
       state.userType = 0;
-      state.userData = null;
+      state.userId = action.payload
+      state.isLogined = false;
+      state.confirmEmail = action.payload
+      state.userData = action.payload
     },
   }
 });

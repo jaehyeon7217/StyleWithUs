@@ -34,29 +34,44 @@ const FindPassword = () =>{
   return(
     <div>
       <h1 className={classes.PageName}>비밀번호 찾기</h1>
+      <br/><br/>
       <form>
         <InputLabel
-          label="ID"
+          label="아이디"
           type="text"
           value={id}
           onChange={setId}
           placeholder="아이디를 입력해주세요"
           errorMessage={(idError ? "" : "영어와 숫자로만 입력해주세요.")}
         />
-        <InputLabel
-          label="email"
-          type="email"
-          value={email}
-          onChange={setEmail}
-          placeholder="이메일을 입력해주세요"
-          errorMessage={(emailError ? "" : "이메일 양식을 지켜주세요.")}
-        />
-        <br/>
-        <button onClick={FindPasswordChangeSubmit}>이메일 전송</button>
-        <br />
-        <label id="inputEmail" className={classes.EmailNumLabel}>이메일 인증번호</label><br />
-        <input type="text" id="inputEmail"/>
-        <button onClick={toSetNewPassword}>인증</button>
+        <div className={classes.EmailLabel}>
+          <label >
+            <p>이메일</p>
+            <div className={classes.EmailInput}>
+              <input
+                type="email"
+                value={email}
+                placeholder="이메일을 입력해주세요"
+                onChange={setEmail}
+              />
+              <button onClick={FindPasswordChangeSubmit}>이메일 전송</button>
+            </div>
+          </label>
+          <p className={classes.ErrorMessage}>{(emailError ? "": "이메일 양식을 지켜주세요.")}</p>
+        </div>   
+        <div className={classes.EmailLabel}>
+          <label id="inputEmail">
+            <p>이메일 인증번호</p>
+            <div className={classes.EmailInput}>
+              <input
+                type="text"
+                placeholder="인증번호를 입력해주세요"
+              />
+              <button onClick={toSetNewPassword}>인증</button>
+            </div>
+          </label>
+        </div>  
+        
 
       </form>
     </div>

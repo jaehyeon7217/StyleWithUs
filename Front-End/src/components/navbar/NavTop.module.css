@@ -2,4 +2,16 @@
   height: 30px;
   justify-content: right;
   display: flex;
+  
 }
+
+.LinkTop{
+  text-decoration-line: none;
+  margin-left: 30px;
+  color: black;
+  font-size: 12px;
+  
+}
+
+
+
