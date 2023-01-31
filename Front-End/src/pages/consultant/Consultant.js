@@ -22,6 +22,7 @@ const Consultant = (props) => {
   const navigate = useNavigate();
 
   // 유저 아이디
+  const userType = useSelector((state) => state.auth.userType);
   const user = useSelector((state) => state.auth.userData);
 
   // openvidu useState
@@ -174,8 +175,15 @@ const Consultant = (props) => {
 
           let time = ampm + ` ${hours} : ${minutes}`;
 
+          let nickname = ''
+          if (userType === 1) {
+            nickname = user.consultantNickname;
+          } else {
+            nickname = user.userNickname
+          }
+
           setChatting((prevState) => {
-            return [...prevState, { user: user.userNickname, data: event.data, time: time }];
+            return [...prevState, { user: nickname, data: event.data, time: time }];
           });
         }
       });

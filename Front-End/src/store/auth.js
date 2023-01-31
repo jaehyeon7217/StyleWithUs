@@ -19,13 +19,14 @@ const authSlice = createSlice({
       state.userId = action.payload.data.userId
       state.userType = 0;
       state.isLogined = true;
-      state.userData = action.payload.data
+      state.userData = action.payload.data;
     },
     consultantLogin(state, action){
       state.token = action.payload.auth_token;
       state.userId = action.payload.data.userId
       state.userType = 1;
       state.isLogined = true;
+      state.userData = action.payload.data;
     },
     validEmail(state, action){
       state.confirmEmail = action.payload;
