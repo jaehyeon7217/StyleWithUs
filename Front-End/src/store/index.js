@@ -1,4 +1,4 @@
-import { configureStore, createReducer } from "@reduxjs/toolkit";
+import { configureStore } from "@reduxjs/toolkit";
 import storageSession from 'redux-persist/lib/storage/session'
 import { combineReducers } from "redux";
 import { persistReducer, FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER } from 'redux-persist';

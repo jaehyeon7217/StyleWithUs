@@ -70,8 +70,10 @@ const UserSignup = () => {
     event.preventDefault();
     if (inputCode === emailCode){
       setEmailOk(true)
+      window.alert("인증되었습니다!")
     }else{
       setEmailOk(false)
+      window.alert("인증번호를 다시 한번 확인해 주세요")
     };
   };
 
