@@ -1,3 +1,8 @@
+.PageName{
+    font-size: 35px;
+    font-style: italic;
+    
+}
 .LoginBtn{
     width: 340px;
     height: 45px;
@@ -6,3 +11,68 @@
     background-color: rgba(211, 211, 211, 0.300);
     border-radius: 5px;
 }
+
+/* ToggleBtn관련 */
+.ToggleBtn{
+    float: right;
+    /* display:inline-block; */
+    width: 50px;
+    /* height: 30px; */
+    position:relative;
+}
+
+.ToggleBtn
+input[type="checkbox"]{
+    position: absolute;
+    width: 0px;
+    height: 0px;
+    overflow: hidden;
+    
+  }
+
+
+.ToggleBtn
+label::after{  
+    position:absolute;
+    top:2.5px;
+    left:3px;
+    content:'';
+    width: 18px;
+    height: 18px;
+    background: white;
+    border-radius: 100%;
+    transition: all 0.3s;
+    content: 'C';
+    font-size: 13px;
+    
+  }
+
+.ToggleBtn
+label::before{
+    position:absolute;
+    top:0;
+    left:0;
+    content:'';
+    width: 45px;
+    height: 23px;
+    border:1px solid #d1d1d1;
+    border-radius: 20px;
+    background: lightgray;
+    box-sizing: border-box;
+    
+  }
+
+.ToggleBtn
+input[type="checkbox"]:checked + label::after {
+    transform: translateX(20px);
+    background: lightgray;
+    content: 'U';
+    
+  }
+
+.ToggleBtn
+input[type="checkbox"]:checked + label::before {
+    background: #fff;
+    
+    
+  }

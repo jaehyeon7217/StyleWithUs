@@ -1,5 +1,5 @@
 .bottom{
-  height: 50px;
+  height: 20px;
   display: flex;
   align-items: center;
   justify-content: right;
@@ -9,4 +9,11 @@
 }
 .bottom p{
   font-size: 20px;
+}
+
+.LinkBottom{
+  text-decoration-line: none;
+  margin-left: 30px;
+  color: black;
+  
 }
