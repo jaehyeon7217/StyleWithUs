@@ -1,8 +1,5 @@
 FROM node:12.2.0-alpine
-
 WORKDIR /usr/app
-
-COPY Front-End/build
+COPY . .
 EXPOSE 8081
-
 CMD ["npm", "start"]
