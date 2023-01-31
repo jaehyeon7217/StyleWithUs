@@ -29,7 +29,7 @@ const Shop = () => {
               <ClothesType
                 type={type}
                 onToggle={toggleEventHandler}
-                toggleData={type == toggleOn ? true : false}
+                toggleData={type === toggleOn ? true : false}
               />
             </li>
           );
