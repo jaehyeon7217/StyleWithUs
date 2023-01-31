@@ -176,7 +176,7 @@ const Consultant = (props) => {
           let minutes = today.getMinutes();  // 분
           minutes = minutes < 10 ? '0' + minutes.toString() : minutes.toString();
 
-          let time = ampm + ` ${hours} : ` + minutes;
+          let time = ampm + ` ${hours}:` + minutes;
 
           setChatting((prevState) => {
             return [...prevState, { user: userName, data: event.data, time: time }];
