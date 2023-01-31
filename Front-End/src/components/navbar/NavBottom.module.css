@@ -1,3 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Blinker:wght@100;200;300;400;600;700;800;900&display=swap');
+
+@font-face {
+  font-family: "Apple_Gothic_Neo_Mid";
+  src: url("../../fonts/AppleSDGothicNeoM.ttf");
+}
+
+@font-face {
+  font-family: "Apple_Gothic_Neo_Bold";
+  src: url("../../fonts/AppleSDGothicNeoB.ttf");
+}
+
 .bottom{
   height: 20px;
   display: flex;
@@ -7,13 +19,15 @@
 .bottom img {
   width: 40px;
 }
-.bottom p{
+/* .bottom p{
   font-size: 20px;
-}
+} */
 
 .LinkBottom{
   text-decoration-line: none;
   margin-left: 30px;
   color: black;
+  font-family: "Apple_Gothic_Neo_Bold";
+  font-size: 17.5px;
   
 }

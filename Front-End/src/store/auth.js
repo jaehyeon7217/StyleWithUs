@@ -7,7 +7,7 @@ const initialAuthState = {
   userId: "",
   isLogined : false,
   confirmEmail : "",
-  emailForResest : "",
+  emailCodeForResest : "",
   userData : "",
 };
 
@@ -32,8 +32,8 @@ const authSlice = createSlice({
     validEmail(state, action){
       state.confirmEmail = action.payload;
     },
-    initializeValidEmail(state){
-      state.confirmEmail = ""
+    passwordReset(state, action){
+      state.emailCodeForResest = action.payload;
     },
     getMyData(state, action) {
       state.userData = action.payload;

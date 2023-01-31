@@ -1,9 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Blinker:wght@100;200;300;400;600;700;800;900&display=swap');
+
+
+@font-face {
+    font-family: "Apple_Gothic_Neo_Mid";
+    src: url("../../../fonts/AppleSDGothicNeoM.ttf");
+}
+
+@font-face {
+    font-family: "Apple_Gothic_Neo_Light";
+    src: url("../../../fonts/AppleSDGothicNeoL.ttf");
+}
+
 .InputLabel{
     width :auto;
     text-align: left;
 }
 
 .InputLabel label p{
+    font-family: "Apple_Gothic_Neo_Mid";
     font-size: 15px;
     margin-bottom: 12px;
     
@@ -13,7 +27,7 @@
     width: 330px;
     border: none;
     outline: none;
-    border-bottom: 0.5px solid lightgray;
+    border-bottom: 1.5px solid lightgray;
     margin-bottom: 5px;
     padding-bottom: 5px;
     

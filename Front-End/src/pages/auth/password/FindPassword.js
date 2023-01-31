@@ -4,20 +4,30 @@ import InputLabel from "../component/InputLabel";
 import { DataInput } from "../component/Effectiveness";
 import { useNavigate } from "react-router-dom";
 import classes from "./FindPassword.module.css"
+import { useDispatch } from "react-redux";
+import { authActions } from "../../../store/auth";
 
 const FindPassword = () =>{
   const navigate = useNavigate();
+  const dispatch = useDispatch();
   const [id, setId, idError] = DataInput(/^[a-zA-z0-9]{5,20}$/);
   const [email, setEmail, emailError] = DataInput(/^([0-9a-zA-Z_-]+)@([0-9a-zA-Z_-]+)(\.[0-9a-zA-Z_-]+){1,2}$/);
 
   const FindPasswordChangeSubmit = (event) => {
     event.preventDefault()
-    const url = "http://192.168.100.82/user/findpw?userId="+id+"&userEmail="+email
+    console.log(email)
+    const url = "http://43.201.72.251:8082/user/findpw"
     axios.get(
-      url,
+      url,{
+        params: {
+          userId: id,
+          userEmail: email
+        }
+      }
     ).then(response => {
       if (response.status===200){
         console.log(response.data.data);
+        dispatch(authActions.passwordReset(response.data.data))
       }else{
         console.log(response);
         window.alert("아이디와 이메일을 확인해주세요")
