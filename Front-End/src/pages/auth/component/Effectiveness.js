@@ -47,7 +47,7 @@ export const UserValidCheck = (kind) =>{
   const handler = useCallback((event)=>{
     event.preventDefault();
     if (event.target.value !== ""){
-    const url = "http://192.168.100.82/user/valid/" + kind + "/" + event.target.value;
+    const url = "http://43.201.72.251:8082/user/valid/" + kind + "/" + event.target.value;
     axios.get(url).then(response =>{
       if (response.data === false){
         setError(true)
@@ -67,7 +67,7 @@ export const ConsultantValidCheck = (kind) =>{
   const handler = useCallback((event)=>{
     event.preventDefault();
     if (event.target.value !== ""){
-    const url = "http://192.168.100.82/consultant/valid/" + kind + "/" + event.target.value;
+    const url = "http://43.201.72.251:8082/consultant/valid/" + kind + "/" + event.target.value;
     axios.get(url).then(response =>{
       if (response.data === false){
         setError(true)

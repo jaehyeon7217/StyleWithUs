@@ -1,15 +1,32 @@
-.PageName{
-    font-size: 35px;
-    font-style: italic;
-    
+@import url('https://fonts.googleapis.com/css2?family=Blinker:wght@100;200;300;400;600;700;800;900&display=swap');
+@font-face {
+  font-family: "Apple_Gothic_Neo_Hard";
+  src: url("../../../fonts/AppleSDGothicNeoH.ttf");
 }
+
+@font-face {
+  font-family: "Apple_Gothic_Neo_Mid";
+  src: url("../../../fonts/AppleSDGothicNeoM.ttf");
+}
+
+
+
+.PageName{
+  font-family: "Apple_Gothic_Neo_Hard";
+  font-size: 40px;
+  font-style: italic; 
+}
+
+
 .LoginBtn{
-    width: 340px;
-    height: 45px;
-    border: none;
-    border-radius: 1px;
-    background-color: rgba(211, 211, 211, 0.300);
-    border-radius: 5px;
+  font-family: "Apple_Gothic_Neo_Hard";
+  width: 340px;
+  height: 45px;
+  border: none;
+  border-radius: 1px;
+  background-color: rgba(211, 211, 211, 0.300);
+  border-radius: 5px;
+
 }
 
 /* ToggleBtn관련 */
@@ -38,12 +55,14 @@ label::after{
     left:3px;
     content:'';
     width: 18px;
-    height: 18px;
+    height: 16px;
     background: white;
     border-radius: 100%;
     transition: all 0.3s;
-    content: 'U';
+    content: 'C';
     font-size: 13px;
+    font-weight: bold;
+    padding-top: 1.3px;
     
   }
 
@@ -66,13 +85,16 @@ label::before{
 input[type="checkbox"]:checked + label::after {
     transform: translateX(20px);
     background: lightgray;
-    content: 'C';
+    font-weight: bold;
+    content: 'U';
     
   }
 
 .ToggleBtn
 input[type="checkbox"]:checked + label::before {
     background: #fff;
-    
-    
   }
+
+.BottomLabel{
+  font-family: "Apple_Gothic_Neo_Mid";
+}

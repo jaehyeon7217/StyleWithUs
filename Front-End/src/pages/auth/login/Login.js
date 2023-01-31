@@ -22,16 +22,14 @@ const Login = () => {
   // 로그인 api 요청
   const loginSubmit = (event) => {
     event.preventDefault();
-    const url = isUser ? "http://192.168.100.82/user/login" : "http://192.168.100.82/consultant/login";
+    const url = isUser ? "http://43.201.72.251:8082/user/login" : "http://43.201.72.251:8082/consultant/login";
     
     axios.post(
       url, isUser ? {userId : id, userPw : password} : {consultantId : id, consultantPw : password} )
       .then(response => {
         if (response.status === 200){
-          console.log(response.data)
           isUser ? dispatch(authActions.userLogin(response.data)) : dispatch(authActions.consultantLogin(response.data));
           navigate("/");
-
         }else{
           window.alert("아이디와 비밀번호를 확인해주세요!")
         }
@@ -40,7 +38,7 @@ const Login = () => {
         window.alert("서버와 연결이 끊겼습니다.")
       });
   };
-  // toggleBtn  
+  // toggleBtn
   const onChangeBtn = () =>{
     setIsUser(!isUser)
   }
