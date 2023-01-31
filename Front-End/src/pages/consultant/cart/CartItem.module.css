@@ -1,0 +1,44 @@
+@font-face {
+  font-family: "Apple_Gothic_Neo_Bold";
+  src: url("../../../fonts/AppleSDGothicNeoB.ttf");
+}
+
+@font-face {
+  font-family: "Apple_Gothic_Neo_Light";
+  src: url("../../../fonts/AppleSDGothicNeoL.ttf");
+}
+
+.a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  text-decoration: none;
+  color: gray;
+  border-bottom: 1px solid rgb(211, 211, 211);
+  height: 50px;
+  margin-top: 11px;
+  padding-bottom: 10px;
+  transition: color .15s;
+}
+
+.a:hover {
+  color: black;
+}
+
+.a div {
+  display: flex;
+  align-items: center;
+}
+
+.a > span {
+  color: black;
+  font-weight: 600;
+}
+
+.img {
+  display: inline-block;
+  width: auto;
+  height: 50px;
+  border-radius: 8px;
+  margin: 0 15px 0 10px;
+}

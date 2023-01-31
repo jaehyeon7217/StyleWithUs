@@ -7,7 +7,7 @@ import classes from "./ClothesType.module.css";
 
 const ClothesType = (props) => {
   // 타입, 카테고리, 디테일 항목들을 리덕스에서 가져온다.
-  const category = useSelector((state) => state.cart.category);
+  const category = useSelector((state) => state.shop.category);
   const type = props.type;
   const details = Object.keys(category[type]);
 
