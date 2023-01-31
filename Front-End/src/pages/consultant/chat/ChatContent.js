@@ -10,6 +10,9 @@ const ChatContent = (props) => {
   const chattings = props.chatting;
 
   const user = useSelector((state) => state.auth.userData);
+  const userType = useSelector((state) => state.auth.userType);
+
+  let nickname = userType === 1 ? user.consultantNickname : user.userNickname;
 
   useEffect(() => {
     const chatWindow = document.getElementById("chat-window");
@@ -23,7 +26,7 @@ const ChatContent = (props) => {
       <div id="chat-window" className={classes.y}>
         <ul className={classes.ul}>
           {chattings.map((chatting, idx) => {
-            return <ChatContentItem key={idx} message={chatting.data} isMyself={chatting.user === user.userNickname ? true : false } time={chatting.time}/>
+            return <ChatContentItem key={idx} message={chatting.data} isMyself={chatting.user === nickname ? true : false } time={chatting.time}/>
           })}
         </ul>
       </div>
