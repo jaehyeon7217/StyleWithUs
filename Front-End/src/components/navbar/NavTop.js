@@ -7,7 +7,7 @@ const NavTop = () =>{
       <Link to="/mypage" className={classes.LinkTop}>마이페이지</Link> 
       <Link to="/" className={classes.LinkTop}>SBTI</Link> 
       <Link to="/"className={classes.LinkTop}>로그아웃</Link>
-      </div>
+    </div>
   )
 }
 
