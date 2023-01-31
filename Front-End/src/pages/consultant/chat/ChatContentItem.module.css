@@ -3,34 +3,50 @@
   overflow: hidden;
 }
 
+.speech-bubble-box > div {
+  display: flex;
+  align-items: flex-end;
+}
+
+.speech-bubble-box > .div-right {
+  flex-direction: row-reverse;
+  justify-content: flex-start;
+}
+
+.speech-bubble-box > .div-left {
+  justify-content: flex-start;
+}
+
 .speech-bubble {
   margin: 10px 5px;
   padding: 12px 20px 10px;
   border-radius: 15px;
+  max-width: 70%;
 }
 
 .right {
-  float: right;
+  /* float: right; */
   color: white;
   background-color: rgb(14 130 246);
 }
 
 .left {
-  float: left;
+  /* float: left; */
   background-color: rgb(222 222 227);
 }
 
 .span-right {
   float: right;
   color: black;
-  margin-top: 27px;
-  margin-right: 5px;
+  margin: 0 5px;
+  margin-bottom: 10px;
   font-size: 14px;
 }
 
 .span-left {
   float: left;
   color: black;
-  margin-top: 27px;
-  margin-left: 5px;
+  margin: 0 5px;
+  margin-bottom: 10px;
+  font-size: 14px;
 }

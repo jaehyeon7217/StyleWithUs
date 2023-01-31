@@ -7,16 +7,18 @@ const ChatContentItem = (props) => {
 
   return (
     <div className={classes["speech-bubble-box"]}>
-      <p
-        className={`${mySelf ? classes.right : classes.left} ${
-          classes["speech-bubble"]
-        }`}
-      >
-        {message}
-      </p>
-      <span className={mySelf ? classes["span-right"] : classes["span-left"]}>
-        {props.time}
-      </span>
+      <div className={mySelf ? classes["div-right"] : classes["div-left"]}>
+        <p
+          className={`${mySelf ? classes.right : classes.left} ${
+            classes["speech-bubble"]
+          }`}
+        >
+          {message}
+        </p>
+        <span className={mySelf ? classes["span-right"] : classes["span-left"]}>
+          {props.time}
+        </span>
+      </div>
     </div>
   );
 };
