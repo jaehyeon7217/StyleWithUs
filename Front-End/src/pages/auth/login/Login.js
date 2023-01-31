@@ -28,6 +28,7 @@ const Login = () => {
       url, isUser ? {userId : id, userPw : password} : {consultantId : id, consultantPw : password} )
       .then(response => {
         if (response.status === 200){
+          console.log(response.data)
           isUser ? dispatch(authActions.userLogin(response.data)) : dispatch(authActions.consultantLogin(response.data));
           navigate("/");
 
@@ -41,8 +42,7 @@ const Login = () => {
   };
   // toggleBtn  
   const onChangeBtn = () =>{
-    setIsUser((event) => !(event))
-    console.log(isUser)
+    setIsUser(!isUser)
   }
   // 회원가입 페이지 이동
   const toUserSignup = (event) => {
@@ -64,7 +64,7 @@ const Login = () => {
       <h1 className={classes.PageName}>STYLE WITH US</h1>
       <br/><br/>
       <div className={classes.ToggleBtn}>
-        <input value={isUser} type="checkbox" name="onoff-switch" id="onoff-switch1" onClick={onChangeBtn} />
+        <input type="checkbox" name="onoff-switch" id="onoff-switch1" onClick={onChangeBtn} />
         <label htmlFor="onoff-switch1"></label>
       </div>
       <form onSubmit={loginSubmit}>
