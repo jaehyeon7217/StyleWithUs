@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import OpenViduVideoComponent from "./OvVideo";
+import PersonalColor from "./PersonalColor";
 import "./Video.css";
 
 export default class UserVideoComponent extends Component {
@@ -15,9 +16,10 @@ export default class UserVideoComponent extends Component {
         {this.props.streamManager !== undefined ? (
           <div className="streamcomponent">
             <OpenViduVideoComponent streamManager={this.props.streamManager} />
-            {/* <div>
-              <p>{this.getNicknameTag()}</p>
-            </div> */}
+            <div>
+              <PersonalColor />
+              {/* <p>{this.getNicknameTag()}</p> */}
+            </div>
           </div>
         ) : null}
       </div>
