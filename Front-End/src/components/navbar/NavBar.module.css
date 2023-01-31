@@ -10,21 +10,26 @@
   position: fixed;
   top: 0;
   left: 0;
-  width: 90%;
+  right: 0;
   height: 80px;
   background-color: #ffffff;
   color: rgb(0, 0, 0);
   justify-content: space-between;
   align-items: center;
   display: flex;
-  padding: 0 5% 0 5%;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+  padding: 0 2.5% 0 2.5%;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
   z-index: 10;
 }
 .header img{
   width: 50px;
 }
+
+.header img:hover {
+  cursor: pointer;
+} 
+
 .header .box{
   display: block;
-  width: 70%;
+  height: 100%;
 }

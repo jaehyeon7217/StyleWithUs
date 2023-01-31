@@ -259,7 +259,6 @@ const Consultant = (props) => {
 
   return (
     <Fragment>
-      <h1>Consultant</h1>
       <main className={classes.main}>
         <section className="container">
           {session === undefined ? (

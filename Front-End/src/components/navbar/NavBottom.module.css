@@ -11,10 +11,10 @@
 }
 
 .bottom{
-  height: 20px;
+  height: 70%;
   display: flex;
   align-items: center;
-  justify-content: right;
+  justify-content: flex-end;
 }
 .bottom img {
   width: 40px;
@@ -24,10 +24,19 @@
 } */
 
 .LinkBottom{
-  text-decoration-line: none;
+  text-decoration: none;
+  margin-left: 30px;
+  color: black;
+  font-family: "Apple_Gothic_Neo_Mid";
+  font-size: 19px;
+  font-weight: 300;
+}
+
+.LinkBottom-active {
+  text-decoration: none;
   margin-left: 30px;
   color: black;
   font-family: "Apple_Gothic_Neo_Bold";
-  font-size: 17.5px;
-  
+  font-size: 19px;
+  font-weight: 500;
 }
