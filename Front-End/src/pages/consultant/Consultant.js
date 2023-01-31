@@ -72,18 +72,6 @@ const Consultant = (props) => {
   };
 
   // openvidu 함수
-  const componentDidMount = () => {
-    window.addEventListener("beforeunload", onbeforeunload);
-  };
-
-  const componentWillUnmount = () => {
-    window.removeEventListener("beforeunload", onbeforeunload);
-  };
-
-  const onbeforeunload = (event) => {
-    leaveSession();
-  };
-
   const handleChangeSessionId = (event) => {
     setMySessionId(event.target.value);
   };
@@ -176,9 +164,20 @@ const Consultant = (props) => {
       });
 
       newSession.on("signal", (event) => {
-        setChatting((prevState) => {
-          return [...prevState, { user: user, data: event.data }];
-        });
+        if (event.data.trim() !== "") {
+          let today = new Date();   
+
+          let hours = today.getHours(); // 시
+          let ampm = hours >= 0 && hours < 12 ? '오전' : '오후';
+          hours = hours > 12 ? hours - 12 : hours;
+          let minutes = today.getMinutes();  // 분
+
+          let time = ampm + ` ${hours} : ${minutes}`;
+
+          setChatting((prevState) => {
+            return [...prevState, { user: user.userNickname, data: event.data, time: time }];
+          });
+        }
       });
 
       // 1-3 예외처리
@@ -247,7 +246,7 @@ const Consultant = (props) => {
         type: "my-chat", // The type of message (optional)
       })
       .then(() => {
-        console.log("Message successfully sent");
+        // console.log("Message successfully sent");
       })
       .catch((error) => {
         console.error(error);

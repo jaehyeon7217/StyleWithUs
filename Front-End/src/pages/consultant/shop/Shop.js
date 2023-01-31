@@ -5,9 +5,9 @@ import { useSelector } from "react-redux";
 import ClothesType from "./ClothesType";
 
 const Shop = () => {
-  const [toggleOn, setToggleOn] = useState('');
+  const [toggleOn, setToggleOn] = useState("");
 
-  const category = useSelector(state => state.cart.category)
+  const category = useSelector((state) => state.shop.category);
   const arrayCategory = Object.keys(category);
 
   const toggleEventHandler = (liTitle) => {
@@ -18,15 +18,25 @@ const Shop = () => {
     setToggleOn(liTitle);
   };
 
-  return <div className={classes.shop}>
-    <h2 className={classes.h2}>카테고리</h2>
-    <div className={classes.wall}></div>
-    <ul className={classes.ul}>
-      {arrayCategory.map(type => {
-        return <li key={type}><ClothesType type={type} onToggle={toggleEventHandler} toggleData={type == toggleOn ? true : false }/></li>
-      })}
-    </ul>
-  </div>
+  return (
+    <div className={classes.shop}>
+      <h2 className={classes.h2}>카테고리</h2>
+      <div className={classes.wall}></div>
+      <ul className={classes.ul}>
+        {arrayCategory.map((type) => {
+          return (
+            <li key={type}>
+              <ClothesType
+                type={type}
+                onToggle={toggleEventHandler}
+                toggleData={type == toggleOn ? true : false}
+              />
+            </li>
+          );
+        })}
+      </ul>
+    </div>
+  );
 };
 
 export default Shop;
