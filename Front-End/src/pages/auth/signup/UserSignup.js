@@ -1,13 +1,14 @@
 import axios from "axios";
-// component 호출
-import InputLabel from "../component/InputLabel";
-import { DataInput, CheckPassword, ValidCheck } from "../component/Effectiveness";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { GenderCheckbox } from "../component/GenderCheckbox";
-import classes from "./UserSignUp.module.css"
 import { useDispatch, useSelector } from "react-redux";
 import { authActions } from "../../../store/auth";
-import { useState } from "react";
+// component 호출
+import InputLabel from "../component/InputLabel";
+import { DataInput, CheckPassword, UserValidCheck } from "../component/Effectiveness";
+import { GenderCheckbox } from "../component/GenderCheckbox";
+// classes 호출
+import classes from "./UserSignUp.module.css"
 
 const UserSignup = () => {
   const navigate = useNavigate();
@@ -22,9 +23,9 @@ const UserSignup = () => {
   const [inputCode, setInputCode] = useState("");
   const [emailOk, setEmailOk] = useState(false)
   
-  const [idValidError, checkId] = ValidCheck("id");
-  const [emailValidError, checkEmail] = ValidCheck("email");
-  const [nickNameValidError, checkNickname] = ValidCheck("nickname");
+  const [idValidError, checkId] = UserValidCheck("id");
+  const [emailValidError, checkEmail] = UserValidCheck("email");
+  const [nickNameValidError, checkNickname] = UserValidCheck("nickname");
 
   // 유저 회원가입 api 요청
   const userSignupSubmit = (event) =>{

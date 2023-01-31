@@ -40,14 +40,34 @@ export const CheckPassword = (password) => {
   return [inputData, handler, dataError];
 };
 
-
-export const ValidCheck = (kind) =>{
+// 유저유효성 검사
+export const UserValidCheck = (kind) =>{
   const [validError, setError] = useState(true);
 
   const handler = useCallback((event)=>{
     event.preventDefault();
     if (event.target.value !== ""){
     const url = "http://192.168.100.82/user/valid/" + kind + "/" + event.target.value;
+    axios.get(url).then(response =>{
+      if (response.data === false){
+        setError(true)
+      }else{
+        setError(false)
+      }
+    }).catch(error => {
+      console.log(error)
+    });}
+  }, [kind]);
+  return [validError, handler];
+}
+
+export const ConsultantValidCheck = (kind) =>{
+  const [validError, setError] = useState(true);
+
+  const handler = useCallback((event)=>{
+    event.preventDefault();
+    if (event.target.value !== ""){
+    const url = "http://192.168.100.82/consultant/valid/" + kind + "/" + event.target.value;
     axios.get(url).then(response =>{
       if (response.data === false){
         setError(true)
