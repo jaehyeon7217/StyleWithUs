@@ -7,6 +7,7 @@ const initialAuthState = {
   userId: "",
   isLogined : false,
   confirmEmail : "",
+  emailForResest : "",
   userData : "",
 };
 
