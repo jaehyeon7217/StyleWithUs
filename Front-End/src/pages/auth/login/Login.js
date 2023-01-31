@@ -36,28 +36,24 @@ const Login = () => {
           window.alert("아이디와 비밀번호를 확인해주세요!")
         }
       })
-      .catch(error =>{
+      .catch(
         window.alert("서버와 연결이 끊겼습니다.")
-      });
+      );
   };
-  // toggleBtn
-  
+  // toggleBtn  
   const onChangeBtn = () =>{
     setIsUser((event) => !(event))
   }
-
   // 회원가입 페이지 이동
   const toUserSignup = (event) => {
     event.preventDefault();
     navigate("/auth/usersignup")
   }
-
   // 비밀번호 찾기 페이지 이동
   const FindPassword = (event) => {
     event.preventDefault();
     navigate("/auth/findpassword")
   }
-
   // sumbit 활성화 & 비활성화
   const nullError = (!!id && !!password) 
   const effectivnessError = idError && passwordError
