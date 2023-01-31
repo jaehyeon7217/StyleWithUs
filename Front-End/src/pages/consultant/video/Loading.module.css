@@ -1,5 +1,9 @@
 .loading-container{
-  vertical-align: middle;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
 }
 
 .loading-pic{
@@ -10,16 +14,26 @@
 }
 
 .loading-pic img{
-  width: 10%;
-  height: 10%;
+  width: 200px;
+  height: auto;
+  margin: 5%;
 }
 
-.loading-rotating-pic{
-  transition: transform 10s;
-  transform: rotate(740deg);
+.loading-pic img.loading-rotating-pic{
+  width: 120px;
+  height: auto;
+  margin: 5%;
+  /* transition: transform 10s;
+  transform: rotate(740deg); */
+  animation: rotate_image 10s linear infinite;
+}
+
+@keyframes rotate_image{
+  100%{
+    transform: rotate(360deg)
+  }
 }
 
 .loading-text h1{
   text-align: center;
-  color: red;
 }
