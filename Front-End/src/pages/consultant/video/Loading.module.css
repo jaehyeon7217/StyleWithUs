@@ -1,3 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Blinker:wght@100;200;300;400;600;700;800;900&display=swap');
+@font-face {
+  font-family: "Apple_Gothic_Neo_Bold";
+  src: url("../../../fonts/AppleSDGothicNeoB.ttf");
+}
+
+@font-face {
+  font-family: "Apple_Gothic_Neo_Light";
+  src: url("../../../fonts/AppleSDGothicNeoL.ttf");
+}
+
 .loading-container{
   display: flex;
   justify-content: center;
@@ -35,5 +46,6 @@
 }
 
 .loading-text h1{
+  font-family: "Apple_Gothic_Neo_Light";
   text-align: center;
 }
