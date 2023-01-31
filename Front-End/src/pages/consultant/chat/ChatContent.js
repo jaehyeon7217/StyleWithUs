@@ -20,11 +20,11 @@ const ChatContent = (props) => {
   }, [chattings]);
 
   return (
-    <div className={cssClasses}>
-      <h2 className={classes.h2}>채팅창</h2>
-      <div className={classes.wall}></div>
-      <div id="chat-window" className={classes.y}>
-        <ul className={classes.ul}>
+    <div className={`${cssClasses} chat-toggle-event`}>
+      <h2 className={`${classes.h2} chat-toggle-event`}>채팅창</h2>
+      <div className={`${classes.wall} chat-toggle-event`}></div>
+      <div id="chat-window" className={`${classes.y} chat-toggle-event`}>
+        <ul className={`${classes.ul} chat-toggle-event`}>
           {chattings.map((chatting, idx) => {
             return <ChatContentItem key={idx} message={chatting.data} isMyself={chatting.user === nickname ? true : false } time={chatting.time}/>
           })}

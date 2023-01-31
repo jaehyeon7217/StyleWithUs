@@ -38,6 +38,15 @@ const Consultant = (props) => {
   // 채팅창 아이템들
   const [chatting, setChatting] = useState([]);
 
+  // 채팅창 focus blur 이벤트 작동 조건
+  document.querySelector("body").addEventListener("click", function(event) {
+    if (String(event.target.className).includes("chat-toggle-event")) {
+      onFucusHandler();
+    } else {
+      onBlurHandler();
+    }
+  })
+
   // 뒤로가기 버튼을 누를 때 loading 상태 업데이트
   useEffect(() => {
     const listenBackEvent = () => {
@@ -356,8 +365,6 @@ const Consultant = (props) => {
             />
           </div>
           <ChatForm
-            onFocus={onFucusHandler}
-            onBlur={onBlurHandler}
             onMessageSend={messageSendHandler}
           />
         </section>

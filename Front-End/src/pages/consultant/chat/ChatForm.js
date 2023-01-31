@@ -20,11 +20,12 @@ const ChatForm = (props) => {
     <form className={classes["chat-form"]} onSubmit={onSubmitHandler}>
       <input
         type="text"
+        id="chat-form-input"
         onFocus={props.onFocus}
         onBlur={props.onBlur}
         onInput={onInputHandler}
         value={message}
-        className={classes.input}
+        className={`${classes.input} chat-toggle-event`}
         placeholder="채팅창을 보고 싶으면 클릭해주세요."
       />
     </form>

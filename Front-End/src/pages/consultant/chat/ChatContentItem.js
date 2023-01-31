@@ -6,16 +6,16 @@ const ChatContentItem = (props) => {
   const mySelf = props.isMyself;
 
   return (
-    <div className={classes["speech-bubble-box"]}>
-      <div className={mySelf ? classes["div-right"] : classes["div-left"]}>
+    <div className={`${classes["speech-bubble-box"]} chat-toggle-event`}>
+      <div className={`${mySelf ? classes["div-right"] : classes["div-left"]} chat-toggle-event`}>
         <p
           className={`${mySelf ? classes.right : classes.left} ${
             classes["speech-bubble"]
-          }`}
+          } chat-toggle-event`}
         >
           {message}
         </p>
-        <span className={mySelf ? classes["span-right"] : classes["span-left"]}>
+        <span className={`${mySelf ? classes["span-right"] : classes["span-left"]} chat-toggle-event`}>
           {props.time}
         </span>
       </div>
