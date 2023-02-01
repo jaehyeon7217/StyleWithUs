@@ -39,8 +39,8 @@ public static final Logger logger = LoggerFactory.getLogger(JwtInterceptor.class
 //			return true;
 //		}
 
-		log.info(request.getHeader("첫 번째 : " + HEADER_AUTH));
-		log.info(request.getHeader("두 번째 : " + HEADER_AUTH2));
+		log.info("첫 번째 : " + request.getHeader(HEADER_AUTH));
+		log.info("두 번째 : " + request.getHeader(HEADER_AUTH2));
 
 		if(HttpMethod.OPTIONS.matches(request.getMethod())){
 			return true;
