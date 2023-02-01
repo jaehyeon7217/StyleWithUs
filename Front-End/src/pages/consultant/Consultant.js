@@ -11,6 +11,7 @@ import Shop from "./shop/Shop";
 import Cart from "./cart/Cart";
 import ChatContent from "./chat/ChatContent";
 import ChatForm from "./chat/ChatForm";
+import chatImage from "../../assets/chat.png";
 
 const APPLICATION_SERVER_URL =
   process.env.NODE_ENV === "production"
@@ -38,14 +39,17 @@ const Consultant = (props) => {
   // 채팅창 아이템들
   const [chatting, setChatting] = useState([]);
 
+  // 알람창 카운트
+  const [alarmCount, setAlarmCount] = useState(0);
+
   // 채팅창 focus blur 이벤트 작동 조건
-  document.querySelector("body").addEventListener("click", function(event) {
+  document.querySelector("body").addEventListener("click", function (event) {
     if (String(event.target.className).includes("chat-toggle-event")) {
       onFucusHandler();
     } else {
       onBlurHandler();
     }
-  })
+  });
 
   // 뒤로가기 버튼을 누를 때 loading 상태 업데이트
   useEffect(() => {
@@ -72,12 +76,18 @@ const Consultant = (props) => {
 
   // 포커스 될 때 채팅창이 보이게 하는 함수
   const onFucusHandler = () => {
+    setAlarmCount(0);
     setToggleChatToCart(true);
   };
 
   // 블러 될 때 카트가 보이게 하는 함수
   const onBlurHandler = () => {
     setToggleChatToCart(false);
+  };
+
+  // 챗 알람
+  const chattingAlarm = (count) => {
+    setAlarmCount(count);
   };
 
   // openvidu 함수
@@ -174,21 +184,25 @@ const Consultant = (props) => {
 
       newSession.on("signal", (event) => {
         // {"clientData":"bingbang"}
-        const userName = event.from.data.slice(15, -2)
+        const userName = event.from.data.slice(15, -2);
 
         if (event.data.trim() !== "") {
-          let today = new Date();   
+          let today = new Date();
 
           let hours = today.getHours(); // 시
-          let ampm = hours >= 0 && hours < 12 ? '오전' : '오후';
+          let ampm = hours >= 0 && hours < 12 ? "오전" : "오후";
           hours = hours > 12 ? hours - 12 : hours;
-          let minutes = today.getMinutes();  // 분
-          minutes = minutes < 10 ? '0' + minutes.toString() : minutes.toString();
+          let minutes = today.getMinutes(); // 분
+          minutes =
+            minutes < 10 ? "0" + minutes.toString() : minutes.toString();
 
           let time = ampm + ` ${hours}:` + minutes;
 
           setChatting((prevState) => {
-            return [...prevState, { user: userName, data: event.data, time: time }];
+            return [
+              ...prevState,
+              { user: userName, data: event.data, time: time },
+            ];
           });
         }
       });
@@ -362,11 +376,15 @@ const Consultant = (props) => {
                   : classes["toggle-animation-off"]
               }
               chatting={chatting}
+              alarm={chattingAlarm}
+              alarmCount={alarmCount}
             />
           </div>
-          <ChatForm
-            onMessageSend={messageSendHandler}
-          />
+          <ChatForm onMessageSend={messageSendHandler} />
+          <div className={`${classes.alarm} ${alarmCount > 0? classes['alarm-on'] : ''}`}>
+            <span>{alarmCount}</span>
+            <img src={chatImage} alt="chat" />
+          </div>
         </section>
       </main>
       <button onClick={pageBackHandler}>Back</button>
