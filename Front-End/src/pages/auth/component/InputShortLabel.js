@@ -10,7 +10,7 @@ const InputShortLabel= ({label, errorMessage, buttonName, onClick, ...rest}) => 
           <input {...rest} />
           <button onClick={onClick}>{buttonName}</button>
         </label>
-        <p className={classes.ErrorMessage}>{errorMessage}</p>
+        <p className={(errorMessage ?  classes.ErrorMessage : classes.ErrorMessagehidden)} > {(errorMessage ?  errorMessage : "qqq")}</p>
       </div>
     )
   }

@@ -7,7 +7,7 @@ const InputLabel= ({label, errorMessage, ...rest}) => {
         <p>{label}</p>
         <input {...rest} />
       </label>
-      <p className={classes.ErrorMessage}>{errorMessage}</p>
+      <p className={(errorMessage ?  classes.ErrorMessage : classes.ErrorMessagehidden)} > {(errorMessage ?  errorMessage : "qqq")}</p>
     </div>
   )
 }
