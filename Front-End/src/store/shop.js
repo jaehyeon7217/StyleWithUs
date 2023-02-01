@@ -74,7 +74,7 @@ const shopSlice = createSlice({
       const type = action.payload.type;
       const detail = action.payload.detail;
       const data = action.payload.data;
-      state.category[type][detail].push(...data);
+      state.category[type][detail] = data;
     }
   }
 });

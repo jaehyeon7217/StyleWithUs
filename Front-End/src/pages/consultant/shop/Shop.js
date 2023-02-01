@@ -1,12 +1,14 @@
 import classes from "./Shop.module.css";
-
 import { useState } from "react";
 import { useSelector } from "react-redux";
+
 import ClothesType from "./ClothesType";
+import ShopItems from "./ShopItems";
 
 const Shop = () => {
   const [toggleOn, setToggleOn] = useState("");
   const [shopOn, setShopOn] = useState(false);
+  const [detailPage, setDetailPage] = useState(null);
 
   const category = useSelector((state) => state.shop.category);
   const arrayCategory = Object.keys(category);
@@ -21,27 +23,30 @@ const Shop = () => {
 
   const detailShop = (data) => {
     setShopOn(true);
-    console.log(data);
+    setDetailPage(data);
   };
 
   return (
     <div className={classes.shop}>
       <h2 className={classes.h2}>카테고리</h2>
       <div className={classes.wall}></div>
-      {!shopOn && <ul className={classes.ul}>
-        {arrayCategory.map((type) => {
-          return (
-            <li key={type}>
-              <ClothesType
-                type={type}
-                onToggle={toggleEventHandler}
-                toggleData={type === toggleOn ? true : false}
-                detailShop={detailShop}
-              />
-            </li>
-          );
-        })}
-      </ul>}
+      {!shopOn && (
+        <ul className={classes.ul}>
+          {arrayCategory.map((type) => {
+            return (
+              <li key={type}>
+                <ClothesType
+                  type={type}
+                  onToggle={toggleEventHandler}
+                  toggleData={type === toggleOn ? true : false}
+                  detailShop={detailShop}
+                />
+              </li>
+            );
+          })}
+        </ul>
+      )}
+      {shopOn && <ShopItems detailPage={detailPage}/>}
     </div>
   );
 };
