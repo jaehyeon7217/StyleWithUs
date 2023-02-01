@@ -40,6 +40,10 @@ public class SwaggerConfiguration {
     public Docket openviduApi() {
         return getDocket("화상채팅", Predicates.or(PathSelectors.regex("/openvidu.*")));
     }
+    @Bean
+    public Docket reviewApi() {
+        return getDocket("컨설턴트 리뷰", Predicates.or(PathSelectors.regex("/review.*")));
+    }
 
     //////////////////////////////////////////////////////////////////////////////////////////////////////
 
