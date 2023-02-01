@@ -1,108 +1,78 @@
+@import url('https://fonts.googleapis.com/css2?family=Blinker:wght@100;200;300;400;600;700;800;900&display=swap');
+@font-face {
+  font-family: "Apple_Gothic_Neo_Hard";
+  src: url("../../../fonts/AppleSDGothicNeoH.ttf");
+}
+
+@font-face {
+  font-family: "Apple_Gothic_Neo_Mid";
+  src: url("../../../fonts/AppleSDGothicNeoM.ttf");
+}
+
+@font-face {
+  font-family: "Apple_Gothic_Neo_Light";
+  src: url("../../../fonts/AppleSDGothicNeoL.ttf");
+}
+
+@font-face {
+  font-family: "Apple_Gothic_Neo_Bold";
+  src: url("../../../fonts/AppleSDGothicNeoB.ttf");
+}
+
+@font-face {
+    font-family: "Apple_Gothic_Neo_SBold";
+    src: url("../../../fonts/AppleSDGothicNeoSB.ttf");
+}
+
 .PageName{
-  font-size: 35px;
-}
-
-.EmailLabel{
-  text-align: left;
-  
-}
-
-.EmailLabel label p{
-  font-size: 15px;
-  margin-bottom: 12px;
-}
-
-.EmailLabel label input{
-  width: 220px;
-  border: none;
-  border-bottom: 0.5px solid lightgray;
-  margin-bottom: 5px;
-  padding-bottom: 5px;
-  outline: none;
-}
-
-.EmailInput {
-  overflow: hidden;
-}
-
-.EmailInput button {
-  width: 110px;
-  height: 28px;
-  float: right;
-  border-radius: 8px;
-  border: none;
-  margin-bottom: 8px;
-  color: grey;
-  font-size: 12px;
-  font-weight: bolder;
-  
-}
-
-.EmailNumLabel {
-  text-align: left;
-
-}
-
-.EmailNumLabel label p {
-  font-size: 15px;
-  margin-bottom: 12px;
-}
-
-.EmailNumLabel label input {
-  width: 220px;
-  border: none;
-  outline: none;
-  border-bottom: 0.5px solid lightgray;
-  margin-bottom: 23px;
-  padding-bottom: 5px;
-}
-
-.EmailNumBtn{
-  width: 110px;
-  height: 25px;
-  float: right;
-  border-radius: 8px;
-  border: none;
-  margin-bottom: 8px;
-  color: grey;
-  font-size: 12px;
-  font-weight: bolder;
-}
-
-.EmailNumInput {
-  overflow: hidden;
-}
-
-
-.ErrorMessage{
-  font-size: 12px;
-  color: red;
-  margin-top: 5px;
-  margin-bottom: 20px;
+  font-family: "Apple_Gothic_Neo_SBold";
+  font-size: 37px;
 }
 
 .GenderP{
+  font-family: "Apple_Gothic_Neo_Mid";
+  font-size: 15px;
   float: left;
-  margin-right: 300px;
+  margin-right: 250px;
   margin-bottom: 10px;
+  margin-left: 20px;
 }
 
 .Gender{
+  font-family: "Apple_Gothic_Neo_Light";
+  font-size: 14.5px;
   float: left;
   margin-right: 10px;
+  margin-top: -5px;
+  margin-left: 22px;
+}
+
+.ShowModal{
+  font-family: "Apple_Gothic_Neo_SBold";
+  font-size: 14px;
+  float: right;
+  margin-right: 17px;
+  margin-top: -5px;
+  text-decoration: underline;
 }
 
 
-/* checkbox 디자인 */
-
-
-
 .SignupBtn{
-  width: 340px;
+  font-family: "Apple_Gothic_Neo_Bold";
+  font-size: 15px;
+  width: 310px;
   height: 45px;
   border: none;
   border-radius: 1px;
   background-color: rgba(211, 211, 211, 0.300);
   border-radius: 5px;
+  margin-left: 10px;
+  margin-top: -5px;
 }
 
+
+.ToLoginLink{
+   font-family: "Apple_Gothic_Neo_Mid";
+   margin-left: 20px;
+
+}

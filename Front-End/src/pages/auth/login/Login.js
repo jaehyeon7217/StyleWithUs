@@ -60,7 +60,8 @@ const Login = () => {
   return(
     <div>
       <h1 className={classes.PageName}>STYLE WITH US</h1>
-      <br/><br/>
+      <p className={classes.SubPageName}>Let's go check your style with us</p>
+      <br/><br/><br/>
       <div className={classes.ToggleBtn}>
         <input type="checkbox" name="onoff-switch" id="onoff-switch1" onClick={onChangeBtn} />
         <label htmlFor="onoff-switch1"></label>
@@ -85,15 +86,11 @@ const Login = () => {
         <button type="submit" disabled={!submitError} className={classes.LoginBtn}>로그인</button>
       </form>
       <br />
-      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-      <label onClick={toUserSignup}>회원가입</label>
-      &nbsp;&nbsp;
-      &nbsp;&nbsp;
-      |
-      &nbsp;&nbsp;
-      &nbsp;&nbsp;
-      <label onClick={FindPassword}>비밀번호 찾기</label>
-    
+      <div className={classes.BottomLabelBox}>
+      <label onClick={toUserSignup} className={classes.BottomLabel}>회원가입</label>
+      <p className={classes.Vline}>I</p>
+      <label onClick={FindPassword} className={classes.BottomLabel}>비밀번호 찾기</label>
+      </div>
     </div>
   )
 }

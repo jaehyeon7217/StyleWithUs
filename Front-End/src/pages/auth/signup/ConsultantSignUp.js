@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { authActions } from "../../../store/auth";
 // 컴포넌트 호출
 import InputLabel from "../component/InputLabel";
+import InputShortLabel from "../component/InputShortLabel";
 import { DataInput, CheckPassword, ConsultantValidCheck } from "../component/Effectiveness";
 import { GenderCheckbox } from "../component/GenderCheckbox";
 import ModalBasic from "../component/ModalBasic"
@@ -132,37 +133,27 @@ const ConsultantSignUp = () =>{
           onBlur={checkNickname}
           errorMessage={(nickNameEffectError ? (nickNameValidError ? "" : "이미 있는 닉네임입니다.") : "영어와 숫자로만 입력해주세요.")}
         />
-        <div className={classes.EmailLabel}>
-          <label >
-            <p>이메일</p>
-            <div className={classes.EmailInput}>
-              <input
-                type="email"
-                value={email}
-                placeholder="이메일을 입력해주세요"
-                onChange={setEmail}
-                onBlur={checkEmail}
-              />
-          <button onClick={confirmEmail} className={classes.EmailInputBtn}>인증 번호 전송</button>
-            </div>
-          </label>
-          <p className={classes.ErrorMessage}>{(emailEffectError ? (emailValidError ? "" : "이미 있는 이메일입니다.") : "이메일 양식을 지켜주세요.")}</p>
-        </div>   
+        <InputShortLabel
+          label="이메일"
+          buttonName="이메일 전송"
+          type="text"
+          value={email}
+          placeholder="이메일을 입력해주세요"
+          onChange={setEmail}
+          onBlur={checkEmail}
+          errorMessage={(emailEffectError ? (emailValidError ? "" : "이미 있는 이메일입니다.") : "이메일 양식을 지켜주세요.")}
+          onClick={confirmEmail}
+        />
+        <InputShortLabel
+          label="이메일 인증 번호"
+          buttonName="인증"
+          type="text"
+          value={inputCode}
+          placeholder="이메일 인증 번호를 입력해주세요"
+          onChange={setInputCode}
+          onClick={checkEmailCode}
+        />
 
-        <div className={classes.EmailNumLabel}>
-          <label >
-            <p>이메일 인증 번호</p>
-            <div className={classes.EmailNumInput}>
-              <input
-                type="text"
-                value={inputCode}
-                onChange={(event)=> setInputCode(event.target.value)}
-                placeholder="이메일 인증 번호를 입력해주세요"
-              />
-              <button onClick={checkEmailCode} className={classes.EmailNumBtn}>인증</button>
-            </div>
-          </label>
-        </div> 
         <InputLabel
           label="비밀번호"
           type="password"
@@ -196,14 +187,14 @@ const ConsultantSignUp = () =>{
             onChange={setFemale}
           />
         </label>
-        <br /><br /><br /><br />
-        <label onClick={showModal}>경력 기술서 입력하기</label>
+        <br /><br /><br/>
+        <label onClick={showModal} className={classes.ShowModal}>경력 기술서 입력하기</label>
         {modalOpen && <ModalBasic setModalOpen={setModalOpen}/>}
         <br /><br />
         <button type="submit" disabled={!submitError} className={classes.SignupBtn}>회원가입</button>
       </form>
       <br />
-      <label onClick={toLogin}>로그인 하러 가기</label>
+      <label onClick={toLogin} className={classes.ToLoginLink}>로그인 하러 가기</label>
     </div>
   )
 }

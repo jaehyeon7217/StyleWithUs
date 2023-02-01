@@ -36,7 +36,7 @@ const SetNewPassword = () => {
         onChange={setConfirmNewPassword}
         errorMessage={(confirmNewPasswordError ? "" : "비밀번호가 일치하지 않습니다.")}
       />
-      <button type="submit" disabled={!submitError} className={classes.SignupBtn}>변경</button>
+      <button type="submit" disabled={!submitError} className={classes.SetNewPasswordBtn}>변경</button>
     </div>
   )
 
