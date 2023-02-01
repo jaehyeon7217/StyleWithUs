@@ -24,11 +24,13 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  transition: height 0.35s ease-in-out;
+  transition: all 0.35s ease-in-out;
   overflow: hidden;
+  margin: 20px 0; 
 }
 
 .details.off {
+  margin: 0;
   height: 0px;
 }
 

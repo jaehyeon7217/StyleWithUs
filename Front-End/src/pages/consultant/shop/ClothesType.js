@@ -51,8 +51,6 @@ const ClothesType = (props) => {
     }
   };
 
-  const detailClick = () => {};
-
   return (
     <Fragment>
       <h3 className={classes.font} onClick={onClickHandler}>
