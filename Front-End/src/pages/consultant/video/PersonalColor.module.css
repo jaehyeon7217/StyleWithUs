@@ -1,4 +1,10 @@
-.color-circle{
+/* .color-picker-container img:hover{
+  background-color: black;
+} */
+
+.color-picker{
   width: 100px;
   height: 100px;
+  background-color: transparent;
+  cursor: pointer;
 }

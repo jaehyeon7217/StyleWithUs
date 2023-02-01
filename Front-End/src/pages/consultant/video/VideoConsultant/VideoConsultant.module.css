@@ -1,0 +1,11 @@
+@font-face {
+    font-family: "Apple_Gothic_Neo_Bold";
+    src: url("../../fonts/AppleSDGothicNeoB.ttf");
+  }
+  
+  section {
+    width: 29%;
+    height: 100%;
+    display: inline-block;
+    position: relative;
+  }
