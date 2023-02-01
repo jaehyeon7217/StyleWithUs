@@ -3,6 +3,7 @@
   padding: 10px;
   color: gray;
   transition: all .15s;
+  margin: 0;
 }
 
 .p:hover {
