@@ -25,6 +25,7 @@ const ConsultantSignUp = () =>{
   const [male, female, setMale, setFemale] = GenderCheckbox();
   const [inputCode, setInputCode] = useState("");
   const [emailOk, setEmailOk] = useState(false);
+  
   const [resume, setResume] = useState("");
   const [modalOpen, setModalOpen] = useState(false)
   
@@ -150,7 +151,7 @@ const ConsultantSignUp = () =>{
           type="text"
           value={inputCode}
           placeholder="이메일 인증 번호를 입력해주세요"
-          onChange={setInputCode}
+          onChange={(event) => setInputCode(event.target.value)}
           onClick={checkEmailCode}
         />
 
