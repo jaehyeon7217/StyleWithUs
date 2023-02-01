@@ -38,7 +38,7 @@ function App() {
           axios
           .get(url)
             .then((response) => {
-              console.log('data response');
+              // console.log('data response');
               const payload = {type, detail, data: response.data.data}
               dispatch(shopActions.downloadData(payload));
             })

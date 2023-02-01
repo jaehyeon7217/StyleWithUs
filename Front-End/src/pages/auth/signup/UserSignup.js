@@ -54,9 +54,22 @@ const UserSignup = () => {
       })
       .then((response) => {
         if (response.status === 200) {
-          navigate("/auth/login");
+          Swal.fire({
+            title: '<div style="font-size:24px;font-family:Apple_Gothic_Neo_Bold;font-weight:bold;">회원가입이 정상적으로 되었습니다<div>', 
+            html: '<div style="font-size:16px;font-family:Apple_Gothic_Neo_Mid;">로그인해주세용~!</div>', 
+            icon :"success",
+            width : 400,
+            confirmButtonText:'<div style="font-size:16px;font-family:Apple_Gothic_Neo_Mid;">확인</div>',
+          }).then(()=>{
+            navigate("/auth/login");
+          })
         } else {
-          window.alert("입력항목을 다시 체크해주세요");
+          Swal.fire({
+            title: '<div style="font-size:24px;font-family:Apple_Gothic_Neo_Bold;font-weight:bold;">회원가입 실패</div>',
+            html: '<div style="font-size:16px;font-family:Apple_Gothic_Neo_Mid;">입력 항목을 다시 체크해주세요!</div>', 
+            icon :"error",
+            width : 400,
+          });
         }
       })
       .catch((error) => {
@@ -73,6 +86,12 @@ const UserSignup = () => {
       })
       .then((response) => {
         dispatch(authActions.validEmail(response.data.data));
+        Swal.fire({
+          title: '<div style="font-size:24px;font-family:Apple_Gothic_Neo_Bold;font-weight:bold;">이메일이 발송되었습니다!<div>', 
+          html: '<div style="font-size:16px;font-family:Apple_Gothic_Neo_Mid;">회원가입을 계속 진행해주세요!</div>', 
+          icon :"success",
+          width : 400,
+        });
       })
       .catch((error) => {
         console.log(error);
@@ -85,11 +104,19 @@ const UserSignup = () => {
     if (inputCode === emailCode) {
       setEmailOk(true);
       Swal.fire({
-        title: "인증되었습니다!", 
-        text: "회원가입을 계속 진행해주세요!", 
-        icon :"success"});
+        title: '<div style="font-size:24px;font-family:Apple_Gothic_Neo_Bold;font-weight:bold;">인증되었습니다!<div>', 
+        html: '<div style="font-size:16px;font-family:Apple_Gothic_Neo_Mid;">회원가입을 계속 진행해주세요!</div>', 
+        icon :"success",
+        width : 400,
+      });
     } else {
       setEmailOk(false);
+      Swal.fire({
+        title: '<div style="font-size:24px;font-family:Apple_Gothic_Neo_Bold;font-weight:bold;">인증 실패</div>',
+        html: '<div style="font-size:16px;font-family:Apple_Gothic_Neo_Mid;">인증 코드를 다시 확인해주세요</div>', 
+        icon :"error",
+        width : 400,
+      });
     }
   };
 
