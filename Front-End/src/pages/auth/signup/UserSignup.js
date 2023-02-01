@@ -141,7 +141,7 @@ const UserSignup = () => {
           type="text"
           value={inputCode}
           placeholder="이메일 인증 번호를 입력해주세요"
-          onChange={setInputCode}
+          onChange={(event) => setInputCode(event.target.value)}
           onClick={checkEmailCode}
         />
         <InputLabel

@@ -13,7 +13,7 @@ const FindPassword = () =>{
   const dispatch = useDispatch();
   const [id, setId, idError] = DataInput(/^[a-zA-z0-9]{5,20}$/);
   const [email, setEmail, emailError] = DataInput(/^([0-9a-zA-Z_-]+)@([0-9a-zA-Z_-]+)(\.[0-9a-zA-Z_-]+){1,2}$/);
-
+  
   const FindPasswordChangeSubmit = (event) => {
     event.preventDefault()
     console.log(email)
@@ -69,13 +69,9 @@ const FindPassword = () =>{
           label="이메일 인증번호"
           buttonName="인증"
           type="text"
-          value={email}
           placeholder="인증번호를 입력해주세요"
-          onChange={setEmail}
           onClick={toSetNewPassword}
-          errorMessage={(emailError ? "" : "이메일 양식을 지켜주세요.")}
-        /> 
-        
+        />         
       </form>
     </div>
   )
