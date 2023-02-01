@@ -1,4 +1,5 @@
 import axios from "axios";
+import Swal from 'sweetalert2'
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
@@ -83,10 +84,12 @@ const UserSignup = () => {
     event.preventDefault();
     if (inputCode === emailCode) {
       setEmailOk(true);
-      window.alert("인증되었습니다!");
+      Swal.fire({
+        title: "인증되었습니다!", 
+        text: "회원가입을 계속 진행해주세요!", 
+        icon :"success"});
     } else {
       setEmailOk(false);
-      window.alert("인증번호를 다시 한번 확인해 주세요");
     }
   };
 

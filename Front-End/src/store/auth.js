@@ -7,7 +7,7 @@ const initialAuthState = {
   userId: "",
   isLogined : false,
   confirmEmail : "",
-  emailCodeForResest : "",
+  resetCode : {},
   userData : "",
 };
 
@@ -33,7 +33,7 @@ const authSlice = createSlice({
       state.confirmEmail = action.payload;
     },
     passwordReset(state, action){
-      state.emailCodeForResest = action.payload;
+      state.resetCode = action.payload;
     },
     getMyData(state, action) {
       state.userData = action.payload;

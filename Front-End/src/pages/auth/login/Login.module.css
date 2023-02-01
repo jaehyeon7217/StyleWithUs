@@ -64,7 +64,7 @@ label::after{
   background: white;
   border-radius: 100%;
   transition: all 0.3s;
-  content: 'C';
+  content: 'U';
   font-size: 12.5px;
   font-weight: bold;
   padding-top: 1.3px;
@@ -92,7 +92,7 @@ input[type="checkbox"]:checked + label::after {
     transform: translateX(20px);
     background: lightgray;
     font-weight: bold;
-    content: 'U';
+    content: 'C';
     
   }
 

@@ -4,9 +4,10 @@ import InputLabel from "../component/InputLabel";
 import { DataInput } from "../component/Effectiveness";
 import { useNavigate } from "react-router-dom";
 import classes from "./FindPassword.module.css";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { authActions } from "../../../store/auth";
 import InputShortLabel from "../component/InputShortLabel";
+import { useState } from "react";
 
 const FindPassword = () => {
   const navigate = useNavigate();
@@ -15,25 +16,23 @@ const FindPassword = () => {
   const [email, setEmail, emailError] = DataInput(
     /^([0-9a-zA-Z_-]+)@([0-9a-zA-Z_-]+)(\.[0-9a-zA-Z_-]+){1,2}$/
   );
+  const [code, setCode] = useState("")
 
   const FindPasswordChangeSubmit = (event) => {
     event.preventDefault();
-    console.log(email);
     const url = "https://i8d105.p.ssafy.io/be/user/findpw";
-    axios
-      .get(url, {
-        params: {
+    axios.post(
+        url, 
+        {
           userId: id,
-          userEmail: email,
-        },
-      })
+          userEmail: email
+        })
       .then((response) => {
         if (response.status === 200) {
-          console.log(response.data.data);
-          dispatch(authActions.passwordReset(response.data.data));
-          navigate("/setnewpassword");
+          const data = { code: response.data.data, id: id };
+          dispatch(authActions.passwordReset(data));
+          window.alert("이메일 코드가 전송 되었습니다.")
         } else {
-          console.log(response);
           window.alert("아이디와 이메일을 확인해주세요");
         }
       })
@@ -41,9 +40,14 @@ const FindPassword = () => {
         console.log(error);
       });
   };
+  const resetCode = useSelector((state)=> state.auth.resetCode.code)
   const toSetNewPassword = (event) => {
     event.preventDefault();
-    navigate("/auth/setnewpassword");
+    if (resetCode === code){
+      navigate("/auth/setnewpassword");
+    }else{
+      window.alert("코드 다시 확인하세요")
+    }
   };
 
   return (
@@ -75,6 +79,8 @@ const FindPassword = () => {
           buttonName="인증"
           type="text"
           placeholder="인증번호를 입력해주세요"
+          value={code}
+          onChange={(event)=> {setCode(event.target.value)}}
           onClick={toSetNewPassword}
         />
       </form>
