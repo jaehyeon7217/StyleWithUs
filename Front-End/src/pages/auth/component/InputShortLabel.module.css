@@ -11,22 +11,28 @@
     src: url("../../../fonts/AppleSDGothicNeoL.ttf");
 }
 
-.InputLabel{
+@font-face {
+    font-family: "Apple_Gothic_Neo_Bold";
+    src: url("../../../fonts/AppleSDGothicNeoB.ttf");
+}
+
+.InputShortLabel{
     width :auto;
     text-align: left;
     margin-left: 20px;
 }
 
-.InputLabel label p{
+.InputShortLabel label p{
     font-family: "Apple_Gothic_Neo_Mid";
     font-size: 15px;
     margin-bottom: 10px;
+    position: relative;
     
 }
 
-.InputLabel label input{
+.InputShortLabel label input{
     font-family: "Apple_Gothic_Neo_Mid";
-    width: 300px;
+    width: 200px;
     border: none;
     outline: none;
     border-bottom: 1.5px solid lightgray;
@@ -35,12 +41,26 @@
     
 }
 
+.InputShortLabel label button{
+    font-family: "Apple_Gothic_Neo_Mid";
+    width: 90px;
+    margin-left: 10px;
+    height: 37px;
+    border: none;
+    border-radius: 9px;
+    font-size: 12.9px;
+    color: black;
+    position: absolute;
+    margin-top: -12px;
+    
+}
+
 
 .ErrorMessage {
     font-family: "Apple_Gothic_Neo_SBold";
     font-size: 12px;
     color: red;
-    margin-top: -2px;
+    margin-top: -3px;
     margin-bottom: 20px;
     margin-left: 2px;
 }

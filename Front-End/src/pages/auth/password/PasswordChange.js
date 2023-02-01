@@ -80,7 +80,7 @@ const PasswordChange = () =>{
           onChange={setConfirmNewPassword}
           errorMessage={(confirmNewPasswordError ? "" : "새로운 비밀번호와 다릅니다.")}        
         />
-        <button type="submit" disabled={!submitError} className={classes.SignupBtn}>비밀번호 변경</button>
+        <button type="submit" disabled={!submitError} className={classes.PasswordChangeBtn}>비밀번호 변경</button>
       </form>
     </div>
   )

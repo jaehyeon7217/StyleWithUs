@@ -65,10 +65,15 @@ const MyPage = () =>{
         </div>
       </div>
       <br />
-      <div className={classes.MyBodyBox}>
-        <p>나의 체형</p>
+      <div className={classes.MyDataBox}>
+        <br/>
+        <p className={classes.MyDataLabel}>나의 체형</p>
+        <br/><br/>
+        <div className={classes.MyBodyBox}></div>
+        <br/><br/>
+        <p className={classes.MyDataLabel}>관심 상품</p>
       </div>
-      {/* <p>관심 상품</p> */}
+
     </div>
   )
 }
