@@ -1,4 +1,5 @@
 import axios from "axios";
+import Swal from "sweetalert2";
 import { useState } from "react";
 
 import { useDispatch } from "react-redux";
@@ -41,7 +42,13 @@ const Login = () => {
             : dispatch(authActions.consultantLogin(response.data));
           navigate("/");
         } else {
-          window.alert("아이디와 비밀번호를 확인해주세요!");
+          Swal.fire({
+            title: '<div style="font-size:24px;font-family:Apple_Gothic_Neo_Bold;font-weight:bold;">로그인에 실패했습니다.<div>', 
+            html: '<div style="font-size:16px;font-family:Apple_Gothic_Neo_Mid;">아이디와 비밀번호를 다시 확인해주세요</div>', 
+            width : 400,
+            icon: 'error',
+            confirmButtonText:'<div style="font-size:16px;font-family:Apple_Gothic_Neo_Mid;">확인</div>',
+          })
         }
       })
       .catch((error) => {
