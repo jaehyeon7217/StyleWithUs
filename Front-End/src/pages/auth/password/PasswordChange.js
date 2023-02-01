@@ -22,7 +22,7 @@ const PasswordChange = () =>{
  
   const PasswordChangeSubmit = (event) =>{
     event.preventDefault()
-    const url = "http://192.168.100.82/user/password"
+    const url = "http://43.201.72.251:8082/be/user/password"
     axios.post(
       url,
       {

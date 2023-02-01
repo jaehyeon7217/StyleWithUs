@@ -22,7 +22,7 @@ const Login = () => {
   // 로그인 api 요청
   const loginSubmit = (event) => {
     event.preventDefault();
-    const url = isUser ? "http://43.201.72.251:8082/user/login" : "http://43.201.72.251:8082/consultant/login";
+    const url = isUser ? "http://43.201.72.251:8082/be/user/login" : "http://43.201.72.251:8082/be/consultant/login";
     
     axios.post(
       url, isUser ? {userId : id, userPw : password} : {consultantId : id, consultantPw : password} )
