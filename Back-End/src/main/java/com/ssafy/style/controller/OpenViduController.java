@@ -11,6 +11,7 @@ import javax.persistence.EntityManager;
 import com.ssafy.style.data.dto.MeetingDto;
 import com.ssafy.style.data.entity.Consultant;
 import com.ssafy.style.service.MeetingService;
+import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 import org.slf4j.Logger;
@@ -31,6 +32,7 @@ import io.openvidu.java.client.SessionProperties;
 
 @RestController
 @RequestMapping(value = "/openvidu")
+@Api("OpenVidu Controller API V1")
 public class OpenViduController {
 
     public static final Logger logger = LoggerFactory.getLogger(OpenViduController.class);
@@ -172,7 +174,7 @@ public class OpenViduController {
     }
 
     @DeleteMapping("/api/sessions/{sessionId}")
-    @ApiOperation(value = "생성된 방 모두 조회")
+    @ApiOperation(value = "세션ID로 생성된 방 삭제")
     public ResponseEntity<?> DeleteSession(@PathVariable("sessionId") @ApiParam(value = "세션 아이디", required = true) String sessionId) {
 
         logger.info("DeleteSession - 호출");
