@@ -3,9 +3,11 @@ import InputLabel from "../component/InputLabel";
 import classes from "./SetNewPassword.module.css";
 import { DataInput, CheckPassword } from "../component/Effectiveness";
 import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 const SetNewPassword = () => {
   const navigate = useNavigate();
+  const id = useSelector((state) => state.auth.resetCode.id)
   const [newPassword, setNewPassword, newPasswordError] = DataInput(
     /^(?=.*[a-zA-Z])(?=.*[!@#$%^*+=-])(?=.*[0-9]).{9,16}$/
   );
@@ -18,14 +20,13 @@ const SetNewPassword = () => {
 
   const sendNewpassword = (event) => {
     event.preventDefault();
-    const url = "https://i8d105.p.ssafy.io/be/findpw/changepw";
+    const url = "https://i8d105.p.ssafy.io/be/user/findpw/changepw";
     axios
       .put(url, {
-        userId: "",
+        userId: id,
         userPw: newPassword,
       })
       .then((response) => {
-        console.log(response);
         navigate("/auth/login");
       })
       .catch((error) => {
