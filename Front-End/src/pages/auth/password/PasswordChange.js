@@ -1,6 +1,5 @@
 import axios from "axios";
-import { redirect } from "react-router-dom";
-import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 // redux 호출
 import { useDispatch, useSelector } from "react-redux";
 import { authActions } from "../../../store/auth";
@@ -10,6 +9,7 @@ import { DataInput, CheckPassword } from "../component/Effectiveness";
 import classes from "./PasswordChange.module.css";
 
 const PasswordChange = () => {
+  const navigate = useNavigate();
   const dispatch = useDispatch();
   const id = useSelector((state) => state.auth.userId);
   const token = useSelector((state) => state.auth.token);
@@ -26,8 +26,7 @@ const PasswordChange = () => {
   const PasswordChangeSubmit = (event) => {
     event.preventDefault();
     const url = "https://i8d105.p.ssafy.io/be/user/password";
-    axios
-      .post(
+    axios.post(
         url,
         {
           userId: id,
@@ -35,19 +34,20 @@ const PasswordChange = () => {
           newUserPw: newPassword,
         },
         {
-          headers: {
-            auth_token: token,
-          },
+        headers: {
+          Authorization : token
         }
-      )
-      .then((response) => {
+      }).then((response) => {
         if (response.status === 200) {
           dispatch(authActions.logout(""));
+          navigate("/login")
+          window.alert("바뀐 비밀번호로 다시 로그인 해주세요")
         } else {
           console.log("실패");
         }
-      })
-      .catch((error) => {
+      }).catch((error) => {
+        console.log(token)
+        console.log(error)
         window.alert("비밀번호를 다시 확인해주세요!");
       });
   };
