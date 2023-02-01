@@ -6,6 +6,7 @@ import ClothesType from "./ClothesType";
 
 const Shop = () => {
   const [toggleOn, setToggleOn] = useState("");
+  const [shopOn, setShopOn] = useState(false);
 
   const category = useSelector((state) => state.shop.category);
   const arrayCategory = Object.keys(category);
@@ -18,11 +19,16 @@ const Shop = () => {
     setToggleOn(liTitle);
   };
 
+  const detailShop = (data) => {
+    setShopOn(true);
+    console.log(data);
+  };
+
   return (
     <div className={classes.shop}>
       <h2 className={classes.h2}>카테고리</h2>
       <div className={classes.wall}></div>
-      <ul className={classes.ul}>
+      {!shopOn && <ul className={classes.ul}>
         {arrayCategory.map((type) => {
           return (
             <li key={type}>
@@ -30,11 +36,12 @@ const Shop = () => {
                 type={type}
                 onToggle={toggleEventHandler}
                 toggleData={type === toggleOn ? true : false}
+                detailShop={detailShop}
               />
             </li>
           );
         })}
-      </ul>
+      </ul>}
     </div>
   );
 };
