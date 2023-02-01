@@ -2,17 +2,10 @@ import { OpenVidu } from "openvidu-browser";
 import React, { Fragment, useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import classes from "./Consultant.module.css";
 import { useSelector } from "react-redux";
-import history from "./video/history";
+import history from "../history";
 
-import VideoConsultant from './video/VideoConsultant/VideoConsultant';
-import VideoUser from './video/VideoUser/VideoUser';
-import Shop from "./shop/Shop";
-import Cart from "./cart/Cart";
-import ChatContent from "./chat/ChatContent";
-import ChatForm from "./chat/ChatForm";
-import chatImage from "../../assets/chat.png";
+import Video from "../Video";
 
 const APPLICATION_SERVER_URL =
   process.env.NODE_ENV === "production"
@@ -68,12 +61,12 @@ const Consultant = (props) => {
   }, []);
 
   // 돌아가기 버튼 함수
-  const pageBackHandler = () => {
-    leaveSession();
-    const newLoadingStatus = true;
-    props.onChangeLoading(newLoadingStatus);
-    navigate(-1);
-  };
+//   const pageBackHandler = () => {
+//     leaveSession();
+//     const newLoadingStatus = true;
+//     props.onChangeLoading(newLoadingStatus);
+//     navigate(-1);
+//   };
 
   // 포커스 될 때 채팅창이 보이게 하는 함수
   const onFucusHandler = () => {
@@ -283,39 +276,83 @@ const Consultant = (props) => {
 
   return (
     <Fragment>
-      <main className={classes.main}>
-        {!userType ? <VideoUser /> : < VideoConsultant/>}
-        <section className={classes.section}>
-          <Shop />
+      <div>
+        <section className="container">
+          {session === undefined ? (
+            <div id="join">
+              <div id="join-dialog" className="jumbotron vertical-center">
+                <h1> 상담 </h1>
+                <form className="form-group" onSubmit={joinSession}>
+                  {/* <p>
+                    <label>Participant: </label>
+                    <input
+                      className="form-control"
+                      type="text"
+                      id="userName"
+                      value={myUserName}
+                      onChange={handleChangeUserName}
+                      required
+                    />
+                  </p> */}
+                  <p>
+                    <label> Session: </label>
+                    <input
+                      className="form-control"
+                      type="text"
+                      id="sessionId"
+                      value={mySessionId}
+                      onChange={handleChangeSessionId}
+                      required
+                    />
+                  </p>
+                  <p className="text-center">
+                    <input
+                      className="btn btn-lg btn-success"
+                      name="commit"
+                      type="submit"
+                      value="JOIN"
+                    />
+                  </p>
+                </form>
+              </div>
+            </div>
+          ) : null}
+
+          {session !== undefined ? (
+            <div id="session">
+              {/* <div id="session-header">
+                <input
+                  className="btn btn-large btn-danger"
+                  type="button"
+                  id="buttonLeaveSession"
+                  onClick={leaveSession}
+                  value="Leave session"
+                />
+              </div> */}
+
+              {mainStreamManager !== undefined ? (
+                <div id="main-video" className="col-md-6">
+                  <Video streamManager={mainStreamManager} />
+                </div>
+              ) : null}
+              <div id="video-container" className="col-md-6">
+                {publisher !== undefined ? (
+                  <div className="stream-container col-md-6 col-xs-6">
+                    <Video streamManager={publisher} />
+                  </div>
+                ) : null}
+                {subscribers.map((sub, i) => (
+                  <div key={i} className="stream-container col-md-6 col-xs-6">
+                    <span>{sub.id}</span>
+                    <Video streamManager={sub} />
+                  </div>
+                ))}
+              </div>
+            </div>
+          ) : null}
         </section>
-        <section className={classes.section}>
-          <div className={classes["show-cart-chat"]}>
-            <Cart
-              className={
-                !toggleChatToCart
-                  ? classes["toggle-animation-on"]
-                  : classes["toggle-animation-off"]
-              }
-            />
-            <ChatContent
-              className={
-                toggleChatToCart
-                  ? classes["toggle-animation-on"]
-                  : classes["toggle-animation-off"]
-              }
-              chatting={chatting}
-              alarm={chattingAlarm}
-              alarmCount={alarmCount}
-            />
-          </div>
-          <ChatForm onMessageSend={messageSendHandler} />
-          <div className={`${classes.alarm} ${alarmCount > 0? classes['alarm-on'] : ''}`}>
-            <span>{alarmCount}</span>
-            <img src={chatImage} alt="chat" />
-          </div>
-        </section>
-      </main>
-      <button onClick={pageBackHandler}>Back</button>
+      </div>
+      {/* <button onClick={pageBackHandler}>Back</button> */}
     </Fragment>
   );
 };
