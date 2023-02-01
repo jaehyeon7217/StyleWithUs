@@ -187,8 +187,10 @@ public class UserController {
 
     @PostMapping(value = "/findpw")
     @ApiOperation(value = "비밀번호 찾기 중 이메일 인증")
-    public ResponseEntity<?> findPw(@RequestBody @ApiParam(value = "유저 ID") String userId,
-                                    @RequestBody @ApiParam(value = "유저 Email") String userEmail){
+    public ResponseEntity<?> findPw(@RequestBody @ApiParam(value = "유저 ID") Map<String, String> data){
+
+        String userId = data.get("userId");
+        String userEmail = data.get("userEmail");
 
         boolean isValid = userService.matchIdAndEmail(userId, userEmail);
         Map<String, String> map = new HashMap<>();

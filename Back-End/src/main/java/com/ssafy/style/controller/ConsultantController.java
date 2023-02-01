@@ -186,10 +186,12 @@ public class ConsultantController {
         }
     }
 
-    @GetMapping(value = "/findpw")
+    @PostMapping(value = "/findpw")
     @ApiOperation(value = "비밀번호 찾기 중 이메일 인증")
-    public ResponseEntity<?> findPw(@RequestParam @ApiParam(value = "컨설턴트 ID") String consultantId,
-                                    @RequestParam @ApiParam(value = "컨설턴트 Email") String consultantEmail){
+    public ResponseEntity<?> findPw(@RequestBody @ApiParam(value = "컨설턴트 ID") Map<String, String> data){
+
+        String consultantId = data.get("consultantId");
+        String consultantEmail = data.get("consultantEmail");
 
         boolean isValid = consultantService.matchIdAndEmail(consultantId, consultantEmail);
         Map<String, String> map = new HashMap<>();
