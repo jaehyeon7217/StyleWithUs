@@ -25,10 +25,12 @@ const ClothesType = (props) => {
 
   // 클릭을 하면 toggle을 on, off시키는 함수
   const onClickHandler = () => {
-    if (toggle === true) { // 토글이 켜져 있을 때 토글을 제거 한다.
+    if (toggle === true) {
+      // 토글이 켜져 있을 때 토글을 제거 한다.
       props.onToggle("");
       heightAnimation();
-    } else { // 토글이 꺼져 있을 때 토글을 켠다.
+    } else {
+      // 토글이 꺼져 있을 때 토글을 켠다.
       props.onToggle(type);
       heightAnimation();
     }
@@ -38,20 +40,18 @@ const ClothesType = (props) => {
     const container = document.getElementById(type);
 
     if (toggle === false) {
-      container.style.height = 'auto';
+      container.style.height = "auto";
       const height = `${container.clientHeight}px`;
-      container.style.height = '0px';
+      container.style.height = "0px";
       setTimeout(function () {
         container.style.height = height;
       }, 0);
     } else {
-      container.style.height = '0px';
+      container.style.height = "0px";
     }
   };
 
-  const detailClick = () => {
-    
-  };
+  const detailClick = () => {};
 
   return (
     <Fragment>
@@ -69,7 +69,14 @@ const ClothesType = (props) => {
         className={`${classes.details} ${!toggle ? classes.off : ""}`}
       >
         {details.map((detail) => {
-          return <ClothesDetail key={detail} detail={detail} detailShop={props.detailShop}/>;
+          return (
+            <ClothesDetail
+              key={detail}
+              detail={detail}
+              type={type}
+              detailShop={props.detailShop}
+            />
+          );
         })}
       </div>
     </Fragment>
