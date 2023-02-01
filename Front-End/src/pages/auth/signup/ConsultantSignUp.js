@@ -36,7 +36,7 @@ const ConsultantSignUp = () =>{
   // 컨설턴트 회원가입 api 요청
   const consultantSignUpsubmit = (event) => {
     event.preventDefault();
-    const url = "http://43.201.72.251:8082/consultant/register";
+    const url = "http://43.201.72.251:8082/be/consultant/register";
     axios.post(
       url,{
         consultantId: id,
@@ -67,7 +67,7 @@ const ConsultantSignUp = () =>{
 
   const confirmEmail = (event) =>{
     event.preventDefault();
-    const url = "http://43.201.72.251:8082/mail"
+    const url = "http://43.201.72.251:8082/be/mail"
     axios.post(
       url,
       {

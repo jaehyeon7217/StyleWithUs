@@ -17,7 +17,7 @@ const FindPassword = () =>{
   const FindPasswordChangeSubmit = (event) => {
     event.preventDefault()
     console.log(email)
-    const url = "http://43.201.72.251:8082/user/findpw"
+    const url = "http://43.201.72.251:8082/be/user/findpw"
     axios.get(
       url,{
         params: {
@@ -29,6 +29,7 @@ const FindPassword = () =>{
       if (response.status===200){
         console.log(response.data.data);
         dispatch(authActions.passwordReset(response.data.data))
+        navigate("/setnewpassword")
       }else{
         console.log(response);
         window.alert("아이디와 이메일을 확인해주세요")
