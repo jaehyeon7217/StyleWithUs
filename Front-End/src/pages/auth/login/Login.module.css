@@ -9,6 +9,16 @@
   src: url("../../../fonts/AppleSDGothicNeoM.ttf");
 }
 
+@font-face {
+  font-family: "Apple_Gothic_Neo_Light";
+  src: url("../../../fonts/AppleSDGothicNeoL.ttf");
+}
+
+@font-face {
+  font-family: "Apple_Gothic_Neo_Bold";
+  src: url("../../../fonts/AppleSDGothicNeoB.ttf");
+}
+
 
 
 .PageName{
@@ -17,17 +27,12 @@
   font-style: italic; 
 }
 
-
-.LoginBtn{
-  font-family: "Apple_Gothic_Neo_Hard";
-  width: 340px;
-  height: 45px;
-  border: none;
-  border-radius: 1px;
-  background-color: rgba(211, 211, 211, 0.300);
-  border-radius: 5px;
-
+.SubPageName{
+  font-family: "Apple_Gothic_Neo_Bold";
+  font-style: italic; 
+  margin-top: -33px;
 }
+
 
 /* ToggleBtn관련 */
 .ToggleBtn{
@@ -50,19 +55,20 @@ input[type="checkbox"]{
 
 .ToggleBtn
 label::after{  
-    position:absolute;
-    top:2.5px;
-    left:3px;
-    content:'';
-    width: 18px;
-    height: 16px;
-    background: white;
-    border-radius: 100%;
-    transition: all 0.3s;
-    content: 'C';
-    font-size: 13px;
-    font-weight: bold;
-    padding-top: 1.3px;
+  position:absolute;
+  top:2.5px;
+  left:3px;
+  content:'';
+  width: 18px;
+  height: 16px;
+  background: white;
+  border-radius: 100%;
+  transition: all 0.3s;
+  content: 'C';
+  font-size: 12.5px;
+  font-weight: bold;
+  padding-top: 1.3px;
+  color: rgb(96, 95, 95);
     
   }
 
@@ -95,6 +101,40 @@ input[type="checkbox"]:checked + label::before {
     background: #fff;
   }
 
+
+.BottomLabelBox{
+  display: flex;
+  justify-content: center;
+
+}
+
+
+.Vline{
+  font-family: "Apple_Gothic_Neo_Light";
+  color: rgb(128, 128, 128);
+  margin-left: 35px;
+  float: left;
+}
+
+
 .BottomLabel{
-  font-family: "Apple_Gothic_Neo_Mid";
+  float: left;
+  font-family: "Apple_Gothic_Neo_Light";
+  margin-left: 20px;
+  margin-right: -10px;
+  font-size: 15.5px;
+  
+}
+
+.LoginBtn{
+  font-family: "Apple_Gothic_Neo_Bold";
+  font-size: 15px;
+  width: 310px;
+  height: 45px;
+  border: none;
+  border-radius: 1px;
+  background-color: rgba(211, 211, 211, 0.300);
+  border-radius: 5px;
+  margin-left: 10px;
+
 }

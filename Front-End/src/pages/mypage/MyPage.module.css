@@ -28,34 +28,33 @@
 }
 
 .PageName{
-  /* font-family: "Apple_Gothic_Neo_Bold"; */
-  font-family: "Apple_Gothic_Neo_SB";
-  font-size: 40px;
-
+  font-family: "Apple_Gothic_Neo_SBold";
+  font-size: 37px;
 }
 
 .UserBox{
-  width: 800px;
-  height: 165px;
-  border: 2px solid rgb(200, 200, 200);
+  width: 680px;
+  height: 150px;
+  border: 1.5px solid rgb(200, 200, 200);
   border-radius: 20px;
   margin: auto;
+  
   
 }
 
 .UserCircle{
   float: left;
-  width: 140px;
-  height: 140px;
+  width: 120px;
+  height: 120px;
   border: 2px solid #4b8adc70;
   border-radius: 100px;
   margin-top: 10px;
   margin-left: 15px;
 
   font-family: "Apple_Gothic_Neo_Hard";
-  font-size: 40px;
+  font-size: 30px;
   text-align: center;
-  line-height: 140px;
+  line-height: 120px;
   color: #4B89DC;
    
 }
@@ -78,7 +77,7 @@
 .UserDataBoxHi{
   font-family: "Apple_Gothic_Neo_Light";
   float: left;
-  font-size: 20px;
+  font-size: 16px;
   
 }
 
@@ -112,6 +111,24 @@
 
 }
 
-.MyBodyBox{
+.MyDataBox{
+  width: 670px;
+  margin: auto;
   
 }
+
+.MyDataLabel{
+  font-family: "Apple_Gothic_Neo_Bold";
+  float: left;
+  font-size: 20px;
+  margin-left: 5px;
+}
+
+.MyBodyBox{
+  width: 670px;
+  height: 100px;
+  background-color: rgba(227, 227, 227, 0.327);
+  border-radius: 20px;
+  margin: auto;
+}
+

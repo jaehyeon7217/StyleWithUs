@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 import classes from "./FindPassword.module.css"
 import { useDispatch } from "react-redux";
 import { authActions } from "../../../store/auth";
+import InputShortLabel from "../component/InputShortLabel";
 
 const FindPassword = () =>{
   const navigate = useNavigate();
@@ -54,35 +55,27 @@ const FindPassword = () =>{
           placeholder="아이디를 입력해주세요"
           errorMessage={(idError ? "" : "영어와 숫자로만 입력해주세요.")}
         />
-        <div className={classes.EmailLabel}>
-          <label >
-            <p>이메일</p>
-            <div className={classes.EmailInput}>
-              <input
-                type="email"
-                value={email}
-                placeholder="이메일을 입력해주세요"
-                onChange={setEmail}
-              />
-              <button onClick={FindPasswordChangeSubmit}>이메일 전송</button>
-            </div>
-          </label>
-          <p className={classes.ErrorMessage}>{(emailError ? "": "이메일 양식을 지켜주세요.")}</p>
-        </div>   
-        <div className={classes.EmailLabel}>
-          <label id="inputEmail">
-            <p>이메일 인증번호</p>
-            <div className={classes.EmailInput}>
-              <input
-                type="text"
-                placeholder="인증번호를 입력해주세요"
-              />
-              <button onClick={toSetNewPassword}>인증</button>
-            </div>
-          </label>
-        </div>  
+        <InputShortLabel
+          label="이메일"
+          buttonName="이메일 전송"
+          type="text"
+          value={email}
+          placeholder="이메일을 입력해주세요"
+          onChange={setEmail}
+          onClick={FindPasswordChangeSubmit}
+          errorMessage={(emailError ? "" : "이메일 양식을 지켜주세요.")}
+        />
+        <InputShortLabel
+          label="이메일 인증번호"
+          buttonName="인증"
+          type="text"
+          value={email}
+          placeholder="인증번호를 입력해주세요"
+          onChange={setEmail}
+          onClick={toSetNewPassword}
+          errorMessage={(emailError ? "" : "이메일 양식을 지켜주세요.")}
+        /> 
         
-
       </form>
     </div>
   )

@@ -7,12 +7,11 @@ const ModalBasic = ({setModalOpen, id, title, content, writer}) => {
     };
 
     return(
-        <div className={classes.modalBackground}>
+        <div className={classes.modalBackground} onClick={closeModal}>
             <div className={classes.container}>
-                <button className={classes.close} onClick={closeModal}>
-                    x
-                </button>
-                <p>자기소개서</p>
+                <p className={classes.ModalName}>자기소개서</p>
+                <div className={classes.InnerModalBox}></div>
+                <p className={classes.ModalBottomName}>경력기술서 저장하기</p>
             </div>
         </div>
 
