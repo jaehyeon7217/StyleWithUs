@@ -1,18 +1,17 @@
-video {
+/* video {
   width: 100%;
   height: auto;
   float: left;
-  cursor: pointer;
-}
+} */
 
-/* video {
-  width: 50%;
+/* video-consultant {
+  width: 100%;
   height: auto;
   float: left;
   border-radius: 20px;
 } */
 
-/* video {
+/* video-user {
   width: 80%;
   height: 720px;
   object-fit: cover;
@@ -22,7 +21,7 @@ video {
 
 .streamcomponent div {
   position: absolute;
-  background: #f8f8f8;
+  background: transparent;
   padding-left: 5px;
   padding-right: 5px;
   color: #777777;
