@@ -16,7 +16,7 @@ import chatImage from "../../assets/chat.png";
 const APPLICATION_SERVER_URL =
   process.env.NODE_ENV === "production"
     ? ""
-    : "http://192.168.100.82:80/openvidu/";
+    : "http://i8d105.p.ssafy.io:8082/be/openvidu/";
 
 const Consultant = (props) => {
   const [toggleChatToCart, setToggleChatToCart] = useState(false);
