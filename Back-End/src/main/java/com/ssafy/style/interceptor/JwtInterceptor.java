@@ -21,8 +21,6 @@ public class JwtInterceptor implements HandlerInterceptor {
 public static final Logger logger = LoggerFactory.getLogger(JwtInterceptor.class);
 	
 	private static final String HEADER_AUTH = "Authorization";
-	private static final String HEADER_AUTH2 = "auth-token";
-//	private static final String HEADER_AUTH = "Authorization";
 
 	private final JwtProvider jwtService;
 
@@ -38,9 +36,6 @@ public static final Logger logger = LoggerFactory.getLogger(JwtInterceptor.class
 //		if(HttpMethod.GET.matches(request.getMethod())){
 //			return true;
 //		}
-
-		log.info("첫 번째 : " + request.getHeader(HEADER_AUTH));
-		log.info("두 번째 : " + request.getHeader(HEADER_AUTH2));
 
 		if(HttpMethod.OPTIONS.matches(request.getMethod())){
 			return true;
