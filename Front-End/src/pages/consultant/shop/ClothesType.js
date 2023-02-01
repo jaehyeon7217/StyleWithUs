@@ -2,6 +2,7 @@ import { Fragment } from "react";
 import { useSelector } from "react-redux";
 
 import classes from "./ClothesType.module.css";
+import ClothesDetail from "./ClothesDetail";
 
 // Slide Toggle 이벤트
 
@@ -48,6 +49,10 @@ const ClothesType = (props) => {
     }
   };
 
+  const detailClick = () => {
+    
+  };
+
   return (
     <Fragment>
       <h3 className={classes.font} onClick={onClickHandler}>
@@ -64,7 +69,7 @@ const ClothesType = (props) => {
         className={`${classes.details} ${!toggle ? classes.off : ""}`}
       >
         {details.map((detail) => {
-          return <p key={detail}>{detail}</p>;
+          return <ClothesDetail key={detail} detail={detail} detailShop={props.detailShop}/>;
         })}
       </div>
     </Fragment>

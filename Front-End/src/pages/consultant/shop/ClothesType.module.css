@@ -32,18 +32,6 @@
   height: 0px;
 }
 
-.details p {
-  display: inline-block;
-  padding: 10px;
-  color: gray;
-  transition: all .15s;
-}
-
-.details p:hover {
-  color: black;
-  cursor: pointer;
-}
-
 .font .toggleButton1, .font .toggleButton2 {
   display: inline-block;
   background-image: url('../../../assets/minus.png');
