@@ -67,7 +67,7 @@ export const ConsultantValidCheck = (kind) =>{
   const handler = useCallback((event)=>{
     event.preventDefault();
     if (event.target.value !== ""){
-    const url = "https://43.201.72.251:8082/be/consultant/valid/" + kind + "/" + event.target.value;
+    const url = "https://i8d105.p.ssafy.io:8082/be/consultant/valid/" + kind + "/" + event.target.value;
     axios.get(url).then(response =>{
       if (response.data === false){
         setError(true)
