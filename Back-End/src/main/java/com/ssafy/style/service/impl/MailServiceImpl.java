@@ -46,7 +46,7 @@ public class MailServiceImpl implements MailService {
 
         createCode(); //인증 코드 생성
         String setFrom = "correct1276@naver.com"; //email-config에 설정한 자신의 이메일 주소(보내는 사람)
-        String title = "Style With us 회원가입 인증 번호"; //제목
+        String title = "Style With us 인증 번호 안내"; //제목
 
         MimeMessage message = emailSender.createMimeMessage();
         message.addRecipients(MimeMessage.RecipientType.TO, email); //보낼 이메일 설정
