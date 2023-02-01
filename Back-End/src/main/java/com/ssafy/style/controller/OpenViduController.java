@@ -79,7 +79,7 @@ public class OpenViduController {
 
         try {
 //            meetingService.insertMeeting(meetingDto, params.get("ConsultantId").toString());
-            meetingService.insertMeeting(meetingDto, "con");
+            meetingService.insertMeeting(meetingDto, "bingbangcon");
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
