@@ -20,8 +20,8 @@ public class JwtInterceptor implements HandlerInterceptor {
 
 public static final Logger logger = LoggerFactory.getLogger(JwtInterceptor.class);
 	
-//	private static final String HEADER_AUTH = "auth_token";
-	private static final String HEADER_AUTH = "Authorization";
+	private static final String HEADER_AUTH = "authtoken";
+//	private static final String HEADER_AUTH = "Authorization";
 
 	private final JwtProvider jwtService;
 
