@@ -1,4 +1,5 @@
 import axios from "axios";
+import Swal from "sweetalert2";
 // component 호출
 import InputLabel from "../component/InputLabel";
 import { DataInput } from "../component/Effectiveness";
@@ -31,9 +32,21 @@ const FindPassword = () => {
         if (response.status === 200) {
           const data = { code: response.data.data, id: id };
           dispatch(authActions.passwordReset(data));
-          window.alert("이메일 코드가 전송 되었습니다.")
+          Swal.fire({
+            title: '<div style="font-size:24px;font-family:Apple_Gothic_Neo_Bold;font-weight:bold;">이메일이 발송되었습니다!<div>', 
+            html: '<div style="font-size:16px;font-family:Apple_Gothic_Neo_Mid;">이메일을 확인해 주세요!</div>', 
+            icon :"success",
+            width : 400,
+            confirmButtonText:'<div style="font-size:16px;font-family:Apple_Gothic_Neo_Mid;">확인</div>',
+          });
         } else {
-          window.alert("아이디와 이메일을 확인해주세요");
+          Swal.fire({
+            title: '<div style="font-size:24px;font-family:Apple_Gothic_Neo_Bold;font-weight:bold;">인증 실패</div>',
+            html: '<div style="font-size:16px;font-family:Apple_Gothic_Neo_Mid;">아이디와 이메일을 다시 확인해주세요!</div>', 
+            icon :"error",
+            width : 400,
+            confirmButtonText:'<div style="font-size:16px;font-family:Apple_Gothic_Neo_Mid;">확인</div>',
+          });
         }
       })
       .catch((error) => {
@@ -44,9 +57,24 @@ const FindPassword = () => {
   const toSetNewPassword = (event) => {
     event.preventDefault();
     if (resetCode === code){
-      navigate("/auth/setnewpassword");
+      Swal.fire({
+        title: '<div style="font-size:24px;font-family:Apple_Gothic_Neo_Bold;font-weight:bold;">인증되었습니다!<div>', 
+        html: '<div style="font-size:16px;font-family:Apple_Gothic_Neo_Mid;">새로운 비밀번호를 지정해주세요</div>', 
+        icon :"success",
+        width : 400,
+        allowOutsideClick:false,
+        confirmButtonText:'<div style="font-size:16px;font-family:Apple_Gothic_Neo_Mid;">확인</div>',
+      }).then(()=>{
+        navigate("/auth/setnewpassword")
+      })
     }else{
-      window.alert("코드 다시 확인하세요")
+      Swal.fire({
+        title: '<div style="font-size:24px;font-family:Apple_Gothic_Neo_Bold;font-weight:bold;">인증 실패</div>',
+        html: '<div style="font-size:16px;font-family:Apple_Gothic_Neo_Mid;">인증 코드를 다시 확인해주세요</div>',
+        confirmButtonText:'<div style="font-size:16px;font-family:Apple_Gothic_Neo_Mid;">확인</div>',
+        icon :"error",
+        width : 400,
+      });
     }
   };
 

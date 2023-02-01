@@ -1,4 +1,5 @@
 import axios from "axios";
+import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
 // redux 호출
 import { useDispatch, useSelector } from "react-redux";
@@ -40,15 +41,32 @@ const PasswordChange = () => {
       }).then((response) => {
         if (response.status === 200) {
           dispatch(authActions.logout(""));
-          navigate("/login")
-          window.alert("바뀐 비밀번호로 다시 로그인 해주세요")
+          Swal.fire({
+            title: '<div style="font-size:24px;font-family:Apple_Gothic_Neo_Bold;font-weight:bold;">비밀번호 변경이 정상적으로 되었습니다<div>', 
+            html: '<div style="font-size:16px;font-family:Apple_Gothic_Neo_Mid;">새로운 비밀번호로 로그인해주세요</div>', 
+            width : 400,
+            icon: "success",
+            confirmButtonText:'<div style="font-size:16px;font-family:Apple_Gothic_Neo_Mid;">확인</div>',
+          }).then(()=>{
+            navigate("/auth/login");
+          })
         } else {
-          console.log("실패");
+          Swal.fire({
+            title: '<div style="font-size:24px;font-family:Apple_Gothic_Neo_Bold;font-weight:bold;">비밀번호 변경에 실패했습니다.<div>', 
+            html: '<div style="font-size:16px;font-family:Apple_Gothic_Neo_Mid;">비밀번호를 다시 확인해주세요</div>', 
+            width : 400,
+            icon: 'error',
+            confirmButtonText:'<div style="font-size:16px;font-family:Apple_Gothic_Neo_Mid;">확인</div>',
+          })
         }
-      }).catch((error) => {
-        console.log(token)
-        console.log(error)
-        window.alert("비밀번호를 다시 확인해주세요!");
+      }).catch(() => {
+        Swal.fire({
+          title: '<div style="font-size:24px;font-family:Apple_Gothic_Neo_Bold;font-weight:bold;">비밀번호 변경에 실패했습니다.<div>', 
+          html: '<div style="font-size:16px;font-family:Apple_Gothic_Neo_Mid;">비밀번호를 다시 확인해주세요</div>', 
+          width : 400,
+          icon: 'error',
+          confirmButtonText:'<div style="font-size:16px;font-family:Apple_Gothic_Neo_Mid;">확인</div>',
+        })
       });
   };
 
