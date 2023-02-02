@@ -250,7 +250,8 @@ const Consultant = (props) => {
         headers: { "Content-Type": "application/json" },
       }
     );
-    return response.data; // The sessionId &
+    setMySessionId(response.data);
+    return response.data; // The sessionId
   };
 
   const createToken = async (sessionId) => {
