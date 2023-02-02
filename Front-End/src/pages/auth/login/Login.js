@@ -68,7 +68,7 @@ const Login = () => {
   // 비밀번호 찾기 페이지 이동
   const FindPassword = (event) => {
     event.preventDefault();
-    navigate("/auth/findpassword", { state : isUser });
+    navigate("/auth/findpassword", { state : { isUser: isUser, } });
   };
   // sumbit 활성화 & 비활성화
   const nullError = !!id && !!password;

@@ -11,8 +11,8 @@ import InputShortLabel from "../component/InputShortLabel";
 import { useState } from "react";
 
 const FindPassword = () => {
-  const { state } = useLocation();
-  const isUser = true;
+  const location = useLocation();
+  const isUser = location.state.isUser;
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const [id, setId, idError] = DataInput(/^[a-zA-z0-9]{5,20}$/);
@@ -24,17 +24,16 @@ const FindPassword = () => {
 
   const FindPasswordChangeSubmit = (event) => {
     event.preventDefault();
-    console.log(state)
-    const url = isUser ? "https://i8d105.p.ssafy.io/be/consultant/findpw" : "https://i8d105.p.ssafy.io/be/user/findpw";
+    const url = isUser ? "https://i8d105.p.ssafy.io/be/user/findpw" : "https://i8d105.p.ssafy.io/be/consultant/findpw";
     axios.post(
         url, isUser ?
         {
-          consultantId: id,
-          consultantEmail: email,
+          userId: id,
+          userEmail: email,
         } :
         {
-          userId: id,
-          userEmail : email,
+          consultantId: id,
+          consultantEmail : email,
         }
         )
       .then((response) => {
@@ -58,8 +57,14 @@ const FindPassword = () => {
           });
         }
       })
-      .catch((error) => {
-        console.log(error);
+      .catch(() => {
+        Swal.fire({
+          title: '<div style="font-size:24px;font-family:Apple_Gothic_Neo_Bold;font-weight:bold;">인증 실패</div>',
+          html: '<div style="font-size:16px;font-family:Apple_Gothic_Neo_Mid;">아이디와 이메일을 다시 확인해주세요!</div>', 
+          icon :"error",
+          width : 330,
+          confirmButtonText:'<div style="font-size:16px;font-family:Apple_Gothic_Neo_Mid;">확인</div>',
+        });
       });
   };
   const resetCode = useSelector((state)=> state.auth.resetCode.code)
@@ -74,7 +79,7 @@ const FindPassword = () => {
         allowOutsideClick:false,
         confirmButtonText:'<div style="font-size:16px;font-family:Apple_Gothic_Neo_Mid;">확인</div>',
       }).then(()=>{
-        navigate("/auth/setnewpassword", { isUser : isUser})
+        navigate("/auth/setnewpassword", { state : { isUser: isUser, }})
       })
     }else{
       Swal.fire({
