@@ -19,11 +19,12 @@ const Consultant = (props) => {
   // 유저 아이디
   const userType = useSelector((state) => state.auth.userType);
   const user = useSelector((state) => state.auth.userData);
+  const consultantId = user.consultantId;
   const nickname = userType === 1 ? user.consultantNickname : user.userNickname;
 
   // openvidu useState
   const [OV, setOV] = useState(<OpenVidu />);
-  const [mySessionId, setMySessionId] = useState("SessionA");
+  const [mySessionId, setMySessionId] = useState(consultantId);
   const [myUserName, setMyUserName] = useState(nickname);
   const [mainStreamManager, setMainStreamManager] = useState(undefined);
   const [publisher, setPublisher] = useState(undefined);
@@ -61,12 +62,12 @@ const Consultant = (props) => {
   }, []);
 
   // 돌아가기 버튼 함수
-  //   const pageBackHandler = () => {
-  //     leaveSession();
-  //     const newLoadingStatus = true;
-  //     props.onChangeLoading(newLoadingStatus);
-  //     navigate(-1);
-  //   };
+  const pageBackHandler = () => {
+    leaveSession();
+    // const newLoadingStatus = true;
+    // props.onChangeLoading(newLoadingStatus);
+    // navigate(-1);
+  };
 
   // 포커스 될 때 채팅창이 보이게 하는 함수
   const onFucusHandler = () => {
@@ -85,13 +86,6 @@ const Consultant = (props) => {
   };
 
   // openvidu 함수
-  const handleChangeSessionId = (event) => {
-    setMySessionId(event.target.value);
-  };
-
-  const handleChangeUserName = (event) => {
-    setMyUserName(event.target.value);
-  };
 
   const deleteSubscriber = (streamManager) => {
     const prevSubscribers = subscribers;
@@ -216,6 +210,7 @@ const Consultant = (props) => {
     const mySession = session;
 
     if (mySession) {
+      sendLeave(mySessionId);
       mySession.disconnect();
     }
 
@@ -223,10 +218,22 @@ const Consultant = (props) => {
     setOV(null);
     setSession(undefined);
     setSubscribers([]);
-    setMySessionId("SessionA");
+    setMySessionId("");
     setMyUserName(nickname);
     setMainStreamManager(undefined);
     setPublisher(undefined);
+  };
+
+  const sendLeave = async (sessionId) => {
+    const response = await axios.delete(
+      APPLICATION_SERVER_URL + "api/sessions/" + sessionId,
+      {},
+      {
+        headers: { "Content-Type": "application/json" },
+      }
+    );
+    console.log(response.data);
+    return response.data;
   };
 
   const getToken = async () => {
@@ -237,12 +244,13 @@ const Consultant = (props) => {
   const createSession = async (sessionId) => {
     const response = await axios.post(
       APPLICATION_SERVER_URL + "api/sessions",
-      { customSessionId: sessionId },
+      // { customSessionId: sessionId },
+      { customSessionId: sessionId, ConsultantId: consultantId },
       {
         headers: { "Content-Type": "application/json" },
       }
     );
-    return response.data; // The sessionId
+    return response.data; // The sessionId &
   };
 
   const createToken = async (sessionId) => {
@@ -293,7 +301,7 @@ const Consultant = (props) => {
                       required
                     />
                   </p> */}
-                <p>
+                {/* <p>
                   <label> Session: </label>
                   <input
                     className="form-control"
@@ -303,7 +311,7 @@ const Consultant = (props) => {
                     onChange={handleChangeSessionId}
                     required
                   />
-                </p>
+                </p> */}
                 <p className="text-center">
                   <input
                     className="btn btn-lg btn-success"
@@ -321,11 +329,11 @@ const Consultant = (props) => {
           <div id="session">
             {/* <div id="session-header">
                 <input
-                  className="btn btn-large btn-danger"
-                  type="button"
-                  id="buttonLeaveSession"
-                  onClick={leaveSession}
-                  value="Leave session"
+                className="btn btn-large btn-danger"
+                type="button"
+                id="buttonLeaveSession"
+                onClick={leaveSession}
+                value="Leave session"
                 />
               </div> */}
 
@@ -347,10 +355,10 @@ const Consultant = (props) => {
                 </div>
               ))}
             </div>
+            <button onClick={pageBackHandler}>Back</button>
           </div>
         ) : null}
       </div>
-      {/* <button onClick={pageBackHandler}>Back</button> */}
     </Fragment>
   );
 };

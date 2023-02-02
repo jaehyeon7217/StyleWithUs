@@ -67,14 +67,6 @@ const Consultant = (props) => {
     return listenHistoryEvent;
   }, []);
 
-  // 돌아가기 버튼 함수
-  const pageBackHandler = () => {
-    leaveSession();
-    const newLoadingStatus = true;
-    props.onChangeLoading(newLoadingStatus);
-    navigate(-1);
-  };
-
   // 포커스 될 때 채팅창이 보이게 하는 함수
   const onFucusHandler = () => {
     setAlarmCount(0);
@@ -319,7 +311,6 @@ const Consultant = (props) => {
           </div>
         </section>
       </main>
-      <button onClick={pageBackHandler}>Back</button>
     </Fragment>
   );
 };
