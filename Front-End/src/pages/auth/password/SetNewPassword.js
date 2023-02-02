@@ -6,7 +6,8 @@ import { DataInput, CheckPassword } from "../component/Effectiveness";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 
-const SetNewPassword = () => {
+const SetNewPassword = (props) => {
+  const isUser = props.isUser
   const navigate = useNavigate();
   const id = useSelector((state) => state.auth.resetCode.id)
   const [newPassword, setNewPassword, newPasswordError] = DataInput(
@@ -21,12 +22,19 @@ const SetNewPassword = () => {
 
   const sendNewpassword = (event) => {
     event.preventDefault();
-    const url = "https://i8d105.p.ssafy.io/be/user/findpw/changepw";
+    const url = isUser ? "https://i8d105.p.ssafy.io/be/consultant/findpw/changepw" : "https://i8d105.p.ssafy.io/be/user/findpw/changepw";
     axios
-      .put(url, {
-        userId: id,
-        userPw: newPassword,
-      })
+      .put(url, 
+        isUser ? 
+        {
+          consultantId: id,
+          consultantPw: newPassword,
+        } :
+        {
+          userId: id,
+          userPw: newPassword
+        }      
+      )
       .then(() => {
         Swal.fire({
           title: '<div style="font-size:24px;font-family:Apple_Gothic_Neo_Bold;font-weight:bold;">변경 완료!<div>', 

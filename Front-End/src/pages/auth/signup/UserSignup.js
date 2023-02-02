@@ -34,6 +34,7 @@ const UserSignup = () => {
   const [male, female, setMale, setFemale] = GenderCheckbox();
   const [inputCode, setInputCode] = useState("");
   const [emailOk, setEmailOk] = useState(false);
+  const inputCodeError = !inputCode
 
   const [idValidError, checkId] = UserValidCheck("id");
   const [emailValidError, checkEmail] = UserValidCheck("email");
@@ -191,6 +192,7 @@ const UserSignup = () => {
           placeholder="이메일을 입력해주세요"
           onChange={setEmail}
           onBlur={checkEmail}
+          disabled={!emailError}
           errorMessage={
             emailEffectError
               ? emailValidError
@@ -206,6 +208,7 @@ const UserSignup = () => {
           type="text"
           value={inputCode}
           placeholder="이메일 인증 번호를 입력해주세요"
+          disabled={inputCodeError}
           onChange={(event) => setInputCode(event.target.value)}
           onClick={checkEmailCode}
         />
