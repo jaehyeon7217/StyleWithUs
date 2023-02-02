@@ -5,6 +5,7 @@ import axios from "axios";
 import { useSelector } from "react-redux";
 import history from "../history";
 
+import ConsultantList from "./ConsultantList";
 import Video from "../Video";
 
 const APPLICATION_SERVER_URL =
@@ -61,12 +62,12 @@ const Consultant = (props) => {
   }, []);
 
   // 돌아가기 버튼 함수
-//   const pageBackHandler = () => {
-//     leaveSession();
-//     const newLoadingStatus = true;
-//     props.onChangeLoading(newLoadingStatus);
-//     navigate(-1);
-//   };
+  //   const pageBackHandler = () => {
+  //     leaveSession();
+  //     const newLoadingStatus = true;
+  //     props.onChangeLoading(newLoadingStatus);
+  //     navigate(-1);
+  //   };
 
   // 포커스 될 때 채팅창이 보이게 하는 함수
   const onFucusHandler = () => {
@@ -258,6 +259,21 @@ const Consultant = (props) => {
 
   // 끝
 
+  // 대기창 관련 작업
+  const [sessionLists, setSessionLists] = useState([]);
+
+  const getSession = async () => {
+    const response = await axios.get(
+      APPLICATION_SERVER_URL + "api/sessions",
+      {},
+      {
+        headers: { "Content-Type": "application/json" },
+      }
+    );
+    console.log(response.data);
+    setSessionLists(response.data);
+  };
+
   // 메세지 Event
   const messageSendHandler = (data) => {
     session
@@ -279,7 +295,20 @@ const Consultant = (props) => {
       <div>
         <section className="container">
           {session === undefined ? (
-            <div>User Video 초기화면</div>
+            <div>
+              <div>현재 상담 가능한 컨설턴트 보기</div>
+              <input type="button" onClick={getSession} value="클릭" />
+              {sessionLists.map((list, idx) => {
+                return (
+                  <ConsultantList
+                    key={idx}
+                    consultantNickname={list.consultantId.consultantNickname}
+                    consultantGender={list.consultantId.consultantGender}
+                    sessionId={list.sessionId}
+                  />
+                );
+              })}
+            </div>
           ) : null}
 
           {session !== undefined ? (
