@@ -36,7 +36,7 @@ const FindPassword = () => {
             title: '<div style="font-size:24px;font-family:Apple_Gothic_Neo_Bold;font-weight:bold;">이메일이 발송되었습니다!<div>', 
             html: '<div style="font-size:16px;font-family:Apple_Gothic_Neo_Mid;">이메일을 확인해 주세요!</div>', 
             icon :"success",
-            width : 400,
+            width : 330,
             confirmButtonText:'<div style="font-size:16px;font-family:Apple_Gothic_Neo_Mid;">확인</div>',
           });
         } else {
@@ -44,7 +44,7 @@ const FindPassword = () => {
             title: '<div style="font-size:24px;font-family:Apple_Gothic_Neo_Bold;font-weight:bold;">인증 실패</div>',
             html: '<div style="font-size:16px;font-family:Apple_Gothic_Neo_Mid;">아이디와 이메일을 다시 확인해주세요!</div>', 
             icon :"error",
-            width : 400,
+            width : 330,
             confirmButtonText:'<div style="font-size:16px;font-family:Apple_Gothic_Neo_Mid;">확인</div>',
           });
         }
@@ -58,10 +58,10 @@ const FindPassword = () => {
     event.preventDefault();
     if (resetCode === code){
       Swal.fire({
-        title: '<div style="font-size:24px;font-family:Apple_Gothic_Neo_Bold;font-weight:bold;">인증되었습니다!<div>', 
+        title: '<div style="font-size:24px;font-family:Apple_Gothic_Neo_Bold;font-weight:bold;">인증 완료<div>', 
         html: '<div style="font-size:16px;font-family:Apple_Gothic_Neo_Mid;">새로운 비밀번호를 지정해주세요</div>', 
         icon :"success",
-        width : 400,
+        width : 330,
         allowOutsideClick:false,
         confirmButtonText:'<div style="font-size:16px;font-family:Apple_Gothic_Neo_Mid;">확인</div>',
       }).then(()=>{
@@ -73,7 +73,7 @@ const FindPassword = () => {
         html: '<div style="font-size:16px;font-family:Apple_Gothic_Neo_Mid;">인증 코드를 다시 확인해주세요</div>',
         confirmButtonText:'<div style="font-size:16px;font-family:Apple_Gothic_Neo_Mid;">확인</div>',
         icon :"error",
-        width : 400,
+        width : 330,
       });
     }
   };

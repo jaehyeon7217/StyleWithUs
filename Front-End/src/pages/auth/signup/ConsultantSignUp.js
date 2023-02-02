@@ -62,10 +62,10 @@ const ConsultantSignUp = () => {
       .then((response) => {
         if (response.status === 200) {
           Swal.fire({
-            title: '<div style="font-size:24px;font-family:Apple_Gothic_Neo_Bold;font-weight:bold;">회원가입이 정상적으로 되었습니다<div>', 
+            title: '<div style="font-size:24px;font-family:Apple_Gothic_Neo_Bold;font-weight:bold;">회원가입 성공<div>', 
             html: '<div style="font-size:16px;font-family:Apple_Gothic_Neo_Mid;">관리자의 승인까지 기다려주세요</div>', 
             icon :"success",
-            width : 400,
+            width : 330,
             confirmButtonText:'<div style="font-size:16px;font-family:Apple_Gothic_Neo_Mid;">확인</div>',
           }).then(()=>{
             navigate("/auth/login");
@@ -75,7 +75,7 @@ const ConsultantSignUp = () => {
             title: '<div style="font-size:24px;font-family:Apple_Gothic_Neo_Bold;font-weight:bold;">회원가입 실패</div>',
             html: '<div style="font-size:16px;font-family:Apple_Gothic_Neo_Mid;">입력 항목을 다시 체크해주세요!</div>', 
             icon :"error",
-            width : 400,
+            width : 330,
             confirmButtonText:'<div style="font-size:16px;font-family:Apple_Gothic_Neo_Mid;">확인</div>',
           });
         }
@@ -103,7 +103,7 @@ const ConsultantSignUp = () => {
           title: '<div style="font-size:24px;font-family:Apple_Gothic_Neo_Bold;font-weight:bold;">이메일이 발송되었습니다!<div>', 
           html: '<div style="font-size:16px;font-family:Apple_Gothic_Neo_Mid;">회원가입을 계속 진행해주세요!</div>', 
           icon :"success",
-          width : 400,
+          width : 330,
           confirmButtonText:'<div style="font-size:16px;font-family:Apple_Gothic_Neo_Mid;">확인</div>',
         });
       })
@@ -120,7 +120,7 @@ const ConsultantSignUp = () => {
         title: '<div style="font-size:24px;font-family:Apple_Gothic_Neo_Bold;font-weight:bold;">인증되었습니다!<div>', 
         html: '<div style="font-size:16px;font-family:Apple_Gothic_Neo_Mid;">회원가입을 계속 진행해주세요!</div>', 
         icon :"success",
-        width : 400,
+        width : 330,
         confirmButtonText:'<div style="font-size:16px;font-family:Apple_Gothic_Neo_Mid;">확인</div>',
       });
     } else {
@@ -129,7 +129,7 @@ const ConsultantSignUp = () => {
         title: '<div style="font-size:24px;font-family:Apple_Gothic_Neo_Bold;font-weight:bold;">인증 실패</div>',
         html: '<div style="font-size:16px;font-family:Apple_Gothic_Neo_Mid;">인증 코드를 다시 확인해주세요</div>', 
         icon :"error",
-        width : 400,
+        width : 330,
         confirmButtonText:'<div style="font-size:16px;font-family:Apple_Gothic_Neo_Mid;">확인</div>',
       });
     }
