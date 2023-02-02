@@ -21,9 +21,14 @@ const Shop = () => {
     setToggleOn(liTitle);
   };
 
-  const detailShop = (data) => {
+  const detailShopOn = (data) => {
     setShopOn(true);
     setDetailPage(data);
+  };
+
+  const detailShopOff = () => {
+    setShopOn(false);
+    setDetailPage(null);
   };
 
   return (
@@ -39,14 +44,14 @@ const Shop = () => {
                   type={type}
                   onToggle={toggleEventHandler}
                   toggleData={type === toggleOn ? true : false}
-                  detailShop={detailShop}
+                  detailShop={detailShopOn}
                 />
               </li>
             );
           })}
         </ul>
       )}
-      {shopOn && <ShopItems detailPage={detailPage}/>}
+      {shopOn && <ShopItems detailPage={detailPage} detailShopOff={detailShopOff}/>}
     </div>
   );
 };
