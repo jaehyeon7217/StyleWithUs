@@ -14,6 +14,7 @@ const PasswordChange = () => {
   const dispatch = useDispatch();
   const id = useSelector((state) => state.auth.userId);
   const token = useSelector((state) => state.auth.token);
+  const userType = useSelector((state) => state.auth.userType)
 
   const [password, setPassword, passwordError] = DataInput(
     /^(?=.*[a-zA-Z])(?=.*[!@#$%^*+=-])(?=.*[0-9]).{9,16}$/
@@ -26,15 +27,13 @@ const PasswordChange = () => {
 
   const PasswordChangeSubmit = (event) => {
     event.preventDefault();
-    const url = "https://i8d105.p.ssafy.io/be/user/password";
+    const url = userType ? "https://i8d105.p.ssafy.io/be/consultant/password" : "https://i8d105.p.ssafy.io/be/user/password";
     axios.post(
         url,
-        {
-          userId: id,
-          userPw: password,
-          newUserPw: newPassword,
-        },
-        {
+        userType
+          ? { consultantId: id, consultantPw: password, newCosultantPw: newPassword}
+          : { userId: id, userPw: password, newUserPw: newPassword },
+        {   
         headers: {
           Authorization : token
         }

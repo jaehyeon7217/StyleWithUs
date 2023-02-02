@@ -16,7 +16,7 @@ const NavTop = () =>{
   }
   const toSignup = (event) =>{
     event.preventDefault();
-    navigate('/auth/usersignup')
+    navigate('/auth/signup')
   }
   const toMypage = (event) =>{
     event.preventDefault();

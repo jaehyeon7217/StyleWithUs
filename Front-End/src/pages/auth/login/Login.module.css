@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Blinker:wght@100;200;300;400;600;700;800;900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Blinker:wght@100;200;300;400;600;700;800;900&display=swap");
 @font-face {
   font-family: "Apple_Gothic_Neo_Hard";
   src: url("../../../fonts/AppleSDGothicNeoH.ttf");
@@ -19,105 +19,88 @@
   src: url("../../../fonts/AppleSDGothicNeoB.ttf");
 }
 
-
-
-.PageName{
+.PageName {
   font-family: "Apple_Gothic_Neo_Hard";
   font-size: 40px;
-  font-style: italic; 
+  font-style: italic;
 }
 
-.SubPageName{
+.SubPageName {
   font-family: "Apple_Gothic_Neo_Bold";
-  font-style: italic; 
+  font-style: italic;
   margin-top: -33px;
 }
 
-
 /* ToggleBtn관련 */
-.ToggleBtn{
-    float: right;
-    /* display:inline-block; */
-    width: 50px;
-    /* height: 30px; */
-    position:relative;
+.ToggleBtn {
+  float: right;
+  /* display:inline-block; */
+  width: 50px;
+  /* height: 30px; */
+  position: relative;
 }
 
-.ToggleBtn
-input[type="checkbox"]{
-    position: absolute;
-    width: 0px;
-    height: 0px;
-    overflow: hidden;
-    
-  }
+.ToggleBtn input[type="checkbox"] {
+  position: absolute;
+  width: 0px;
+  height: 0px;
+  overflow: hidden;
+}
 
-
-.ToggleBtn
-label::after{  
-  position:absolute;
-  top: 3.5px;
+.ToggleBtn label::after {
+  position: absolute;
+  top: 2.8px;
   left: 3px;
-  content:'';
+  content: "";
   width: 18px;
   height: 16px;
   background: white;
   border-radius: 100%;
   transition: all 0.3s;
-  content: 'U';
+  content: "U";
   font-size: 12.5px;
   font-weight: bold;
   padding-top: 1.3px;
   color: rgb(96, 95, 95);
-    
-  }
-
-.ToggleBtn
-label::before{
-    position:absolute;
-    top:0;
-    left:0;
-    content:'';
-    width: 45px;
-    height: 23px;
-    border:1px solid #d1d1d1;
-    border-radius: 20px;
-    background: lightgray;
-    box-sizing: border-box;
-    
-  }
-
-.ToggleBtn
-input[type="checkbox"]:checked + label::after {
-    transform: translateX(20px);
-    background: lightgray;
-    font-weight: bold;
-    content: 'C';
-    
-  }
-
-.ToggleBtn
-input[type="checkbox"]:checked + label::before {
-    background: #fff;
-  }
-
-
-.BottomLabelBox{
-  display: flex;
-  justify-content: center;
-
 }
 
+.ToggleBtn label::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  content: "";
+  width: 45px;
+  height: 23px;
+  border: 1px solid #d1d1d1;
+  border-radius: 20px;
+  background: lightgray;
+  box-sizing: border-box;
+}
 
-.Vline{
+.ToggleBtn input[type="checkbox"]:checked + label::after {
+  transform: translateX(20px);
+  background: lightgray;
+  font-weight: bold;
+  content: "C";
+}
+
+.ToggleBtn input[type="checkbox"]:checked + label::before {
+  background: #fff;
+}
+
+.BottomLabelBox {
+  display: flex;
+  justify-content: center;
+}
+
+.Vline {
   font-family: "Apple_Gothic_Neo_Light";
   color: rgb(128, 128, 128);
   margin-left: 35px;
   float: left;
 }
 
-
-.BottomLabel{
+.BottomLabel {
   float: left;
   font-family: "Apple_Gothic_Neo_Light";
   margin-left: 20px;
@@ -126,16 +109,15 @@ input[type="checkbox"]:checked + label::before {
   cursor: pointer;
 }
 
-.LoginBtn{
+.LoginBtn {
   font-family: "Apple_Gothic_Neo_Bold";
   font-size: 15px;
   width: 310px;
   height: 45px;
   border: none;
   border-radius: 1px;
-  background-color: rgba(211, 211, 211, 0.300);
+  background-color: rgba(211, 211, 211, 0.3);
   border-radius: 5px;
   margin-left: 10px;
   cursor: pointer;
-
 }

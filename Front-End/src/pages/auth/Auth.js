@@ -7,6 +7,7 @@ import classes from "./Auth.module.css"
 import FindPassword from "./password/FindPassword"
 import SetNewPassword from "./password/SetNewPassword"
 import PasswordChange from "./password/PasswordChange"
+import Signup from "./signup/Signup"
 
 
 const Auth = () => {
@@ -20,6 +21,7 @@ const Auth = () => {
         <Routes>
           <Route path="login" element={<Login/>}></Route>
           <Route path="usersignup" element={<UserSignup/>}></Route>
+          <Route path="signup" element={<Signup/>}></Route>
           <Route path="consultantsignup" element={<ConsultantSignup/>}></Route>
           <Route path="findpassword" element={<FindPassword/>}></Route>
           <Route path="setnewpassword" element={<SetNewPassword/>}></Route>
