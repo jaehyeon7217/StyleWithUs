@@ -61,13 +61,14 @@
   background-color: rgba(211, 211, 211, 0.300);
   border-radius: 5px;
   margin-left: 10px;
+  cursor: pointer;
 }
 
 
 .ToLoginLink{
    font-family: "Apple_Gothic_Neo_Mid";
    margin-left: 20px;
-
+   cursor: pointer;
 }
 
 
