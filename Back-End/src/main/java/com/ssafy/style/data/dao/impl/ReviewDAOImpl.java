@@ -43,12 +43,15 @@ public class ReviewDAOImpl implements ReviewDAO {
     }
 
     @Override
+    public Review selectReview(int reviewNo) throws Exception {
+        Review review = reviewRepository.getById(reviewNo);
+        return review;
+    }
+
+    @Override
     public Review updateReview(Review review) throws Exception {
-        Review temp = reviewRepository.getById(review.getReviewNo());
-        review.setUserId(temp.getUserId());
-        review.setConsultantId(temp.getConsultantId());
-        review.setReviewRegisterTime(temp.getReviewRegisterTime());
-        return reviewRepository.save(review);
+        Review saveReview = reviewRepository.save(review);
+        return saveReview;
     }
 
     @Override

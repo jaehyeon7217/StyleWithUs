@@ -9,6 +9,7 @@ import java.util.List;
 public interface ReviewDAO {
     Review insertReview(Review review) throws Exception;
     List<Review> selectConsultantReview(String consultantId) throws Exception;
+    Review selectReview(int reviewNo) throws Exception;
     Review updateReview(Review review) throws Exception;
     void deleteReview(int reviewNo) throws Exception;
     Consultant toConsultant(String consultantId);

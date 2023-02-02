@@ -55,9 +55,13 @@ public class ReviewServiceImpl implements ReviewService {
     }
 
     @Override
-    public ReviewDto updateReview(ReviewDto reviewDto) throws Exception {
-        Review review = toReview(reviewDto);
-        Review saveReview = reviewDAO.updateReview(review);
+    public ReviewDto updateReview(ReviewDto reviewDto, int reviewNo) throws Exception {
+        reviewDto.setReviewNo(reviewDAO.selectReview(reviewNo).getReviewNo());
+        reviewDto.setConsultantId(reviewDAO.toConsultantId(reviewDAO.selectReview(reviewNo).getConsultantId()));
+        reviewDto.setUserId(reviewDAO.toUserId(reviewDAO.selectReview(reviewNo).getUserId()));
+        reviewDto.setReviewRegisterTime(reviewDAO.selectReview(reviewNo).getReviewRegisterTime());
+
+        Review saveReview = reviewDAO.updateReview(toReview(reviewDto));
         return toReviewDto(saveReview);
     }
 

@@ -85,18 +85,20 @@ public class ReviewController {
         }
     }
 
-    @PutMapping("/update")
+    @PutMapping("/update/{reviewNo}")
     @ApiOperation(value = "리뷰 수정", response = ReviewDto.class)
     public ResponseEntity<?> updateReview(
-            @RequestBody @ApiParam(value = "리뷰 작성 정보", required = true) ReviewDto reviewDto) {
+            @RequestBody @ApiParam(value = "리뷰 작성 정보", required = true) ReviewDto reviewDto,
+            @PathVariable @ApiParam(value = "리뷰 번호", required = true) int reviewNo) {
 
         Map<String, Object> check = new HashMap<>();
 
         logger.info("updateReview - 호출");
         logger.info("updateReview reviewDto : {}", reviewDto);
+        logger.info("updateReview reviewNo : {}", reviewNo);
 
         try {
-            ReviewDto review = reviewService.updateReview(reviewDto);
+            ReviewDto review = reviewService.updateReview(reviewDto, reviewNo);
             if(review != null) {
                 logger.info("리뷰 정보 : {}", review);
 
