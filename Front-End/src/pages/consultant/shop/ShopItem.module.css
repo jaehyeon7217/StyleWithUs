@@ -1,0 +1,29 @@
+@font-face {
+  font-family: "Apple_Gothic_Neo_Bold";
+  src: url("../../../fonts/AppleSDGothicNeoB.ttf");
+}
+
+@font-face {
+  font-family: "Apple_Gothic_Neo_Light";
+  src: url("../../../fonts/AppleSDGothicNeoL.ttf");
+}
+
+.index, .title {
+  display: inline-block;
+}
+
+.img {
+  height: 90%;
+  border-radius: 10px;
+  margin: 0 20px;
+}
+
+.index {
+  font-family: "Apple_Gothic_Neo_Bold";
+  font-size: 25px;
+}
+
+.title {
+  color: black;
+  font-size: 18px;
+}
