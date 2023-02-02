@@ -1,0 +1,61 @@
+@import url('https://fonts.googleapis.com/css2?family=Blinker:wght@100;200;300;400;600;700;800;900&display=swap');
+
+@font-face {
+    font-family: "Apple_Gothic_Neo_Hard";
+    src: url("../../fonts/AppleSDGothicNeoH.ttf");
+}
+
+@font-face {
+    font-family: "Apple_Gothic_Neo_Bold";
+    src: url("../../fonts/AppleSDGothicNeoB.ttf");
+}
+
+@font-face {
+    font-family: "Apple_Gothic_Neo_SB";
+    src: url("../../fonts/AppleSDGothicNeoSB.ttf");
+}
+
+@font-face {
+    font-family: "Apple_Gothic_Neo_Light";
+    src: url("../../fonts/AppleSDGothicNeoL.ttf");
+}
+
+/* 마이페이지 이름 */
+.PageName {
+    font-family: "Apple_Gothic_Neo_SBold";
+    margin-bottom: -5px;
+    font-size: 27px;
+}
+
+/* 사이드 메뉴 부분 */
+.SideMenuBox {
+    width: 200px;
+    height: 400px;
+    margin-top: -15px;
+
+}
+
+/* 사이드 메뉴 */
+.SideMenu {
+    font-family: "Apple_Gothic_Neo_Light";
+    text-align: left;
+    font-size: 21px;
+    padding-top: 5px;
+    margin-bottom: 15px;
+}
+
+
+/* 사이드 메뉴 디테일 */
+.SideMenuDetail {
+    font-family: "Apple_Gothic_Neo_Light";
+    font-size: 17.5px;
+    text-align: left;
+    color: rgba(139, 139, 139, 0.778);
+    margin-bottom: -10px;
+
+}
+
+.SideMenuDetail:hover {
+    font-family: "Apple_Gothic_Neo_Mid";
+    color: black;
+}

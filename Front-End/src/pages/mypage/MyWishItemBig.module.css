@@ -1,0 +1,62 @@
+@font-face {
+    font-family: "Apple_Gothic_Neo_Bold";
+    src: url("../../fonts/AppleSDGothicNeoB.ttf");
+}
+
+@font-face {
+    font-family: "Apple_Gothic_Neo_Light";
+    src: url("../../fonts/AppleSDGothicNeoL.ttf");
+}
+
+.ItemBox {
+    margin-top: -10px;
+    margin-left: -10px;
+}
+
+.a {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    text-decoration: none;
+    color: gray;
+    height: 170px;
+
+    padding-bottom: 10px;
+    transition: color .15s;
+    
+}
+
+
+
+.img {
+    display: inline-block;
+    width: 190px;
+    height: 170px;
+    border-radius: 8px;
+    margin: 0 15px 0 10px;
+    
+
+
+}
+
+.title {
+    font-family: "Apple_Gothic_Neo_Mid";
+    width: 170px;
+    display: flex;
+    justify-content: left;
+    margin: 0 15px 0 15px;
+    text-align: left;
+    font-size: 13.5px;
+}
+
+.title:hover{
+    font-family: "Apple_Gothic_Neo_SBold";
+}
+
+.price {
+    width: 130px;
+    display: flex;
+    justify-content: left;
+    margin: 0 15px 0 15px;
+    font-family: "Apple_Gothic_Neo_Bold";
+}

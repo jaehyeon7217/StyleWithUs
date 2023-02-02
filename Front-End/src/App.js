@@ -7,6 +7,8 @@ import Home from "./pages/Home/Home";
 import MyPage from "./pages/mypage/MyPage";
 import Loading from "./pages/consultant/video/Loading";
 import Consultant from "./pages/consultant/Consultant";
+import MyPageWish from "./pages/mypage/MyPageWish";
+import MyProfile from './pages/mypage/MyProfile';
 
 
 function App() {
@@ -29,6 +31,8 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/auth/*" element={<Auth />} />
         <Route path="/mypage" element={<MyPage />} />
+        <Route path="/mypagewish" element={<MyPageWish />}/>
+        <Route path="/myprofile" element={<MyProfile/>}/>
         <Route
           path="/consultant"
           // element={displayStatus}
