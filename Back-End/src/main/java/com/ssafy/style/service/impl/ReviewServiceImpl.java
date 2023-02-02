@@ -4,6 +4,7 @@ import com.ssafy.style.data.dao.ReviewDAO;
 import com.ssafy.style.data.dto.ReviewDto;
 import com.ssafy.style.data.entity.Review;
 import com.ssafy.style.service.ReviewService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -13,7 +14,7 @@ import java.util.List;
 public class ReviewServiceImpl implements ReviewService {
 
     private final ReviewDAO reviewDAO;
-
+    @Autowired
     public ReviewServiceImpl(ReviewDAO reviewDAO) {
         this.reviewDAO = reviewDAO;
     }
