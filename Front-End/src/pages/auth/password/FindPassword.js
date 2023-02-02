@@ -3,7 +3,7 @@ import Swal from "sweetalert2";
 // component 호출
 import InputLabel from "../component/InputLabel";
 import { DataInput } from "../component/Effectiveness";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import classes from "./FindPassword.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import { authActions } from "../../../store/auth";
@@ -11,6 +11,8 @@ import InputShortLabel from "../component/InputShortLabel";
 import { useState } from "react";
 
 const FindPassword = () => {
+  const { state } = useLocation();
+  const isUser = true;
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const [id, setId, idError] = DataInput(/^[a-zA-z0-9]{5,20}$/);
@@ -18,16 +20,23 @@ const FindPassword = () => {
     /^([0-9a-zA-Z_-]+)@([0-9a-zA-Z_-]+)(\.[0-9a-zA-Z_-]+){1,2}$/
   );
   const [code, setCode] = useState("")
+  const codeError = !code
 
   const FindPasswordChangeSubmit = (event) => {
     event.preventDefault();
-    const url = "https://i8d105.p.ssafy.io/be/user/findpw";
+    console.log(state)
+    const url = isUser ? "https://i8d105.p.ssafy.io/be/consultant/findpw" : "https://i8d105.p.ssafy.io/be/user/findpw";
     axios.post(
-        url, 
+        url, isUser ?
+        {
+          consultantId: id,
+          consultantEmail: email,
+        } :
         {
           userId: id,
-          userEmail: email
-        })
+          userEmail : email,
+        }
+        )
       .then((response) => {
         if (response.status === 200) {
           const data = { code: response.data.data, id: id };
@@ -65,7 +74,7 @@ const FindPassword = () => {
         allowOutsideClick:false,
         confirmButtonText:'<div style="font-size:16px;font-family:Apple_Gothic_Neo_Mid;">확인</div>',
       }).then(()=>{
-        navigate("/auth/setnewpassword")
+        navigate("/auth/setnewpassword", { isUser : isUser})
       })
     }else{
       Swal.fire({
@@ -99,6 +108,7 @@ const FindPassword = () => {
           value={email}
           placeholder="이메일을 입력해주세요"
           onChange={setEmail}
+          disabled={!emailError}
           onClick={FindPasswordChangeSubmit}
           errorMessage={emailError ? "" : "이메일 양식을 지켜주세요."}
         />
@@ -108,6 +118,7 @@ const FindPassword = () => {
           type="text"
           placeholder="인증번호를 입력해주세요"
           value={code}
+          disabled={codeError}
           onChange={(event)=> {setCode(event.target.value)}}
           onClick={toSetNewPassword}
         />

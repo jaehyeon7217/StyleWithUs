@@ -1,0 +1,64 @@
+@import url('https://fonts.googleapis.com/css2?family=Blinker:wght@100;200;300;400;600;700;800;900&display=swap');
+@font-face {
+  font-family: "Apple_Gothic_Neo_Hard";
+  src: url("../../../fonts/AppleSDGothicNeoH.ttf");
+}
+
+@font-face {
+  font-family: "Apple_Gothic_Neo_Mid";
+  src: url("../../../fonts/AppleSDGothicNeoM.ttf");
+}
+
+@font-face {
+  font-family: "Apple_Gothic_Neo_Light";
+  src: url("../../../fonts/AppleSDGothicNeoL.ttf");
+}
+
+@font-face {
+  font-family: "Apple_Gothic_Neo_Bold";
+  src: url("../../../fonts/AppleSDGothicNeoB.ttf");
+}
+
+@font-face {
+    font-family: "Apple_Gothic_Neo_SBold";
+    src: url("../../../fonts/AppleSDGothicNeoSB.ttf");
+}
+
+
+.PageName{
+  font-family: "Apple_Gothic_Neo_SBold";
+  font-size: 37px;
+}
+
+.textbox{
+  font-family: "Apple_Gothic_Neo_SBold";
+  font-size: 21px;
+  display: flex;
+  justify-content: space-around;
+  margin-top: -30px;
+}
+
+.imgbox{
+  display: flex;
+  justify-content: space-between;
+  width: auto;
+  margin-bottom: 50px;
+}
+
+.imgbox img{
+  width: 130px;
+  margin: 10px;
+  padding: 5px;
+}
+
+.imgbox img:hover{
+  border: solid 1px rgb(172, 172, 172);
+  border-radius: 10%;
+  margin: 9px;
+  padding: 5px;
+}
+
+.ToLoginLink{
+  font-family: "Apple_Gothic_Neo_Mid";
+  cursor: pointer;
+}

@@ -49,7 +49,6 @@
     border: none;
     border-radius: 9px;
     font-size: 12.9px;
-    color: black;
     position: absolute;
     margin-top: -12px;
     cursor: pointer;
@@ -70,8 +69,8 @@
     font-family: "Apple_Gothic_Neo_SBold";
     font-size: 10px;
     color: red;
-    margin-top: -2px;
-    margin-bottom: 7px;
+    margin-top: -3px;
+    margin-bottom: 8px;
     margin-left: 2px;
     visibility: hidden;
 }

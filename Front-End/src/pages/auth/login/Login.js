@@ -63,12 +63,12 @@ const Login = () => {
   // 회원가입 페이지 이동
   const toUserSignup = (event) => {
     event.preventDefault();
-    navigate("/auth/usersignup");
+    navigate("/auth/signup");
   };
   // 비밀번호 찾기 페이지 이동
   const FindPassword = (event) => {
     event.preventDefault();
-    navigate("/auth/findpassword");
+    navigate("/auth/findpassword", { state : isUser });
   };
   // sumbit 활성화 & 비활성화
   const nullError = !!id && !!password;
