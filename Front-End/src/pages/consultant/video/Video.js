@@ -14,7 +14,7 @@ const Video = (props) => {
         // 유저의 경우 퍼스널컬러 추가
         <div className="video">
           <div className={classes.streamcomponent}>
-            <OpenViduVideoComponent streamManager={props.streamManager} />
+            <OpenViduVideoComponent streamManager={props.streamManager} sendUserType={userType} />
             <div>
               <PersonalColor />
             </div>
@@ -24,7 +24,7 @@ const Video = (props) => {
         // 컨설턴트의 경우 퍼스널컬러 없게
         <div className="video">
           <div className={classes.streamcomponent}>
-            <OpenViduVideoComponent streamManager={props.streamManager} />
+            <OpenViduVideoComponent streamManager={props.streamManager} sendUserType={userType} />
             <div>
               <PersonalColor />
             </div>

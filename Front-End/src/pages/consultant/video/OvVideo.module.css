@@ -1,0 +1,14 @@
+.video-consultant {
+  width: 100%;
+  height: auto;
+  float: left;
+  border-radius: 20px;
+}
+
+.video-user {
+  width: 80%;
+  height: 720px;
+  object-fit: cover;
+  border-radius: 20px;
+  float: left;
+}
