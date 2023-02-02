@@ -6,8 +6,8 @@ import classes from "./Consultant.module.css";
 import { useSelector } from "react-redux";
 import history from "./video/history";
 
-import VideoConsultant from './video/VideoConsultant/VideoConsultant';
-import VideoUser from './video/VideoUser/VideoUser';
+import VideoConsultant from "./video/VideoConsultant/VideoConsultant";
+import VideoUser from "./video/VideoUser/VideoUser";
 import Shop from "./shop/Shop";
 import Cart from "./cart/Cart";
 import ChatContent from "./chat/ChatContent";
@@ -284,7 +284,7 @@ const Consultant = (props) => {
   return (
     <Fragment>
       <main className={classes.main}>
-        {!userType ? <VideoUser /> : < VideoConsultant/>}
+        <section>{!userType ? <VideoUser /> : <VideoConsultant />}</section>
         <section className={classes.section}>
           <Shop />
         </section>
@@ -309,7 +309,11 @@ const Consultant = (props) => {
             />
           </div>
           <ChatForm onMessageSend={messageSendHandler} />
-          <div className={`${classes.alarm} ${alarmCount > 0? classes['alarm-on'] : ''}`}>
+          <div
+            className={`${classes.alarm} ${
+              alarmCount > 0 ? classes["alarm-on"] : ""
+            }`}
+          >
             <span>{alarmCount}</span>
             <img src={chatImage} alt="chat" />
           </div>
