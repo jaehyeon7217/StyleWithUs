@@ -1,0 +1,56 @@
+@import url('https://fonts.googleapis.com/css2?family=Blinker:wght@100;200;300;400;600;700;800;900&display=swap');
+
+@font-face {
+  font-family: "Apple_Gothic_Neo_Middle";
+  src: url("../../../fonts/AppleSDGothicNeoM.ttf");
+}
+
+@font-face {
+  font-family: "Apple_Gothic_Neo_Light";
+  src: url("../../../fonts/AppleSDGothicNeoL.ttf");
+}
+
+.h3 {
+  font-family: "Apple_Gothic_Neo_Middle";
+  border-bottom: 1px solid black;
+  /* border-bottom: 1px solid rgb(211, 211, 211); */
+  margin: 0;
+  padding: 15px 0 12px 5px;
+  font-size: 17px;
+}
+
+.ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  height: 67%;
+}
+
+.li {
+  font-family: "Apple_Gothic_Neo_Light";
+  src: url("../../../fonts/AppleSDGothicNeoL.ttf");
+  height: 20%;
+  border-bottom: 1px solid rgb(211, 211, 211); 
+  display: flex;
+  align-items: center;
+}
+
+.li:hover {
+  cursor: pointer;
+}
+
+.prev, .next {
+  cursor: pointer;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding-top: 25px;
+}
+
+.bindNumber {
+  width: 70%;
+}
