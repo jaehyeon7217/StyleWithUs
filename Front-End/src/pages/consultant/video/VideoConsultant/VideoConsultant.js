@@ -61,12 +61,12 @@ const Consultant = (props) => {
   }, []);
 
   // 돌아가기 버튼 함수
-//   const pageBackHandler = () => {
-//     leaveSession();
-//     const newLoadingStatus = true;
-//     props.onChangeLoading(newLoadingStatus);
-//     navigate(-1);
-//   };
+  //   const pageBackHandler = () => {
+  //     leaveSession();
+  //     const newLoadingStatus = true;
+  //     props.onChangeLoading(newLoadingStatus);
+  //     navigate(-1);
+  //   };
 
   // 포커스 될 때 채팅창이 보이게 하는 함수
   const onFucusHandler = () => {
@@ -277,13 +277,12 @@ const Consultant = (props) => {
   return (
     <Fragment>
       <div>
-        <section className="container">
-          {session === undefined ? (
-            <div id="join">
-              <div id="join-dialog" className="jumbotron vertical-center">
-                <h1> 상담 </h1>
-                <form className="form-group" onSubmit={joinSession}>
-                  {/* <p>
+        {session === undefined ? (
+          <div id="join">
+            <div id="join-dialog" className="jumbotron vertical-center">
+              <h1> 상담 </h1>
+              <form className="form-group" onSubmit={joinSession}>
+                {/* <p>
                     <label>Participant: </label>
                     <input
                       className="form-control"
@@ -294,33 +293,33 @@ const Consultant = (props) => {
                       required
                     />
                   </p> */}
-                  <p>
-                    <label> Session: </label>
-                    <input
-                      className="form-control"
-                      type="text"
-                      id="sessionId"
-                      value={mySessionId}
-                      onChange={handleChangeSessionId}
-                      required
-                    />
-                  </p>
-                  <p className="text-center">
-                    <input
-                      className="btn btn-lg btn-success"
-                      name="commit"
-                      type="submit"
-                      value="JOIN"
-                    />
-                  </p>
-                </form>
-              </div>
+                <p>
+                  <label> Session: </label>
+                  <input
+                    className="form-control"
+                    type="text"
+                    id="sessionId"
+                    value={mySessionId}
+                    onChange={handleChangeSessionId}
+                    required
+                  />
+                </p>
+                <p className="text-center">
+                  <input
+                    className="btn btn-lg btn-success"
+                    name="commit"
+                    type="submit"
+                    value="JOIN"
+                  />
+                </p>
+              </form>
             </div>
-          ) : null}
+          </div>
+        ) : null}
 
-          {session !== undefined ? (
-            <div id="session">
-              {/* <div id="session-header">
+        {session !== undefined ? (
+          <div id="session">
+            {/* <div id="session-header">
                 <input
                   className="btn btn-large btn-danger"
                   type="button"
@@ -330,27 +329,26 @@ const Consultant = (props) => {
                 />
               </div> */}
 
-              {mainStreamManager !== undefined ? (
-                <div id="main-video" className="col-md-6">
-                  <Video streamManager={mainStreamManager} />
+            {mainStreamManager !== undefined ? (
+              <div id="main-video" className="col-md-6">
+                <Video streamManager={mainStreamManager} />
+              </div>
+            ) : null}
+            <div id="video-container" className="col-md-6">
+              {publisher !== undefined ? (
+                <div className="stream-container col-md-6 col-xs-6">
+                  <Video streamManager={publisher} />
                 </div>
               ) : null}
-              <div id="video-container" className="col-md-6">
-                {publisher !== undefined ? (
-                  <div className="stream-container col-md-6 col-xs-6">
-                    <Video streamManager={publisher} />
-                  </div>
-                ) : null}
-                {subscribers.map((sub, i) => (
-                  <div key={i} className="stream-container col-md-6 col-xs-6">
-                    <span>{sub.id}</span>
-                    <Video streamManager={sub} />
-                  </div>
-                ))}
-              </div>
+              {subscribers.map((sub, i) => (
+                <div key={i} className="stream-container col-md-6 col-xs-6">
+                  <span>{sub.id}</span>
+                  <Video streamManager={sub} />
+                </div>
+              ))}
             </div>
-          ) : null}
-        </section>
+          </div>
+        ) : null}
       </div>
       {/* <button onClick={pageBackHandler}>Back</button> */}
     </Fragment>

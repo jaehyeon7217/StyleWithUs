@@ -16,6 +16,10 @@
   display: inline;
 }
 
+.streamcomponent {
+  width: 100%;
+}
+
 .streamcomponent div {
   position: absolute;
   background: transparent;
