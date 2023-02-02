@@ -43,9 +43,9 @@ const Login = () => {
           navigate("/");
         } else {
           Swal.fire({
-            title: '<div style="font-size:24px;font-family:Apple_Gothic_Neo_Bold;font-weight:bold;">로그인에 실패했습니다.<div>', 
+            title: '<div style="font-size:24px;font-family:Apple_Gothic_Neo_Bold;font-weight:bold;">로그인 실패!<div>', 
             html: '<div style="font-size:16px;font-family:Apple_Gothic_Neo_Mid;">아이디와 비밀번호를 다시 확인해주세요</div>', 
-            width : 400,
+            width : 330,
             icon: 'error',
             confirmButtonText:'<div style="font-size:16px;font-family:Apple_Gothic_Neo_Mid;">확인</div>',
           })
@@ -120,13 +120,13 @@ const Login = () => {
       </form>
       <br />
       <div className={classes.BottomLabelBox}>
-        <label onClick={toUserSignup} className={classes.BottomLabel}>
+        <p onClick={toUserSignup} className={classes.BottomLabel}>
           회원가입
-        </label>
+        </p>
         <p className={classes.Vline}>I</p>
-        <label onClick={FindPassword} className={classes.BottomLabel}>
+        <p onClick={FindPassword} className={classes.BottomLabel}>
           비밀번호 찾기
-        </label>
+        </p>
       </div>
     </div>
   );

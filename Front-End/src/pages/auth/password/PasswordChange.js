@@ -42,9 +42,9 @@ const PasswordChange = () => {
         if (response.status === 200) {
           dispatch(authActions.logout(""));
           Swal.fire({
-            title: '<div style="font-size:24px;font-family:Apple_Gothic_Neo_Bold;font-weight:bold;">비밀번호 변경이 정상적으로 되었습니다<div>', 
+            title: '<div style="font-size:24px;font-family:Apple_Gothic_Neo_Bold;font-weight:bold;">변경 성공<div>', 
             html: '<div style="font-size:16px;font-family:Apple_Gothic_Neo_Mid;">새로운 비밀번호로 로그인해주세요</div>', 
-            width : 400,
+            width : 330,
             icon: "success",
             confirmButtonText:'<div style="font-size:16px;font-family:Apple_Gothic_Neo_Mid;">확인</div>',
           }).then(()=>{
@@ -52,18 +52,18 @@ const PasswordChange = () => {
           })
         } else {
           Swal.fire({
-            title: '<div style="font-size:24px;font-family:Apple_Gothic_Neo_Bold;font-weight:bold;">비밀번호 변경에 실패했습니다.<div>', 
+            title: '<div style="font-size:24px;font-family:Apple_Gothic_Neo_Bold;font-weight:bold;">변경 실패<div>', 
             html: '<div style="font-size:16px;font-family:Apple_Gothic_Neo_Mid;">비밀번호를 다시 확인해주세요</div>', 
-            width : 400,
+            width : 330,
             icon: 'error',
             confirmButtonText:'<div style="font-size:16px;font-family:Apple_Gothic_Neo_Mid;">확인</div>',
           })
         }
       }).catch(() => {
         Swal.fire({
-          title: '<div style="font-size:24px;font-family:Apple_Gothic_Neo_Bold;font-weight:bold;">비밀번호 변경에 실패했습니다.<div>', 
+          title: '<div style="font-size:24px;font-family:Apple_Gothic_Neo_Bold;font-weight:bold;">변경 실패<div>', 
           html: '<div style="font-size:16px;font-family:Apple_Gothic_Neo_Mid;">비밀번호를 다시 확인해주세요</div>', 
-          width : 400,
+          width : 330,
           icon: 'error',
           confirmButtonText:'<div style="font-size:16px;font-family:Apple_Gothic_Neo_Mid;">확인</div>',
         })
