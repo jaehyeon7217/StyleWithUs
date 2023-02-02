@@ -78,8 +78,7 @@ public class OpenViduController {
         meetingDto.setSessionId(session.getSessionId());
 
         try {
-//            meetingService.insertMeeting(meetingDto, params.get("ConsultantId").toString());
-            meetingService.insertMeeting(meetingDto, "bingbangcon");
+            meetingService.insertMeeting(meetingDto, params.get("ConsultantId").toString());
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
