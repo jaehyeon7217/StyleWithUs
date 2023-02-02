@@ -3,11 +3,12 @@ import Swal from "sweetalert2";
 import InputLabel from "../component/InputLabel";
 import classes from "./SetNewPassword.module.css";
 import { DataInput, CheckPassword } from "../component/Effectiveness";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import { useSelector } from "react-redux";
 
 const SetNewPassword = (props) => {
-  const isUser = props.isUser
+  const location = useLocation();
+  const isUser = location.state.isUser;
   const navigate = useNavigate();
   const id = useSelector((state) => state.auth.resetCode.id)
   const [newPassword, setNewPassword, newPasswordError] = DataInput(
@@ -22,17 +23,17 @@ const SetNewPassword = (props) => {
 
   const sendNewpassword = (event) => {
     event.preventDefault();
-    const url = isUser ? "https://i8d105.p.ssafy.io/be/consultant/findpw/changepw" : "https://i8d105.p.ssafy.io/be/user/findpw/changepw";
+    const url = isUser ? "https://i8d105.p.ssafy.io/be/user/findpw/changepw" : "https://i8d105.p.ssafy.io/be/consultant/findpw/changepw";
     axios
       .put(url, 
         isUser ? 
         {
-          consultantId: id,
-          consultantPw: newPassword,
+          userId: id,
+          userPw: newPassword,
         } :
         {
-          userId: id,
-          userPw: newPassword
+          consultantId: id,
+          consultantPw: newPassword
         }      
       )
       .then(() => {
