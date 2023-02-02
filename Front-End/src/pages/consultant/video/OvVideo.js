@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import classes from './OvVideo.module.css';
 
 export default class OpenViduVideoComponent extends Component {
   constructor(props) {
@@ -19,6 +20,9 @@ export default class OpenViduVideoComponent extends Component {
   }
 
   render() {
-    return <video autoPlay={true} ref={this.videoRef} />;
+    return <video className={`${!this.props.sendUserType ? classes["video-user"] : classes["video-consultant"]}`} autoPlay={true} ref={this.videoRef} />;
   }
+  // render() {
+  //   return <video autoPlay={true} ref={this.videoRef} />;
+  // }
 }
