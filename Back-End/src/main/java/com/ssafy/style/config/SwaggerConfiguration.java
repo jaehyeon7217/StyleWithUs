@@ -44,6 +44,10 @@ public class SwaggerConfiguration {
     public Docket reviewApi() {
         return getDocket("컨설턴트 리뷰", Predicates.or(PathSelectors.regex("/review.*")));
     }
+    @Bean
+    public Docket itemApi() {
+        return getDocket("유저 장바구니", Predicates.or(PathSelectors.regex("/item.*")));
+    }
 
     //////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -58,7 +62,7 @@ public class SwaggerConfiguration {
                 .build();
     }
 
-    private ApiInfo apiInfo(){
+    private ApiInfo apiInfo() {
         return new ApiInfoBuilder()
                 .title("Style with us, Swagger")
                 .description("Style with us 스웨거 입니다.")
