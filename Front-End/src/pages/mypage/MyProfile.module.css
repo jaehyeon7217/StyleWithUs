@@ -1,0 +1,72 @@
+@import url('https://fonts.googleapis.com/css2?family=Blinker:wght@100;200;300;400;600;700;800;900&display=swap');
+
+@font-face {
+    font-family: "Apple_Gothic_Neo_Hard";
+    src: url("../../fonts/AppleSDGothicNeoH.ttf");
+}
+
+@font-face {
+    font-family: "Apple_Gothic_Neo_Bold";
+    src: url("../../fonts/AppleSDGothicNeoB.ttf");
+}
+
+@font-face {
+    font-family: "Apple_Gothic_Neo_SB";
+    src: url("../../fonts/AppleSDGothicNeoSB.ttf");
+}
+
+@font-face {
+    font-family: "Apple_Gothic_Neo_Light";
+    src: url("../../fonts/AppleSDGothicNeoL.ttf");
+}
+
+.WrapMyPage {
+    margin-top: 150px;
+    display: flex;
+    justify-content: center;
+}
+
+.ProfileBox{
+    width: 870px;
+}
+
+.ProfileName {
+    font-family: "Apple_Gothic_Neo_SBold";
+    font-size: 25px;
+    margin-top: 15px;
+
+}
+
+.hr {
+    font-family: "Apple_Gothic_Neo_Light";
+    border: solid 1.7px;
+}
+
+.hrlong{
+    color: lightgrey;
+    border: solid 0.1px;
+    border-radius: 10px;
+}
+
+.PersonalInform{
+
+}
+
+.PersonalLabel{
+    margin-top: 50px;
+    font-family: "Apple_Gothic_Neo_SBold";
+}
+
+.PersonalSmallLabel{
+    font-family: "Apple_Gothic_Neo_Bold";
+    font-size: 17.5px;
+    margin-top: 20px;
+    
+}
+
+.BottomShort{
+    border-bottom: 2px solid rgb(208, 208, 208);
+    width: 400px;
+    border-radius: 10px;
+    margin-top: 40px;
+}

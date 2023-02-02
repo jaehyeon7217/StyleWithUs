@@ -1,0 +1,66 @@
+@import url('https://fonts.googleapis.com/css2?family=Blinker:wght@100;200;300;400;600;700;800;900&display=swap');
+
+@font-face {
+    font-family: "Apple_Gothic_Neo_Bold";
+    src: url("../../fonts/AppleSDGothicNeoB.ttf");
+}
+
+@font-face {
+    font-family: "Apple_Gothic_Neo_Light";
+    src: url("../../fonts/AppleSDGothicNeoL.ttf");
+}
+
+.a {
+    font-family: "Apple_Gothic_Neo_Mid";
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    text-decoration: none;
+    color: black;
+    /* border-bottom: 1px solid rgb(211, 211, 211); */
+    height: 95px;
+    margin-top: 11px;
+    padding-bottom: 10px;
+    transition: color .15s;
+}
+
+.a:hover {
+    font-family: "Apple_Gothic_Neo_Bold";
+    color: black;
+}
+
+.a div {
+    display: flex;
+    align-items: center;
+}
+
+.a>span {
+    color: black;
+    font-weight: 600;
+}
+
+.img {
+    display: inline-block;
+    width: 90px;
+    height: 85px;
+    border-radius: 8px;
+    margin: 0 15px 0 10px;
+}
+
+.hr{
+    border: 1px solid rgb(228, 226, 226);
+    margin-left: 5px;
+}
+
+.DelBtn{
+    float: right;
+    margin-top: -35px;
+    text-decoration-line: underline;
+    text-decoration-thickness: 1px;
+    color: grey;
+}
+
+.DelBtn:hover {
+    font-family: "Apple_Gothic_Neo_Mid";
+    color: black;
+}
