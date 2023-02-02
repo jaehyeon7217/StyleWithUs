@@ -28,7 +28,17 @@
   margin-left: 30px;
   color: black;
   font-size: 13px;
-  
+  cursor: pointer;
+}
+
+.LinkTopHidden{
+  font-family: "Apple_Gothic_Neo_ULight";
+  text-decoration-line: none;
+  margin-left: 30px;
+  color: black;
+  font-size: 13px;
+  cursor: pointer;
+  display: none;
 }
 
 
