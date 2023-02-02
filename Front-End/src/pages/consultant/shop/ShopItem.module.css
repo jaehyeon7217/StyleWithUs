@@ -27,3 +27,33 @@
   color: black;
   font-size: 18px;
 }
+
+.content a {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  color: black;
+}
+
+.button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-left: 5px;
+}
+
+.button span {
+  padding: 0px 5px;
+  color: rgb(199, 199, 199);
+  transition: color .2s;
+  margin: 5px 0;
+  font-size: 28px;
+}
+
+.button span:hover {
+  cursor: pointer;
+  color: black;
+}

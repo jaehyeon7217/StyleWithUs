@@ -71,9 +71,13 @@ const ShopItems = (props) => {
     }
   };
 
+  const shopOffHandler = () => {
+    props.detailShopOff();
+  };
+
   return (
     <Fragment>
-      <h3 className={classes.h3}>{detail}</h3>
+      <h3 className={classes.h3}>{detail}<span onClick={shopOffHandler} className={classes.button}>항목으로 돌아가기</span></h3>
       <ul className={classes.ul}>
         {items[type][detail].map((item, idx) => {
           return clothesCount * (pagination - 1) <= idx &&
@@ -87,10 +91,10 @@ const ShopItems = (props) => {
         })}
       </ul>
       <div className={classes.pagination}>
-        <span onClick={prevPagination} className={"material-symbols-outlined " + classes.prev }>
+        <span onClick={prevPagination} className={`material-symbols-outlined ${classes.prev} ${divPagination === 1 ? classes.eventDefault : ''}`}>
           arrow_back_ios_new
         </span>
-        <div className={classes.bindNumber}>
+        <div className={`${classes.bindNumber} ${divPagination === lastDivPageNumber ? classes.lastPagination : ""}`}>
           {pageArray.map((pageNumber, idx) => {
             return 5 * (divPagination - 1) <= idx &&
               5 * (divPagination - 1) + 5 > idx ? (
@@ -98,13 +102,14 @@ const ShopItems = (props) => {
                 key={`page-${pageNumber}`}
                 pageNumber={pageNumber}
                 onClickHandler={onClickHandler}
+                pageOn={pagination === idx + 1? true : false}
               />
             ) : (
               ""
             );
           })}
         </div>
-        <span id="next" onClick={nextPagination} className={"material-symbols-outlined " + classes.next}>arrow_forward_ios</span>
+        <span id="next" onClick={nextPagination} className={`material-symbols-outlined ${classes.next} ${divPagination === lastDivPageNumber ? classes.eventDefault : ''}`}>arrow_forward_ios</span>
       </div>
     </Fragment>
   );

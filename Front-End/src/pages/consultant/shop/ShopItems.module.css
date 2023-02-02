@@ -12,7 +12,7 @@
 
 .h3 {
   font-family: "Apple_Gothic_Neo_Middle";
-  border-bottom: 1px solid black;
+  border-bottom: 2px solid black;
   /* border-bottom: 1px solid rgb(211, 211, 211); */
   margin: 0;
   padding: 15px 0 12px 5px;
@@ -32,15 +32,15 @@
   height: 20%;
   border-bottom: 1px solid rgb(211, 211, 211); 
   display: flex;
-  align-items: center;
-}
-
-.li:hover {
-  cursor: pointer;
+  justify-content: space-between;
 }
 
 .prev, .next {
   cursor: pointer;
+}
+
+.eventDefault {
+  color:rgb(173, 171, 171);
 }
 
 .pagination {
@@ -52,5 +52,28 @@
 }
 
 .bindNumber {
-  width: 70%;
+  width: 60%;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.lastPagination {
+  justify-content: flex-start;
+}
+
+.lastPagination span:first-child {
+  padding-left: 7%;
+}
+
+.button {
+  float: right;
+  font-family: "Apple_Gothic_Neo_Light";
+  font-size: 14px;
+  color: gray;
+  transition: all .15s;
+}
+
+.button:hover {
+  cursor: pointer;
+  color: black;
 }
