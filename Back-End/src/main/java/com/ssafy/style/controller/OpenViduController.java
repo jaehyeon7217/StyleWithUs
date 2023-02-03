@@ -111,7 +111,8 @@ public class OpenViduController {
         Session session = openvidu.getActiveSession(sessionId);
         if (session == null) {
             // 세션이 없다
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
+            check.put("msg","fail");
+            return ResponseEntity.status(HttpStatus.NO_CONTENT).body(check);
         } else {
             ConnectionProperties properties = ConnectionProperties.fromJson(params).build();
             Connection connection = session.createConnection(properties);
@@ -153,7 +154,8 @@ public class OpenViduController {
 
         if (session == null) {
             // 세션이 없다
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
+            check.put("msg","fail");
+            return ResponseEntity.status(HttpStatus.NO_CONTENT).body(check);
         } else {
 
             try {
@@ -192,6 +194,7 @@ public class OpenViduController {
 
                 return ResponseEntity.status(HttpStatus.OK).body(check);
             } else {
+                check.put("msg", "fail");
                 return ResponseEntity.status(HttpStatus.NO_CONTENT).body(null);
             }
         } catch (Exception e) {
@@ -215,7 +218,8 @@ public class OpenViduController {
 
             return ResponseEntity.status(HttpStatus.OK).body(check);
         } catch (Exception e) {
-            return ResponseEntity.status(HttpStatus.NO_CONTENT).body(null);
+            check.put("msg", "fail");
+            return ResponseEntity.status(HttpStatus.NO_CONTENT).body(check);
         }
 
     }
