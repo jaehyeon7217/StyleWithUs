@@ -82,7 +82,6 @@ const Login = () => {
       <p className={classes.SubPageName}>Let's go check your style with us</p>
       <br />
       <br />
-      <br />
       <div className={classes.ToggleBtn}>
         <input
           type="checkbox"
