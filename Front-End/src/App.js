@@ -9,6 +9,7 @@ import Loading from "./pages/consultant/video/Loading";
 import Consultant from "./pages/consultant/Consultant";
 import MyPageWish from "./pages/mypage/MyPageWish";
 import MyProfile from './pages/mypage/MyProfile';
+import Sbti from "./pages/auth/sbti/Sbti";
 
 
 function App() {
@@ -33,6 +34,7 @@ function App() {
         <Route path="/mypage" element={<MyPage />} />
         <Route path="/mypagewish" element={<MyPageWish />}/>
         <Route path="/myprofile" element={<MyProfile/>}/>
+        <Route path="/sbti" element={<Sbti/>}/>
         <Route
           path="/consultant"
           // element={displayStatus}

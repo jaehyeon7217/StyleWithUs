@@ -12,13 +12,11 @@
   max-width: 400px;
   margin: 0 auto;
   margin-top: 40px;
-  padding: 60px 0 160px;
+  padding: 60px 0 60px;
   align-items: center;
   text-align: center;
 }
-.HomePage img{
-  display: flex;
-}
+
 .HomePage p{
   font-family: "SF_Pro";
   font-size: 10px;
