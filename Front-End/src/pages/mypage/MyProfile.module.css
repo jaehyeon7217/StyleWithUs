@@ -27,7 +27,34 @@
 }
 
 .ProfileBox{
-    width: 870px;
+    width: 900px;
+    
+}
+
+.ProfileImgBox{
+    display: flex;
+    justify-content: left;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.ProfileImgLetter{
+    margin-left: 30px;
+    margin-top: 5px;
+}
+
+.ImgName{
+    font-family: "Apple_Gothic_Neo_Bold";
+    font-size: 23px;
+}
+
+.ImgUserType{
+    font-family: "Apple_Gothic_Neo_Bold";
+    margin-top: -18px;
+    color: rgb(85, 85, 85);
+    font-size: 18px;
+    margin-left: 1px;
+    
 }
 
 .ProfileName {
@@ -37,16 +64,24 @@
 
 }
 
-.hr {
-    font-family: "Apple_Gothic_Neo_Light";
-    border: solid 1.7px;
+.userImg{
+    width: 130px;
 }
 
 .hrlong{
+    font-family: "Apple_Gothic_Neo_Light";
     color: lightgrey;
-    border: solid 0.1px;
+    border: solid 2px;
     border-radius: 10px;
 }
+
+.hr {
+    border-bottom: solid 5px black;
+    border-top: 0;
+    padding: 0;
+    border-radius: 2.5px;
+}
+
 
 .PersonalInform{
 
@@ -55,18 +90,26 @@
 .PersonalLabel{
     margin-top: 50px;
     font-family: "Apple_Gothic_Neo_SBold";
+    font-size: 25px;
 }
 
 .PersonalSmallLabel{
     font-family: "Apple_Gothic_Neo_Bold";
-    font-size: 17.5px;
+    font-size: 20px;
     margin-top: 20px;
     
 }
 
 .BottomShort{
-    border-bottom: 2px solid rgb(208, 208, 208);
+    border-bottom: 3px solid rgb(208, 208, 208);
     width: 400px;
     border-radius: 10px;
-    margin-top: 40px;
+    margin-top: -6px;
+    
+}
+
+.userData{
+    font-family: "Apple_Gothic_Neo_SBold";
+    font-size: 18px;
+    color: rgb(85, 85, 85);
 }

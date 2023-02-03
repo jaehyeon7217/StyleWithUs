@@ -27,40 +27,8 @@
   justify-content: center;
 }
 
-/* 마이페이지 이름 */
-.PageName{
-  font-family: "Apple_Gothic_Neo_SBold";
-  margin-bottom: -5px;
-  font-size: 28px;
-}
-
-/* 사이드 메뉴 부분 */
-.SideMenuBox{
-  width: 200px;
-  height: 400px;
-  margin-top: -15px;
-  
-}
-
-/* 사이드 메뉴 */
-.SideMenu{
-  font-family: "Apple_Gothic_Neo_Light";
-  text-align: left;
-  font-size: 21px;
-  padding-top: 5px;
-  margin-bottom: 15px;
-}
 
 
-/* 사이드 메뉴 디테일 */
-.SideMenuDetail{
-  font-family: "Apple_Gothic_Neo_Light";
-  font-size: 17.5px;
-  text-align: left;
-  color: rgb(120, 120, 120);
-  margin-bottom: -10px;
-  
-}
 
 /* 중앙 메인 박스 */
 .MainBox{
@@ -71,10 +39,10 @@
 }
 
 .MainLabel{
-  font-family: "Apple_Gothic_Neo_Mid";
-  font-size: 23px;
+  font-family: "Apple_Gothic_Neo_SBold";
+  font-size: 25px;
   color: rgb(43, 43, 43);
-  margin-top: 15px;
+  margin-top: 25px;
 }
 
 
@@ -83,7 +51,7 @@
 }
 
 .MyInformBackground{
-  width: 850px;
+  width: 900px;
   height: 135px;
   border: 2px solid rgb(213, 213, 213);
   border-radius: 20px;
@@ -111,7 +79,7 @@
 .MyInformLetter{
   float: left;
   width: 500px;
-  /* margin-top: 5px; */
+  margin-top: 5px;
   margin-left: 30px;
 
 }
@@ -148,25 +116,58 @@
 .MyInformEmail{
   font-family: "Apple_Gothic_Neo_Light";
   font-size: 17px;
-  margin-top: -19px;
+  margin-top: -17px;
   height: 1px;
   
 }
 
 
 .MyInformBtn{
-  font-family: "Apple_Gothic_Neo_Light";
+  font-family: "Apple_Gothic_Neo_SBold";
   /* margin-left: -85px; */
-  margin-top: 12px;
+  margin-top: 18px;
   border: none;
   width: 100px;
-  height: 25px;
-  border-radius: 5px;
-  
+  height: 29px;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-left: 5px;
+  transition: all .15s;
+  padding-top: 3px;
+  font-size: 14px;
 }
 
 .MyInformBtn:hover{
-  font-family: "Apple_Gothic_Neo_Mid";
+  font-weight: 600;
+  color: rgb(26, 26, 26);
+  transition: all .15s;
+}
+
+
+
+.MyInformBtntwo{
+  font-family: "Apple_Gothic_Neo_SBold";
+  font-size: 14px;
+  /* margin-left: -85px; */
+  margin-top: 18px;
+  border: none;
+  width: 100px;
+  height: 27px;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-left: -3px;
+  transition: all .15s;
+  padding-top: 3px;
+  
+}
+
+.MyInformBtntwo:hover{
+  color: black;
+  font-weight: bolder;
+  transition: all .15s;
+  font-weight: 600;
+  color: rgb(26, 26, 26);
+  
 }
 
 
@@ -177,21 +178,43 @@
 .StyleCheckBtn {
   font-family: "Apple_Gothic_Neo_Mid";
   color: rgb(97, 97, 97);
-  width: 130px;
+  width: 90px;
   float: right;
-  margin-top: 30px;
+  margin-top: 35px;
   text-align: right;
   margin-right: 15px;
+  cursor: pointer;
+  transition: all .15s;
   
 }
 
 .StyleCheckBtn:hover{
   color: black;
   font-family: "Apple_Gothic_Neo_Bold";
+  transition: all .15s;
 }
 
+.ViewMoreBtn{
+  font-family: "Apple_Gothic_Neo_Mid";
+  color: rgb(97, 97, 97);
+  width: 50px;
+  float: right;
+  margin-top: 35px;
+  text-align: right;
+  margin-right: 15px;
+  cursor: pointer;
+  transition: all .15s;
+}
+
+.ViewMoreBtn:hover{
+  color: black;
+  font-family: "Apple_Gothic_Neo_Bold";
+  transition: all .15s;
+}
+
+
 .MyBodyBackground {
-  width: 850px;
+  width: 900px;
   height: 100px;
   background-color: rgba(227, 227, 227, 0.327);
   border-radius: 20px;
@@ -202,9 +225,10 @@
 
 .MyBodyItemBox{
   width: 70px;
-  margin-left: 40px;
+  margin-left: 50px;
   text-align: center;
   margin-right: 13px;
+  margin-top: 2px;
   
 }
 
@@ -240,11 +264,6 @@
   padding-top: 10px;
 }
 
-.CartItemDiv {
-  font-family: "Apple_Gothic_Neo_Light";
-  width: 230px;
-  cursor: pointer;
-}
 
 
 

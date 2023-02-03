@@ -34,10 +34,11 @@ public class DataController {
     ////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     // 무신사 Item 정보 크롤링
-    @GetMapping(value = "/{no}")
+    @GetMapping(value = "{gender}/{no}")
     @ApiOperation(value = "무신사 Item 정보 크롤링")
     public ResponseEntity<?> getDataTest(
-            @PathVariable @ApiParam(value = "Item 카테고리 number", required = true) String no){
+            @PathVariable @ApiParam(value = "Item 카테고리 number", required = true) String no,
+            @PathVariable @ApiParam(value = "Item 카테고리 number", required = true) String gender){
         Map<String, Object> map = new HashMap<>();
 
         logger.info("Starting get data");
@@ -45,7 +46,13 @@ public class DataController {
 
         try {
             List<DataDto> list = new ArrayList<>();
-            list = dataService.getData(no);
+            if(gender.equals("men")){
+                list = dataService.getData(no);
+            }else if(gender.equals("women")){
+                list = dataService.getWData(no);
+            }else{
+                list = null;
+            }
 
             if(list != null) {
                 map.put("msg", "success");
@@ -60,6 +67,7 @@ public class DataController {
             e.printStackTrace();
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
         }
+
 
     }
 
