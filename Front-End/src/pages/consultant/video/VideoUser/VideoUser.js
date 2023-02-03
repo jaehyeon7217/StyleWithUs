@@ -270,8 +270,8 @@ const Consultant = (props) => {
         headers: { "Content-Type": "application/json" },
       }
     );
-    console.log(response.data);
-    setSessionLists(response.data);
+    console.log(response.data.data);
+    setSessionLists(response.data.data);
   };
 
   // 메세지 Event

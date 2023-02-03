@@ -24,7 +24,7 @@ const Consultant = (props) => {
 
   // openvidu useState
   const [OV, setOV] = useState(<OpenVidu />);
-  const [mySessionId, setMySessionId] = useState('');
+  const [mySessionId, setMySessionId] = useState("");
   const [myUserName, setMyUserName] = useState(nickname);
   const [mainStreamManager, setMainStreamManager] = useState(undefined);
   const [publisher, setPublisher] = useState(undefined);
@@ -66,7 +66,7 @@ const Consultant = (props) => {
     leaveSession();
     // const newLoadingStatus = true;
     // props.onChangeLoading(newLoadingStatus);
-    // navigate(-1);
+    navigate("../", { replace: true });
   };
 
   // 포커스 될 때 채팅창이 보이게 하는 함수
@@ -232,7 +232,7 @@ const Consultant = (props) => {
         headers: { "Content-Type": "application/json" },
       }
     );
-    console.log(response.data);
+    // console.log(response.data);
     return response.data;
   };
 
@@ -250,8 +250,9 @@ const Consultant = (props) => {
         headers: { "Content-Type": "application/json" },
       }
     );
-    setMySessionId(response.data);
-    return response.data; // The sessionId
+    // console.log(response.data.sessionId);
+    setMySessionId(response.data.sessionId);
+    return response.data.sessionId; // The sessionId
   };
 
   const createToken = async (sessionId) => {
@@ -262,7 +263,8 @@ const Consultant = (props) => {
         headers: { "Content-Type": "application/json" },
       }
     );
-    return response.data; // The token
+    // console.log(response.data.token);
+    return response.data.token; // The token
   };
 
   // 끝
