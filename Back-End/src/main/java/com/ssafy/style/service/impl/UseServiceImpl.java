@@ -5,6 +5,7 @@ import com.ssafy.style.data.dto.UserDto;
 import com.ssafy.style.data.entity.User;
 import com.ssafy.style.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
@@ -14,15 +15,22 @@ import java.util.Map;
 public class UseServiceImpl implements UserService {
 
     private final UserDAO userDAO;
+    private final PasswordEncoder passwordEncoder;
     @Autowired
-    public UseServiceImpl(UserDAO userDAO) {
+    public UseServiceImpl(UserDAO userDAO, PasswordEncoder passwordEncoder) {
         this.userDAO = userDAO;
+        this.passwordEncoder = passwordEncoder;
     }
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////
 
     @Override
     public UserDto insertUser(UserDto userDto) throws Exception {
+
+        String encodedPW = passwordEncoder.encode(userDto.getUserPw());
+
+        userDto.setUserPw(encodedPW);
+
         User user = toUser(userDto);
         User saveUser = userDAO.insertUser(user);
         return toUserDto(saveUser);
@@ -32,13 +40,12 @@ public class UseServiceImpl implements UserService {
     public UserDto selectUser(UserDto userDto) {
 
         String userId = userDto.getUserId();
-        String userPw = userDto.getUserPw();
 
         User user = userDAO.getById(userId);
 
         UserDto savedDto = new UserDto();
 
-        if(user != null && user.getUserPw().equals(userPw)){
+        if(user != null && passwordEncoder.matches(userDto.getUserPw(), user.getUserPw())){
             savedDto = toUserDto(user);
             return savedDto;
         }else {
@@ -92,6 +99,7 @@ public class UseServiceImpl implements UserService {
     @Override
     public String changePw(Map<String, String> userInfo) throws Exception {
         String userId = userInfo.get("userId");
+        String encodedNewInputPw = passwordEncoder.encode(userInfo.get("newUserPw"));
 
         User user = userDAO.getById(userId);
 
@@ -99,8 +107,8 @@ public class UseServiceImpl implements UserService {
             return "fail";
         }
 
-        if(user.getUserPw().equals(userInfo.get("userPw"))){
-            user.setUserPw(userInfo.get("newUserPw"));
+        if(passwordEncoder.matches(userInfo.get("userPw") ,user.getUserPw() )){
+            user.setUserPw(encodedNewInputPw);
 
             try {
                 userDAO.changePw(user);
@@ -131,7 +139,9 @@ public class UseServiceImpl implements UserService {
     public void changePwById(Map<String, String> userInfo) {
         User userTemp = userDAO.getById(userInfo.get("userId"));
 
-        userTemp.setUserPw(userInfo.get("userPw"));
+        String encodePw = passwordEncoder.encode(userInfo.get("userPw"));
+
+        userTemp.setUserPw(encodePw);
 
         try {
             userDAO.changePw(userTemp);

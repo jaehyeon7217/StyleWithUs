@@ -17,7 +17,7 @@ public class User {
     @Id
     @Column(length = 20)
     private String userId;
-    @Column(nullable = false, length = 30)
+    @Column(nullable = false, length = 70)
     private String userPw;
     @Column(nullable = false, length = 20)
     private String userName;
