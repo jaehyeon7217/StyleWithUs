@@ -79,17 +79,18 @@ public class OpenViduController {
 
         try {
             meetingService.insertMeeting(meetingDto, params.get("ConsultantId").toString());
+
+            logger.info("세션 생성 : " + session.getSessionId());
+            check.put("msg", "success");
+            check.put("sessionId", session.getSessionId());
+
+          return ResponseEntity.status(HttpStatus.OK).body(check);
         } catch (Exception e) {
-            throw new RuntimeException(e);
+
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
         }
 
 
-        check.put("msg", "success");
-        check.put("sessionId", session.getSessionId());
-
-//        return ResponseEntity.status(HttpStatus.OK).body(check);
-
-        return new ResponseEntity<>(session.getSessionId(), HttpStatus.OK);
     }
 
     /**
@@ -109,65 +110,92 @@ public class OpenViduController {
 
         Session session = openvidu.getActiveSession(sessionId);
         if (session == null) {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+            // 세션이 없다
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
+        } else {
+            ConnectionProperties properties = ConnectionProperties.fromJson(params).build();
+            Connection connection = session.createConnection(properties);
+
+            try {
+                MeetingDto meetingDto = meetingService.selectMeeting(session.getSessionId());
+                if(meetingDto.getNumberOfPeople() >= 2) {
+                    // 세션 방에 인원이 2명 이상이면 입장 안됨.
+
+                    check.put("msg", "The session room is full.");
+                    return ResponseEntity.status(HttpStatus.OK).body(check);
+
+                } else {
+                    meetingDto.setNumberOfPeople(meetingDto.getNumberOfPeople() + 1);
+                    meetingService.updateMeeting(meetingDto);
+
+                    check.put("msg", "success");
+                    check.put("sessionId", session.getSessionId());
+                    check.put("token", connection.getToken());
+
+                  return ResponseEntity.status(HttpStatus.OK).body(check);
+                }
+            } catch (Exception e) {
+                return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
+            }
+
         }
-        ConnectionProperties properties = ConnectionProperties.fromJson(params).build();
-        Connection connection = session.createConnection(properties);
-
-        try {
-            MeetingDto meetingDto = meetingService.selectMeeting(session.getSessionId());
-            meetingDto.setNumberOfPeople(meetingDto.getNumberOfPeople() + 1);
-            meetingService.updateMeeting(meetingDto);
-        } catch (Exception e) {
-            throw new RuntimeException(e);
-        }
-
-        check.put("msg", "success");
-        check.put("sessionId", session.getSessionId());
-        check.put("token", connection.getToken());
-
-//        return ResponseEntity.status(HttpStatus.OK).body(check);
-
-        return new ResponseEntity<>(connection.getToken(), HttpStatus.OK);
     }
 
     @PostMapping("/api/sessions/{sessionId}/disconnections")
     @ApiOperation(value = "세션ID로 생성된 방 퇴장")
     public ResponseEntity<?> createDisConnection(@PathVariable("sessionId") @ApiParam(value = "세션 아이디", required = true) String sessionId) {
 
+        Map<String, Object> check = new HashMap<>();
+
         logger.info("createDisConnection - 호출");
 
         Session session = openvidu.getActiveSession(sessionId);
+
         if (session == null) {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+            // 세션이 없다
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
+        } else {
+
+            try {
+                MeetingDto meetingDto = meetingService.selectMeeting(session.getSessionId());
+                meetingDto.setNumberOfPeople(meetingDto.getNumberOfPeople() - 1);
+
+                meetingService.updateMeeting(meetingDto);
+
+                check.put("msg", "success");
+
+                return ResponseEntity.status(HttpStatus.OK).body(check);
+            } catch (Exception e) {
+                return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
+            }
+
         }
-
-        try {
-            MeetingDto meetingDto = meetingService.selectMeeting(session.getSessionId());
-            meetingDto.setNumberOfPeople(meetingDto.getNumberOfPeople() - 1);
-
-            meetingService.updateMeeting(meetingDto);
-        } catch (Exception e) {
-            throw new RuntimeException(e);
-        }
-
-//        return ResponseEntity.status(HttpStatus.OK).body(check);
-
-        return new ResponseEntity<>(HttpStatus.OK);
     }
 
     @GetMapping("/api/sessions")
     @ApiOperation(value = "생성된 방 모두 조회")
     public ResponseEntity<?> AllSession() {
 
+        Map<String, Object> check = new HashMap<>();
+
         logger.info("AllSession - 호출");
 
         try {
             List<MeetingDto> list = meetingService.selectAllMeeting();
-            logger.info("AllSession list : {} ", list);
-            return new ResponseEntity<List>(list, HttpStatus.OK);
+
+            if(list != null) {
+
+                logger.info("AllSession list : {} ", list);
+
+                check.put("msg", "success");
+                check.put("data", list);
+
+                return ResponseEntity.status(HttpStatus.OK).body(check);
+            } else {
+                return ResponseEntity.status(HttpStatus.NO_CONTENT).body(null);
+            }
         } catch (Exception e) {
-            return new ResponseEntity<>(null, HttpStatus.NO_CONTENT);
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
         }
 
     }
@@ -176,13 +204,18 @@ public class OpenViduController {
     @ApiOperation(value = "세션ID로 생성된 방 삭제")
     public ResponseEntity<?> DeleteSession(@PathVariable("sessionId") @ApiParam(value = "세션 아이디", required = true) String sessionId) {
 
+        Map<String, Object> check = new HashMap<>();
+
         logger.info("DeleteSession - 호출");
 
         try {
             meetingService.deleteMeeting(sessionId);
-            return new ResponseEntity<>(HttpStatus.OK);
+
+            check.put("msg", "success");
+
+            return ResponseEntity.status(HttpStatus.OK).body(check);
         } catch (Exception e) {
-            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+            return ResponseEntity.status(HttpStatus.NO_CONTENT).body(null);
         }
 
     }
