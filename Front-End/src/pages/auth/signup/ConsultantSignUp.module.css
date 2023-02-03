@@ -54,6 +54,7 @@
   margin-right: 17px;
   margin-top: -5px;
   text-decoration: underline;
+  cursor: pointer;
 }
 
 
@@ -64,7 +65,7 @@
   height: 45px;
   border: none;
   border-radius: 1px;
-  background-color: rgba(211, 211, 211, 0.300);
+  background-color: #d3d3d34d;
   border-radius: 5px;
   margin-left: 10px;
   margin-top: -5px;
