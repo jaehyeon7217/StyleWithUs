@@ -255,6 +255,42 @@ const Consultant = (props) => {
     return response.data.sessionId; // The sessionId
   };
 
+  const consultantVideo = () => {
+    return (
+      <Fragment>
+        {subscribers.map((sub, i) => (
+          <div key={i} className="stream-container col-md-6 col-xs-6">
+            <span>{sub.id}</span>
+            <Video streamManager={sub} />
+          </div>
+        ))}
+        {publisher !== undefined ? (
+          <div className="stream-container col-md-6 col-xs-6">
+            <Video streamManager={publisher} />
+          </div>
+        ) : null}
+      </Fragment>
+    );
+  }
+
+  const userVideo = () => {
+    return (
+      <Fragment>
+        {publisher !== undefined ? (
+          <div className="stream-container col-md-6 col-xs-6">
+            <Video streamManager={publisher} />
+          </div>
+        ) : null}
+        {subscribers.map((sub, i) => (
+          <div key={i} className="stream-container col-md-6 col-xs-6">
+            <span>{sub.id}</span>
+            <Video streamManager={sub} />
+          </div>
+        ))}
+      </Fragment>
+    );
+  };
+
   const createToken = async (sessionId) => {
     const response = await axios.post(
       APPLICATION_SERVER_URL + "api/sessions/" + sessionId + "/connections",
@@ -340,23 +376,19 @@ const Consultant = (props) => {
                 />
               </div> */}
 
-            {mainStreamManager !== undefined ? (
-              <div id="main-video" className="col-md-6">
-                <Video streamManager={mainStreamManager} />
-              </div>
-            ) : null}
             <div id="video-container" className="col-md-6">
-              {publisher !== undefined ? (
-                <div className="stream-container col-md-6 col-xs-6">
-                  <Video streamManager={publisher} />
-                </div>
-              ) : null}
-              {subscribers.map((sub, i) => (
+              {userType === 0 ? userVideo() : consultantVideo()}
+              {/* {subscribers.map((sub, i) => (
                 <div key={i} className="stream-container col-md-6 col-xs-6">
                   <span>{sub.id}</span>
                   <Video streamManager={sub} />
                 </div>
               ))}
+              {publisher !== undefined ? (
+                <div className="stream-container col-md-6 col-xs-6">
+                  <Video streamManager={publisher} />
+                </div>
+              ) : null} */}
             </div>
             <button onClick={pageBackHandler}>Back</button>
           </div>

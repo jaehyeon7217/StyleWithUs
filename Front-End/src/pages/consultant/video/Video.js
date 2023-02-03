@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, useEffect } from "react";
 import OpenViduVideoComponent from "./OvVideo";
 import { useSelector } from "react-redux";
 import PersonalColor from "./PersonalColor";
@@ -7,6 +7,10 @@ import classes from './Video.module.css';
 const Video = (props) => {
   // 유저 타입 받아오기
   const userType = useSelector((state) => state.auth.userType);
+  
+  useEffect(() => {
+    console.log(props.streamManager)
+  }, [])
 
   return (
     <div>
