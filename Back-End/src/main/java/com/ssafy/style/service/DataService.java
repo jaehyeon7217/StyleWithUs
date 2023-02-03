@@ -6,4 +6,6 @@ import java.util.List;
 
 public interface DataService {
     List<DataDto> getData(String no);
+
+    List<DataDto> getWData(String no);
 }
