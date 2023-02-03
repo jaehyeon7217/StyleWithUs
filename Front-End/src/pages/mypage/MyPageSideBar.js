@@ -16,10 +16,16 @@ const MyPageSideBar = () => {
         navigate('/myprofile')
     }
 
+    // 마이페이지로 이동
+    const MyPage = (event) => {
+        event.preventDefault();
+        navigate('/mypage')
+    }
+
     return(
         <div>
             <div className={classes.SideMenuBox}>
-                <h1 className={classes.PageName}>마이 페이지</h1>
+                <h1 className={classes.PageName} onClick={MyPage}>마이 페이지</h1>
                 <h3 className={classes.SideMenu}>쇼핑 정보</h3>
                 <h3 className={classes.SideMenuDetail}>구매 내역</h3>
                 <h3 className={classes.SideMenuDetail} onClick={MyPageWish}>관심 상품</h3>

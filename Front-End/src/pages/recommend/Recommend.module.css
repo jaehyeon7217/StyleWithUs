@@ -1,0 +1,106 @@
+@import url('https://fonts.googleapis.com/css2?family=Blinker:wght@100;200;300;400;600;700;800;900&display=swap');
+
+@font-face {
+    font-family: "Apple_Gothic_Neo_Hard";
+    src: url("../../fonts/AppleSDGothicNeoH.ttf");
+}
+
+@font-face {
+    font-family: "Apple_Gothic_Neo_Bold";
+    src: url("../../fonts/AppleSDGothicNeoB.ttf");
+}
+
+@font-face {
+    font-family: "Apple_Gothic_Neo_SB";
+    src: url("../../fonts/AppleSDGothicNeoSB.ttf");
+}
+
+@font-face {
+    font-family: "Apple_Gothic_Neo_Light";
+    src: url("../../fonts/AppleSDGothicNeoL.ttf");
+}
+
+.RecommendPageBox{
+    width: 1440px;
+    margin: 0 auto;
+}
+
+.RecommendPage{
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+}
+
+.UserBox{
+    margin-top: 150px;
+    width: 160px;
+}
+
+.userImg{
+    width: 160px;
+    
+}
+
+.userNickname{
+    text-align: center;
+    font-family: "Apple_Gothic_Neo_Mid";
+    font-size: 20px;
+}
+
+.userGender{
+    font-family: "Apple_Gothic_Neo_Mid";
+    text-align: center;
+    margin-top: -15px;
+    color: rgb(70, 70, 70);
+    margin-bottom: 30px;
+
+}
+
+.userDataItem{
+    display: flex;
+    justify-content: space-between;
+    width: 160px;
+}
+
+.userData{
+    font-family: "Apple_Gothic_Neo_SB";
+    font-size: 20px;
+    margin-left: 20px;
+}
+
+.userDataDap{
+    font-family: "Apple_Gothic_Neo_Mid";
+    font-size: 20px;
+    display: flex;
+    justify-content: right;
+    margin-right: 10px;
+    
+}
+
+.vline{
+    border-left: 2px solid lightgrey;
+    border-radius: 10px;
+    height: 600px;
+    margin-top: 150px;
+    margin-left: 80px;
+}
+
+.recommendBox{
+    margin-top: 130px;
+    margin-left: 50px;
+}
+
+.recommendItemBox{
+
+
+}
+
+.recommendItem{
+    font-family: "Apple_Gothic_Neo_SB";
+}
+
+.WarpAllItem {
+    display: flex;
+    justify-content: left;
+    padding-top: 10px;
+}

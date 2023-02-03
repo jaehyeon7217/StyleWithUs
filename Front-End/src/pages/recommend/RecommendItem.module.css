@@ -17,7 +17,7 @@
 .ItemBox:hover {
     font-weight: 600;
     color: rgb(26, 26, 26);
-    
+
 }
 
 .a {
@@ -31,18 +31,17 @@
     padding-bottom: 10px;
     transition: color .15s;
 
-    
-}
 
+}
 
 
 .img {
     display: inline-block;
-    width: 210px;
-    height: 200px;
+    width: 170px;
+    height: 170px;
     border-radius: 8px;
     margin: 0 15px 0 10px;
-    
+
 }
 
 .title {
@@ -62,4 +61,3 @@
     margin: 0 15px 0 15px;
     font-family: "Apple_Gothic_Neo_Bold";
 }
-

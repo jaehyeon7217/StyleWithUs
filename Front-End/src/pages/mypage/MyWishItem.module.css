@@ -22,10 +22,12 @@
     margin-top: 11px;
     padding-bottom: 10px;
     transition: color .15s;
+    transition: all .15s;
+    font-size: 17.5px;
 }
 
 .a:hover {
-    font-family: "Apple_Gothic_Neo_Bold";
+    font-weight: 600;
     color: black;
 }
 
@@ -55,12 +57,11 @@
 .DelBtn{
     float: right;
     margin-top: -35px;
-    text-decoration-line: underline;
-    text-decoration-thickness: 1px;
     color: grey;
+    transition: all .15s;
 }
 
 .DelBtn:hover {
-    font-family: "Apple_Gothic_Neo_Mid";
     color: black;
+    text-decoration: underline;
 }
