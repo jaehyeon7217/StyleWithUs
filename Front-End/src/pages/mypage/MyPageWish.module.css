@@ -34,12 +34,14 @@
 }
 
 .WishBox{
-    width: 870px;
+    width: 900px;
 }
 
 .hr{
-    font-family: "Apple_Gothic_Neo_Light";
-    border: solid 1.7px ;
+    border-bottom: solid 5px black;
+    border-top: 0;
+    padding: 0;
+    border-radius: 2.5px;
 }
 
 

@@ -56,6 +56,12 @@ const MyPage = () =>{
     navigate("/mypagewish")
   }
 
+  // 프로필 정보 페이지로 이동
+  const MyProfile = (event) => {
+    event.preventDefault()
+    navigate('/myprofile')
+  }
+
 
 
 
@@ -73,8 +79,9 @@ const MyPage = () =>{
                   <p className={classes.MyInformNickNameHi}>님 안녕하세요,</p>
                 </div>
                 <div className={classes.MyInformLetterTwo}>
-                  <p className={classes.MyInformID}>{userData.userId}</p>
+                  {/* <p className={classes.MyInformID}>{userData.userId}</p> */}
                   <p className={classes.MyInformEmail}>{userData.userEmail}</p>
+                  <button className={classes.MyInformBtntwo} onClick={MyProfile}>프로필 정보</button>
                   <button className={classes.MyInformBtn} onClick={SetNewPassword}>비밀번호 수정</button>
                 </div>
           
@@ -112,7 +119,7 @@ const MyPage = () =>{
               </div>
             </div>
             <div className={classes.WishItemBox}>
-          <p className={classes.StyleCheckBtn} onClick={MyPagewish}>더보기</p>
+          <p className={classes.ViewMoreBtn} onClick={MyPagewish}>더보기</p>
               <h3 className={classes.MainLabel}>관심 상품</h3>
                 <div className={classes.WarpAllItem}>
                 {cartItems.map((item, idx) => {
