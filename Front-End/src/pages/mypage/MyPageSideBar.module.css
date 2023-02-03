@@ -24,7 +24,8 @@
 .PageName {
     font-family: "Apple_Gothic_Neo_SBold";
     margin-bottom: -5px;
-    font-size: 27px;
+    font-size: 30px;
+    cursor: pointer;
 }
 
 /* 사이드 메뉴 부분 */
@@ -32,30 +33,33 @@
     width: 200px;
     height: 400px;
     margin-top: -15px;
-
+    margin-right: 70px;
 }
 
 /* 사이드 메뉴 */
 .SideMenu {
     font-family: "Apple_Gothic_Neo_Light";
     text-align: left;
-    font-size: 21px;
+    font-size: 23px;
     padding-top: 5px;
-    margin-bottom: 15px;
+    margin-bottom: 0;
+    cursor: pointer;
 }
 
 
 /* 사이드 메뉴 디테일 */
 .SideMenuDetail {
+    display: inline-block;
     font-family: "Apple_Gothic_Neo_Light";
-    font-size: 17.5px;
+    font-size: 19px;
     text-align: left;
     color: rgba(139, 139, 139, 0.778);
     margin-bottom: -10px;
-
+    cursor: pointer;
+    transition: all .15s;
+    margin-right: 60px;
 }
 
 .SideMenuDetail:hover {
-    font-family: "Apple_Gothic_Neo_Mid";
     color: black;
 }
