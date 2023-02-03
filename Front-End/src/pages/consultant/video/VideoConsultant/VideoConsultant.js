@@ -24,7 +24,7 @@ const Consultant = (props) => {
 
   // openvidu useState
   const [OV, setOV] = useState(<OpenVidu />);
-  const [mySessionId, setMySessionId] = useState(consultantId);
+  const [mySessionId, setMySessionId] = useState('');
   const [myUserName, setMyUserName] = useState(nickname);
   const [mainStreamManager, setMainStreamManager] = useState(undefined);
   const [publisher, setPublisher] = useState(undefined);
