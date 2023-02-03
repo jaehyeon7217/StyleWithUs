@@ -48,6 +48,7 @@ const Login = () => {
             width : 330,
             icon: 'error',
             confirmButtonText:'<div style="font-size:16px;font-family:Apple_Gothic_Neo_Mid;">확인</div>',
+            confirmButtonColor: '#9A9A9A',
           })
         }
       })
