@@ -14,7 +14,7 @@ const PasswordChange = () => {
   const dispatch = useDispatch();
   const id = useSelector((state) => state.auth.userId);
   const token = useSelector((state) => state.auth.token);
-  const userType = useSelector((state) => state.auth.userType)
+  const userType = useSelector((state) => state.auth.userType);
 
   const [password, setPassword, passwordError] = DataInput(
     /^(?=.*[a-zA-Z])(?=.*[!@#$%^*+=-])(?=.*[0-9]).{9,16}$/
@@ -27,45 +27,64 @@ const PasswordChange = () => {
 
   const PasswordChangeSubmit = (event) => {
     event.preventDefault();
-    const url = userType ? "https://i8d105.p.ssafy.io/be/consultant/password" : "https://i8d105.p.ssafy.io/be/user/password";
-    axios.post(
+    const url = userType
+      ? "https://i8d105.p.ssafy.io/be/consultant/password"
+      : "https://i8d105.p.ssafy.io/be/user/password";
+    axios
+      .post(
         url,
         userType
-          ? { consultantId: id, consultantPw: password, newCosultantPw: newPassword}
+          ? {
+              consultantId: id,
+              consultantPw: password,
+              newCosultantPw: newPassword,
+            }
           : { userId: id, userPw: password, newUserPw: newPassword },
-        {   
-        headers: {
-          Authorization : token
+        {
+          headers: {
+            Authorization: token,
+          },
         }
-      }).then((response) => {
+      )
+      .then((response) => {
         if (response.status === 200) {
           dispatch(authActions.logout(""));
           Swal.fire({
-            title: '<div style="font-size:24px;font-family:Apple_Gothic_Neo_Bold;font-weight:bold;">변경 성공<div>', 
-            html: '<div style="font-size:16px;font-family:Apple_Gothic_Neo_Mid;">새로운 비밀번호로 로그인해주세요</div>', 
-            width : 330,
+            title:
+              '<div style="font-size:24px;font-family:Apple_Gothic_Neo_Bold;font-weight:bold;">변경 성공<div>',
+            html: '<div style="font-size:16px;font-family:Apple_Gothic_Neo_Mid;">새로운 비밀번호로 로그인해주세요</div>',
+            width: 330,
             icon: "success",
-            confirmButtonText:'<div style="font-size:16px;font-family:Apple_Gothic_Neo_Mid;">확인</div>',
-          }).then(()=>{
+            confirmButtonColor: "#9A9A9A",
+            confirmButtonText:
+              '<div style="font-size:16px;font-family:Apple_Gothic_Neo_Mid;">확인</div>',
+          }).then(() => {
             navigate("/auth/login");
-          })
+          });
         } else {
           Swal.fire({
-            title: '<div style="font-size:24px;font-family:Apple_Gothic_Neo_Bold;font-weight:bold;">변경 실패<div>', 
-            html: '<div style="font-size:16px;font-family:Apple_Gothic_Neo_Mid;">비밀번호를 다시 확인해주세요</div>', 
-            width : 330,
-            icon: 'error',
-            confirmButtonText:'<div style="font-size:16px;font-family:Apple_Gothic_Neo_Mid;">확인</div>',
-          })
+            title:
+              '<div style="font-size:24px;font-family:Apple_Gothic_Neo_Bold;font-weight:bold;">변경 실패<div>',
+            html: '<div style="font-size:16px;font-family:Apple_Gothic_Neo_Mid;">비밀번호를 다시 확인해주세요</div>',
+            width: 330,
+            icon: "error",
+            confirmButtonColor: "#9A9A9A",
+            confirmButtonText:
+              '<div style="font-size:16px;font-family:Apple_Gothic_Neo_Mid;">확인</div>',
+          });
         }
-      }).catch(() => {
+      })
+      .catch(() => {
         Swal.fire({
-          title: '<div style="font-size:24px;font-family:Apple_Gothic_Neo_Bold;font-weight:bold;">변경 실패<div>', 
-          html: '<div style="font-size:16px;font-family:Apple_Gothic_Neo_Mid;">비밀번호를 다시 확인해주세요</div>', 
-          width : 330,
-          icon: 'error',
-          confirmButtonText:'<div style="font-size:16px;font-family:Apple_Gothic_Neo_Mid;">확인</div>',
-        })
+          title:
+            '<div style="font-size:24px;font-family:Apple_Gothic_Neo_Bold;font-weight:bold;">변경 실패<div>',
+          html: '<div style="font-size:16px;font-family:Apple_Gothic_Neo_Mid;">비밀번호를 다시 확인해주세요</div>',
+          width: 330,
+          icon: "error",
+          confirmButtonColor: "#9A9A9A",
+          confirmButtonText:
+            '<div style="font-size:16px;font-family:Apple_Gothic_Neo_Mid;">확인</div>',
+        });
       });
   };
 

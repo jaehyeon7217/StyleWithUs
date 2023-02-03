@@ -10,7 +10,7 @@ const SetNewPassword = (props) => {
   const location = useLocation();
   const isUser = location.state.isUser;
   const navigate = useNavigate();
-  const id = useSelector((state) => state.auth.resetCode.id)
+  const id = useSelector((state) => state.auth.resetCode.id);
   const [newPassword, setNewPassword, newPasswordError] = DataInput(
     /^(?=.*[a-zA-Z])(?=.*[!@#$%^*+=-])(?=.*[0-9]).{9,16}$/
   );
@@ -23,38 +23,47 @@ const SetNewPassword = (props) => {
 
   const sendNewpassword = (event) => {
     event.preventDefault();
-    const url = isUser ? "https://i8d105.p.ssafy.io/be/user/findpw/changepw" : "https://i8d105.p.ssafy.io/be/consultant/findpw/changepw";
+    const url = isUser
+      ? "https://i8d105.p.ssafy.io/be/user/findpw/changepw"
+      : "https://i8d105.p.ssafy.io/be/consultant/findpw/changepw";
     axios
-      .put(url, 
-        isUser ? 
-        {
-          userId: id,
-          userPw: newPassword,
-        } :
-        {
-          consultantId: id,
-          consultantPw: newPassword
-        }      
+      .put(
+        url,
+        isUser
+          ? {
+              userId: id,
+              userPw: newPassword,
+            }
+          : {
+              consultantId: id,
+              consultantPw: newPassword,
+            }
       )
       .then(() => {
         Swal.fire({
-          title: '<div style="font-size:24px;font-family:Apple_Gothic_Neo_Bold;font-weight:bold;">변경 완료!<div>', 
-          html: '<div style="font-size:16px;font-family:Apple_Gothic_Neo_Mid;">새로운 비밀번호로 로그인해주세요</div>', 
-          width : 330,
+          title:
+            '<div style="font-size:24px;font-family:Apple_Gothic_Neo_Bold;font-weight:bold;">변경 완료!<div>',
+          html: '<div style="font-size:16px;font-family:Apple_Gothic_Neo_Mid;">새로운 비밀번호로 로그인해주세요</div>',
+          width: 330,
           icon: "success",
-          confirmButtonText:'<div style="font-size:16px;font-family:Apple_Gothic_Neo_Mid;">확인</div>',
-        }).then(()=>{
+          confirmButtonColor: "#9A9A9A",
+          confirmButtonText:
+            '<div style="font-size:16px;font-family:Apple_Gothic_Neo_Mid;">확인</div>',
+        }).then(() => {
           navigate("/auth/login");
-        })
+        });
       })
       .catch(() => {
         Swal.fire({
-          title: '<div style="font-size:24px;font-family:Apple_Gothic_Neo_Bold;font-weight:bold;">변경 실패!<div>', 
-          html: '<div style="font-size:16px;font-family:Apple_Gothic_Neo_Mid;">비밀번호를 다시 확인해주세요</div>', 
-          width : 330,
-          icon: 'error',
-          confirmButtonText:'<div style="font-size:16px;font-family:Apple_Gothic_Neo_Mid;">확인</div>',
-        })
+          title:
+            '<div style="font-size:24px;font-family:Apple_Gothic_Neo_Bold;font-weight:bold;">변경 실패!<div>',
+          html: '<div style="font-size:16px;font-family:Apple_Gothic_Neo_Mid;">비밀번호를 다시 확인해주세요</div>',
+          width: 330,
+          icon: "error",
+          confirmButtonColor: "#9A9A9A",
+          confirmButtonText:
+            '<div style="font-size:16px;font-family:Apple_Gothic_Neo_Mid;">확인</div>',
+        });
       });
   };
   return (
