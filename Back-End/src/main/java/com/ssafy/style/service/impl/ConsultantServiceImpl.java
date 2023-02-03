@@ -8,6 +8,7 @@ import com.ssafy.style.data.entity.Consultant;
 import com.ssafy.style.data.entity.User;
 import com.ssafy.style.service.ConsultantService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
@@ -16,13 +17,20 @@ import java.util.Map;
 @Service
 public class ConsultantServiceImpl implements ConsultantService {
     private final ConsultantDAO consultantDAO;
+    private final PasswordEncoder passwordEncoder;
     @Autowired
-    public ConsultantServiceImpl(ConsultantDAO consultantDAO) {
+    public ConsultantServiceImpl(ConsultantDAO consultantDAO, PasswordEncoder passwordEncoder) {
         this.consultantDAO = consultantDAO;
+        this.passwordEncoder = passwordEncoder;
     }
 
     @Override
     public ConsultantDto insertConsultant(ConsultantDto consultantDto) {
+
+        String encodedPw = passwordEncoder.encode(consultantDto.getConsultantPw());
+
+        consultantDto.setConsultantPw(encodedPw);
+
         Consultant consultant = toConsultant(consultantDto);
         Consultant saveConsultant = consultantDAO.insertConsultant(consultant);
         ConsultantDto saveDto = toConsultantDto(saveConsultant);
@@ -37,7 +45,7 @@ public class ConsultantServiceImpl implements ConsultantService {
 
         ConsultantDto savedDto = new ConsultantDto();
 
-        if(consultant != null && consultant.getConsultantPw().equals(consultantPw)){
+        if(consultant != null && passwordEncoder.matches(consultantPw, consultant.getConsultantPw())){
             savedDto = toConsultantDto(consultant);
             return savedDto;
         }else {
@@ -86,6 +94,7 @@ public class ConsultantServiceImpl implements ConsultantService {
     @Override
     public String changePw(Map<String, String> consultantInfo) {
         String consultantId = consultantInfo.get("consultantId");
+        String encodedNewPw = passwordEncoder.encode(consultantInfo.get("newConsultantPw"));
 
         Consultant consultant = consultantDAO.getById(consultantId);
 
@@ -93,8 +102,8 @@ public class ConsultantServiceImpl implements ConsultantService {
             return "fail";
         }
 
-        if(consultant.getConsultantPw().equals(consultantInfo.get("consultantPw"))){
-            consultant.setConsultantPw(consultantInfo.get("newConsultantPw"));
+        if(passwordEncoder.matches(consultantInfo.get("consultantPw"), consultant.getConsultantPw())){
+            consultant.setConsultantPw(encodedNewPw);
 
             try {
                 consultantDAO.changePw(consultant);
@@ -125,7 +134,9 @@ public class ConsultantServiceImpl implements ConsultantService {
     public void changePwById(Map<String, String> consultantInfo) {
         Consultant consultantTemp = consultantDAO.getById(consultantInfo.get("consultantId"));
 
-        consultantTemp.setConsultantPw(consultantInfo.get("consultantPw"));
+        String encodedNewPw = passwordEncoder.encode(consultantInfo.get("newConsultantPw"));
+
+        consultantTemp.setConsultantPw(encodedNewPw);
 
         try {
             consultantDAO.changePw(consultantTemp);

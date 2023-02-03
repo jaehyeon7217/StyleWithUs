@@ -18,7 +18,7 @@ public class Consultant implements Serializable {
     @Id
     @Column(length = 20)
     private String consultantId;
-    @Column(nullable = false, length = 30)
+    @Column(nullable = false, length = 70)
     private String consultantPw;
     @Column(nullable = false, length = 20)
     private String consultantName;
