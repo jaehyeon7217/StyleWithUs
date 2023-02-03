@@ -24,7 +24,7 @@ const Consultant = (props) => {
 
   // openvidu useState
   const [OV, setOV] = useState(<OpenVidu />);
-  const [mySessionId, setMySessionId] = useState("SessionA");
+  const [mySessionId, setMySessionId] = useState(undefined);
   const [myUserName, setMyUserName] = useState(nickname);
   const [mainStreamManager, setMainStreamManager] = useState(undefined);
   const [publisher, setPublisher] = useState(undefined);
@@ -62,12 +62,12 @@ const Consultant = (props) => {
   }, []);
 
   // 돌아가기 버튼 함수
-  //   const pageBackHandler = () => {
-  //     leaveSession();
-  //     const newLoadingStatus = true;
-  //     props.onChangeLoading(newLoadingStatus);
-  //     navigate(-1);
-  //   };
+  const pageBackHandler = () => {
+    leaveSession();
+    //     const newLoadingStatus = true;
+    //     props.onChangeLoading(newLoadingStatus);
+    //     navigate(-1);
+  };
 
   // 포커스 될 때 채팅창이 보이게 하는 함수
   const onFucusHandler = () => {
@@ -102,6 +102,17 @@ const Consultant = (props) => {
       setSubscribers([...prevSubscribers]);
     }
   };
+
+  // sessionId 받아오기
+  const addSessionIdHandler = (getSessionId) => {
+    setMySessionId(getSessionId);
+  };
+
+  useEffect(() => {
+    if (mySessionId !== undefined) {
+      joinSession();
+    }
+  }, [mySessionId]);
 
   const joinSession = () => {
     // 1. openvidu 객체 생성
@@ -217,6 +228,7 @@ const Consultant = (props) => {
     const mySession = session;
 
     if (mySession) {
+      sendLeave(mySessionId);
       mySession.disconnect();
     }
 
@@ -224,37 +236,52 @@ const Consultant = (props) => {
     setOV(null);
     setSession(undefined);
     setSubscribers([]);
-    setMySessionId("SessionA");
+    setMySessionId(undefined);
     setMyUserName(nickname);
     setMainStreamManager(undefined);
     setPublisher(undefined);
   };
 
-  const getToken = async () => {
-    const sessionId = await createSession(mySessionId);
-    return await createToken(sessionId);
-  };
-
-  const createSession = async (sessionId) => {
+  const sendLeave = async (sessionId) => {
     const response = await axios.post(
-      APPLICATION_SERVER_URL + "api/sessions",
-      { customSessionId: sessionId },
-      {
-        headers: { "Content-Type": "application/json" },
-      }
-    );
-    return response.data; // The sessionId
-  };
-
-  const createToken = async (sessionId) => {
-    const response = await axios.post(
-      APPLICATION_SERVER_URL + "api/sessions/" + sessionId + "/connections",
+      APPLICATION_SERVER_URL + "api/sessions/" + sessionId + "/disconnections",
       {},
       {
         headers: { "Content-Type": "application/json" },
       }
     );
-    return response.data; // The token
+    console.log(response.data);
+    return response.data;
+  };
+
+  const getToken = async () => {
+    // const sessionId = await createSession(mySessionId);
+    console.log(mySessionId);
+    return await createToken(mySessionId);
+  };
+
+  // const createSession = async (sessionId) => {
+  //   const response = await axios.post(
+  //     APPLICATION_SERVER_URL + "api/sessions",
+  //     { customSessionId: sessionId },
+  //     {
+  //       headers: { "Content-Type": "application/json" },
+  //     }
+  //   );
+  //   setMySessionId(response.data.sessionId);
+  //   return response.data.sessionId; // The sessionId
+  // };
+
+  const createToken = async (mySessionId) => {
+    const response = await axios.post(
+      APPLICATION_SERVER_URL + "api/sessions/" + mySessionId + "/connections",
+      {},
+      {
+        headers: { "Content-Type": "application/json" },
+      }
+    );
+    console.log(response.data.token);
+    return response.data.token; // The token
   };
 
   // 끝
@@ -300,6 +327,7 @@ const Consultant = (props) => {
             {sessionLists.map((list, idx) => {
               return (
                 <ConsultantList
+                  onAddSessionId={addSessionIdHandler}
                   key={idx}
                   consultantNickname={list.consultantId.consultantNickname}
                   consultantGender={list.consultantId.consultantGender}
@@ -340,10 +368,10 @@ const Consultant = (props) => {
                 </div>
               ))}
             </div>
+            <button onClick={pageBackHandler}>Back</button>
           </div>
         ) : null}
       </div>
-      {/* <button onClick={pageBackHandler}>Back</button> */}
     </Fragment>
   );
 };
