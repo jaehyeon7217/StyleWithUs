@@ -1,5 +1,6 @@
 import { OpenVidu } from "openvidu-browser";
 import React, { Fragment, useState, useEffect } from "react";
+import useInterval from "./userInterval";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { useSelector } from "react-redux";
@@ -24,7 +25,7 @@ const Consultant = (props) => {
 
   // openvidu useState
   const [OV, setOV] = useState(<OpenVidu />);
-  const [mySessionId, setMySessionId] = useState(undefined);
+  const [mySessionId, setMySessionId] = useState("");
   const [myUserName, setMyUserName] = useState(nickname);
   const [mainStreamManager, setMainStreamManager] = useState(undefined);
   const [publisher, setPublisher] = useState(undefined);
@@ -109,7 +110,7 @@ const Consultant = (props) => {
   };
 
   useEffect(() => {
-    if (mySessionId !== undefined) {
+    if (mySessionId !== "") {
       joinSession();
     }
   }, [mySessionId]);
@@ -236,7 +237,7 @@ const Consultant = (props) => {
     setOV(null);
     setSession(undefined);
     setSubscribers([]);
-    setMySessionId(undefined);
+    setMySessionId("");
     setMyUserName(nickname);
     setMainStreamManager(undefined);
     setPublisher(undefined);
@@ -287,8 +288,10 @@ const Consultant = (props) => {
 
   // 대기창 관련 작업
   const [sessionLists, setSessionLists] = useState([]);
+  const [getSessionStatus, setGetSessionStatus] = useState(false);
 
   const getSession = async () => {
+    setGetSessionStatus(true);
     const response = await axios.get(
       APPLICATION_SERVER_URL + "api/sessions",
       {},
@@ -299,6 +302,13 @@ const Consultant = (props) => {
     console.log(response.data.data);
     setSessionLists(response.data.data);
   };
+
+  // 대기창 5초마다 실행
+  useInterval(() => {
+    if (getSessionStatus) {
+      getSession();
+    }
+  }, 10000);
 
   // 메세지 Event
   const messageSendHandler = (data) => {
@@ -326,11 +336,13 @@ const Consultant = (props) => {
             {sessionLists.map((list, idx) => {
               return (
                 <ConsultantList
+                  setGetSessionStatus={setGetSessionStatus}
                   onAddSessionId={addSessionIdHandler}
                   key={idx}
                   consultantNickname={list.consultantId.consultantNickname}
                   consultantGender={list.consultantId.consultantGender}
                   consultantResume={list.consultantId.consultantResume}
+                  numberOfPeople={!(list.numberOfPeople - 1)}
                   sessionId={list.sessionId}
                 />
               );
