@@ -55,6 +55,9 @@ const Sbti = () =>{
       <div className={classes.carouselbox}>
       <button>prev</button>
         <h1>first</h1>
+        <h1>first</h1>
+        <h1>first</h1>
+        <h1>first</h1>
       <button>next</button>
       </div>
     </div>
