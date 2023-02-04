@@ -10,7 +10,10 @@ const Shop = () => {
   const [shopOn, setShopOn] = useState(false);
   const [detailPage, setDetailPage] = useState(null);
 
-  const category = useSelector((state) => state.shop.category);
+  const userGender = useSelector(state => state.auth.userData.userGender);
+  const gender = userGender ? "men" : "women";
+
+  const category = useSelector((state) => state.shop.category[gender]);
   const arrayCategory = Object.keys(category);
 
   const toggleEventHandler = (liTitle) => {
