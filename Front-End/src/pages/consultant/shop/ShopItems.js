@@ -12,18 +12,21 @@ const ShopItems = (props) => {
   const [pagination, setPagination] = useState(1);
   const [divPagination, setDivPageNation] = useState(1);
 
+  const userGender = useSelector(state => state.auth.userData.userGender);
+
+  const gender = userGender ? "men" : "women";
   const type = props.detailPage.type;
   const detail = props.detailPage.detail;
 
   const dispatch = useDispatch();
 
   useEffect(() => {
-    const url = `https://i8d105.p.ssafy.io/be/data/${codeNumber[type][detail]}`;
+    const url = `https://i8d105.p.ssafy.io/be/data/${gender}/${codeNumber[gender][type][detail]}`;
 
     axios
     .get(url)
       .then((response) => {
-        const payload = {type, detail, data: response.data.data}
+        const payload = {gender, type, detail, data: response.data.data}
         dispatch(shopActions.downloadData(payload));
       })
       .catch((error) => {
@@ -32,7 +35,7 @@ const ShopItems = (props) => {
   }, []);
 
   // 리덕스에서 옷 정보를 가져온다.
-  const items = useSelector((state) => state.shop.category);
+  const items = useSelector((state) => state.shop.category[gender]);
 
   // 페이지에 출력될 옷 개수
   const clothesCount = 5;

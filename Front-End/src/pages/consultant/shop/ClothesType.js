@@ -8,16 +8,28 @@ import ClothesDetail from "./ClothesDetail";
 
 const ClothesType = (props) => {
   // 타입, 카테고리, 디테일 항목들을 리덕스에서 가져온다.
-  const category = useSelector((state) => state.shop.category);
+  const userGender = useSelector(state => state.auth.userData.userGender);
+  const gender = userGender ? "men" : "women";
+
+  const category = useSelector((state) => state.shop.category[gender]);
   const type = props.type;
   const details = Object.keys(category[type]);
 
   // 카테고리 옆에 추가할 내용들
   const typeEnglish = {
-    상의: "Top",
-    아우터: "Outer",
-    바지: "Pants",
-    신발: "Shoes",
+    'men': {
+      상의: "Top",
+      아우터: "Outer",
+      바지: "Pants",
+      신발: "Shoes",
+    },
+    'women': {
+      상의: "Top",
+      하의: "Pants",
+      신발: "Shoes",
+      가방: "Bag",
+      액세서리: "Accessory",
+    }
   };
 
   // props한 토글 상태를 저장한다.
@@ -54,7 +66,7 @@ const ClothesType = (props) => {
   return (
     <Fragment>
       <h3 className={classes.font} onClick={onClickHandler}>
-        {type} <span>{typeEnglish[type]}</span>
+        {type} <span>{typeEnglish[gender][type]}</span>
         <span
           className={`${classes.toggleButton1} ${toggle ? classes.off : ""}`}
         ></span>
