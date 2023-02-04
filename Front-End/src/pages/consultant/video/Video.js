@@ -8,9 +8,9 @@ const Video = (props) => {
   // 유저 타입 받아오기
   const userType = useSelector((state) => state.auth.userType);
   
-  useEffect(() => {
-    console.log(props.streamManager)
-  }, [])
+  // useEffect(() => {
+  //   console.log(props.streamManager)
+  // }, [])
 
   return (
     <div>

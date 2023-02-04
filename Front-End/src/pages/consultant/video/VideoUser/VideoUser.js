@@ -250,7 +250,6 @@ const Consultant = (props) => {
         headers: { "Content-Type": "application/json" },
       }
     );
-    console.log(response.data);
     return response.data;
   };
 
@@ -331,6 +330,7 @@ const Consultant = (props) => {
                   key={idx}
                   consultantNickname={list.consultantId.consultantNickname}
                   consultantGender={list.consultantId.consultantGender}
+                  consultantResume={list.consultantId.consultantResume}
                   sessionId={list.sessionId}
                 />
               );
