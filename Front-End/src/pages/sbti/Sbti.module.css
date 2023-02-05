@@ -1,0 +1,39 @@
+@font-face {
+  font-family: "SF_Pro";
+  src: url("../../fonts/SF-Pro-Display-Regular.otf");
+}
+
+.container {
+  top: 50%;
+  left: 50%;
+  width: 60%;
+  max-width: 1440px;
+  margin: 0 auto;
+  overflow: hidden;
+  margin-top: 100px;
+  font-family: "SF_Pro";
+}
+
+.sliderContainer {
+  width: 100%;
+  display: flex;
+  flex: auto;
+}
+
+.buttonbox{
+  display: flex;
+  justify-content: space-around;
+}
+
+.carouselbutton {
+  all: unset;
+  border: 1px solid #d4d4d4;
+  padding: 0.5em 2em;
+  color: #d4d4d4;
+  border-radius: 10px;
+}
+.carouselbutton:hover {
+  transition: all 0.3s ease-in-out;
+  background-color: #333333;
+  color: #fff;
+}
