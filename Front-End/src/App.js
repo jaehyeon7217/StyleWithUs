@@ -10,6 +10,7 @@ import Consultant from "./pages/consultant/Consultant";
 import MyPageWish from "./pages/mypage/MyPageWish";
 import MyProfile from './pages/mypage/MyProfile';
 import Recommend from './pages/recommend/Recommend';
+import Sbti from "./pages/sbti/Sbti";
 
 
 function App() {
@@ -35,6 +36,7 @@ function App() {
         <Route path="/mypagewish" element={<MyPageWish />}/>
         <Route path="/myprofile" element={<MyProfile/>}/>
         <Route path="/recommend" element={<Recommend/>}/>
+        <Route path="/sbti" element={<Sbti/>}/>
         <Route
           path="/consultant"
           // element={displayStatus}
