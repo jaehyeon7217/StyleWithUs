@@ -134,7 +134,7 @@ public class ConsultantServiceImpl implements ConsultantService {
     public void changePwById(Map<String, String> consultantInfo) {
         Consultant consultantTemp = consultantDAO.getById(consultantInfo.get("consultantId"));
 
-        String encodedNewPw = passwordEncoder.encode(consultantInfo.get("newConsultantPw"));
+        String encodedNewPw = passwordEncoder.encode(consultantInfo.get("consultantPw"));
 
         consultantTemp.setConsultantPw(encodedNewPw);
 
