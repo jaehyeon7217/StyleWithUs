@@ -12,24 +12,30 @@ const PersonalColor = () => {
   };
   const personalColorPickerMouseEnterHandler = () => {
     setPickerStatus(true);
-  }; 
+  };
   const personalColorPickerMouseOutHandler = () => {
     setPickerStatus(false);
-  }; 
+  };
 
   return (
     // <div className={classes["color-picker-container"]}>
-    <div
-    onMouseEnter={personalColorPickerMouseEnterHandler}
-    onMouseLeave={personalColorPickerMouseOutHandler}
-    >
-      <img
-        className={classes["color-picker"]}
-        src={colorCircle}
-        alt="colorCircle"
-        onClick={personalColorPickerClickHandler}
-      />
-      {pickerStatus && <PersonalColorPicker mouseEnter={personalColorPickerMouseEnterHandler}/>}
+    <div>
+      <div
+        onMouseEnter={personalColorPickerMouseEnterHandler}
+        onMouseLeave={personalColorPickerMouseOutHandler}
+      >
+        <img
+          className={classes["color-picker"]}
+          src={colorCircle}
+          alt="colorCircle"
+          onClick={personalColorPickerClickHandler}
+        />
+      </div>
+      {pickerStatus && (
+        <PersonalColorPicker
+          mouseEnter={personalColorPickerMouseEnterHandler}
+        />
+      )}
     </div>
   );
 };
