@@ -20,8 +20,11 @@ export default class OpenViduVideoComponent extends Component {
   }
 
   render() {
-    return <video className={`${!this.props.sendUserType ? classes["video-user"] : classes["video-consultant"]}`} autoPlay={true} ref={this.videoRef} />;
+    return <video className={classes["video-consultant"]} autoPlay={true} ref={this.videoRef} />;
   }
+  // render() {
+  //   return <video className={`${!this.props.sendUserType ? classes["video-user"] : classes["video-consultant"]}`} autoPlay={true} ref={this.videoRef} />;
+  // }
   // render() {
   //   return <video autoPlay={true} ref={this.videoRef} />;
   // }
