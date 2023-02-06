@@ -73,10 +73,21 @@ public class ReviewController {
         try {
             List<ReviewDto> list = reviewService.selectConsultantReview(consultantId);
 
+            double avgScore = 0;
+
+            for(ReviewDto r : list) {
+                avgScore += r.getReviewScore();
+            }
+
+            avgScore /= list.size();
+
+            avgScore = Math.round(avgScore*10)/10.0;
+
             logger.info("컨설턴트 리뷰 리스트 : {}", list);
 
             check.put("msg", "success");
             check.put("data", list);
+            check.put("avgScore", avgScore);
 
             return ResponseEntity.status(HttpStatus.OK).body(check);
         } catch (Exception e) {
