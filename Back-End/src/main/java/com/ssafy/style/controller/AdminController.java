@@ -75,7 +75,7 @@ public class AdminController {
 
     @GetMapping(value = "/approval/{consultantId}")
     @ApiOperation(value = "컨설턴트 허용 변경")
-    public ResponseEntity<?> changeApproval(@RequestParam @ApiParam(value = "컨설턴트 ID") String consultantId){
+    public ResponseEntity<?> changeApproval(@PathVariable @ApiParam(value = "컨설턴트 ID") String consultantId){
 
         Map<String,Object> map = new HashMap<>();
 
