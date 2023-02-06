@@ -188,6 +188,8 @@ const Consultant = (props) => {
     setMyUserName(nickname);
     setMainStreamManager(undefined);
     setPublisher(undefined);
+
+    dispatch(chatActions.leaveChatting());
   };
 
   const sendLeave = async (sessionId) => {
