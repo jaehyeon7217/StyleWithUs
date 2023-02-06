@@ -59,6 +59,19 @@ public class JwtProvider {
                 .compact();
     }
 
+    public String createToken(String admin) {
+        Claims claims = Jwts.claims();
+        claims.put("admin", admin);
+
+        Date now = new Date();
+        return Jwts.builder()
+                .setClaims(claims)
+                .setIssuedAt(now)
+                .setExpiration(new Date(now.getTime() + tokenValidTime))
+                .signWith(SignatureAlgorithm.HS256, secretKey.getBytes())
+                .compact();
+    }
+
     public String createExpireToken() {
         Claims claims = Jwts.claims();
 
