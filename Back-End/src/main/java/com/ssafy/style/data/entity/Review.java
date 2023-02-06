@@ -25,7 +25,7 @@ public class Review implements Serializable {
     @JoinColumn(name="consultantId")
     private Consultant consultantId;
     @Column(nullable = false)
-    private Integer reviewScore;
+    private Double reviewScore;
     @Column(nullable = false, length = 200)
     private String reviewContent;
     @CreationTimestamp

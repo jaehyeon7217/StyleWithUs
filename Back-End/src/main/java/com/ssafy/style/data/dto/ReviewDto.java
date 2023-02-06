@@ -20,7 +20,7 @@ public class ReviewDto {
     @ApiModelProperty(value = "컨설턴트아이디")
     private String consultantId;
     @ApiModelProperty(value = "리뷰 점수")
-    private Integer reviewScore;
+    private Double reviewScore;
     @ApiModelProperty(value = "리뷰 내용")
     private String reviewContent;
     @ApiModelProperty(value = "작성 날짜")
