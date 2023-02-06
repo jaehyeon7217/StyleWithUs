@@ -205,7 +205,7 @@ const Consultant = (props) => {
         },
       }
     );
-    console.log(response.data);
+    // console.log(response.data);
     return response.data;
   };
 
@@ -267,7 +267,6 @@ const Consultant = (props) => {
   };
 
   const createToken = async (sessionId) => {
-    console.log(userToken);
     const url = APPLICATION_SERVER_URL + "api/sessions/" + sessionId + "/connections"
     const response = await axios.post(
       url,

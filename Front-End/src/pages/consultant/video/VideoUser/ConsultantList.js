@@ -32,6 +32,7 @@ const ConsultantList = (props) => {
       {showResume && (
         <ConsultantResume
           setShowResume={setShowResume}
+          consultantId={consultantId}
           consultantResume={consultantResume}
         />
       )}
