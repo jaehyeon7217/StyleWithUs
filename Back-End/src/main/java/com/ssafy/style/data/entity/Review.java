@@ -24,7 +24,7 @@ public class Review implements Serializable {
     @ManyToOne
     @JoinColumn(name="consultantId")
     private Consultant consultantId;
-    @Column(nullable = false, length = 5)
+    @Column(nullable = false)
     private Double reviewScore;
     @Column(nullable = false, length = 200)
     private String reviewContent;
