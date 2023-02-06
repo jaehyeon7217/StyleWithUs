@@ -25,23 +25,89 @@
   src: url("../../fonts/AppleSDGothicNeoM.ttf");
 }
 
-.h1-background {
-  margin-top: 80px;
-  height: 200px;
-  width: 100%;
-  display: flex;
-  align-items: center;
+.background {
+  max-width: 1280px;
+  margin: 0 auto;
+  margin-top: 150px;
 }
 
-.h1-background h1 {
-  width: 1280px;
-  height: 100%;
-  margin: 0 auto;
+.background h1 {
   color: black;
   font-family: "Apple_Gothic_Neo_Middle";
-  font-size: 55px;
+  font-size: 60px;
+  margin-bottom: 80px;
+}
+
+.clothes-measure {
+  width: 100%;
+  padding-bottom: 20px;
+  font-family: "Apple_Gothic_Neo_Middle";
   display: flex;
-  align-items: center;
+  justify-content: center;
+}
+
+.clothes-measure div {
+  display: inline-block;
+  margin-right: 20px;
+}
+
+.clothes-measure div span {
+  font-family: "Apple_Gothic_Neo_Bold";
+}
+
+.clothes-measure div:nth-of-type(1) {
+  font-size: 30px;
+}
+
+.clothes-measure div:nth-of-type(2) {
+  font-size: 25px;
+  margin-top: 60px;
+  margin-left: -50px;
+}
+
+.clothes-measure div:nth-of-type(3) {
+  font-size: 40px;
+  margin-top: 20px;
+}
+
+.clothes-measure div:nth-of-type(4) {
+  font-size: 20px;
+  margin-top: 15px;
+}
+
+.clothes-measure div:nth-of-type(5) {
+  font-size: 44px;
+  margin-left: 30px;
+  margin-top: -10px;
+  margin-right: 0;
+}
+
+.clothes-measure div:nth-of-type(6) {
+  font-size: 40px;
+  margin-left: -130px;
+  margin-right: 0;
+  margin-top: 80px;
+}
+
+.clothes-measure div:nth-of-type(7) {
+  font-size: 22px;
+  margin-left: -80px;
+  margin-top: 20px;
+}
+
+.clothes-measure div:nth-of-type(8) {
+  font-size: 18px;
+  margin-right: 35px;
+}
+
+.clothes-measure div:nth-of-type(9) {
+  font-size: 25px;
+}
+
+.clothes-measure div:nth-of-type(10) {
+  font-size: 25px;
+  margin-top: 70px;
+  margin-left: -80px;
 }
 
 .recommend {
