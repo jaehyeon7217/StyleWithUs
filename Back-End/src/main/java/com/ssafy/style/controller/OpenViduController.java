@@ -78,7 +78,11 @@ public class OpenViduController {
         meetingDto.setSessionId(session.getSessionId());
 
         try {
+            meetingService.deleteAllMeetingConsultantId(params.get("ConsultantId").toString());
+            logger.info("deleteAllMeetingConsultantId - 호출");
+
             meetingService.insertMeeting(meetingDto, params.get("ConsultantId").toString());
+            logger.info("insertMeeting - 호출");
 
             logger.info("세션 생성 : " + session.getSessionId());
             check.put("msg", "success");
@@ -162,7 +166,11 @@ public class OpenViduController {
                 MeetingDto meetingDto = meetingService.selectMeeting(session.getSessionId());
                 meetingDto.setNumberOfPeople(meetingDto.getNumberOfPeople() - 1);
 
-                meetingService.updateMeeting(meetingDto);
+                if(meetingDto.getNumberOfPeople() <= 0) {
+                    meetingService.deleteMeeting(meetingDto.getSessionId());
+                } else {
+                    meetingService.updateMeeting(meetingDto);
+                }
 
                 check.put("msg", "success");
 

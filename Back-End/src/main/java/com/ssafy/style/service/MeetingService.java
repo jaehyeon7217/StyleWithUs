@@ -12,4 +12,5 @@ public interface MeetingService {
     MeetingDto selectMeeting(String sessionId) throws Exception;
     MeetingDto updateMeeting(MeetingDto meetingDto) throws Exception;
     void deleteMeeting(String sessionId) throws Exception;
+    void deleteAllMeetingConsultantId(String consultantId) throws Exception;
 }
