@@ -2,14 +2,21 @@ import axios from "axios";
 import { useEffect, useRef, useState } from "react"
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import left1 from '../../assets/left1.png'
+import left2 from '../../assets/left2.png'
+import left3 from '../../assets/left3.png'
+import left4 from '../../assets/left4.png'
 
+import Start from './Start'
 import Age from './Age'
 import Height from './Height'
+import Foot from './Foot'
 import Top from './Top'
 import Bottom from './Bottom'
+import End from './End'
 import classes from "./Sbti.module.css"
 
-const totalSlide = 3;
+const totalSlide = 6;
 const Sbti = () =>{
   const userData = useSelector((state) => state.auth.userData);
   const token = useSelector((state) => state.auth.token);
@@ -54,7 +61,7 @@ const Sbti = () =>{
       {
         userId: userData.userId,
         userName: userData.userName,
-        userNickname: userData.userNickName,
+        userNickname: userData.userNickname,
         userEmail: userData.userEmail,
         userGender: userData.userGender,
         userHeight: height,
@@ -73,6 +80,8 @@ const Sbti = () =>{
       navigate('/')
     }).catch(error => {
       console.log(error);
+      console.log(token);
+      console.log(userData);
     })
   }
   const checkConsole = (event) =>{
@@ -89,16 +98,28 @@ const Sbti = () =>{
       {currentSlide}
       <button onClick={checkConsole}></button>
       <div className={classes.sliderContainer} ref={slideRef}>
+        <Start setData={nextSlide}/>
         <Age setData={setAge}/>
         <Height setData={setHeight}/>
+        <Foot setData={setFoot}/>
         <Top setData={setTop}/>
         <Bottom setData={setBottom}/>
+        <End setData={submitSbti}/>
       </div>
       <div className={classes.buttonbox}>
         <button onClick={prevSlide} className={classes.carouselbutton}>prev</button>
         <button onClick={nextSlide} className={classes.carouselbutton}>next</button>
       </div>
-      
+      <div className={classes.test}>
+        <h2>Style With</h2>
+        <h1>Us</h1>
+      </div>
+      <div className={classes.imgtest}>
+        <img src={left1} alt="" />
+        <img src={left2} alt="" />
+        <img src={left3} alt="" />
+        <img src={left4} alt="" />
+      </div>
     </div>
   );
 }

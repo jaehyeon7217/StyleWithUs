@@ -8,9 +8,8 @@ const Top = (props) =>{
   return(
     <div className={classes.carouselItem}>
       <h1>top</h1>
-      <form onSubmit={(event)=>{
-        event.preventDefault();
-        props.setData(event.target.top.value)
+      <form onChange={(event)=>{
+        props.setData(event.target.value)
       }}>
         <RadioGroup label='상체 체형'>
           <Radio name="top" value='slim'>
@@ -23,7 +22,6 @@ const Top = (props) =>{
             Chubby
           </Radio>
         </RadioGroup>
-        <button>저장</button>
       </form>
     </div>
   )
