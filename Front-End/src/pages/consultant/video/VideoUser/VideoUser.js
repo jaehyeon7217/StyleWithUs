@@ -7,6 +7,7 @@ import axios from "axios";
 import history from "../history";
 
 import ConsultantList from "./ConsultantList";
+import ConsultantReviews from './ConsultantReviews';
 import Video from "../Video";
 import { chatActions } from "../../../../store/chat"
 
@@ -33,6 +34,9 @@ const Consultant = (props) => {
   const [subscribers, setSubscribers] = useState([]);
   const [session, setSession] = useState(undefined);
 
+  // 리뷰 페이지
+  const [backIsClicked, setBackIsClicked] = useState(false);
+
   // 뒤로가기 버튼을 누를 때 loading 상태 업데이트
   useEffect(() => {
     const listenBackEvent = () => {
@@ -51,6 +55,7 @@ const Consultant = (props) => {
   // 돌아가기 버튼 함수
   const pageBackHandler = () => {
     leaveSession();
+    setBackIsClicked(true);
     //     const newLoadingStatus = true;
     //     props.onChangeLoading(newLoadingStatus);
     //     navigate(-1);
@@ -81,6 +86,7 @@ const Consultant = (props) => {
 
   useEffect(() => {
     if (mySessionId !== "") {
+      setBackIsClicked(false);
       joinSession();
     }
   }, [mySessionId]);
@@ -207,6 +213,8 @@ const Consultant = (props) => {
     setMyUserName(nickname);
     setMainStreamManager(undefined);
     setPublisher(undefined);
+
+    dispatch(chatActions.leaveChatting());
   };
 
   const sendLeave = async (sessionId) => {
@@ -340,6 +348,7 @@ const Consultant = (props) => {
             <button onClick={pageBackHandler}>Back</button>
           </div>
         ) : null}
+        {backIsClicked && <ConsultantReviews setBackIsClicked={setBackIsClicked} />}
       </div>
     </Fragment>
   );
