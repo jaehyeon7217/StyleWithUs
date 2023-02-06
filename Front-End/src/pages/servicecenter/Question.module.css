@@ -25,6 +25,7 @@
     /* justify-content: space-betwee; */
     width: 900px;
     height: 55px;
+    
   }
   
 .category{
@@ -51,11 +52,11 @@
   content: '';
   width: 12px; /* 사이즈 */
   height: 12px; /* 사이즈 */
-  border-top: 2px solid grey; /* 선 두께 */
-  border-right: 2px solid grey; /* 선 두께 */
+  border-top: 2px solid #b3b3b3; /* 선 두께 */
+  border-right: 2px solid #b3b3b3; /* 선 두께 */
   display: inline-block;
   transform: rotate(135deg); /* 각도 */
-  margin-top: 13px;
+  margin-top: 17px;
   cursor: pointer;
   transition: 0.3s;
 
@@ -67,18 +68,19 @@
   content: '';
   width: 12px; /* 사이즈 */
   height: 12px; /* 사이즈 */
-  border-top: 2px solid grey; /* 선 두께 */
-  border-right: 2px solid grey; /* 선 두께 */
+  border-top: 2px solid #b3b3b3; /* 선 두께 */
+  border-right: 2px solid #b3b3b3; /* 선 두께 */
   display: inline-block;
   transform: rotate(315deg); /* 각도 */
-  margin-top: 13px;
+  margin-top: 17px;
   cursor: pointer;
   transition: 0.3s;
+  
 
 }
 
 .hrgrey{
-  border-bottom: solid 2px #cacaca;
+  border-bottom: solid 2px #dfdfdf;
   border-top: 0;
   padding: 0;
   border-radius: 2.5px;
@@ -94,7 +96,7 @@
 }
 
 .TextBox{
-  width: 850px;
+  width: 830px;
   margin-left: 30px;
   
 
