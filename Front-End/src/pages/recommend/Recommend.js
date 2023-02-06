@@ -1,5 +1,6 @@
 import classes from './Recommend.module.css';
 import userImage from "../../assets/mypageuser.png";
+import blackLogo from '../../assets/blackLogo.png'
 import { useSelector } from 'react-redux';
 import RecommendItem from './RecommendItem';
 
@@ -14,8 +15,7 @@ const Recommend = () => {
             <div className={classes.RecommendPageBox}>
                 <div className={classes.RecommendPage}>
                     <div className={classes.UserBox}>
-                        <h2 className={classes.PageName}>STYLE WITH US</h2>
-                        <p className={classes.PageNameSmall}>We recommend this style to you </p>
+                        <img className={classes.blackLogo} src={blackLogo} alt="" />
                         <img src={userImage} alt="user" className={classes.userImg} />
                         <div>
                             <h3 className={classes.userNickname}>{userData.userNickname}</h3>
