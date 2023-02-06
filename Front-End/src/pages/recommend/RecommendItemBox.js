@@ -250,8 +250,8 @@ const RecommendItemBox = (props) => {
       <div className={classes.box}>
         <h3 className={classes.h3}>{props.type}</h3>
         <div className={classes['clothes-items']}>
-          {clothesData.map(data => {
-            return <RecommendItem data={data}/>
+          {clothesData.map((data, idx) => {
+            return <RecommendItem key={`${data.title}-${idx}`} data={data}/>
           })}
         </div>
         <div className={classes['button-box']}>
