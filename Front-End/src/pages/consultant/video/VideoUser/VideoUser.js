@@ -7,7 +7,7 @@ import axios from "axios";
 import history from "../history";
 
 import ConsultantList from "./ConsultantList";
-import ConsultantReviews from "./ConsultantReviews";
+import ConsultantReview from "./ConsultantReview";
 import Video from "../Video";
 import { chatActions } from "../../../../store/chat";
 
@@ -237,7 +237,6 @@ const Consultant = (props) => {
 
   const getToken = async () => {
     // const sessionId = await createSession(mySessionId);
-    console.log(mySessionId);
     return await createToken(mySessionId);
   };
 
@@ -254,7 +253,6 @@ const Consultant = (props) => {
   // };
 
   const createToken = async (mySessionId) => {
-    console.log(userToken);
     const url = APPLICATION_SERVER_URL + "api/sessions/" + mySessionId + "/connections"
     const data = {}
     const response = await axios.post(
@@ -266,7 +264,7 @@ const Consultant = (props) => {
         },
       }
     );
-    console.log(response.data.token);
+    // console.log(response.data.token);
     return response.data.token; // The token
   };
 
@@ -287,7 +285,7 @@ const Consultant = (props) => {
         },
       }
     );
-    console.log(response.data.data);
+    // console.log(response.data.data);
     setSessionLists(response.data.data);
   };
 
@@ -307,8 +305,9 @@ const Consultant = (props) => {
 
   // 리뷰 작성을 위한 consultantId 받아오기
   const [getConsultantId, setGetConsultantId] = useState(undefined);
+
   useEffect(() => {
-    console.log(getConsultantId);
+    // console.log(getConsultantId);
   }, [getConsultantId]);
 
   return (
@@ -371,7 +370,7 @@ const Consultant = (props) => {
           </div>
         ) : null}
         {backIsClicked && (
-          <ConsultantReviews getConsultantId={getConsultantId} setGetConsultantId={setGetConsultantId} setBackIsClicked={setBackIsClicked} />
+          <ConsultantReview getConsultantId={getConsultantId} setGetConsultantId={setGetConsultantId} setBackIsClicked={setBackIsClicked} />
         )}
       </div>
     </Fragment>
