@@ -1,0 +1,119 @@
+@import url('https://fonts.googleapis.com/css2?family=Blinker:wght@100;200;300;400;600;700;800;900&display=swap');
+
+@font-face {
+  font-family: "Apple_Gothic_Neo_Hard";
+  src: url("../../fonts/AppleSDGothicNeoH.ttf");
+}
+
+@font-face {
+  font-family: "Apple_Gothic_Neo_Bold";
+  src: url("../../fonts/AppleSDGothicNeoB.ttf");
+}
+
+@font-face {
+  font-family: "Apple_Gothic_Neo_SB";
+  src: url("../../fonts/AppleSDGothicNeoSB.ttf");
+}
+
+@font-face {
+  font-family: "Apple_Gothic_Neo_Light";
+  src: url("../../fonts/AppleSDGothicNeoL.ttf");
+}
+
+.MarginBox{
+    margin-top: 150px;
+}
+
+.WrapPage{
+    display: flex;
+    justify-content: center;
+    width: 1440px;
+    margin: 0 auto;
+}
+
+.ServiceCenterBox{
+    width: 900px;
+}
+
+.QuestionName {
+    font-family: "Apple_Gothic_Neo_SBold";
+    font-size: 28px;
+    display: inline-block;
+    margin-top: 15px;
+
+}
+
+.hr {
+    border-bottom: solid 5px black;
+    border-top: 0;
+    padding: 0;
+    border-radius: 2.5px;
+    margin-top: -10px;
+}
+
+
+.QItem{
+  display: flex;
+  justify-content: space-between;
+  width: 900px;
+  height: 50px;
+}
+
+.category{
+  font-family: "Apple_Gothic_Neo_SBold";
+  font-size: 21px;
+  margin-top: 10px;
+}
+
+
+.Title{
+  font-family: "Apple_Gothic_Neo_Light";
+  font-size: 19px;
+  margin-top: 13.5px;
+  margin-left: -650px;
+}
+
+
+.checkIcon::after{
+  content: '';
+  width: 12px; /* 사이즈 */
+  height: 12px; /* 사이즈 */
+  border-top: 2px solid grey; /* 선 두께 */
+  border-right: 2px solid grey; /* 선 두께 */
+  display: inline-block;
+  transform: rotate(135deg); /* 각도 */
+  margin-top: 13px;
+  margin-right: 10px;
+
+}
+
+.checkIconTwo::after{
+  content: '';
+  width: 12px; /* 사이즈 */
+  height: 12px; /* 사이즈 */
+  border-top: 2px solid grey; /* 선 두께 */
+  border-right: 2px solid grey; /* 선 두께 */
+  display: inline-block;
+  transform: rotate(315deg); /* 각도 */
+  margin-top: 13px;
+  margin-right: 10px;
+
+}
+
+.hrgrey{
+  border-bottom: solid 2px #cacaca;
+  border-top: 0;
+  padding: 0;
+  border-radius: 2.5px;
+  
+}
+
+
+.Qdap{
+  background-color: #FAFAFA;
+  width: 900px;
+  height: 200px;
+  margin-top: -8px;
+
+ 
+}

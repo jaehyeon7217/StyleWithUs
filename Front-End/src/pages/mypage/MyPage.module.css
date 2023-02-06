@@ -20,11 +20,15 @@
   src: url("../../fonts/AppleSDGothicNeoL.ttf");
 }
 
+.MarginBox{
+  margin-top: 150px;
+}
 
 .WrapMyPage{
-  margin-top: 150px;
   display: flex;
   justify-content: center;
+  width: 1440px;
+  margin: 0 auto;
 }
 
 

@@ -7,7 +7,8 @@ const MyProfile = () => {
     const userData = useSelector((state) => state.auth.userData)
 
     return(
-        <div className={classes.WrapMyPage}>
+        <div className={classes.MarginBox}>
+            <div className={classes.WrapMyPage}>
             <MyPageSideBar />
             <div className={classes.ProfileBox}>
                 <h3 className={classes.ProfileName}>프로필</h3>
@@ -45,6 +46,8 @@ const MyProfile = () => {
 
             </div>
         </div>
+        </div>
+        
     )
 }
 
