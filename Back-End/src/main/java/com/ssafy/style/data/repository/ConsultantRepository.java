@@ -16,6 +16,5 @@ public interface ConsultantRepository extends JpaRepository<Consultant, String> 
     @Query(value = "select * from consultant ", nativeQuery = true)
     List<Consultant> getConsultant();
 
-
 }
 

@@ -68,6 +68,8 @@ public class AdminServiceImpl implements AdminService {
 
         Consultant consultant = consultantRepository.getById(consultantId);
 
+        System.out.println(consultant.getConsultantId());
+
         int temp = 0;
 
         if( consultant.getConsultantApproval() == 0){
