@@ -22,6 +22,13 @@ const NavTop = () =>{
     event.preventDefault();
     navigate('/mypage')
   }
+
+  const toServie = (event) => {
+    event.preventDefault();
+    navigate('/servicecenter')
+  }
+
+
   const toLogout = (event) =>{
     event.preventDefault();
     dispatch(authActions.logout(''))
@@ -40,6 +47,7 @@ const NavTop = () =>{
     <div className={classes.top}>
       <p className={(isLogined ? classes.LinkTopHidden : classes.LinkTop)} onClick={toLogin}>로그인</p>
       <p className={(isLogined ? classes.LinkTopHidden : classes.LinkTop)} onClick={toSignup}>회원가입</p>
+      <p className={(!isLogined ? classes.LinkTopHidden : classes.LinkTop)} onClick={toServie}>고객센터</p>
       <p className={(!isLogined ? classes.LinkTopHidden : classes.LinkTop)} onClick={toMypage}>마이페이지</p>
       <p className={(!isLogined ? classes.LinkTopHidden : classes.LinkTop)} onClick={toLogout}>로그아웃</p>
     </div>

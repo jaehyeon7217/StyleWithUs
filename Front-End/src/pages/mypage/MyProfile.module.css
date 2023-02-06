@@ -20,10 +20,15 @@
     src: url("../../fonts/AppleSDGothicNeoL.ttf");
 }
 
-.WrapMyPage {
+.MarginBox{
     margin-top: 150px;
+}
+
+.WrapMyPage {
     display: flex;
     justify-content: center;
+    width: 1440px;
+    margin: 0 auto;
 }
 
 .ProfileBox{
@@ -59,7 +64,7 @@
 
 .ProfileName {
     font-family: "Apple_Gothic_Neo_SBold";
-    font-size: 25px;
+    font-size: 28px;
     margin-top: 15px;
 
 }
@@ -80,6 +85,7 @@
     border-top: 0;
     padding: 0;
     border-radius: 2.5px;
+    margin-top: -10px;
 }
 
 
