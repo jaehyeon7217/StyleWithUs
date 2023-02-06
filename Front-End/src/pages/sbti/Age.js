@@ -6,9 +6,8 @@ const Age = (props) =>{
   return(
     <div className={classes.carouselItem}>
       <h1>Age</h1>
-      <form onSubmit={(event) => {
-        event.preventDefault();
-        props.setData(event.target.age.value)
+      <form onChange={(event) => {
+        props.setData(event.target.value)
         }}
       >
       <RadioGroup label='나이'>
@@ -38,7 +37,6 @@ const Age = (props) =>{
           50 이상
         </Radio>
       </RadioGroup>
-      <button>저장</button>
       </form>
     </div>
   )
