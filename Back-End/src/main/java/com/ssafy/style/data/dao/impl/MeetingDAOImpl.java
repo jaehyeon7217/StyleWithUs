@@ -67,4 +67,13 @@ public class MeetingDAOImpl implements MeetingDAO {
         }
 
     }
+
+    @Override
+    public void deleteAllMeetingConsultantId(String consultantId) throws Exception {
+        List<Meeting> list = meetingRepository.findByConsultantId(consultantRepository.getById(consultantId));
+
+        for(Meeting m : list) {
+            meetingRepository.delete(m);
+        }
+    }
 }

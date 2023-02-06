@@ -61,6 +61,11 @@ public class MeetingServiceImpl implements MeetingService {
         meetingDAO.deleteMeeting(sessionId);
     }
 
+    @Override
+    public void deleteAllMeetingConsultantId(String consultantId) throws Exception {
+        meetingDAO.deleteAllMeetingConsultantId(consultantId);
+    }
+
     /////////////////////////////////////////////////////////////////////////////////////////////////////
 
     private Meeting toMeeting(MeetingDto meetingDto) {
