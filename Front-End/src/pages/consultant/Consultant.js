@@ -21,7 +21,7 @@ const Consultant = (props) => {
   const userType = useSelector((state) => state.auth.userType);
 
   // 채팅창 아이템들
-  const chatting = useSelector((state) => state.chat.chattings);
+  const chattings = useSelector((state) => state.chat.chattings);
 
   // 알람창 카운트
   const [alarmCount, setAlarmCount] = useState(0);
@@ -108,7 +108,7 @@ const Consultant = (props) => {
                   ? classes["toggle-animation-on"]
                   : classes["toggle-animation-off"]
               }
-              chatting={chatting}
+              chattings={chattings}
               alarm={chattingAlarm}
               alarmCount={alarmCount}
             />
