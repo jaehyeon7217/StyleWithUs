@@ -9,7 +9,7 @@ const ChatContent = (props) => {
 
   const cssClasses = props.className + ' ' + classes['chat-content'] 
 
-  const chattings = props.chatting;
+  const chattings = props.chattings;
 
   const user = useSelector((state) => state.auth.userData);
   const userType = useSelector((state) => state.auth.userType);

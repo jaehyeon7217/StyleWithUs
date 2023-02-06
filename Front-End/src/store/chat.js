@@ -11,6 +11,9 @@ const chatSlice = createSlice({
   reducers: {
     addChatting(state, action) {
       state.chattings.push(action.payload);
+    },
+    leaveChatting(state, action) {
+      state.chattings = [];
     }
   }
 });
