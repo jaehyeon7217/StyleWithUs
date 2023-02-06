@@ -222,8 +222,10 @@ const Consultant = (props) => {
 
   const sendLeave = async (sessionId) => {
     const url = APPLICATION_SERVER_URL + "api/sessions/" + sessionId + "/disconnections"
+    const data = {}
     const response = await axios.post(
       url,
+      data,
       {
         headers: {
           Authorization: userToken,
@@ -254,8 +256,10 @@ const Consultant = (props) => {
   const createToken = async (mySessionId) => {
     console.log(userToken);
     const url = APPLICATION_SERVER_URL + "api/sessions/" + mySessionId + "/connections"
+    const data = {}
     const response = await axios.post(
       url,
+      data,
       {
         headers: {
           Authorization: userToken,
