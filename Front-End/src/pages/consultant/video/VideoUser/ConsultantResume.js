@@ -1,7 +1,10 @@
 import { useEffect, useRef } from "react";
 import classes from "./ConsultantResume.module.css";
+import ConsultantReviews from "./ConsultantReviews";
 
 const ConsultantResume = (props) => {
+  const consultantId = props.consultantId;
+
   const closeResumeHandler = () => {
     props.setShowResume(false);
   };
@@ -40,6 +43,7 @@ const ConsultantResume = (props) => {
         value="X"
         onClick={closeResumeHandler}
       />
+      <ConsultantReviews consultantId={consultantId} />
     </div>
   );
 };
