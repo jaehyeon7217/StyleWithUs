@@ -21,7 +21,8 @@
 }
 
 .RecommendPageBox{
-    width: 1440px;
+    width: 80%;
+    max-width: 1440px;
     margin: 0 auto;
 }
 
@@ -32,35 +33,29 @@
 }
 
 
-.PageName{
-    font-family: "Apple_Gothic_Neo_Hard";
-    font-size: 37px;
-    font-style: italic;
-    text-align: center;
-    
-
-}
-
-.PageNameSmall{
-    font-family: "Apple_Gothic_Neo_Bold";
-    font-size: 18px;
-    font-style: italic;
-    text-align: center;
-    margin-top: -35px;
+.blackLogo{
+    margin-top: 50px;
+    width: 100%;
+    margin-bottom: 20px;
 }
 
 
 .UserBox{
+    width: 24.3%;
     margin-top: 120px;
-    width: 350px;
+    max-width: 350px;
+    display: grid;
+    min-width: 150px;
 }
 
+
 .userImg{
-    width: 160px;
-    margin-left: 70px;
-    margin-top: 12px;
-    
+    width: 90%;
+    max-width: 200px;
+    margin-left:  auto;    
+    margin-right:  auto;    
 }
+
 
 .userNickname{
     text-align: center;
@@ -80,8 +75,7 @@
 .userDataItem{
     display: flex;
     justify-content: space-between;
-    width: 160px;
-    margin-left: 65px;
+    width: 100%;
     
 }
 
