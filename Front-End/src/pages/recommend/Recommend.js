@@ -14,6 +14,8 @@ const Recommend = () => {
             <div className={classes.RecommendPageBox}>
                 <div className={classes.RecommendPage}>
                     <div className={classes.UserBox}>
+                        <h2 className={classes.PageName}>STYLE WITH US</h2>
+                        <p className={classes.PageNameSmall}>We recommend this style to you </p>
                         <img src={userImage} alt="user" className={classes.userImg} />
                         <div>
                             <h3 className={classes.userNickname}>{userData.userNickname}</h3>
@@ -54,17 +56,114 @@ const Recommend = () => {
                                         </div>
                                     );
                                 })}
+                                {cartItems.map((item, idx) => {
+                                    return (
+                                        <div key={idx} className={classes.CartItemDiv}>
+                                            <RecommendItem
+                                                index={idx + 1}
+                                                title={item.title}
+                                                img={item.image}
+                                                price={item.price}
+                                                url={item.url}
+                                            />
+                                        </div>
+                                    );
+                                })}
                             </div>
                             
                         </div>
                         <div className={classes.recommendItemBox}>
                             <h2 className={classes.recommendItem}>상의</h2>
+                            <div className={classes.WarpAllItem}>
+                                {cartItems.map((item, idx) => {
+                                    return (
+                                        <div key={idx} className={classes.CartItemDiv}>
+                                            <RecommendItem
+                                                index={idx + 1}
+                                                title={item.title}
+                                                img={item.image}
+                                                price={item.price}
+                                                url={item.url}
+                                            />
+                                        </div>
+                                    );
+                                })}
+                                {cartItems.map((item, idx) => {
+                                    return (
+                                        <div key={idx} className={classes.CartItemDiv}>
+                                            <RecommendItem
+                                                index={idx + 1}
+                                                title={item.title}
+                                                img={item.image}
+                                                price={item.price}
+                                                url={item.url}
+                                            />
+                                        </div>
+                                    );
+                                })}
+                            </div>
                         </div>
                         <div className={classes.recommendItemBox}>
                             <h2 className={classes.recommendItem}>하의</h2>
+                            <div className={classes.WarpAllItem}>
+                                {cartItems.map((item, idx) => {
+                                    return (
+                                        <div key={idx} className={classes.CartItemDiv}>
+                                            <RecommendItem
+                                                index={idx + 1}
+                                                title={item.title}
+                                                img={item.image}
+                                                price={item.price}
+                                                url={item.url}
+                                            />
+                                        </div>
+                                    );
+                                })}
+                                {cartItems.map((item, idx) => {
+                                    return (
+                                        <div key={idx} className={classes.CartItemDiv}>
+                                            <RecommendItem
+                                                index={idx + 1}
+                                                title={item.title}
+                                                img={item.image}
+                                                price={item.price}
+                                                url={item.url}
+                                            />
+                                        </div>
+                                    );
+                                })}
+                            </div>
                         </div>
                         <div className={classes.recommendItemBox}>
                             <h2 className={classes.recommendItem}>신발</h2>
+                            <div className={classes.WarpAllItem}>
+                                {cartItems.map((item, idx) => {
+                                    return (
+                                        <div key={idx} className={classes.CartItemDiv}>
+                                            <RecommendItem
+                                                index={idx + 1}
+                                                title={item.title}
+                                                img={item.image}
+                                                price={item.price}
+                                                url={item.url}
+                                            />
+                                        </div>
+                                    );
+                                })}
+                                {cartItems.map((item, idx) => {
+                                    return (
+                                        <div key={idx} className={classes.CartItemDiv}>
+                                            <RecommendItem
+                                                index={idx + 1}
+                                                title={item.title}
+                                                img={item.image}
+                                                price={item.price}
+                                                url={item.url}
+                                            />
+                                        </div>
+                                    );
+                                })}
+                            </div>
                         </div>
                     </div>
                 </div>

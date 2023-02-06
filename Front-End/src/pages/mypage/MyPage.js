@@ -63,10 +63,9 @@ const MyPage = () =>{
   }
 
 
-
-
   return(
-    <div className={classes.WrapMyPage}>
+    <div className={classes.MarginBox}>
+      <div className={classes.WrapMyPage}>
         {/* <button onClick={getMyData}>클릭</button> */}
           <MyPageSideBar/>
           <div className={classes.MainBox}>
@@ -139,6 +138,8 @@ const MyPage = () =>{
             </div>
           </div>
     </div>
+    </div>
+    
   )
 }
 
