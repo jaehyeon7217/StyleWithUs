@@ -17,6 +17,9 @@ const Consultant = (props) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
+  // token
+  const userToken = useSelector((state) => state.auth.token)
+
   // 유저 아이디
   const userType = useSelector((state) => state.auth.userType);
   const user = useSelector((state) => state.auth.userData);
@@ -193,14 +196,16 @@ const Consultant = (props) => {
   };
 
   const sendLeave = async (sessionId) => {
+    const url = APPLICATION_SERVER_URL + "api/sessions/" + sessionId
     const response = await axios.delete(
-      APPLICATION_SERVER_URL + "api/sessions/" + sessionId,
-      {},
+      url,
       {
-        headers: { "Content-Type": "application/json" },
+        headers: {
+          Authorization: userToken,
+        },
       }
     );
-    // console.log(response.data);
+    console.log(response.data);
     return response.data;
   };
 
@@ -210,12 +215,14 @@ const Consultant = (props) => {
   };
 
   const createSession = async (sessionId) => {
+    const url = APPLICATION_SERVER_URL + "api/sessions"
     const response = await axios.post(
-      APPLICATION_SERVER_URL + "api/sessions",
-      // { customSessionId: sessionId },
+      url,
       { customSessionId: sessionId, ConsultantId: consultantId },
       {
-        headers: { "Content-Type": "application/json" },
+        headers: {
+          Authorization: userToken,
+        },
       }
     );
     // console.log(response.data.sessionId);
@@ -260,14 +267,17 @@ const Consultant = (props) => {
   };
 
   const createToken = async (sessionId) => {
+    console.log(userToken);
+    const url = APPLICATION_SERVER_URL + "api/sessions/" + sessionId + "/connections"
     const response = await axios.post(
-      APPLICATION_SERVER_URL + "api/sessions/" + sessionId + "/connections",
+      url,
       {},
       {
-        headers: { "Content-Type": "application/json" },
+        headers: {
+          Authorization: userToken,
+        },
       }
     );
-    // console.log(response.data.token);
     return response.data.token; // The token
   };
 
@@ -287,7 +297,7 @@ const Consultant = (props) => {
           <div id="join">
             <div id="join-dialog" className="jumbotron vertical-center">
               <h1> 상담 </h1>
-              <form className="form-group" onSubmit={joinSession}>
+              <form className="form-group" onSubmit={(event) => {event.preventDefault(); joinSession(event);}}>
                 {/* <p>
                     <label>Participant: </label>
                     <input

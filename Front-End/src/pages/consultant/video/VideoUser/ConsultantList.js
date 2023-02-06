@@ -3,6 +3,7 @@ import ConsultantResume from "./ConsultantResume";
 import classes from "./ConsultantList.module.css";
 
 const ConsultantList = (props) => {
+  const consultantId = props.consultantId;
   const consultantNickname = props.consultantNickname;
   const consultantGender = props.consultantGender;
   const consultantGenderType = consultantGender === 1 ? "남자" : "여자";
@@ -15,6 +16,7 @@ const ConsultantList = (props) => {
   const enterSessionHandler = () => {
     const sessionId = consultantSessionId;
     props.onAddSessionId(sessionId);
+    props.setGetConsultantId(consultantId)
     props.setGetSessionStatus(false);
   };
 

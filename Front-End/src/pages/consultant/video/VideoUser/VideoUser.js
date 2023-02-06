@@ -2,14 +2,14 @@ import { OpenVidu } from "openvidu-browser";
 import React, { Fragment, useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import useInterval from "./userInterval";
+import useInterval from "./useInterval";
 import axios from "axios";
 import history from "../history";
 
 import ConsultantList from "./ConsultantList";
-import ConsultantReviews from './ConsultantReviews';
+import ConsultantReviews from "./ConsultantReviews";
 import Video from "../Video";
-import { chatActions } from "../../../../store/chat"
+import { chatActions } from "../../../../store/chat";
 
 const APPLICATION_SERVER_URL =
   process.env.NODE_ENV === "production"
@@ -19,6 +19,9 @@ const APPLICATION_SERVER_URL =
 const Consultant = (props) => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
+
+  // token
+  const userToken = useSelector((state) => state.auth.token)
 
   // 유저 아이디
   const userType = useSelector((state) => state.auth.userType);
@@ -90,7 +93,7 @@ const Consultant = (props) => {
       joinSession();
     }
   }, [mySessionId]);
-  
+
   const joinSession = () => {
     // 1. openvidu 객체 생성
     const newOV = new OpenVidu();
@@ -218,11 +221,13 @@ const Consultant = (props) => {
   };
 
   const sendLeave = async (sessionId) => {
+    const url = APPLICATION_SERVER_URL + "api/sessions/" + sessionId + "/disconnections"
     const response = await axios.post(
-      APPLICATION_SERVER_URL + "api/sessions/" + sessionId + "/disconnections",
-      {},
+      url,
       {
-        headers: { "Content-Type": "application/json" },
+        headers: {
+          Authorization: userToken,
+        },
       }
     );
     return response.data;
@@ -239,7 +244,7 @@ const Consultant = (props) => {
   //     APPLICATION_SERVER_URL + "api/sessions",
   //     { customSessionId: sessionId },
   //     {
-  //       headers: { "Content-Type": "application/json" },
+  //       headers: { Authorization: userToken, },
   //     }
   //   );
   //   setMySessionId(response.data.sessionId);
@@ -247,11 +252,14 @@ const Consultant = (props) => {
   // };
 
   const createToken = async (mySessionId) => {
+    console.log(userToken);
+    const url = APPLICATION_SERVER_URL + "api/sessions/" + mySessionId + "/connections"
     const response = await axios.post(
-      APPLICATION_SERVER_URL + "api/sessions/" + mySessionId + "/connections",
-      {},
+      url,
       {
-        headers: { "Content-Type": "application/json" },
+        headers: {
+          Authorization: userToken,
+        },
       }
     );
     console.log(response.data.token);
@@ -266,11 +274,13 @@ const Consultant = (props) => {
 
   const getSession = async () => {
     setGetSessionStatus(true);
+    const url =  APPLICATION_SERVER_URL + "api/sessions"
     const response = await axios.get(
-      APPLICATION_SERVER_URL + "api/sessions",
-      {},
+      url,
       {
-        headers: { "Content-Type": "application/json" },
+        headers: {
+          Authorization: userToken,
+        },
       }
     );
     console.log(response.data.data);
@@ -289,7 +299,13 @@ const Consultant = (props) => {
     if (session !== undefined) {
       props.sessionSend(session);
     }
-  }, [session])
+  }, [session]);
+
+  // 리뷰 작성을 위한 consultantId 받아오기
+  const [getConsultantId, setGetConsultantId] = useState(undefined);
+  useEffect(() => {
+    console.log(getConsultantId);
+  }, [getConsultantId]);
 
   return (
     <Fragment>
@@ -302,8 +318,10 @@ const Consultant = (props) => {
               return (
                 <ConsultantList
                   setGetSessionStatus={setGetSessionStatus}
+                  setGetConsultantId={setGetConsultantId}
                   onAddSessionId={addSessionIdHandler}
                   key={idx}
+                  consultantId={list.consultantId.consultantId}
                   consultantNickname={list.consultantId.consultantNickname}
                   consultantGender={list.consultantId.consultantGender}
                   consultantResume={list.consultantId.consultantResume}
@@ -348,7 +366,9 @@ const Consultant = (props) => {
             <button onClick={pageBackHandler}>Back</button>
           </div>
         ) : null}
-        {backIsClicked && <ConsultantReviews setBackIsClicked={setBackIsClicked} />}
+        {backIsClicked && (
+          <ConsultantReviews getConsultantId={getConsultantId} setGetConsultantId={setGetConsultantId} setBackIsClicked={setBackIsClicked} />
+        )}
       </div>
     </Fragment>
   );
