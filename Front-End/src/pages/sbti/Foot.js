@@ -1,19 +1,19 @@
 import classes from './SbtiPage.module.css'
 
-const Height = (props) =>{
+const Foot = (props) =>{
 
   return(
     <div className={classes.carouselItem}>
-      <h1>Height</h1>
+      <h1>Foot</h1>
       <form onChange={(event)=>{
         props.setData(event.target.value)
       }}
       onSubmit={(event)=> event.preventDefault()}
       >
-        <input type="number" max='200'/>
+        <input type="number" max='350'/>
       </form>
     </div>
   )
 };
 
-export default Height;
+export default Foot;
