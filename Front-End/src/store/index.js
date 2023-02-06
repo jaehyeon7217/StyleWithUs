@@ -6,16 +6,17 @@ import { persistReducer, FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER } fro
 import authReducer from "./auth";
 import shopReducer from "./shop";
 import cartReducer from "./cart";
+import chatReducer from "./chat";
 
 const persistConfig = {
   key : 'root',
   version : 1,
   storage: storageSession,
-  blacklist: ["cart",],
+  blacklist: ["cart", "chat"],
 };
 
 const rootReducer = combineReducers({
-  auth: authReducer, shop: shopReducer, cart: cartReducer
+  auth: authReducer, shop: shopReducer, cart: cartReducer, chat: chatReducer,
 });
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);

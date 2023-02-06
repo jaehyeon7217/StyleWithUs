@@ -1,11 +1,12 @@
 import { OpenVidu } from "openvidu-browser";
 import React, { Fragment, useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
 import axios from "axios";
-import { useSelector } from "react-redux";
 import history from "../history";
 
 import Video from "../Video";
+import { chatActions } from "../../../../store/chat";
 
 const APPLICATION_SERVER_URL =
   process.env.NODE_ENV === "production"
@@ -13,7 +14,7 @@ const APPLICATION_SERVER_URL =
     : "https://i8d105.p.ssafy.io/be/openvidu/";
 
 const Consultant = (props) => {
-  const [toggleChatToCart, setToggleChatToCart] = useState(false);
+  const dispatch = useDispatch();
   const navigate = useNavigate();
 
   // 유저 아이디
@@ -30,21 +31,6 @@ const Consultant = (props) => {
   const [publisher, setPublisher] = useState(undefined);
   const [subscribers, setSubscribers] = useState([]);
   const [session, setSession] = useState(undefined);
-
-  // 채팅창 아이템들
-  const [chatting, setChatting] = useState([]);
-
-  // 알람창 카운트
-  const [alarmCount, setAlarmCount] = useState(0);
-
-  // 채팅창 focus blur 이벤트 작동 조건
-  document.querySelector("body").addEventListener("click", function (event) {
-    if (String(event.target.className).includes("chat-toggle-event")) {
-      onFucusHandler();
-    } else {
-      onBlurHandler();
-    }
-  });
 
   // 뒤로가기 버튼을 누를 때 loading 상태 업데이트
   useEffect(() => {
@@ -67,22 +53,6 @@ const Consultant = (props) => {
     // const newLoadingStatus = true;
     // props.onChangeLoading(newLoadingStatus);
     navigate("../", { replace: true });
-  };
-
-  // 포커스 될 때 채팅창이 보이게 하는 함수
-  const onFucusHandler = () => {
-    setAlarmCount(0);
-    setToggleChatToCart(true);
-  };
-
-  // 블러 될 때 카트가 보이게 하는 함수
-  const onBlurHandler = () => {
-    setToggleChatToCart(false);
-  };
-
-  // 챗 알람
-  const chattingAlarm = (count) => {
-    setAlarmCount(count);
   };
 
   // openvidu 함수
@@ -186,12 +156,8 @@ const Consultant = (props) => {
 
           let time = ampm + ` ${hours}:` + minutes;
 
-          setChatting((prevState) => {
-            return [
-              ...prevState,
-              { user: userName, data: event.data, time: time },
-            ];
-          });
+          const payload = { user: userName, data: event.data, time: time };
+          dispatch(chatActions.addChatting(payload));
         }
       });
 
@@ -305,21 +271,12 @@ const Consultant = (props) => {
 
   // 끝
 
-  // 메세지 Event
-  const messageSendHandler = (data) => {
-    session
-      .signal({
-        data: data, // Any string (optional)
-        to: [], // Array of Connection objects (optional. Broadcast to everyone if empty)
-        type: "my-chat", // The type of message (optional)
-      })
-      .then(() => {
-        // console.log("Message successfully sent");
-      })
-      .catch((error) => {
-        console.error(error);
-      });
-  };
+  // 메세지를 보내기 위해서 세션을 올려보낸다.
+  useEffect(() => {
+    if (session !== undefined) {
+      props.sessionSend(session);
+    }
+  }, [session])
 
   return (
     <Fragment>
