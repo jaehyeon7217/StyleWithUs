@@ -1,63 +1,58 @@
 @font-face {
-    font-family: "Apple_Gothic_Neo_Bold";
-    src: url("../../fonts/AppleSDGothicNeoB.ttf");
+  font-family: "Apple_Gothic_Neo_Hard";
+  src: url("../../fonts/AppleSDGothicNeoH.ttf");
 }
 
 @font-face {
-    font-family: "Apple_Gothic_Neo_Light";
-    src: url("../../fonts/AppleSDGothicNeoL.ttf");
+  font-family: "Apple_Gothic_Neo_Bold";
+  src: url("../../fonts/AppleSDGothicNeoB.ttf");
 }
 
-.ItemBox {
-    margin-top: -10px;
-    margin-left: -30px;
-    transition: all .15s;
+@font-face {
+  font-family: "Apple_Gothic_Neo_SB";
+  src: url("../../fonts/AppleSDGothicNeoSB.ttf");
 }
 
-.ItemBox:hover {
-    font-weight: 600;
-    color: rgb(26, 26, 26);
-
+@font-face {
+  font-family: "Apple_Gothic_Neo_Light";
+  src: url("../../fonts/AppleSDGothicNeoL.ttf");
 }
 
-.a {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    text-decoration: none;
-    color: gray;
-    height: 200px;
-
-    padding-bottom: 10px;
-    transition: color .15s;
-
-
+@font-face {
+  font-family: "Apple_Gothic_Neo_Middle";
+  src: url("../../fonts/AppleSDGothicNeoM.ttf");
 }
 
+.clothes {
+  width: 24%;
+  display: inline-block;
+  text-decoration: none;
+  color: black;
+  margin-bottom: 30px;
+}
 
-.img {
-    display: inline-block;
-    width: 150px;
-    height: 150px;
-    border-radius: 8px;
-    margin: 0 15px 0 10px;
-
+.clothes img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
 }
 
 .title {
-    font-family: "Apple_Gothic_Neo_Mid";
-    width: 170px;
-    display: flex;
-    justify-content: left;
-    margin: 0 15px 0 15px;
-    text-align: left;
-    font-size: 13.5px;
+  font-family: "Apple_Gothic_Neo_Light";
+  margin: 15px 0 3px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.maker {
+  font-family: "Apple_Gothic_Neo_Bold";
+  color: gray;
+  font-size: 14px;
+  margin-bottom: 7px;
 }
 
 .price {
-    width: 130px;
-    display: flex;
-    justify-content: left;
-    margin: 0 15px 0 15px;
-    font-family: "Apple_Gothic_Neo_Bold";
+  font-weight: 500;
+  font-size: 18px;
 }

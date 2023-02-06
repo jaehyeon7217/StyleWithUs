@@ -1,142 +1,56 @@
 @import url('https://fonts.googleapis.com/css2?family=Blinker:wght@100;200;300;400;600;700;800;900&display=swap');
 
 @font-face {
-    font-family: "Apple_Gothic_Neo_Hard";
-    src: url("../../fonts/AppleSDGothicNeoH.ttf");
+  font-family: "Apple_Gothic_Neo_Hard";
+  src: url("../../fonts/AppleSDGothicNeoH.ttf");
 }
 
 @font-face {
-    font-family: "Apple_Gothic_Neo_Bold";
-    src: url("../../fonts/AppleSDGothicNeoB.ttf");
+  font-family: "Apple_Gothic_Neo_Bold";
+  src: url("../../fonts/AppleSDGothicNeoB.ttf");
 }
 
 @font-face {
-    font-family: "Apple_Gothic_Neo_SB";
-    src: url("../../fonts/AppleSDGothicNeoSB.ttf");
+  font-family: "Apple_Gothic_Neo_SB";
+  src: url("../../fonts/AppleSDGothicNeoSB.ttf");
 }
 
 @font-face {
-    font-family: "Apple_Gothic_Neo_Light";
-    src: url("../../fonts/AppleSDGothicNeoL.ttf");
+  font-family: "Apple_Gothic_Neo_Light";
+  src: url("../../fonts/AppleSDGothicNeoL.ttf");
 }
 
-.RecommendPageBox{
-    width: 80%;
-    max-width: 1440px;
-    margin: 0 auto;
+@font-face {
+  font-family: "Apple_Gothic_Neo_Middle";
+  src: url("../../fonts/AppleSDGothicNeoM.ttf");
 }
 
-.RecommendPage{
-    margin-top: 15px;
-    display: flex;
-    justify-content: center;
+.h1-background {
+  margin-top: 80px;
+  height: 200px;
+  width: 100%;
+  display: flex;
+  align-items: center;
 }
 
-
-.blackLogo{
-    margin-top: 50px;
-    width: 100%;
-    margin-bottom: 20px;
+.h1-background h1 {
+  width: 1280px;
+  height: 100%;
+  margin: 0 auto;
+  color: black;
+  font-family: "Apple_Gothic_Neo_Middle";
+  font-size: 55px;
+  display: flex;
+  align-items: center;
 }
 
-
-.UserBox{
-    width: 24.3%;
-    margin-top: 120px;
-    max-width: 350px;
-    display: grid;
-    min-width: 150px;
+.recommend {
+  max-width: 1280px;
+  height: 100vh;
+  margin: 0 auto;
 }
 
-
-.userImg{
-    width: 90%;
-    max-width: 200px;
-    margin-left:  auto;    
-    margin-right:  auto;    
+.userInfo {
+  display: inline-block;
+  height: 50px;
 }
-
-
-.userNickname{
-    text-align: center;
-    font-family: "Apple_Gothic_Neo_Mid";
-    font-size: 20px;
-}
-
-.userGender{
-    font-family: "Apple_Gothic_Neo_Mid";
-    text-align: center;
-    margin-top: -15px;
-    color: rgb(70, 70, 70);
-    margin-bottom: 30px;
-
-}
-
-.userDataItem{
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-    
-}
-
-.userData{
-    font-family: "Apple_Gothic_Neo_SB";
-    font-size: 20px;
-    margin-left: 20px;
-}
-
-.userDataDap{
-    font-family: "Apple_Gothic_Neo_Mid";
-    font-size: 20px;
-    display: flex;
-    justify-content: right;
-    margin-right: 20px;
-    
-}
-
-.vline{
-    border-left: 2px solid lightgrey;
-    border-radius: 30px;
-    height: 640px;
-    margin-top: 160px;
-    margin-left: 25px;
-}
-
-.recommendBox{
-    margin-top: 140px;
-    margin-left: 30px;
-    height: 650px;
-    width: 1200px;
-    overflow: auto;
-}
-
-.recommendBox::-webkit-scrollbar {
-    width: 10px;
-}
-
-.recommendBox::-webkit-scrollbar-thumb {
-    background-color: #2f3542;
-    border-radius: 10px;
-    background-clip: padding-box;
-    border: 2px solid transparent;
-}
-
-.recommendBox::-webkit-scrollbar-track {
-    background-color: grey;
-    border-radius: 10px;
-    box-shadow: inset 0px 0px 5px white;
-}
-
-.recommendItem{
-    font-family: "Apple_Gothic_Neo_SB";
-    margin-bottom: -5px;
-}
-
-.WarpAllItem {
-    display: flex;
-    justify-content: left;
-    margin-bottom: 50px;
-    margin-left: 25px;
-    
-}
-
