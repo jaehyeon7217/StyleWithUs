@@ -48,6 +48,10 @@ public class SwaggerConfiguration {
     public Docket itemApi() {
         return getDocket("유저 장바구니", Predicates.or(PathSelectors.regex("/item.*")));
     }
+    @Bean
+    public Docket adminApi() {
+        return getDocket("관리자 처리", Predicates.or(PathSelectors.regex("/admin.*")));
+    }
 
     //////////////////////////////////////////////////////////////////////////////////////////////////////
 
