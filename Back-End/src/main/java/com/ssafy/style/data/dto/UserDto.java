@@ -28,30 +28,26 @@ public class UserDto {
     @ApiModelProperty(value = "유저가입날짜")
     private LocalDateTime userRegisterTime;
     @ApiModelProperty(value = "유저키")
-    private int userHeight;
-    @ApiModelProperty(value = "유저상체유형(1:마름, 2:보통, 3:통통")
-    private int userTop;
-    @ApiModelProperty(value = "유저하체유형(1:마름, 2:보통, 3:통통")
-    private int userBottom;
+    private Integer userHeight;
     @ApiModelProperty(value = "유저 어깨너비")
-    private int userShoulder;
+    private Integer userShoulder;
     @ApiModelProperty(value = "유저 가슴단면")
-    private int userChest;
+    private Integer userChest;
     @ApiModelProperty(value = "유저 소매길이")
-    private int userSleeve;
+    private Integer userSleeve;
     @ApiModelProperty(value = "유저 허리단면")
-    private int userWaist;
+    private Integer userWaist;
     @ApiModelProperty(value = "유저 엉덩이단면")
-    private int userHip;
+    private Integer userHip;
     @ApiModelProperty(value = "유저 허벅지단면")
-    private int userThigh;
+    private Integer userThigh;
     @ApiModelProperty(value = "유저 밑단단면")
-    private int userHem;
+    private Integer userHem;
     @ApiModelProperty(value = "유저발사이즈")
-    private int userFoot;
+    private Integer userFoot;
     @ApiModelProperty(value = "유저나이")
-    private int userAge;
+    private Integer userAge;
     @ApiModelProperty(value = "유저퍼스널 컬러")
-    private int userPc;
+    private Integer userPc;
 
 }
