@@ -1,7 +1,7 @@
 import InputLabel from "../auth/component/InputLabel"
 import { DataInput } from "../auth/component/Effectiveness"
 import axios from "axios"
-import { useDispatch, useSelector } from "react-redux"
+import { useDispatch } from "react-redux"
 import { useNavigate } from "react-router-dom"
 import { authActions } from "../../store/auth"
 import Swal from "sweetalert2"
@@ -28,8 +28,17 @@ const AdminLogin = () =>{
     ).then((response)=>{
       if (response.status===200){
         dispatch(authActions.adminLogin(response.data))
-        navigate('/')
-        console.log(response);
+        const token = response.data.auth_token
+        axios.get(
+          'https://i8d105.p.ssafy.io/be/admin/list',
+          {
+            headers:{ Authorization : token }
+          }).then((response)=>{
+            dispatch(authActions.getConsultantList(response.data.data))
+            navigate('/auth/manageconsultant')
+          }).catch((error)=>{
+            console.log(error);
+          })
       }else{
         Swal.fire({
           title: '<div style="font-size:24px;font-family:Apple_Gothic_Neo_Bold;font-weight:bold;">로그인 실패!<div>', 
@@ -50,7 +59,6 @@ const AdminLogin = () =>{
   const nullError = !!id && !!password;
   const effectivnessError = idError && passwordError;
   const submitError = nullError && effectivnessError;
-
 
   return(
     <div>
