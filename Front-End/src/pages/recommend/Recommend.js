@@ -4,6 +4,7 @@ import { Fragment } from "react";
 import LengthType from "./LengthType";
 import classes from "./Recommend.module.css";
 import RecommendItemBox from "./RecommendItemBox";
+import { useEffect } from "react";
 // import TopLengthImage from "../../assets/clothes/상의.png";
 
 const Recommend = () => {

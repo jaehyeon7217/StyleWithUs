@@ -27,8 +27,8 @@
 
 .background {
   max-width: 1280px;
+  height: auto;
   margin: 0 auto;
-  margin-top: 150px;
 }
 
 .background h1 {
