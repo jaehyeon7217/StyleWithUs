@@ -33,6 +33,20 @@ public class UserDto {
     private int userTop;
     @ApiModelProperty(value = "유저하체유형(1:마름, 2:보통, 3:통통")
     private int userBottom;
+    @ApiModelProperty(value = "유저 어깨너비")
+    private int userShoulder;
+    @ApiModelProperty(value = "유저 가슴단면")
+    private int userChest;
+    @ApiModelProperty(value = "유저 소매길이")
+    private int userSleeve;
+    @ApiModelProperty(value = "유저 허리단면")
+    private int userWaist;
+    @ApiModelProperty(value = "유저 엉덩이단면")
+    private int userHip;
+    @ApiModelProperty(value = "유저 허벅지단면")
+    private int userThigh;
+    @ApiModelProperty(value = "유저 밑단단면")
+    private int userHem;
     @ApiModelProperty(value = "유저발사이즈")
     private int userFoot;
     @ApiModelProperty(value = "유저나이")
