@@ -1,5 +1,6 @@
 import { Route, Routes } from "react-router-dom";
 import { useEffect, useState } from "react";
+import { useLocation } from "react-router-dom";
 
 import NavBar from "./components/navbar/NavBar";
 import Auth from "./pages/auth/Auth";
@@ -28,8 +29,23 @@ function App() {
     setLoading(newLoadingStatus);
   };
 
+  // 파라미터 값을 가져온다.
+  const location = useLocation();
+
+  // 파라미터 값을 통해 root의 overflow를 변경한다.
+  const rootTag = document.getElementById("root");
+  if (location.pathname === '/') {
+    rootTag.style.overflow = "hidden";
+  } else {
+    rootTag.style.overflow = "overlay";
+  }
+
+  const onScrollHandler = (event) => {
+    event.preventDefault();
+  }
+
   return (
-    <div className="App">
+    <div id="App" onScroll={location.pathname === "/" ? onScrollHandler : null}>
       <NavBar />
       <Routes>
         <Route path="/" element={<Home />} />
