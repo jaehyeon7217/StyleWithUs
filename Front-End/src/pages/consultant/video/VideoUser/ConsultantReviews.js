@@ -25,7 +25,7 @@ const ConsultantReviews = (props) => {
         Authorization: token,
       },
     });
-    // console.log(response.data);
+    console.log(response.data);
     setReviewLists(response.data.data);
     setAvgScore(response.data.avgScore);
   };
@@ -34,10 +34,13 @@ const ConsultantReviews = (props) => {
     <div>
       <h1>ConsultantReviews</h1>
       <div>평균 평점: {avgScore}</div>
+      <br />
       {reviewLists.map((list, idx) => {
         return (
           <ConsultantReviewsList
             key={idx}
+            userId={list.userId}
+            reviewNo={list.reviewNo}
             reviewScore={list.reviewScore}
             reviewContent={list.reviewContent}
           />
