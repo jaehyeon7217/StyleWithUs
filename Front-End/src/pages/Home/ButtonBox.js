@@ -2,7 +2,7 @@ import classes from "./ButtonBox.module.css";
 
 const ButtonBox = () => {
   return (
-    <div className={classes['button-box']}>
+    <div>
       <button>1</button>
       <button>2</button>
       <button>3</button>
