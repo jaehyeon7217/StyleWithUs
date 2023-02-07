@@ -128,6 +128,20 @@ const Login = () => {
           비밀번호 찾기
         </p>
       </div>
+      <footer className={classes.footer}>
+        <div className={classes.fotterBoxone}>
+          <p className={classes.fottername}>SERVICE GUIDE</p>
+          <p className={classes.fottercontent}>STYLE WITH US는 처음이지?</p>
+          <p className={classes.fottercontent}>서비스 소개를 확인해보세요.</p>
+          <button className={classes.fotterBtn}>서비스 안내</button>
+        </div>
+        <div className={classes.fotterBoxtwo}>
+          <p className={classes.fottername}>SERVICE GUIDE</p>
+          <p className={classes.fottercontent}>STYLE WITH US는 처음이지?</p>
+          <p className={classes.fottercontent}>서비스 소개를 확인해보세요.</p>
+          <button className={classes.fotterBtntwo}>서비스 안내</button>
+        </div>
+      </footer>
     </div>
   );
 };
