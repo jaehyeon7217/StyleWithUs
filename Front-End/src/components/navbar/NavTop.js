@@ -3,7 +3,7 @@ import { authActions } from "../../store/auth"
 import Swal from "sweetalert2"
 
 import classes from "./NavTop.module.css"
-import { Link, useNavigate } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
 
 const NavTop = () =>{
   const navigate = useNavigate();
@@ -31,6 +31,7 @@ const NavTop = () =>{
 
   const toLogout = (event) =>{
     event.preventDefault();
+    navigate('/')
     dispatch(authActions.logout(''))
     Swal.fire({
       title: '<div style="font-size:24px;font-family:Apple_Gothic_Neo_Bold;font-weight:bold;">로그아웃 되었습니다<div>', 
@@ -38,8 +39,6 @@ const NavTop = () =>{
       width : 330,
       icon: 'success',
       confirmButtonText:'<div style="font-size:16px;font-family:Apple_Gothic_Neo_Mid;">확인</div>',
-    }).then(()=>{
-      navigate('/')
     })
   }
 

@@ -37,6 +37,7 @@
   font-family: "Apple_Gothic_Neo_Mid";
   font-size: 19px;
   font-weight: 300;
+  cursor: pointer;
 }
 
 .LinkBottom-active {
