@@ -3,21 +3,13 @@
   src: url("../../fonts/SF-Pro-Display-Regular.otf");
 }
 
-
-.HomePage{
-  top: 50%;
-  left: 50%;
-  height: auto;
-  width: 50vh;
-  max-width: 400px;
-  margin: 0 auto;
-  margin-top: 40px;
-  padding: 60px 0 60px;
-  align-items: center;
-  text-align: center;
+.section1, .section2, .section3, .section4 {
+  padding-top: 100px;
+  height: calc(100vh - 100px);
 }
 
-.HomePage p{
-  font-family: "SF_Pro";
-  font-size: 10px;
+.top {
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
 }
