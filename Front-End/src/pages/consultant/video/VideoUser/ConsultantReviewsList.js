@@ -40,7 +40,8 @@ const ConsultantReviewsList = (props) => {
         },
       }
     );
-    console.log(response.data);
+    // console.log(response.data);
+    props.setIsDeleted(!props.isDeleted);
     return response.data;
   };
 
