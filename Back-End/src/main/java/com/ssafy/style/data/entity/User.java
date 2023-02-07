@@ -33,6 +33,13 @@ public class User {
     private Integer userHeight;
     private Integer userTop;
     private Integer userBottom;
+    private Integer userShoulder;
+    private Integer userChest;
+    private Integer userSleeve;
+    private Integer userWaist;
+    private Integer userHip;
+    private Integer userThigh;
+    private Integer userHem;
     private Integer userFoot;
     private Integer userAge;
     private Integer userPc;

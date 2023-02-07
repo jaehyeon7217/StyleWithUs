@@ -16,6 +16,7 @@ public class UseServiceImpl implements UserService {
 
     private final UserDAO userDAO;
     private final PasswordEncoder passwordEncoder;
+
     @Autowired
     public UseServiceImpl(UserDAO userDAO, PasswordEncoder passwordEncoder) {
         this.userDAO = userDAO;
@@ -45,10 +46,10 @@ public class UseServiceImpl implements UserService {
 
         UserDto savedDto = new UserDto();
 
-        if(user != null && passwordEncoder.matches(userDto.getUserPw(), user.getUserPw())){
+        if (user != null && passwordEncoder.matches(userDto.getUserPw(), user.getUserPw())) {
             savedDto = toUserDto(user);
             return savedDto;
-        }else {
+        } else {
             return null;
         }
     }
@@ -89,9 +90,9 @@ public class UseServiceImpl implements UserService {
     @Override
     public UserDto getById(String userId) {
         User user = userDAO.getById(userId);
-        if(user != null){
+        if (user != null) {
             return toUserDto(user);
-        }else {
+        } else {
             return null;
         }
     }
@@ -103,22 +104,22 @@ public class UseServiceImpl implements UserService {
 
         User user = userDAO.getById(userId);
 
-        if(user == null){
+        if (user == null) {
             return "fail";
         }
 
-        if(passwordEncoder.matches(userInfo.get("userPw") ,user.getUserPw() )){
+        if (passwordEncoder.matches(userInfo.get("userPw"), user.getUserPw())) {
             user.setUserPw(encodedNewInputPw);
 
             try {
                 userDAO.changePw(user);
 
                 return "OK";
-            }catch (Exception e){
+            } catch (Exception e) {
                 e.printStackTrace();
                 return "Error";
             }
-        }else{
+        } else {
             return "Fail";
         }
     }
@@ -128,7 +129,7 @@ public class UseServiceImpl implements UserService {
 
         User userTemp = userDAO.getById(userId);
 
-        if(userTemp.getUserEmail().equals(userEmail)){
+        if (userTemp.getUserEmail().equals(userEmail)) {
             return true;
         }
 
@@ -146,7 +147,7 @@ public class UseServiceImpl implements UserService {
         try {
             userDAO.changePw(userTemp);
 
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
 
@@ -154,7 +155,7 @@ public class UseServiceImpl implements UserService {
 
     /////////////////////////////////////////////////////////////////////////////////////////////////////
 
-    private User toUser(UserDto userDto){
+    private User toUser(UserDto userDto) {
         User user = new User();
         user.setUserId(userDto.getUserId());
         user.setUserPw(userDto.getUserPw());
@@ -163,18 +164,45 @@ public class UseServiceImpl implements UserService {
         user.setUserEmail(userDto.getUserEmail());
         user.setUserGender(userDto.getUserGender());
         user.setUserRegisterTime(LocalDateTime.now());
+        user.setUserHeight(userDto.getUserHeight());
+        user.setUserTop(userDto.getUserTop());
+        user.setUserBottom(userDto.getUserBottom());
+        user.setUserShoulder(userDto.getUserShoulder());
+        user.setUserChest(userDto.getUserChest());
+        user.setUserSleeve(userDto.getUserSleeve());
+        user.setUserWaist(userDto.getUserWaist());
+        user.setUserHip(userDto.getUserHip());
+        user.setUserThigh(userDto.getUserThigh());
+        user.setUserHem(userDto.getUserHem());
+        user.setUserFoot(userDto.getUserFoot());
+        user.setUserAge(userDto.getUserAge());
+        user.setUserPc(userDto.getUserPc());
 
         return user;
     }
-    private UserDto toUserDto(User saveUser){
-        UserDto saveuserDto = new UserDto();
-        saveuserDto.setUserId(saveUser.getUserId());
-        saveuserDto.setUserName(saveUser.getUserName());
-        saveuserDto.setUserNickname(saveUser.getUserNickname());
-        saveuserDto.setUserEmail(saveUser.getUserEmail());
-        saveuserDto.setUserGender(saveUser.getUserGender());
-        saveuserDto.setUserRegisterTime(saveUser.getUserRegisterTime());
 
-        return saveuserDto;
+    private UserDto toUserDto(User user) {
+        UserDto userDto = new UserDto();
+        userDto.setUserId(user.getUserId());
+        userDto.setUserName(user.getUserName());
+        userDto.setUserNickname(user.getUserNickname());
+        userDto.setUserEmail(user.getUserEmail());
+        userDto.setUserGender(user.getUserGender());
+        userDto.setUserRegisterTime(user.getUserRegisterTime());
+        userDto.setUserHeight(user.getUserHeight());
+        userDto.setUserTop(user.getUserTop());
+        userDto.setUserBottom(user.getUserBottom());
+        userDto.setUserShoulder(user.getUserShoulder());
+        userDto.setUserChest(user.getUserChest());
+        userDto.setUserSleeve(user.getUserSleeve());
+        userDto.setUserWaist(user.getUserWaist());
+        userDto.setUserHip(user.getUserHip());
+        userDto.setUserThigh(user.getUserThigh());
+        userDto.setUserHem(user.getUserHem());
+        userDto.setUserFoot(user.getUserFoot());
+        userDto.setUserAge(user.getUserAge());
+        userDto.setUserPc(user.getUserPc());
+
+        return userDto;
     }
 }
