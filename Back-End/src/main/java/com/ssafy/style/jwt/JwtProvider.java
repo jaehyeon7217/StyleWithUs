@@ -24,7 +24,7 @@ public class JwtProvider {
 		return instacne;
 	}
 	
-    private long tokenValidTime = Duration.ofMinutes(30).toMillis();
+    private long tokenValidTime = Duration.ofMinutes(300).toMillis();
 
     @PostConstruct
     protected void init() {
