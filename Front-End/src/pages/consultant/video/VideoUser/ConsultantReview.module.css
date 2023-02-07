@@ -1,0 +1,29 @@
+/* 모달창을 화면 중앙, 최상단에 노출 */
+.container{
+    /* 모달창 크기 */
+    width: 100%;
+    height: 500px;
+
+    padding-left: 10px;
+
+    /* 창 넘치지 않도록 설정 */
+    overflow: auto;
+
+    /* 중앙 배치 */
+    /* top, bottom, left, right는 브라우저 기준으로 작동 */
+    /* translate는 본인의 크기 기준으로 작동 */
+    position: absolute;
+    top: 0;
+
+    /* 모달창 디자인 */
+    background-color: white;
+    border: 1px solid black;
+    box-sizing: border-box;
+    border-radius: 8px;
+}
+
+.button{
+    display:flex;
+    justify-content: flex-end;
+    padding-right: 10%;
+}
