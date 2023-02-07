@@ -279,7 +279,6 @@ const Consultant = (props) => {
     );
     return response.data.token; // The token
   };
-
   // 끝
 
   // 메세지를 보내기 위해서 세션을 올려보낸다.
@@ -297,28 +296,6 @@ const Consultant = (props) => {
             <div id="join-dialog" className="jumbotron vertical-center">
               <h1> 상담 </h1>
               <form className="form-group" onSubmit={(event) => {event.preventDefault(); joinSession(event);}}>
-                {/* <p>
-                    <label>Participant: </label>
-                    <input
-                      className="form-control"
-                      type="text"
-                      id="userName"
-                      value={myUserName}
-                      onChange={handleChangeUserName}
-                      required
-                    />
-                  </p> */}
-                {/* <p>
-                  <label> Session: </label>
-                  <input
-                    className="form-control"
-                    type="text"
-                    id="sessionId"
-                    value={mySessionId}
-                    onChange={handleChangeSessionId}
-                    required
-                  />
-                </p> */}
                 <p className="text-center">
                   <input
                     className="btn btn-lg btn-success"
@@ -334,15 +311,6 @@ const Consultant = (props) => {
 
         {session !== undefined ? (
           <div id="session">
-            {/* <div id="session-header">
-                <input
-                className="btn btn-large btn-danger"
-                type="button"
-                id="buttonLeaveSession"
-                onClick={leaveSession}
-                value="Leave session"
-                />
-              </div> */}
 
             <div id="video-container" className="col-md-6">
               {userType === 0 ? userVideo() : consultantVideo()}

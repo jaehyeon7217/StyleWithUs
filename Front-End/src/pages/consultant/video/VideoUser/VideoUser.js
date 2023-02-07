@@ -240,18 +240,6 @@ const Consultant = (props) => {
     return await createToken(mySessionId);
   };
 
-  // const createSession = async (sessionId) => {
-  //   const response = await axios.post(
-  //     APPLICATION_SERVER_URL + "api/sessions",
-  //     { customSessionId: sessionId },
-  //     {
-  //       headers: { Authorization: userToken, },
-  //     }
-  //   );
-  //   setMySessionId(response.data.sessionId);
-  //   return response.data.sessionId; // The sessionId
-  // };
-
   const createToken = async (mySessionId) => {
     const url = APPLICATION_SERVER_URL + "api/sessions/" + mySessionId + "/connections"
     const data = {}
@@ -267,7 +255,6 @@ const Consultant = (props) => {
     // console.log(response.data.token);
     return response.data.token; // The token
   };
-
   // 끝
 
   // 대기창 관련 작업
@@ -338,16 +325,6 @@ const Consultant = (props) => {
 
         {session !== undefined ? (
           <div id="session">
-            {/* <div id="session-header">
-                <input
-                  className="btn btn-large btn-danger"
-                  type="button"
-                  id="buttonLeaveSession"
-                  onClick={leaveSession}
-                  value="Leave session"
-                />
-              </div> */}
-
             {mainStreamManager !== undefined ? (
               <div id="main-video" className="col-md-6">
                 <Video streamManager={mainStreamManager} />
