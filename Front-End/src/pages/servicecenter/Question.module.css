@@ -27,12 +27,16 @@
     height: 55px;
     
   }
+
+.crampsbtn{
+  margin-left: 50px;
+}
   
 .category{
   font-family: "Apple_Gothic_Neo_SBold";
   font-size: 21px;
   margin-top: 12.5px;
-  width: 150px;
+  width: 100px;
   cursor: pointer;
 
 }
@@ -59,6 +63,7 @@
   margin-top: 17px;
   cursor: pointer;
   transition: 0.3s;
+ 
 
   
 
@@ -90,21 +95,23 @@
 .Qdap{
   background-color: #FAFAFA;
   width: 900px;
-  height: 200px;
+  height: 180px;
   margin-top: -8px;
   
 }
 
 .TextBox{
   width: 830px;
-  margin-left: 30px;
+  margin-left: 35px;
   
-
 }
+
 
 .QdapHard{
   font-family: "Apple_Gothic_Neo_Hard";
-  font-size: 23px;
+  font-size: 22px;
+  margin-top: 3px;
+  margin-bottom: 15px;
   
 }
 
@@ -112,6 +119,7 @@
   font-family: "Apple_Gothic_Neo_SBold";
   font-size: 18px;
   margin-top: 10px;
+  margin-bottom: -5px;
  
 }
 
