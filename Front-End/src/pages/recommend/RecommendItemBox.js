@@ -242,7 +242,9 @@ const RecommendItemBox = (props) => {
   ];
 
   const onClickHandler = () => {
-    
+    setShowBtn((prevState) => {
+      return prevState + 1;
+    })
   };
 
   return (
@@ -251,7 +253,7 @@ const RecommendItemBox = (props) => {
         <h3 className={classes.h3}>{props.type}</h3>
         <div className={classes['clothes-items']}>
           {clothesData.map((data, idx) => {
-            return <RecommendItem key={`${data.title}-${idx}`} data={data}/>
+            return idx < showBtn * 4 ? <RecommendItem key={`${data.title}-${idx}`} data={data}/> : "";
           })}
         </div>
         <div className={classes['button-box']}>
