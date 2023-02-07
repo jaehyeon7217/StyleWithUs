@@ -3,6 +3,7 @@ package com.ssafy.style.controller;
 import com.ssafy.style.data.dto.ConsultantDto;
 import com.ssafy.style.jwt.JwtProvider;
 import com.ssafy.style.service.AdminService;
+import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,8 +17,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@Controller
+@RestController
 @RequestMapping("/admin")
+@Api("Admin Controller API V1")
 public class AdminController {
 
     private JwtProvider jwtProvider = new JwtProvider();
