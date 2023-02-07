@@ -12,7 +12,8 @@ const ShopItems = (props) => {
   const [pagination, setPagination] = useState(1);
   const [divPagination, setDivPageNation] = useState(1);
 
-  const userGender = useSelector(state => state.auth.userData.userGender);
+  const userGender = useSelector((state) => state.auth.userData.userGender);
+  const token = useSelector((state) => state.auth.token);
 
   const gender = userGender ? "men" : "women";
   const type = props.detailPage.type;
@@ -24,9 +25,13 @@ const ShopItems = (props) => {
     const url = `https://i8d105.p.ssafy.io/be/data/${gender}/${codeNumber[gender][type][detail]}`;
 
     axios
-    .get(url)
+      .get(url, {
+        headers: {
+          Authorization: token,
+        },
+      })
       .then((response) => {
-        const payload = {gender, type, detail, data: response.data.data}
+        const payload = { gender, type, detail, data: response.data.data };
         dispatch(shopActions.downloadData(payload));
       })
       .catch((error) => {
@@ -80,7 +85,12 @@ const ShopItems = (props) => {
 
   return (
     <Fragment>
-      <h3 className={classes.h3}>{detail}<span onClick={shopOffHandler} className={classes.button}>항목으로 돌아가기</span></h3>
+      <h3 className={classes.h3}>
+        {detail}
+        <span onClick={shopOffHandler} className={classes.button}>
+          항목으로 돌아가기
+        </span>
+      </h3>
       <ul className={classes.ul}>
         {items[type][detail].map((item, idx) => {
           return clothesCount * (pagination - 1) <= idx &&
@@ -94,10 +104,19 @@ const ShopItems = (props) => {
         })}
       </ul>
       <div className={classes.pagination}>
-        <span onClick={prevPagination} className={`material-symbols-outlined ${classes.prev} ${divPagination === 1 ? classes.eventDefault : ''}`}>
+        <span
+          onClick={prevPagination}
+          className={`material-symbols-outlined ${classes.prev} ${
+            divPagination === 1 ? classes.eventDefault : ""
+          }`}
+        >
           arrow_back_ios_new
         </span>
-        <div className={`${classes.bindNumber} ${divPagination === lastDivPageNumber ? classes.lastPagination : ""}`}>
+        <div
+          className={`${classes.bindNumber} ${
+            divPagination === lastDivPageNumber ? classes.lastPagination : ""
+          }`}
+        >
           {pageArray.map((pageNumber, idx) => {
             return 5 * (divPagination - 1) <= idx &&
               5 * (divPagination - 1) + 5 > idx ? (
@@ -105,14 +124,22 @@ const ShopItems = (props) => {
                 key={`page-${pageNumber}`}
                 pageNumber={pageNumber}
                 onClickHandler={onClickHandler}
-                pageOn={pagination === idx + 1? true : false}
+                pageOn={pagination === idx + 1 ? true : false}
               />
             ) : (
               ""
             );
           })}
         </div>
-        <span id="next" onClick={nextPagination} className={`material-symbols-outlined ${classes.next} ${divPagination === lastDivPageNumber ? classes.eventDefault : ''}`}>arrow_forward_ios</span>
+        <span
+          id="next"
+          onClick={nextPagination}
+          className={`material-symbols-outlined ${classes.next} ${
+            divPagination === lastDivPageNumber ? classes.eventDefault : ""
+          }`}
+        >
+          arrow_forward_ios
+        </span>
       </div>
     </Fragment>
   );

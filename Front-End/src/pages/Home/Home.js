@@ -4,13 +4,22 @@ import ButtonBox from "./ButtonBox";
 import classes from "../Home/Home.module.css"
 
 const Home = () =>{
+  let lastScrollY = 0;
+  window.addEventListener("mousewheel", event => {
+    const scrollY = window.scrollY;
+    // 이전의 스크롤 위치와 비교하기
+    const direction = scrollY > lastScrollY ? true : false;
+    // 현재의 스크롤 값을 저장
+    lastScrollY = scrollY;
+    console.log(direction);
+  });
 
   const onClickHandler = () => {
     document.querySelector(`.${classes['section'+3]}`).scrollIntoView({behavior: "smooth", block: "center"});
   };
 
   const TopMoveHandler = () => {
-    document.querySelector(`.${classes['section'+1]}`).scrollIntoView({behavior: "smooth", block: "center"});
+    document.querySelector(`#App`).scrollIntoView({behavior: "smooth", block: "start"});
   }
 
   return (
