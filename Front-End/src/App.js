@@ -40,12 +40,8 @@ function App() {
     rootTag.style.overflow = "overlay";
   }
 
-  const onScrollHandler = (event) => {
-    event.preventDefault();
-  }
-
   return (
-    <div id="App" onScroll={location.pathname === "/" ? onScrollHandler : null}>
+    <div id="App">
       <NavBar />
       <Routes>
         <Route path="/" element={<Home />} />

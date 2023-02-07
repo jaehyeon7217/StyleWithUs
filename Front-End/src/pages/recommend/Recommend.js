@@ -21,6 +21,10 @@ const Recommend = () => {
   ];
   const clothesTypes = ["상의", "하의", "아우터", "신발"];
 
+  useEffect(() => {
+    document.querySelector(`#App`).scrollIntoView({behavior: "smooth", block: "start"});
+  }, []);
+
   return (
     <Fragment>
       <div className={classes["background"]}>
