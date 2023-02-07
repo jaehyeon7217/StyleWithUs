@@ -99,7 +99,7 @@ const ConsultantReview = (props) => {
             min="0.1"
             max="5.0"
             step="0.1"
-            // errorMessage={reviewScoreError ? "0.1 ~ 5.0" : ""}
+            errorMessage={reviewScoreError ? "" : "0.1 ~ 5.0"}
           />
         </div>
         <div>
