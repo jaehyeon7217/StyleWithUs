@@ -29,7 +29,7 @@ const Auth = () => {
           <Route path="setnewpassword" element={<SetNewPassword/>}></Route>
           <Route path="passwordchange" element={<PasswordChange/>}></Route>
           <Route path="adminlogin" element={<AdminLogin/>}></Route>
-          <Route path='manageconsultant' element={<ManageConsultant/>}></Route>
+          
         </Routes>
       </div>
     </div>

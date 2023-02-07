@@ -35,7 +35,7 @@ const AdminLogin = () =>{
             headers:{ Authorization : token }
           }).then((response)=>{
             dispatch(authActions.getConsultantList(response.data.data))
-            navigate('/auth/manageconsultant')
+            navigate('/manageconsultant')
           }).catch((error)=>{
             console.log(error);
           })

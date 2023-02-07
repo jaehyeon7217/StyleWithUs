@@ -2,6 +2,8 @@ import axios from "axios";
 import { authActions } from "../../store/auth";
 import { useDispatch, useSelector } from "react-redux";
 
+import classes from './ConsultantDetail.module.css'
+
 const ConsultantDetail = (props) =>{
   const dispatch = useDispatch();
   const consultantId = props.data.consultantId;
@@ -36,12 +38,16 @@ const ConsultantDetail = (props) =>{
   };
 
   return(
-    <div>
-      <p>{consultantId}</p>
-      <p>{consultantResume}</p>
-      <p>{consultantApproval}</p>
-      <button onClick={approveConsultant}>approve</button>
-      <p></p>
+    <div className={classes.detailBox}>
+      <hr className={classes.hrblack}/>
+      <div className={classes.idBox}>
+        <p className={classes.consultantId}>{consultantId}</p> 
+        <button onClick={approveConsultant} className={classes.approveButton}>{consultantApproval ? '승인': '미승인'}</button>
+      </div>
+      <hr className={classes.hrgrey}/>
+      <div className={classes.resumeBox}>
+        <p className={classes.consultantResume}>{consultantResume}</p>
+      </div>
     </div>
   )
 };

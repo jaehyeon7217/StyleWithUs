@@ -13,6 +13,7 @@ import MyProfile from './pages/mypage/MyProfile';
 import Recommend from './pages/recommend/Recommend';
 import ServiceCenter from './pages/servicecenter/ServiceCenter';
 import OnetoOneQuestion from './pages/servicecenter/OnetoOneQuestion';
+import ManageConsultant from "./pages/admin/ManageConsultant";
 import Sbti from "./pages/sbti/Sbti";
 
 
@@ -53,6 +54,7 @@ function App() {
         <Route path="/servicecenter" element={<ServiceCenter />} />
         <Route path="/onetoonequestion" element={<OnetoOneQuestion />}></Route>
         <Route path="/sbti" element={<Sbti/>}/>
+        <Route path='manageconsultant' element={<ManageConsultant/>}></Route>
         <Route
           path="/consultant"
           // element={displayStatus}
