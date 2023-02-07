@@ -164,19 +164,40 @@ public class UseServiceImpl implements UserService {
         user.setUserEmail(userDto.getUserEmail());
         user.setUserGender(userDto.getUserGender());
         user.setUserRegisterTime(LocalDateTime.now());
-        user.setUserHeight(userDto.getUserHeight());
-        user.setUserTop(userDto.getUserTop());
-        user.setUserBottom(userDto.getUserBottom());
-        user.setUserShoulder(userDto.getUserShoulder());
-        user.setUserChest(userDto.getUserChest());
-        user.setUserSleeve(userDto.getUserSleeve());
-        user.setUserWaist(userDto.getUserWaist());
-        user.setUserHip(userDto.getUserHip());
-        user.setUserThigh(userDto.getUserThigh());
-        user.setUserHem(userDto.getUserHem());
-        user.setUserFoot(userDto.getUserFoot());
-        user.setUserAge(userDto.getUserAge());
-        user.setUserPc(userDto.getUserPc());
+
+        if (userDto.getUserHeight() != null) {
+            user.setUserHeight(userDto.getUserHeight());
+        }
+        if (userDto.getUserShoulder() != null) {
+            user.setUserShoulder(userDto.getUserShoulder());
+        }
+        if (userDto.getUserChest() != null) {
+            user.setUserChest(userDto.getUserChest());
+        }
+        if (userDto.getUserSleeve() != null) {
+            user.setUserSleeve(userDto.getUserSleeve());
+        }
+        if (userDto.getUserWaist() != null) {
+            user.setUserWaist(userDto.getUserWaist());
+        }
+        if (userDto.getUserHip() != null) {
+            user.setUserHip(userDto.getUserHip());
+        }
+        if (userDto.getUserThigh() != null) {
+            user.setUserThigh(userDto.getUserThigh());
+        }
+        if (userDto.getUserHem() != null) {
+            user.setUserHem(userDto.getUserHem());
+        }
+        if (userDto.getUserFoot() != null) {
+            user.setUserFoot(userDto.getUserFoot());
+        }
+        if (userDto.getUserAge() != null) {
+            user.setUserAge(userDto.getUserAge());
+        }
+        if (userDto.getUserPc() != null) {
+            user.setUserPc(userDto.getUserPc());
+        }
 
         return user;
     }
@@ -189,19 +210,40 @@ public class UseServiceImpl implements UserService {
         userDto.setUserEmail(user.getUserEmail());
         userDto.setUserGender(user.getUserGender());
         userDto.setUserRegisterTime(user.getUserRegisterTime());
-        userDto.setUserHeight(user.getUserHeight());
-        userDto.setUserTop(user.getUserTop());
-        userDto.setUserBottom(user.getUserBottom());
-        userDto.setUserShoulder(user.getUserShoulder());
-        userDto.setUserChest(user.getUserChest());
-        userDto.setUserSleeve(user.getUserSleeve());
-        userDto.setUserWaist(user.getUserWaist());
-        userDto.setUserHip(user.getUserHip());
-        userDto.setUserThigh(user.getUserThigh());
-        userDto.setUserHem(user.getUserHem());
-        userDto.setUserFoot(user.getUserFoot());
-        userDto.setUserAge(user.getUserAge());
-        userDto.setUserPc(user.getUserPc());
+
+        if (user.getUserHeight() != null) {
+            userDto.setUserHeight(user.getUserHeight());
+        }
+        if (user.getUserShoulder() != null) {
+            userDto.setUserShoulder(user.getUserShoulder());
+        }
+        if (user.getUserChest() != null) {
+            userDto.setUserChest(user.getUserChest());
+        }
+        if (user.getUserSleeve() != null) {
+            userDto.setUserSleeve(user.getUserSleeve());
+        }
+        if (user.getUserWaist() != null) {
+            userDto.setUserWaist(user.getUserWaist());
+        }
+        if (user.getUserHip() != null) {
+            userDto.setUserHip(user.getUserHip());
+        }
+        if (user.getUserThigh() != null) {
+            userDto.setUserThigh(user.getUserThigh());
+        }
+        if (user.getUserHem() != null) {
+            userDto.setUserHem(user.getUserHem());
+        }
+        if (user.getUserFoot() != null) {
+            userDto.setUserFoot(user.getUserFoot());
+        }
+        if (user.getUserAge() != null) {
+            userDto.setUserAge(user.getUserAge());
+        }
+        if (user.getUserPc() != null) {
+            userDto.setUserPc(user.getUserPc());
+        }
 
         return userDto;
     }
