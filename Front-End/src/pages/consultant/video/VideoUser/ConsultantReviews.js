@@ -25,10 +25,16 @@ const ConsultantReviews = (props) => {
         Authorization: token,
       },
     });
-    console.log(response.data);
+    // console.log(response.data);
     setReviewLists(response.data.data);
     setAvgScore(response.data.avgScore);
   };
+
+  // 리뷰 삭제한 경우 처리
+  const [isDeleted, setIsDeleted] = useState(undefined)
+  useEffect(() => {
+    getReviews(consultantId);
+  }, [isDeleted])
 
   return (
     <div>
@@ -43,6 +49,8 @@ const ConsultantReviews = (props) => {
             reviewNo={list.reviewNo}
             reviewScore={list.reviewScore}
             reviewContent={list.reviewContent}
+            isDeleted={isDeleted}
+            setIsDeleted={setIsDeleted}
           />
         );
       })}
