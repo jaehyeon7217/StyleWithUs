@@ -136,10 +136,10 @@ const Login = () => {
           <button className={classes.fotterBtn}>서비스 안내</button>
         </div>
         <div className={classes.fotterBoxtwo}>
-          <p className={classes.fottername}>SERVICE GUIDE</p>
-          <p className={classes.fottercontent}>STYLE WITH US는 처음이지?</p>
-          <p className={classes.fottercontent}>서비스 소개를 확인해보세요.</p>
-          <button className={classes.fotterBtntwo}>서비스 안내</button>
+          <p className={classes.fottername}>DEVELOPER GUIDE</p>
+          <p className={classes.fottercontent}>개발 소개는 처음이지?</p>
+          <p className={classes.fottercontent}>STYLE WITH US의 개발 일기를 확인해보세요.</p>
+          <button className={classes.fotterBtntwo}>개발팀</button>
         </div>
       </footer>
     </div>
