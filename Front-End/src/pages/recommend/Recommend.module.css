@@ -34,80 +34,28 @@
 .background h1 {
   color: black;
   font-family: "Apple_Gothic_Neo_Middle";
-  font-size: 60px;
-  margin-bottom: 80px;
+  font-size: 45px;
+  text-align: center;
 }
 
 .clothes-measure {
   width: 100%;
   padding-bottom: 20px;
-  font-family: "Apple_Gothic_Neo_Middle";
+  font-family: "Apple_Gothic_Neo_Light";
   display: flex;
-  justify-content: center;
+  justify-content: space-evenly;
 }
 
 .clothes-measure div {
   display: inline-block;
-  margin-right: 20px;
+  background-color: rgb(242, 242, 242);
+  border-radius: 18px;
+  padding: 12px 20px;
+  font-size: 16px;
 }
 
 .clothes-measure div span {
   font-family: "Apple_Gothic_Neo_Bold";
-}
-
-.clothes-measure div:nth-of-type(1) {
-  font-size: 30px;
-}
-
-.clothes-measure div:nth-of-type(2) {
-  font-size: 25px;
-  margin-top: 60px;
-  margin-left: -50px;
-}
-
-.clothes-measure div:nth-of-type(3) {
-  font-size: 40px;
-  margin-top: 20px;
-}
-
-.clothes-measure div:nth-of-type(4) {
-  font-size: 20px;
-  margin-top: 15px;
-}
-
-.clothes-measure div:nth-of-type(5) {
-  font-size: 44px;
-  margin-left: 30px;
-  margin-top: -10px;
-  margin-right: 0;
-}
-
-.clothes-measure div:nth-of-type(6) {
-  font-size: 40px;
-  margin-left: -130px;
-  margin-right: 0;
-  margin-top: 80px;
-}
-
-.clothes-measure div:nth-of-type(7) {
-  font-size: 22px;
-  margin-left: -80px;
-  margin-top: 20px;
-}
-
-.clothes-measure div:nth-of-type(8) {
-  font-size: 18px;
-  margin-right: 35px;
-}
-
-.clothes-measure div:nth-of-type(9) {
-  font-size: 25px;
-}
-
-.clothes-measure div:nth-of-type(10) {
-  font-size: 25px;
-  margin-top: 70px;
-  margin-left: -80px;
 }
 
 .recommend {
