@@ -31,8 +31,6 @@ public class User {
     @Column(nullable = false, columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
     private LocalDateTime userRegisterTime;
     private Integer userHeight;
-    private Integer userTop;
-    private Integer userBottom;
     private Integer userShoulder;
     private Integer userChest;
     private Integer userSleeve;
