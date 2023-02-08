@@ -42,25 +42,3 @@
   background-color: #333333;
   color: #fff;
 }
-
-
-.test{
-  display: flex;
-}
-
-.test h1{
-  font-family: "Apple_Gothic_Neo_Hard";
-  font-style: italic;
-  align-self: flex-end;
-  color: #37aedd
-}
-.test h2{
-  font-family: "Apple_Gothic_Neo_Hard";
-  font-style: italic;
-  color: rgb(0, 0, 0);
-  align-self:center
-}
-
-.imgtest img{
-  width: 50px;
-}

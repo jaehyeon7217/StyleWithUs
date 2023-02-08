@@ -1,4 +1,4 @@
-import BlackLogo from '../../assets/blackLogo.png'
+import BlackLogo from '../../../assets/blackLogo.png'
 
 import classes from './SbtiPage.module.css'
 
