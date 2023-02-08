@@ -32,7 +32,14 @@
 }
 
 
-
+.userImg{
+  height: 105px;
+  margin-right: 30px;
+  margin-top: 8px;
+  margin-left: 5px;
+  
+  
+}
 
 /* 중앙 메인 박스 */
 .MainBox{
@@ -67,7 +74,7 @@
   float: left;
   width: 110px;
   height: 110px;
-  border: 2px solid #4b8adc70;
+  /* border: 2px solid lightgrey; */
   border-radius: 100px;
   margin-top: 10px;
   margin-left: 15px;

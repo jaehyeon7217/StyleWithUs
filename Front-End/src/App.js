@@ -14,6 +14,7 @@ import OnetoOneQuestion from './pages/servicecenter/OnetoOneQuestion';
 import ManageConsultant from "./pages/admin/ManageConsultant";
 import Sbti from "./pages/sbti/Sbti";
 import NotFound from "./pages/notfound/NotFound"
+import DeveloperPage from './pages/developer/DeveloperPage';
 
 
 function App() {

@@ -10,6 +10,10 @@ import InputLabel from "../component/InputLabel";
 import { DataInput } from "../component/Effectiveness";
 // css 클래스
 import classes from "./Login.module.css";
+import footerImge from "../../../assets/footerman.png";
+import footerImgetwo from "../../../assets/footermantwo.png";
+import tmpImg from "../../../assets/tempImg.png";
+import footerwoan from "../../../assets/footerwoman.png"
 
 const Login = () => {
   const dispatch = useDispatch();
@@ -37,15 +41,15 @@ const Login = () => {
       )
       .then((response) => {
         if (response.status === 200) {
-          if (isUser){
+          if (isUser) {
             dispatch(authActions.userLogin(response.data))
             navigate("/");
-          }else{
-            if (response.data.data.consultantApproval===1){
+          } else {
+            if (response.data.data.consultantApproval === 1) {
               dispatch(authActions.consultantLogin(response.data));
               navigate("/");
             }
-            else{
+            else {
               Swal.fire({
                 title:
                   '<div style="font-size:24px;font-family:Apple_Gothic_Neo_Bold;font-weight:bold;">로그인 실패<div>',
@@ -54,17 +58,17 @@ const Login = () => {
                 width: 330,
                 confirmButtonText:
                   '<div style="font-size:16px;font-family:Apple_Gothic_Neo_Mid;">확인</div>',
-                })
+              })
             }
           }
-        } 
+        }
         else {
           Swal.fire({
-            title: '<div style="font-size:24px;font-family:Apple_Gothic_Neo_Bold;font-weight:bold;">로그인 실패!<div>', 
-            html: '<div style="font-size:16px;font-family:Apple_Gothic_Neo_Mid;">아이디와 비밀번호를 다시 확인해주세요</div>', 
-            width : 330,
+            title: '<div style="font-size:24px;font-family:Apple_Gothic_Neo_Bold;font-weight:bold;">로그인 실패!<div>',
+            html: '<div style="font-size:16px;font-family:Apple_Gothic_Neo_Mid;">아이디와 비밀번호를 다시 확인해주세요</div>',
+            width: 330,
             icon: 'error',
-            confirmButtonText:'<div style="font-size:16px;font-family:Apple_Gothic_Neo_Mid;">확인</div>',
+            confirmButtonText: '<div style="font-size:16px;font-family:Apple_Gothic_Neo_Mid;">확인</div>',
             confirmButtonColor: '#9A9A9A',
           })
         }
@@ -88,6 +92,19 @@ const Login = () => {
     event.preventDefault();
     navigate("/auth/findpassword", { state : { isUser: isUser, } });
   };
+
+  // 메인페이지 이동
+  const toMainPage = (event) => {
+    event.preventDefault();
+    navigate("/")
+  }
+
+  // 개발팀 페이지 이동
+  const toDeveloperpage = (event) => {
+    event.preventDefault();
+    navigate("/developerpage")
+  }
+
   // sumbit 활성화 & 비활성화
   const nullError = !!id && !!password;
   const effectivnessError = idError && passwordError;
@@ -147,16 +164,29 @@ const Login = () => {
       </div>
       <footer className={classes.footer}>
         <div className={classes.fotterBoxone}>
-          <p className={classes.fottername}>SERVICE GUIDE</p>
-          <p className={classes.fottercontent}>STYLE WITH US는 처음이지?</p>
-          <p className={classes.fottercontent}>서비스 소개를 확인해보세요.</p>
-          <button className={classes.fotterBtn}>서비스 안내</button>
+          <div>
+            <p className={classes.fottername}>SERVICE GUIDE</p>
+            <p className={classes.fottercontent}>STYLE WITH US는 처음이지?</p>
+            <p className={classes.fottercontent}>서비스 소개를 확인해보세요.</p>
+            <button className={classes.fotterBtn} onClick={toMainPage}>서비스 안내</button>
+          </div>
+          <div>
+
+          <img src={footerImgetwo} alt="유저" className={classes.footerImgatwo}/>
+          <img src={footerwoan} alt="" className={classes.footerwoman}/>
+          </div>
         </div>
         <div className={classes.fotterBoxtwo}>
+          <div>
           <p className={classes.fottername}>DEVELOPER GUIDE</p>
-          <p className={classes.fottercontent}>개발 소개는 처음이지?</p>
+          <p className={classes.fottercontent}>개발팀 소개는 처음이지?</p>
           <p className={classes.fottercontent}>STYLE WITH US의 개발 일기를 확인해보세요.</p>
-          <button className={classes.fotterBtntwo}>개발팀</button>
+          <button className={classes.fotterBtntwo} onClick={toDeveloperpage}>개발팀</button>
+          </div>
+          <div>
+          </div>
+          <img src={footerImge} alt="개발팀" className={classes.footerImge} />
+          <img src={tmpImg} alt="" className={classes.tmpImg} />
         </div>
       </footer>
     </div>
