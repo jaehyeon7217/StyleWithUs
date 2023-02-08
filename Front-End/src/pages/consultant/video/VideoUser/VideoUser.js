@@ -4,7 +4,6 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import useInterval from "./useInterval";
 import axios from "axios";
-import history from "../history";
 
 import ConsultantList from "./ConsultantList";
 import ConsultantReview from "./ConsultantReview";
@@ -40,21 +39,6 @@ const Consultant = (props) => {
 
   // 리뷰 페이지
   const [backIsClicked, setBackIsClicked] = useState(false);
-
-  // 뒤로가기 버튼을 누를 때 loading 상태 업데이트
-  useEffect(() => {
-    const listenBackEvent = () => {
-      props.onChangeLoading(true);
-    };
-
-    const listenHistoryEvent = history.listen(({ action }) => {
-      if (action === "POP") {
-        listenBackEvent();
-      }
-    });
-
-    return listenHistoryEvent;
-  }, []);
 
   // 돌아가기 버튼 함수
   const pageBackHandler = () => {
