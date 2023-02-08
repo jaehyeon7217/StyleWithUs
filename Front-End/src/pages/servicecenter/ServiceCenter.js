@@ -9,8 +9,9 @@ const ServiceCenter = () => {
     return(
         <div className={classes.MarginBox}>
             <div className={classes.WrapPage}>
-                <ServiceCenterSideBar/>
+                {/* <ServiceCenterSideBar/> */}
                 <div>
+                <h1 className={classes.PageName}>고객센터</h1>
                 <div className={classes.ServiceCenterBox}>
                     <h3 className={classes.QuestionName}>자주 묻는 질문</h3>
                     <hr className={classes.hr} />
