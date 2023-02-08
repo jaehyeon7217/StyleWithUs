@@ -37,11 +37,28 @@ const Login = () => {
       )
       .then((response) => {
         if (response.status === 200) {
-          isUser
-            ? dispatch(authActions.userLogin(response.data))
-            : dispatch(authActions.consultantLogin(response.data));
-          navigate("/");
-        } else {
+          if (isUser){
+            dispatch(authActions.userLogin(response.data))
+            navigate("/");
+          }else{
+            if (response.data.data.consultantApproval===1){
+              dispatch(authActions.consultantLogin(response.data));
+              navigate("/");
+            }
+            else{
+              Swal.fire({
+                title:
+                  '<div style="font-size:24px;font-family:Apple_Gothic_Neo_Bold;font-weight:bold;">로그인 실패<div>',
+                html: '<div style="font-size:16px;font-family:Apple_Gothic_Neo_Mid;">관리자의 승인까지 기다려주세요</div>',
+                icon: "error",
+                width: 330,
+                confirmButtonText:
+                  '<div style="font-size:16px;font-family:Apple_Gothic_Neo_Mid;">확인</div>',
+                })
+            }
+          }
+        } 
+        else {
           Swal.fire({
             title: '<div style="font-size:24px;font-family:Apple_Gothic_Neo_Bold;font-weight:bold;">로그인 실패!<div>', 
             html: '<div style="font-size:16px;font-family:Apple_Gothic_Neo_Mid;">아이디와 비밀번호를 다시 확인해주세요</div>', 

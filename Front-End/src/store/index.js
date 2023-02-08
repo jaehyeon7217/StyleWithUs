@@ -1,5 +1,6 @@
 import { configureStore } from "@reduxjs/toolkit";
-import storageSession from 'redux-persist/lib/storage/session'
+// import storageSession from 'redux-persist/lib/storage/session'
+import storage from "redux-persist/lib/storage";
 import { combineReducers } from "redux";
 import { persistReducer, FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER } from 'redux-persist';
 
@@ -11,7 +12,7 @@ import chatReducer from "./chat";
 const persistConfig = {
   key : 'root',
   version : 1,
-  storage: storageSession,
+  storage,
   blacklist: ["cart", "chat"],
 };
 

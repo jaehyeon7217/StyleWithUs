@@ -10,13 +10,13 @@ const NavBar = () => {
   const location = useLocation();
 
 
-  useEffect(() => {
-    if (location.pathname === "/") {
-      document.querySelector(`.${classes.header}`).style.position = "relative";
-    } else {
-      document.querySelector(`.${classes.header}`).style.position = "sticky";
-    }
-  }, [location])
+  // useEffect(() => {
+  //   if (location.pathname === "/") {
+  //     document.querySelector(`.${classes.header}`).style.position = "relative";
+  //   } else {
+  //     document.querySelector(`.${classes.header}`).style.position = "sticky";
+  //   }
+  // }, [location])
 
   const onClickHandler = () => {
     navigate('/');

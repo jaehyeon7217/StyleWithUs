@@ -13,6 +13,7 @@ import ServiceCenter from './pages/servicecenter/ServiceCenter';
 import OnetoOneQuestion from './pages/servicecenter/OnetoOneQuestion';
 import ManageConsultant from "./pages/admin/ManageConsultant";
 import Sbti from "./pages/sbti/Sbti";
+import NotFound from "./pages/notfound/NotFound"
 
 
 function App() {
@@ -38,10 +39,13 @@ function App() {
         <Route path="/myprofile" element={<MyProfile/>}/>
         <Route path="/recommend" element={<Recommend/>}/>
         <Route path="/servicecenter" element={<ServiceCenter />} />
-        <Route path="/onetoonequestion" element={<OnetoOneQuestion />}></Route>
+        <Route path="/onetoonequestion" element={<OnetoOneQuestion />}/>
         <Route path="/sbti" element={<Sbti/>}/>
-        <Route path='manageconsultant' element={<ManageConsultant/>}></Route>
-        <Route path="/consultant" element={<Loading />}/></Routes>
+        <Route path='manageconsultant' element={<ManageConsultant/>}/>
+        <Route path="/consultant" element={<Loading />}/>
+        <Route path="/developerpage" element={<DeveloperPage />}></Route>
+        <Route path="/*" element={<NotFound/>}></Route>
+      </Routes>
     </div>
   );
 }

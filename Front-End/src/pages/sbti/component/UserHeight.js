@@ -1,6 +1,6 @@
 import classes from './SbtiPage.module.css'
 
-const Height = (props) =>{
+const UserHeight = (props) =>{
 
   return(
     <div className={classes.carouselItem}>
@@ -16,4 +16,4 @@ const Height = (props) =>{
   )
 };
 
-export default Height;
+export default UserHeight;

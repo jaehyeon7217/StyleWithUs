@@ -54,7 +54,7 @@ const ConsultantSignUp = () => {
         consultantPw: password,
         consultantGender: male ? 1 : 0,
         consultantResume: resume,
-        consultantApproval: 1,
+        consultantApproval: 0,
       })
       .then((response) => {
         if (response.status === 200) {
