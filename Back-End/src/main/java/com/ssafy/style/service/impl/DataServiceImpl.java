@@ -1,6 +1,7 @@
 package com.ssafy.style.service.impl;
 
 import com.ssafy.style.data.dto.DataDto;
+import com.ssafy.style.data.dto.UserDto;
 import com.ssafy.style.service.DataService;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -52,7 +53,7 @@ public class DataServiceImpl implements DataService {
 
 
                 list.add(data);
-             }
+            }
 
             return list;
 
@@ -106,6 +107,26 @@ public class DataServiceImpl implements DataService {
             e.printStackTrace();
         }
 
+        return null;
+    }
+
+    @Override
+    public List<DataDto> getCommnedTopItem(UserDto userInfo) {
+        return null;
+    }
+
+    @Override
+    public List<DataDto> getCommendBottomItem(UserDto userInfo) {
+        return null;
+    }
+
+    @Override
+    public List<DataDto> getCommendOuterItem(UserDto userInfo) {
+        return null;
+    }
+
+    @Override
+    public List<DataDto> getCommendShoesItem(UserDto userInfo) {
         return null;
     }
 
