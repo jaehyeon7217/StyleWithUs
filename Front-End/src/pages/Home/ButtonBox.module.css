@@ -1,8 +1,39 @@
 .button-box {
   position: fixed;
-  width: 30px;
+  width: 25px;
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   top: 50%;
+  left: 20px;
   transform: translate(50%, -50%);
+  z-index: 5;
+}
+
+.button-box:hover .button {
+  opacity: 1;
+}
+
+.button {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: rgb(216, 216, 216);
+  margin: 5px;
+  opacity: 0;
+  transition: all .3s;
+}
+
+.button:hover {
+  width: 15px;
+  height: 15px;
+  background-color: black;
+  cursor: pointer;
+}
+
+.button-box .button.on {
+  width: 15px;
+  height: 15px;
+  background-color: black;
+  opacity: 1;
 }
