@@ -1,6 +1,6 @@
 import classes from './SbtiPage.module.css'
 
-const Foot = (props) =>{
+const UserFoot = (props) =>{
 
   return(
     <div className={classes.carouselItem}>
@@ -16,4 +16,4 @@ const Foot = (props) =>{
   )
 };
 
-export default Foot;
+export default UserFoot;
