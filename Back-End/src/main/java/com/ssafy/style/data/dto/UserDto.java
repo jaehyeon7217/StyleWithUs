@@ -45,9 +45,5 @@ public class UserDto {
     private Integer userHem;
     @ApiModelProperty(value = "유저발사이즈")
     private Integer userFoot;
-    @ApiModelProperty(value = "유저나이")
-    private Integer userAge;
-    @ApiModelProperty(value = "유저퍼스널 컬러")
-    private Integer userPc;
 
 }

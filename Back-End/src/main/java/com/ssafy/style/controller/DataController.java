@@ -80,7 +80,7 @@ public class DataController {
 
         try{
             List<DataDto> list = new LinkedList<>();
-            list = dataService.getCommnedTopItem(userInfo);
+            list = dataService.getCommendTopItem(userInfo);
             map.put("top", list);
             list.clear();
             list = dataService.getCommendBottomItem(userInfo);
