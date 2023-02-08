@@ -3,7 +3,6 @@ import React, { Fragment, useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import axios from "axios";
-import history from "../history";
 
 import Video from "../Video";
 import { chatActions } from "../../../../store/chat";
@@ -35,21 +34,6 @@ const Consultant = (props) => {
   const [subscribers, setSubscribers] = useState([]);
   const [session, setSession] = useState(undefined);
 
-  // 뒤로가기 버튼을 누를 때 loading 상태 업데이트
-  useEffect(() => {
-    const listenBackEvent = () => {
-      props.onChangeLoading(true);
-    };
-
-    const listenHistoryEvent = history.listen(({ action }) => {
-      if (action === "POP") {
-        listenBackEvent();
-      }
-    });
-
-    return listenHistoryEvent;
-  }, []);
-
   // 돌아가기 버튼 함수
   const pageBackHandler = () => {
     leaveSession();
@@ -59,7 +43,6 @@ const Consultant = (props) => {
   };
 
   // openvidu 함수
-
   const deleteSubscriber = (streamManager) => {
     const prevSubscribers = subscribers;
     let index = prevSubscribers.indexOf(streamManager, 0);
