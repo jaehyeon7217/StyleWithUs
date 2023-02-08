@@ -14,7 +14,10 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping(value = "/data")
@@ -79,16 +82,16 @@ public class DataController {
             return  ResponseEntity.status(HttpStatus.NO_CONTENT).body(null);
 
         try{
-            List<DataDto> list = new LinkedList<>();
+            List<DataDto> list = new ArrayList<>();
             list = dataService.getCommendTopItem(userInfo);
             map.put("top", list);
-            list.clear();
+            list = new ArrayList<>();
             list = dataService.getCommendBottomItem(userInfo);
             map.put("bottom", list);
-            list.clear();
+            list = new ArrayList<>();
             list = dataService.getCommendOuterItem(userInfo);
             map.put("outer", list);
-            list.clear();
+            list = new ArrayList<>();
             list = dataService.getCommendShoesItem(userInfo);
             map.put("shoes", list);
 
