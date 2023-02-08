@@ -1,0 +1,8 @@
+.button-box {
+  position: fixed;
+  width: 30px;
+  display: flex;
+  flex-wrap: wrap;
+  top: 50%;
+  transform: translate(50%, -50%);
+}

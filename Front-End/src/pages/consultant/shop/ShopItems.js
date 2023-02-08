@@ -22,7 +22,7 @@ const ShopItems = (props) => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    const url = `https://i8d105.p.ssafy.io/be/data/${gender}/${codeNumber[gender][type][detail]}`;
+    const url = `https://i8d105.p.ssafy.io/be/data/consulting/${gender}/${codeNumber[gender][type][detail]}`;
 
     axios
       .get(url, {
