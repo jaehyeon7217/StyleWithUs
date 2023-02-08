@@ -4,12 +4,13 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import useInterval from "./useInterval";
 import axios from "axios";
-
+import classes from './VideoUser.module.css';
 import ConsultantList from "./ConsultantList";
 import ConsultantReview from "./ConsultantReview";
 import Video from "../Video";
 import { chatActions } from "../../../../store/chat";
 import Swal from "sweetalert2";
+import reload from '../../../../assets/reload.png';
 
 const APPLICATION_SERVER_URL =
   process.env.NODE_ENV === "production"
@@ -303,13 +304,20 @@ const Consultant = (props) => {
     // console.log(getConsultantId);
   }, [getConsultantId]);
 
+  useEffect(() => {
+    getSession();
+  }, [])
+
   return (
     <Fragment>
       <div>
         {session === undefined ? (
-          <div>
-            <div>현재 상담 가능한 컨설턴트 보기</div>
-            <input type="button" onClick={getSession} value="클릭" />
+          <div className={classes.user}>
+            <h2 className={classes.h2}>상담</h2>
+            <div className={classes.wall}></div>
+            <h3 className={classes.font}>현재 상담 가능한 컨설턴트
+            <img className={classes.reload} src={reload} alt="reload" onClick={getSession} />
+            </h3>
             {sessionLists.map((list, idx) => {
               return (
                 <ConsultantList
