@@ -10,6 +10,7 @@ import ConsultantList from "./ConsultantList";
 import ConsultantReview from "./ConsultantReview";
 import Video from "../Video";
 import { chatActions } from "../../../../store/chat";
+import Swal from "sweetalert2";
 
 const APPLICATION_SERVER_URL =
   process.env.NODE_ENV === "production"
@@ -246,8 +247,33 @@ const Consultant = (props) => {
         Authorization: userToken,
       },
     });
-    // console.log(response.data.token);
-    return response.data.token; // The token
+    // 이미 상담 중인 경우
+    if (response.data.msg === 'The session room is full.') {
+      Swal.fire({
+        title: '<div style="font-size:24px;font-family:Apple_Gothic_Neo_Bold;font-weight:bold;">접속 실패!<div>', 
+        html: '<div style="font-size:16px;font-family:Apple_Gothic_Neo_Mid;">이미 상담중인 방입니다</div>', 
+        width : 330,
+        icon: 'error',
+        confirmButtonText:'<div style="font-size:16px;font-family:Apple_Gothic_Neo_Mid;">확인</div>',
+        confirmButtonColor: '#9A9A9A',
+      })
+      console.log('이미 상담 중인 방입니다.')
+
+      setOV(null);
+      setSession(undefined);
+      setSubscribers([]);
+      setMySessionId("");
+      setMyUserName(nickname);
+      setMainStreamManager(undefined);
+      setPublisher(undefined);
+  
+      dispatch(chatActions.leaveChatting())
+
+      return;
+    } else {
+      // console.log(response.data.token);
+      return response.data.token; // The token
+    }
   };
   // 끝
 
