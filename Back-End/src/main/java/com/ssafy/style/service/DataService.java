@@ -10,7 +10,7 @@ public interface DataService {
 
     List<DataDto> getWData(String no);
 
-    List<DataDto> getCommnedTopItem(UserDto userInfo);
+    List<DataDto> getCommendTopItem(UserDto userInfo);
 
     List<DataDto> getCommendBottomItem(UserDto userInfo);
 
