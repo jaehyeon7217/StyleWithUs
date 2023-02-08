@@ -3,7 +3,7 @@ import React, { Fragment, useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import axios from "axios";
-
+import classes from "./VideoConsultant.module.css";
 import Video from "../Video";
 import { chatActions } from "../../../../store/chat";
 
@@ -17,7 +17,7 @@ const Consultant = (props) => {
   const navigate = useNavigate();
 
   // token
-  const userToken = useSelector((state) => state.auth.token)
+  const userToken = useSelector((state) => state.auth.token);
 
   // 유저 아이디
   const userType = useSelector((state) => state.auth.userType);
@@ -179,15 +179,12 @@ const Consultant = (props) => {
   };
 
   const sendLeave = async (sessionId) => {
-    const url = APPLICATION_SERVER_URL + "api/sessions/" + sessionId
-    const response = await axios.delete(
-      url,
-      {
-        headers: {
-          Authorization: userToken,
-        },
-      }
-    );
+    const url = APPLICATION_SERVER_URL + "api/sessions/" + sessionId;
+    const response = await axios.delete(url, {
+      headers: {
+        Authorization: userToken,
+      },
+    });
     // console.log(response.data);
     return response.data;
   };
@@ -198,7 +195,7 @@ const Consultant = (props) => {
   };
 
   const createSession = async (sessionId) => {
-    const url = APPLICATION_SERVER_URL + "api/sessions"
+    const url = APPLICATION_SERVER_URL + "api/sessions";
     const response = await axios.post(
       url,
       { customSessionId: sessionId, ConsultantId: consultantId },
@@ -229,7 +226,7 @@ const Consultant = (props) => {
         ) : null}
       </Fragment>
     );
-  }
+  };
 
   const userVideo = () => {
     return (
@@ -250,7 +247,8 @@ const Consultant = (props) => {
   };
 
   const createToken = async (sessionId) => {
-    const url = APPLICATION_SERVER_URL + "api/sessions/" + sessionId + "/connections"
+    const url =
+      APPLICATION_SERVER_URL + "api/sessions/" + sessionId + "/connections";
     const response = await axios.post(
       url,
       {},
@@ -269,32 +267,35 @@ const Consultant = (props) => {
     if (session !== undefined) {
       props.sessionSend(session);
     }
-  }, [session])
+  }, [session]);
 
   return (
     <Fragment>
       <div>
         {session === undefined ? (
-          <div id="join">
-            <div id="join-dialog" className="jumbotron vertical-center">
-              <h1> 상담 </h1>
-              <form className="form-group" onSubmit={(event) => {event.preventDefault(); joinSession(event);}}>
-                <p className="text-center">
-                  <input
-                    className="btn btn-lg btn-success"
-                    name="commit"
-                    type="submit"
-                    value="JOIN"
-                  />
-                </p>
-              </form>
-            </div>
+          <div className={classes.consultant}>
+            <h2 className={classes.h2}>상담</h2>
+            <div className={classes.wall}></div>
+            <form
+              onSubmit={(event) => {
+                event.preventDefault();
+                joinSession(event);
+              }}
+            >
+              <p>
+                <input
+                  className="btn btn-lg btn-success"
+                  name="commit"
+                  type="submit"
+                  value="JOIN"
+                />
+              </p>
+            </form>
           </div>
         ) : null}
 
         {session !== undefined ? (
           <div id="session">
-
             <div id="video-container" className="col-md-6">
               {userType === 0 ? userVideo() : consultantVideo()}
               {/* {subscribers.map((sub, i) => (
