@@ -36,10 +36,9 @@ const MyPageSideBar = () => {
                 <h3 className={classes.SideMenuDetail} onClick={MyPageWish}>관심 상품</h3>
                 <h3 className={classes.SideMenu}>내 정보</h3>
                 <h3 className={classes.SideMenuDetail} onClick={MyProfile}>프로필 정보</h3>
-                <h3 className={classes.SideMenuDetail}>체형 정보</h3>
+
                 <h3 className={classes.SideMenu} onClick={ServiceCenter}>고객 센터</h3>
                 <h3 className={classes.SideMenuDetail} onClick={ServiceCenter}>자주 묻는 질문</h3>
-                <h3 className={classes.SideMenuDetail}>1:1 문의하기</h3>
             </div>
         </div>
     )

@@ -13,6 +13,7 @@ import ServiceCenter from './pages/servicecenter/ServiceCenter';
 import OnetoOneQuestion from './pages/servicecenter/OnetoOneQuestion';
 import ManageConsultant from "./pages/admin/ManageConsultant";
 import Sbti from "./pages/sbti/Sbti";
+import DeveloperPage from './pages/developer/DeveloperPage';
 
 
 function App() {

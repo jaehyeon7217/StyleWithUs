@@ -1,0 +1,143 @@
+@import url('https://fonts.googleapis.com/css2?family=Blinker:wght@100;200;300;400;600;700;800;900&display=swap');
+
+@font-face {
+    font-family: "Apple_Gothic_Neo_Hard";
+    src: url("../../fonts/AppleSDGothicNeoH.ttf");
+}
+
+@font-face {
+    font-family: "Apple_Gothic_Neo_Bold";
+    src: url("../../fonts/AppleSDGothicNeoB.ttf");
+}
+
+@font-face {
+    font-family: "Apple_Gothic_Neo_SB";
+    src: url("../../fonts/AppleSDGothicNeoSB.ttf");
+}
+
+@font-face {
+    font-family: "Apple_Gothic_Neo_Light";
+    src: url("../../fonts/AppleSDGothicNeoL.ttf");
+}
+
+.pagebox{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.page{
+    margin-top: 50px;
+    width: 900px;
+}
+
+.smallName{
+    font-family: "Apple_Gothic_Neo_SB";
+    font-size: 20px;
+    text-align: center;
+}
+
+.bigNamd{
+    font-family: "Apple_Gothic_Neo_Mid";
+    text-align: center;
+}
+
+.contetnbox{
+    display: flex;
+    justify-content: space-between;
+}
+
+.diarytemp1{
+    height: 250px;
+    margin-top: 50px;
+    
+}
+
+.diarytemp2{
+    height: 250px;
+    margin-top: 100px;
+}
+
+.diarytemp3{
+    height: 250px;
+    margin-top: 100px;
+}
+
+.diarytemp4{
+    height: 250px;
+    margin-top: 100px;
+}
+
+.diaryboxone{
+}
+
+.dateboxone{
+    display: flex;
+    margin-top: 120px;
+}
+
+.dash{
+    font-weight: bold;
+    margin-right: 10px;
+    margin-left: 10px;
+    margin-top: 20px;
+}
+
+.dateone{
+    font-family: "Apple_Gothic_Neo_Light";
+    font-size: 20px;
+}
+
+.datenameone{
+    font-family: "Apple_Gothic_Neo_Bold";
+    font-size: 20px;
+    margin-top: -20px;
+    margin-left: 25px;
+}
+
+.datacontent{
+    font-family: "Apple_Gothic_Neo_Light";
+    font-size: 15px;
+    margin-left: 25px;
+    margin-top: -15px;
+}
+
+.diaryboxtwo{
+    margin-left: 130px;
+    margin-top: 130px;
+}
+
+.dateboxtwo{
+    display: flex;
+    
+    
+}
+
+.datenametwo{
+    font-family: "Apple_Gothic_Neo_Bold";
+    font-size: 20px;
+    margin-top: -20px;
+}
+
+.datacontenttwo{
+    font-family: "Apple_Gothic_Neo_Light";
+    font-size: 15px;
+    margin-top: -15px;
+}
+
+.datetwo{
+    font-family: "Apple_Gothic_Neo_Light";
+        font-size: 20px;
+}
+
+.vLine{
+    border: 1px solid lightgrey;
+    width: 0.1px;
+    height: 1200px;
+    margin-top: 30px;
+}
+
+.marginbox{
+    margin-top: 100px;
+}
