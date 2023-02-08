@@ -6,6 +6,9 @@ import { useNavigate } from "react-router-dom";
 import MyPageWish from './MyPageWish';
 import MyPageSideBar from './MyPageSideBar';
 import MyWishItemBig from './MyWishItemBig';
+import userImg from "../../assets/userimg.png";
+import { useEffect } from 'react';
+
 
 const MyPage = () =>{
   const dispatch = useDispatch();
@@ -16,14 +19,13 @@ const MyPage = () =>{
 
   const cartItems = useSelector((state)=> state.cart.cartItems)
 
-  const getMyData = (event) =>{
-    event.preventDefault();
+  const getMyData = () =>{
     const url = "https://i8d105.p.ssafy.io/be/user/get/" + userId
     axios.get(
       url,
       {
         headers:{
-          auth_token : token
+          Authorization : token
         }
       }
     ).then(response => {
@@ -36,7 +38,9 @@ const MyPage = () =>{
       console.log(error);
     })    
   }
-
+  useEffect(()=>{
+    getMyData()
+  }, [])
   // 비밀번호 변경 페이지 이동
   const SetNewPassword = (event) =>{
     event.preventDefault();
@@ -45,9 +49,9 @@ const MyPage = () =>{
   }
 
   // 추천 페이지로 이동
-  const RecommendPage = (event) => {
+  const SBTIPage = (event) => {
     event.preventDefault();
-    navigate("/recommend")
+    navigate("/sbti")
   }
 
   // 관심 상품 페이지로 이동
@@ -66,13 +70,15 @@ const MyPage = () =>{
   return(
     <div className={classes.MarginBox}>
       <div className={classes.WrapMyPage}>
-        {/* <button onClick={getMyData}>클릭</button> */}
           <MyPageSideBar/>
           <div className={classes.MainBox}>
             <div className={classes.MyInformBox}>
               <h3 className={classes.MainLabel}>회원 정보</h3>
               <div className={classes.MyInformBackground}>
-                <div className={classes.MyInformUserCircle}>User</div>
+                <div className={classes.MyInformUserCircle}>
+                  
+                <img src={userImg} alt="" className={classes.userImg}/>
+                  </div>
                 <div className={classes.MyInformLetter}>
                   <p className={classes.MyInformNickName}>{userData.userNickname}</p>
                   <p className={classes.MyInformNickNameHi}>님 안녕하세요,</p>
@@ -86,35 +92,58 @@ const MyPage = () =>{
           
               </div>
               <div className={classes.MyBodyDataBox}>
-                  <p className={classes.StyleCheckBtn} onClick={RecommendPage}>다시 검사하기</p>
+              <p className={classes.StyleCheckBtn} onClick={SBTIPage}>다시 검사하기</p>
                   <h3 className={classes.MainLabel}>나의 스타일</h3>
                   <div className={classes.MyBodyBackground}>
                     <div className={classes.MyBodyItemBox}>
-                      <p className={classes.MyBodyItemLabel}>성별</p>
+                      <p className={classes.MyBodyItemLabel}>상체</p>
                       <p className={classes.MyBodyItemDap}>{(userData.userGender ? "남" : "여")}</p>
                     </div>
                     <div className={classes.vLine}></div>
                     <div className={classes.MyBodyItemBox}>
-                      <p className={classes.MyBodyItemLabel}>나이</p>
-                      <p className={classes.MyBodyItemDap}>{userData.userAge}</p>
-                    </div>
-                    <div className={classes.MyBodyItemBox}>
                       <p className={classes.MyBodyItemLabel}>키</p>
                       <p className={classes.MyBodyItemDap}>{userData.userHeight}</p>
                     </div>
+                    <div className={classes.MyBodyItemBox}>
+                      <p className={classes.MyBodyItemLabel}>어깨너비</p>
+                      <p className={classes.MyBodyItemDap}>{userData.userShoulder}</p>
+                    </div>
               <div className={classes.MyBodyItemBox}>
-                <p className={classes.MyBodyItemLabel}>상의</p>
-                <p className={classes.MyBodyItemDap}>{userData.userTop}</p>
+                <p className={classes.MyBodyItemLabel}>가슴단면</p>
+                <p className={classes.MyBodyItemDap}>{userData.userChest}</p>
               </div>
               <div className={classes.MyBodyItemBox}>
-                <p className={classes.MyBodyItemLabel}>하의</p>
-                <p className={classes.MyBodyItemDap}>{userData.userBottom}</p>
-              </div>
-              <div className={classes.MyBodyItemBox}>
-                <p className={classes.MyBodyItemLabel}>발 사이즈</p>
-                <p className={classes.MyBodyItemDap}>{userData.userFoot}</p>
+                <p className={classes.MyBodyItemLabel}>소매길이</p>
+                <p className={classes.MyBodyItemDap}>{userData.userSleeve}</p>
               </div>
                   </div>
+              <div className={classes.MyBodyBackground}>
+                <div className={classes.MyBodyItemBox}>
+                  <p className={classes.MyBodyItemLabel}>하체</p>
+                  <p className={classes.MyBodyItemDap}>{(userData.userGender ? "남" : "여")}</p>
+                </div>
+                <div className={classes.vLine}></div>
+                <div className={classes.MyBodyItemBox}>
+                  <p className={classes.MyBodyItemLabel}>허리단면</p>
+                  <p className={classes.MyBodyItemDap}>{userData.userWaist}</p>
+                </div>
+                <div className={classes.MyBodyItemBox}>
+                  <p className={classes.MyBodyItemLabel}>엉덩이단면</p>
+                  <p className={classes.MyBodyItemDap}>{userData.userHip}</p>
+                </div>
+                <div className={classes.MyBodyItemBox}>
+                  <p className={classes.MyBodyItemLabel}>허벅지단면</p>
+                  <p className={classes.MyBodyItemDap}>{userData.userThigh}</p>
+                </div>
+                <div className={classes.MyBodyItemBox}>
+                  <p className={classes.MyBodyItemLabel}>밑단단면</p>
+                  <p className={classes.MyBodyItemDap}>{userData.userHem}</p>
+                </div>
+                <div className={classes.MyBodyItemBox}>
+                  <p className={classes.MyBodyItemLabel}>발사이즈</p>
+                  <p className={classes.MyBodyItemDap}>{userData.userFoot}</p>
+                </div>
+              </div>
               </div>
             </div>
             <div className={classes.WishItemBox}>

@@ -23,6 +23,7 @@
   font-family: "Apple_Gothic_Neo_Hard";
   font-size: 40px;
   font-style: italic;
+  margin-top: 90px;
 }
 
 .SubPageName {
@@ -128,22 +129,50 @@
   bottom: 0;
   width: 100%;
   display: flex;
-  justify-content: center;
+
 }
+
 
 .fotterBoxone{
   width: 50%;
   height: 130px;
-  background-color: #565656;
+  /* background-color: #565656; */
+  background-color: rgb(13, 152, 207);
+  display: flex;
+  justify-content: space-between;
+ 
 }
+
+.footerImgatwo{
+  margin-top: 10px;
+  margin-right: 20px;
+  width: 110px;
+  
+}
+
+.footerwoman{
+  margin-top: 20px;
+  transform: scaleX(-1);
+  width: 70px;
+  margin-right: 60px;
+}
+
 
 .fotterBoxtwo{
   width: 50%;
   height: 130px;
-  background-color: #565656;
   background-color: #3B3A3C;
+  display: flex;
+  justify-content: space-between;
 
 }
+
+.footerImge{
+  margin-top: 10px;
+  /* margin-left: 60px; */
+
+}
+
 
 .fottername{
   font-family: "Apple_Gothic_Neo_Bold";
@@ -174,8 +203,10 @@
   margin-left: 25px;
   margin-top: -8px;
   color: white;
-  background-color: #565656;
+  /* background-color: #565656; */
+  background-color: rgb(13, 152, 207);
   padding-top: 4.5px;
+  cursor: pointer;
 }
 
 .fotterBtntwo{
@@ -189,4 +220,7 @@
   color: white;
   background-color: #3B3A3C;
   padding-top: 4.5px;
+  cursor: pointer;
   }
+
+

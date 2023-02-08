@@ -15,6 +15,7 @@ import ServiceCenter from './pages/servicecenter/ServiceCenter';
 import OnetoOneQuestion from './pages/servicecenter/OnetoOneQuestion';
 import ManageConsultant from "./pages/admin/ManageConsultant";
 import Sbti from "./pages/sbti/Sbti";
+import DeveloperPage from './pages/developer/DeveloperPage';
 
 
 function App() {
@@ -55,6 +56,7 @@ function App() {
         <Route path="/onetoonequestion" element={<OnetoOneQuestion />}></Route>
         <Route path="/sbti" element={<Sbti/>}/>
         <Route path='manageconsultant' element={<ManageConsultant/>}></Route>
+        <Route path="developerpage" element={<DeveloperPage />}></Route>
         <Route
           path="/consultant"
           // element={displayStatus}
