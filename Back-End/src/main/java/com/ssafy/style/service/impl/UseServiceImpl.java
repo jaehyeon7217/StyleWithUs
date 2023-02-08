@@ -57,12 +57,11 @@ public class UseServiceImpl implements UserService {
     @Override
     public UserDto updateUser(UserDto userDto) throws Exception {
         User user = toUser(userDto);
-        user.setUserRegisterTime(userDto.getUserRegisterTime());
 
         User saveUser = userDAO.updateUser(user);
 
-        UserDto saveuserDto = toUserDto(saveUser);
-        return saveuserDto;
+        UserDto saveUserDto = toUserDto(saveUser);
+        return saveUserDto;
     }
 
     @Override
