@@ -20,6 +20,7 @@ const ConsultantReview = (props) => {
     const handler = (event) => {
       if (modalRef.current && !modalRef.current.contains(event.target)) {
         props.setBackIsClicked(false);
+        props.setGetSessionStatus(false);
       }
     };
     // 이벤트 핸들러 등록
@@ -46,6 +47,7 @@ const ConsultantReview = (props) => {
   const onSubmitHandler = async (event) => {
     event.preventDefault();
     props.setBackIsClicked(false);
+    props.setGetSessionStatus(false);
     // console.log(getConsultantId);
 
     // POST 요청 보내기
