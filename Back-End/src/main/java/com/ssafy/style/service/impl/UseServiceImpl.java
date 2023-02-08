@@ -57,12 +57,11 @@ public class UseServiceImpl implements UserService {
     @Override
     public UserDto updateUser(UserDto userDto) throws Exception {
         User user = toUser(userDto);
-        user.setUserRegisterTime(userDto.getUserRegisterTime());
 
         User saveUser = userDAO.updateUser(user);
 
-        UserDto saveuserDto = toUserDto(saveUser);
-        return saveuserDto;
+        UserDto saveUserDto = toUserDto(saveUser);
+        return saveUserDto;
     }
 
     @Override
@@ -192,12 +191,6 @@ public class UseServiceImpl implements UserService {
         if (userDto.getUserFoot() != null) {
             user.setUserFoot(userDto.getUserFoot());
         }
-        if (userDto.getUserAge() != null) {
-            user.setUserAge(userDto.getUserAge());
-        }
-        if (userDto.getUserPc() != null) {
-            user.setUserPc(userDto.getUserPc());
-        }
 
         return user;
     }
@@ -237,12 +230,6 @@ public class UseServiceImpl implements UserService {
         }
         if (user.getUserFoot() != null) {
             userDto.setUserFoot(user.getUserFoot());
-        }
-        if (user.getUserAge() != null) {
-            userDto.setUserAge(user.getUserAge());
-        }
-        if (user.getUserPc() != null) {
-            userDto.setUserPc(user.getUserPc());
         }
 
         return userDto;

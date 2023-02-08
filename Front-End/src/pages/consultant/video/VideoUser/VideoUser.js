@@ -4,12 +4,13 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import useInterval from "./useInterval";
 import axios from "axios";
-import history from "../history";
-
+import classes from './VideoUser.module.css';
 import ConsultantList from "./ConsultantList";
 import ConsultantReview from "./ConsultantReview";
 import Video from "../Video";
 import { chatActions } from "../../../../store/chat";
+import Swal from "sweetalert2";
+import reload from '../../../../assets/reload.png';
 
 const APPLICATION_SERVER_URL =
   process.env.NODE_ENV === "production"
@@ -21,7 +22,7 @@ const Consultant = (props) => {
   const dispatch = useDispatch();
 
   // token
-  const userToken = useSelector((state) => state.auth.token)
+  const userToken = useSelector((state) => state.auth.token);
 
   // 유저 아이디
   const userType = useSelector((state) => state.auth.userType);
@@ -39,21 +40,6 @@ const Consultant = (props) => {
 
   // 리뷰 페이지
   const [backIsClicked, setBackIsClicked] = useState(false);
-
-  // 뒤로가기 버튼을 누를 때 loading 상태 업데이트
-  useEffect(() => {
-    const listenBackEvent = () => {
-      props.onChangeLoading(true);
-    };
-
-    const listenHistoryEvent = history.listen(({ action }) => {
-      if (action === "POP") {
-        listenBackEvent();
-      }
-    });
-
-    return listenHistoryEvent;
-  }, []);
 
   // 돌아가기 버튼 함수
   const pageBackHandler = () => {
@@ -221,17 +207,14 @@ const Consultant = (props) => {
   };
 
   const sendLeave = async (sessionId) => {
-    const url = APPLICATION_SERVER_URL + "api/sessions/" + sessionId + "/disconnections"
-    const data = {}
-    const response = await axios.post(
-      url,
-      data,
-      {
-        headers: {
-          Authorization: userToken,
-        },
-      }
-    );
+    const url =
+      APPLICATION_SERVER_URL + "api/sessions/" + sessionId + "/disconnections";
+    const data = {};
+    const response = await axios.post(url, data, {
+      headers: {
+        Authorization: userToken,
+      },
+    });
     return response.data;
   };
 
@@ -241,19 +224,41 @@ const Consultant = (props) => {
   };
 
   const createToken = async (mySessionId) => {
-    const url = APPLICATION_SERVER_URL + "api/sessions/" + mySessionId + "/connections"
-    const data = {}
-    const response = await axios.post(
-      url,
-      data,
-      {
-        headers: {
-          Authorization: userToken,
-        },
-      }
-    );
-    // console.log(response.data.token);
-    return response.data.token; // The token
+    const url =
+      APPLICATION_SERVER_URL + "api/sessions/" + mySessionId + "/connections";
+    const data = {};
+    const response = await axios.post(url, data, {
+      headers: {
+        Authorization: userToken,
+      },
+    });
+    // 이미 상담 중인 경우
+    if (response.data.msg === 'The session room is full.') {
+      Swal.fire({
+        title: '<div style="font-size:24px;font-family:Apple_Gothic_Neo_Bold;font-weight:bold;">접속 실패!<div>', 
+        html: '<div style="font-size:16px;font-family:Apple_Gothic_Neo_Mid;">이미 상담중인 방입니다</div>', 
+        width : 330,
+        icon: 'error',
+        confirmButtonText:'<div style="font-size:16px;font-family:Apple_Gothic_Neo_Mid;">확인</div>',
+        confirmButtonColor: '#9A9A9A',
+      })
+      console.log('이미 상담 중인 방입니다.')
+
+      setOV(null);
+      setSession(undefined);
+      setSubscribers([]);
+      setMySessionId("");
+      setMyUserName(nickname);
+      setMainStreamManager(undefined);
+      setPublisher(undefined);
+  
+      dispatch(chatActions.leaveChatting())
+
+      return;
+    } else {
+      // console.log(response.data.token);
+      return response.data.token; // The token
+    }
   };
   // 끝
 
@@ -263,15 +268,12 @@ const Consultant = (props) => {
 
   const getSession = async () => {
     setGetSessionStatus(true);
-    const url =  APPLICATION_SERVER_URL + "api/sessions"
-    const response = await axios.get(
-      url,
-      {
-        headers: {
-          Authorization: userToken,
-        },
-      }
-    );
+    const url = APPLICATION_SERVER_URL + "api/sessions";
+    const response = await axios.get(url, {
+      headers: {
+        Authorization: userToken,
+      },
+    });
     // console.log(response.data.data);
     setSessionLists(response.data.data);
   };
@@ -282,6 +284,11 @@ const Consultant = (props) => {
       getSession();
     }
   }, 5000);
+
+  // 세션 종료 후 대기창 원래 상태로
+  useEffect(() => {
+    setSessionLists([])
+  }, [getSessionStatus])
 
   // 메세지를 보내기 위해서 세션을 올려보낸다.
   useEffect(() => {
@@ -297,13 +304,20 @@ const Consultant = (props) => {
     // console.log(getConsultantId);
   }, [getConsultantId]);
 
+  useEffect(() => {
+    getSession();
+  }, [])
+
   return (
     <Fragment>
       <div>
         {session === undefined ? (
-          <div>
-            <div>현재 상담 가능한 컨설턴트 보기</div>
-            <input type="button" onClick={getSession} value="클릭" />
+          <div className={classes.user}>
+            <h2 className={classes.h2}>상담</h2>
+            <div className={classes.wall}></div>
+            <h3 className={classes.font}>현재 상담 가능한 컨설턴트
+            <img className={classes.reload} src={reload} alt="reload" onClick={getSession} />
+            </h3>
             {sessionLists.map((list, idx) => {
               return (
                 <ConsultantList
@@ -347,7 +361,12 @@ const Consultant = (props) => {
           </div>
         ) : null}
         {backIsClicked && (
-          <ConsultantReview getConsultantId={getConsultantId} setGetConsultantId={setGetConsultantId} setBackIsClicked={setBackIsClicked} />
+          <ConsultantReview
+            setGetSessionStatus={setGetSessionStatus}
+            getConsultantId={getConsultantId}
+            setGetConsultantId={setGetConsultantId}
+            setBackIsClicked={setBackIsClicked}
+          />
         )}
       </div>
     </Fragment>

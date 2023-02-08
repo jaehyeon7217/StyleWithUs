@@ -29,6 +29,7 @@ public class UserDAOImpl implements UserDAO {
     public User updateUser(User user) {
         User temp = userRepository.getById(user.getUserId());
         user.setUserPw(temp.getUserPw());
+        user.setUserRegisterTime(temp.getUserRegisterTime());
         return userRepository.save(user);
     }
 

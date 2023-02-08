@@ -39,8 +39,6 @@ public class User {
     private Integer userThigh;
     private Integer userHem;
     private Integer userFoot;
-    private Integer userAge;
-    private Integer userPc;
 
 }
 

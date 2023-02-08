@@ -159,7 +159,7 @@ public class ConsultantServiceImpl implements ConsultantService {
         consultant.setConsultantGender(consultantDto.getConsultantGender());
         consultant.setConsultantRegisterTime(LocalDateTime.now());
         consultant.setConsultantResume(consultantDto.getConsultantResume());
-        consultant.setConsultantApproval(0);
+        consultant.setConsultantApproval(consultantDto.getConsultantApproval());
 
         return consultant;
     }
@@ -172,7 +172,7 @@ public class ConsultantServiceImpl implements ConsultantService {
         saveDto.setConsultantGender(saveConsultant.getConsultantGender());
         saveDto.setConsultantRegisterTime(saveConsultant.getConsultantRegisterTime());
         saveDto.setConsultantResume(saveConsultant.getConsultantResume());
-        saveDto.setConsultantApproval(0);
+        saveDto.setConsultantApproval(saveConsultant.getConsultantApproval());
         return saveDto;
     }
 }
