@@ -21,7 +21,7 @@ const Consultant = (props) => {
   const dispatch = useDispatch();
 
   // token
-  const userToken = useSelector((state) => state.auth.token)
+  const userToken = useSelector((state) => state.auth.token);
 
   // 유저 아이디
   const userType = useSelector((state) => state.auth.userType);
@@ -221,17 +221,14 @@ const Consultant = (props) => {
   };
 
   const sendLeave = async (sessionId) => {
-    const url = APPLICATION_SERVER_URL + "api/sessions/" + sessionId + "/disconnections"
-    const data = {}
-    const response = await axios.post(
-      url,
-      data,
-      {
-        headers: {
-          Authorization: userToken,
-        },
-      }
-    );
+    const url =
+      APPLICATION_SERVER_URL + "api/sessions/" + sessionId + "/disconnections";
+    const data = {};
+    const response = await axios.post(url, data, {
+      headers: {
+        Authorization: userToken,
+      },
+    });
     return response.data;
   };
 
@@ -241,17 +238,14 @@ const Consultant = (props) => {
   };
 
   const createToken = async (mySessionId) => {
-    const url = APPLICATION_SERVER_URL + "api/sessions/" + mySessionId + "/connections"
-    const data = {}
-    const response = await axios.post(
-      url,
-      data,
-      {
-        headers: {
-          Authorization: userToken,
-        },
-      }
-    );
+    const url =
+      APPLICATION_SERVER_URL + "api/sessions/" + mySessionId + "/connections";
+    const data = {};
+    const response = await axios.post(url, data, {
+      headers: {
+        Authorization: userToken,
+      },
+    });
     // console.log(response.data.token);
     return response.data.token; // The token
   };
@@ -263,15 +257,12 @@ const Consultant = (props) => {
 
   const getSession = async () => {
     setGetSessionStatus(true);
-    const url =  APPLICATION_SERVER_URL + "api/sessions"
-    const response = await axios.get(
-      url,
-      {
-        headers: {
-          Authorization: userToken,
-        },
-      }
-    );
+    const url = APPLICATION_SERVER_URL + "api/sessions";
+    const response = await axios.get(url, {
+      headers: {
+        Authorization: userToken,
+      },
+    });
     // console.log(response.data.data);
     setSessionLists(response.data.data);
   };
@@ -282,6 +273,11 @@ const Consultant = (props) => {
       getSession();
     }
   }, 5000);
+
+  // 세션 종료 후 대기창 원래 상태로
+  useEffect(() => {
+    setSessionLists([])
+  }, [getSessionStatus])
 
   // 메세지를 보내기 위해서 세션을 올려보낸다.
   useEffect(() => {
@@ -347,7 +343,12 @@ const Consultant = (props) => {
           </div>
         ) : null}
         {backIsClicked && (
-          <ConsultantReview getConsultantId={getConsultantId} setGetConsultantId={setGetConsultantId} setBackIsClicked={setBackIsClicked} />
+          <ConsultantReview
+            setGetSessionStatus={setGetSessionStatus}
+            getConsultantId={getConsultantId}
+            setGetConsultantId={setGetConsultantId}
+            setBackIsClicked={setBackIsClicked}
+          />
         )}
       </div>
     </Fragment>
