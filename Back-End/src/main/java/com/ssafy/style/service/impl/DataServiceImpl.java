@@ -77,9 +77,11 @@ public class DataServiceImpl implements DataService {
         int sleeve = userInfo.getUserSleeve();
 
         String URL = "https://www.musinsa.com/categories/item/001?measure=" +
-                "measure_3^" + (should - 2) + "^" + (should + 2) +
-                ",measure_1^" + (chest - 2) + "^" + (chest + 2) +
-                ",measure_2^" + (sleeve - 2) + "^" + (sleeve + 2);
+                "measure_3%5E" + (should - 2) + "%5E" + (should + 2) +
+                "%2Cmeasure_1%5E" + (chest - 2) + "%5E" + (chest + 2) +
+                "%2Cmeasure_2%5E" + (sleeve - 2) + "%5E" + (sleeve + 2);
+
+        System.out.println("URL : " + URL);
 
         return startData(URL, userInfo.getUserGender());
     }
@@ -87,25 +89,42 @@ public class DataServiceImpl implements DataService {
     @Override
     public List<DataDto> getCommendBottomItem(UserDto userInfo) {
 
-        String URL = "https://www.musinsa.com/categories/item/003?"; // 원하는 url
+        int waist = userInfo.getUserWaist();
+        int hip = userInfo.getUserHip();
+        int thigh = userInfo.getUserThigh();
+        int hem = userInfo.getUserHem();
 
-        return null;
+        String URL = "https://www.musinsa.com/categories/item/003?measure=" +
+                "measure_9%5E" + (waist - 2) + "%5E" + (waist + 2) +
+                "%2Cmeasure_8%5E" + (hip - 2) + "%5E" + (hip + 2) +
+                "%2Cmeasure_10%5E" + (thigh - 1) + "%5E" + (thigh + 1)+
+                "%2Cmeasure_6%5E" + (hem - 1) + "%5E" + (hem + 1);
+
+        return startData(URL, userInfo.getUserGender());
     }
 
     @Override
     public List<DataDto> getCommendOuterItem(UserDto userInfo) {
 
-        String URL = "https://www.musinsa.com/categories/item/002?"; // 원하는 url
+        int should = userInfo.getUserShoulder();
+        int chest = userInfo.getUserChest();
+        int sleeve = userInfo.getUserSleeve();
 
-        return null;
+        String URL = "https://www.musinsa.com/categories/item/002?measure=" +
+                "measure_3%5E" + (should - 5) + "%5E" + (should + 5) +
+                "%2Cmeasure_1%5E" + (chest - 5) + "%5E" + (chest + 5) +
+                "%2Cmeasure_2%5E" + (sleeve - 5) + "%5E" + (sleeve + 5); // 원하는 url
+
+        return startData(URL, userInfo.getUserGender());
     }
 
     @Override
     public List<DataDto> getCommendShoesItem(UserDto userInfo) {
 
-        String URL = "https://www.musinsa.com/categories/item/005?"; // 원하는 url
+        String URL = "https://www.musinsa.com/categories/item/005?shoeSizeOption="
+                + userInfo.getUserFoot(); // 원하는 url
 
-        return null;
+        return startData(URL, userInfo.getUserGender());
     }
 
     public List<DataDto> startData(String URL, int gender){
@@ -124,6 +143,12 @@ public class DataServiceImpl implements DataService {
             for(int i=1;i<=90;i++) {
                 if(doc.select("#searchList > li:nth-child("+i+")").toString().equals(""))
                     break;
+
+                if(gender == 1 && !doc.select("#searchList > li:nth-child("+i+") > div.icon_group > ul > li.icon_man.sight_out").toString().equals(""))
+                    continue;
+                if(gender == 0 && !doc.select("#searchList > li:nth-child("+i+") > div.icon_group > ul > li.icon_woman.sight_out").toString().equals(""))
+                    continue;
+
                 DataDto data = new DataDto();
 
                 data.setNo(i);
@@ -136,6 +161,8 @@ public class DataServiceImpl implements DataService {
                 data.setMaker(doc.select("#searchList > li:nth-child("+i+") > div.li_inner > div.article_info > p.item_title > a").text());
                 data.setLink(doc.select("#searchList > li:nth-child("+i+") > div.li_inner > div.article_info > p.list_info > a").attr("abs:href"));
                 data.setTitle(doc.select("#searchList > li:nth-child("+i+") > div.li_inner > div.article_info > p.list_info > a").text());
+
+                System.out.println("asldkjaskldjaiklsdjas : " + doc.select("#searchList > li:nth-child("+i+") > div.li_inner > div.article_info > p.list_info > a").text());
 
                 el = doc.select("#searchList > li:nth-child("+i+") > div.li_inner > div.article_info > p.price > del");
                 if(!el.text().equals("")){
