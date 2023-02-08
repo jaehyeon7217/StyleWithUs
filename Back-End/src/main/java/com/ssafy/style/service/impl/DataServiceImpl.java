@@ -20,7 +20,7 @@ public class DataServiceImpl implements DataService {
 
         String URL = "https://www.musinsa.com/categories/item/" + no; // 원하는 url
 
-        return startData(URL, 1);
+        return startData(URL, 1, 90);
 
     }
 
@@ -77,13 +77,11 @@ public class DataServiceImpl implements DataService {
         int sleeve = userInfo.getUserSleeve();
 
         String URL = "https://www.musinsa.com/categories/item/001?measure=" +
-                "measure_3%5E" + (should - 2) + "%5E" + (should + 2) +
-                "%2Cmeasure_1%5E" + (chest - 2) + "%5E" + (chest + 2) +
-                "%2Cmeasure_2%5E" + (sleeve - 2) + "%5E" + (sleeve + 2);
+                "measure_3%5E" + (should - 5) + "%5E" + (should + 5) +
+                "%2Cmeasure_1%5E" + (chest - 5) + "%5E" + (chest + 5) +
+                "%2Cmeasure_2%5E" + (sleeve - 5) + "%5E" + (sleeve + 5);
 
-        System.out.println("URL : " + URL);
-
-        return startData(URL, userInfo.getUserGender());
+        return startData(URL, userInfo.getUserGender(), 20);
     }
 
     @Override
@@ -94,13 +92,13 @@ public class DataServiceImpl implements DataService {
         int thigh = userInfo.getUserThigh();
         int hem = userInfo.getUserHem();
 
-        String URL = "https://www.musinsa.com/categories/item/003?measure=" +
-                "measure_9%5E" + (waist - 2) + "%5E" + (waist + 2) +
-                "%2Cmeasure_8%5E" + (hip - 2) + "%5E" + (hip + 2) +
-                "%2Cmeasure_10%5E" + (thigh - 1) + "%5E" + (thigh + 1)+
-                "%2Cmeasure_6%5E" + (hem - 1) + "%5E" + (hem + 1);
+        String URL = "https://www.musinsa.com/categories/item/003"
+                + "?measure=measure_9%5E" + (waist - 5) + "%5E" + (waist + 5)
+              + "%2Cmeasure_8%5E" + (hip - 5) + "%5E" + (hip + 5) +
+                "%2Cmeasure_10%5E" + (thigh - 5) + "%5E" + (thigh + 5)+
+                "%2Cmeasure_6%5E" + (hem - 5) + "%5E" + (hem + 5);
 
-        return startData(URL, userInfo.getUserGender());
+        return startData(URL, userInfo.getUserGender(), 20);
     }
 
     @Override
@@ -111,11 +109,11 @@ public class DataServiceImpl implements DataService {
         int sleeve = userInfo.getUserSleeve();
 
         String URL = "https://www.musinsa.com/categories/item/002?measure=" +
-                "measure_3%5E" + (should - 5) + "%5E" + (should + 5) +
-                "%2Cmeasure_1%5E" + (chest - 5) + "%5E" + (chest + 5) +
-                "%2Cmeasure_2%5E" + (sleeve - 5) + "%5E" + (sleeve + 5); // 원하는 url
+                "measure_3%5E" + (should - 8) + "%5E" + (should + 8) +
+                "%2Cmeasure_1%5E" + (chest - 8) + "%5E" + (chest + 8) +
+                "%2Cmeasure_2%5E" + (sleeve - 8) + "%5E" + (sleeve + 8); // 원하는 url
 
-        return startData(URL, userInfo.getUserGender());
+        return startData(URL, userInfo.getUserGender(), 20);
     }
 
     @Override
@@ -124,29 +122,32 @@ public class DataServiceImpl implements DataService {
         String URL = "https://www.musinsa.com/categories/item/005?shoeSizeOption="
                 + userInfo.getUserFoot(); // 원하는 url
 
-        return startData(URL, userInfo.getUserGender());
+        return startData(URL, userInfo.getUserGender(),20);
     }
 
-    public List<DataDto> startData(String URL, int gender){
+    public List<DataDto> startData(String URL, int gender, int flag){
 
         Document doc;
         List<DataDto> list = new ArrayList<>();
 
         try {
+            System.setProperty("https.protocols","TLSv1.2");
             doc = Jsoup.connect(URL)
                     .userAgent("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/33.0.1750.152 Safari/537.36")
+                    .maxBodySize(0)
                     .get(); // 원하는 url에서 전체 구조를 받아온다
 
-            if(doc.select("#searchList > li:nth-child(1)").toString().equals(""))
+            if(doc.select("#searchList > li:nth-child(1)").toString().equals("")) {
                 return null;
+            }
 
-            for(int i=1;i<=90;i++) {
+            for(int i=1;i<=flag;i++) {
                 if(doc.select("#searchList > li:nth-child("+i+")").toString().equals(""))
                     break;
 
-                if(gender == 1 && !doc.select("#searchList > li:nth-child("+i+") > div.icon_group > ul > li.icon_man.sight_out").toString().equals(""))
+                if(gender == 1 && doc.select("#searchList > li:nth-child("+i+") > div.icon_group > ul > li.icon_man.sight_out").toString().equals(""))
                     continue;
-                if(gender == 0 && !doc.select("#searchList > li:nth-child("+i+") > div.icon_group > ul > li.icon_woman.sight_out").toString().equals(""))
+                if(gender == 0 && doc.select("#searchList > li:nth-child("+i+") > div.icon_group > ul > li.icon_woman.sight_out").toString().equals(""))
                     continue;
 
                 DataDto data = new DataDto();
@@ -162,7 +163,6 @@ public class DataServiceImpl implements DataService {
                 data.setLink(doc.select("#searchList > li:nth-child("+i+") > div.li_inner > div.article_info > p.list_info > a").attr("abs:href"));
                 data.setTitle(doc.select("#searchList > li:nth-child("+i+") > div.li_inner > div.article_info > p.list_info > a").text());
 
-                System.out.println("asldkjaskldjaiklsdjas : " + doc.select("#searchList > li:nth-child("+i+") > div.li_inner > div.article_info > p.list_info > a").text());
 
                 el = doc.select("#searchList > li:nth-child("+i+") > div.li_inner > div.article_info > p.price > del");
                 if(!el.text().equals("")){
