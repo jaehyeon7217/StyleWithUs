@@ -1,9 +1,44 @@
-@font-face{
-  font-family: "SF_Pro";
-  src: url("../../fonts/SF-Pro-Display-Regular.otf");
+@font-face {
+  font-family: "Apple_Gothic_Neo_Hard";
+  src: url("../../fonts/AppleSDGothicNeoH.ttf");
 }
 
-.section1, .section2, .section3, .section4 {
+@font-face {
+  font-family: "Apple_Gothic_Neo_Bold";
+  src: url("../../fonts/AppleSDGothicNeoB.ttf");
+}
+
+@font-face {
+  font-family: "Apple_Gothic_Neo_SB";
+  src: url("../../fonts/AppleSDGothicNeoSB.ttf");
+}
+
+@font-face {
+  font-family: "Apple_Gothic_Neo_Light";
+  src: url("../../fonts/AppleSDGothicNeoL.ttf");
+}
+
+@font-face {
+  font-family: "Apple_Gothic_Neo_Middle";
+  src: url("../../fonts/AppleSDGothicNeoM.ttf");
+}
+
+.main-page {
+  position: relative;
+}
+
+.section1,
+.section2,
+.section3,
+.section4,
+.section5,
+.section6,
+.section7,
+.section8,
+.section9,
+.section10,
+.section11,
+.section12 {
   height: 100vh;
 }
 
@@ -11,4 +46,684 @@
   position: fixed;
   bottom: 10px;
   right: 10px;
+}
+
+.section1 {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex-direction: column;
+  padding-left: 200px;
+  height: calc(100vh - 80px);
+}
+
+.section1 h1,
+.section1 p {
+  display: inline-block;
+}
+
+.section1 h1 {
+  font-family: "Apple_Gothic_Neo_Bold";
+  font-size: 90px;
+  line-height: 90px;
+  margin-top: 0;
+  margin-bottom: 20px;
+  letter-spacing: 5px;
+}
+
+.section1 p {
+  margin-top: 0;
+}
+
+.section1-p1 {
+  font-family: "Apple_Gothic_Neo_SB";
+  font-size: 35px;
+  margin-bottom: 10px;
+}
+
+.section1-p2 {
+  font-family: "Apple_Gothic_Neo_Middle";
+  font-size: 25px;
+  margin-bottom: 30px;
+}
+
+.btn {
+  display: flex;
+  align-items: center;
+}
+
+.btn button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 150px;
+  padding: 13px 20px;
+  margin-right: 30px;
+  border-radius: 13px;
+  background-color: white;
+  border: 1.5px solid black;
+  transition: all 0.15s;
+  box-sizing: border-box;
+}
+
+.btn button:hover {
+  cursor: pointer;
+  background-color: rgb(202, 202, 202);
+  border: 1.5px solid rgb(202, 202, 202);
+}
+
+.btn button:hover a {
+  color: white;
+}
+
+.btn button:hover span {
+  color: white;
+}
+
+.btn button a {
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: 600;
+  font-family: "Apple_Gothic_Neo_Middle";
+  color: black;
+}
+
+
+
+.section2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: white;
+  transition: background-color 0.5s 0.4s;
+}
+
+.section2.on {
+  background-color: #4caaff;
+}
+
+.section2 p {
+  color: white;
+  font-size: 60px;
+  font-family: "Apple_Gothic_Neo_Hard";
+  letter-spacing: 1.5px;
+  margin-bottom: 10px;
+}
+
+.section2-p1 {
+  margin-top: 100px;
+  opacity: 0;
+  transition: all 0.8s 0.6s;
+}
+
+.section2-p1.on {
+  margin-top: 0;
+  opacity: 1;
+}
+
+.section2-p2 {
+  margin-top: 100px;
+  opacity: 0;
+  transition: all 0.8s 1.5s;
+}
+
+.section2-p2.on {
+  margin-top: 0;
+  opacity: 1;
+}
+
+.section3 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.section3 .right,
+.section3 .left {
+  width: 35%;
+}
+
+.section3-h2 {
+  font-family: "Apple_Gothic_Neo_Hard";
+  font-size: 40px;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.section3 p {
+  margin: 0;
+  font-size: 30px;
+  font-family: "Apple_Gothic_Neo_Bold";
+  font-weight: 600;
+}
+
+.section3 .section3-p4 {
+  font-family: "Apple_Gothic_Neo_Light";
+  font-weight: 300;
+  font-size: 19px;
+  line-height: 30px;
+  margin-top: 40px;
+}
+
+.section3 .left {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.section3 .left img:nth-of-type(1) {
+  width: 40%;
+  height: auto;
+}
+
+.section3 .left img:nth-of-type(2) {
+  width: 34%;
+  transform: scaleX(-1);
+}
+
+.section3 .left img:nth-of-type(3) {
+  margin-top: -30px;
+  margin-left: -50px;
+  width: 21%;
+}
+
+.section4 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.section4 .right,
+.section4 .left {
+  width: 50%;
+  height: 100%;
+}
+
+.section4 .right,
+.section4 .left {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  transition: background-color 0.5s 0.4s;
+}
+
+.section4 .right.on {
+  background-color: #fffa7b;
+}
+
+.section4 .left.on {
+  background-color: #49a9ff;
+}
+
+.section4 .right img {
+  width: 50%;
+}
+
+.section4 .left img {
+  width: 50%;
+  transform: scaleX(-1);
+}
+
+.section4-h1 {
+  font-family: "Apple_Gothic_Neo_SB";
+  font-size: 50px;
+  margin: 0 0 20px;
+}
+
+.section4-p1 {
+  font-family: "Apple_Gothic_Neo_Middle";
+  font-size: 22px;
+  margin: 0 0 20px;
+}
+
+.section5 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.section5 .right,
+.section5 .left {
+  width: 35%;
+  position: relative;
+}
+
+.section5-h2 {
+  font-family: "Apple_Gothic_Neo_Hard";
+  font-size: 40px;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.section5 p {
+  margin: 0;
+  font-size: 30px;
+  font-family: "Apple_Gothic_Neo_Bold";
+  font-weight: 600;
+}
+
+.section5 .section3-p4 {
+  font-family: "Apple_Gothic_Neo_Light";
+  font-weight: 300;
+  font-size: 19px;
+  line-height: 30px;
+  margin-top: 40px;
+}
+
+.section5 .right img {
+  width: 15%;
+  position: absolute;
+  top: 7%;
+  right: 25%;
+}
+
+.section5 .left {
+  display: flex;
+  justify-content: center;
+}
+
+.section5 .left img:nth-of-type(1) {
+  transform: scaleX(-1);
+  width: 40%;
+  margin-left: 50px;
+}
+
+.section5 .left img:nth-of-type(2) {
+  top: -25%;
+  left: 18%;
+  width: 20%;
+  position: absolute;
+}
+.section5 .left img:nth-of-type(3) {
+  top: -15%;
+  left: 33.5%;
+  width: 40%;
+  position: absolute;
+}
+.section5 .left img:nth-of-type(4) {
+  top: -11%;
+  right: 12%;
+  width: 15%;
+  position: absolute;
+}
+.section5 .left img:nth-of-type(5) {
+  top: -45%;
+  left: 50%;
+  width: 18%;
+  position: absolute;
+}
+
+.section6 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: white;
+  transition: background-color 0.5s 0.4s;
+}
+
+.section6.on {
+  background-color: #ffa1a1;
+}
+
+.section6-p1 {
+  color: white;
+  font-size: 55px;
+  font-family: "Apple_Gothic_Neo_Hard";
+  margin-top: 0;
+  margin-bottom: 100px;
+  opacity: 0;
+  transition: all ease 1.5s 0.5s;
+}
+
+.section6-p2 {
+  color: white;
+  font-size: 30px;
+  font-family: "Apple_Gothic_Neo_Middle";
+  margin-top: 50px;
+  margin-bottom: 60px;
+  opacity: 0;
+  transition: all ease 1.5s;
+}
+
+.section6-p1.on {
+  margin-bottom: 10px;
+  opacity: 1;
+}
+
+.section6-p2.on {
+  margin-top: 0;
+  opacity: 1;
+}
+
+.section6 img:nth-of-type(1) {
+  width: 20%;
+}
+
+.section7 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.section7 .right,
+.section7 .left {
+  width: 35%;
+  position: relative;
+}
+
+.section7-h2 {
+  font-family: "Apple_Gothic_Neo_Hard";
+  font-size: 40px;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.section7 p {
+  margin: 0;
+  font-size: 30px;
+  font-family: "Apple_Gothic_Neo_Bold";
+  font-weight: 600;
+}
+
+.section7 .section7-p3 {
+  font-family: "Apple_Gothic_Neo_Light";
+  font-weight: 300;
+  font-size: 19px;
+  line-height: 30px;
+  margin-top: 40px;
+}
+
+.section7 .left img:nth-of-type(1) {
+  width: 30%;
+}
+.section7 .left img:nth-of-type(2) {
+  width: 40%;
+  transform: rotate(-15deg);
+  margin-left: 30px;
+}
+.section7 .left img:nth-of-type(3) {
+  width: 35%;
+  margin-bottom: 50px;
+}
+.section7 .left img:nth-of-type(4) {
+  width: 45%;
+  transform: rotate(20deg);
+}
+
+
+
+.section8 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: white;
+  transition: background-color 0.5s 0.4s;
+}
+
+.section8.on {
+  background-color: #fe9901;
+}
+
+.section8-p1,
+.section8-p2 {
+  color: white;
+  font-size: 55px;
+  font-family: "Apple_Gothic_Neo_Hard";
+  margin-top: 0;
+  margin-bottom: 100px;
+  opacity: 0;
+  transition: all ease 1.5s 0.5s;
+}
+
+.section8-p2 {
+  margin-bottom: 150px;
+  transition: all ease 1s 1s;
+}
+
+.section8-p3 {
+  color: white;
+  font-size: 30px;
+  font-family: "Apple_Gothic_Neo_Middle";
+  margin-top: 50px;
+  margin-bottom: 60px;
+  opacity: 0;
+  transition: all ease 1.5s 1s;
+}
+
+.section8-p1.on {
+  margin-bottom: 0px;
+  opacity: 1;
+}
+
+.section8-p2.on {
+  margin-bottom: 50px;
+  opacity: 1;
+}
+
+.section8-p3.on {
+  margin-top: 0;
+  opacity: 1;
+}
+
+.section8 .bottom {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 80%;
+  opacity: 0;
+  transition: all ease 0.5s 1.5s;
+}
+
+.section8.on .bottom {
+  opacity: 1;
+}
+
+.section8 .bottom .loading {
+  width: 15%;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.section8 .bottom .loading span {
+  display: block;
+  width: 15px;
+  height: 15px;
+  background-color: white;
+  border-radius: 50%;
+}
+
+.section8 .bottom img:nth-of-type(1) {
+  width: 15%;
+}
+.section8 .bottom img:nth-of-type(2) {
+  width: 15%;
+}
+.section8 .bottom img:nth-of-type(3) {
+  width: 15%;
+}
+
+
+
+.section9 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.section9 .right,
+.section9 .left {
+  width: 35%;
+  position: relative;
+}
+
+.section9-h2 {
+  font-family: "Apple_Gothic_Neo_Hard";
+  font-size: 40px;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.section9 p {
+  margin: 0;
+  font-size: 30px;
+  font-family: "Apple_Gothic_Neo_Bold";
+  font-weight: 600;
+}
+
+.section9 .section9-p3 {
+  font-family: "Apple_Gothic_Neo_Light";
+  font-weight: 300;
+  font-size: 19px;
+  line-height: 30px;
+  margin-top: 40px;
+}
+
+.section9 .left img:nth-of-type(1) {
+  position: absolute;
+  top: 25%;
+  right: 0;
+  width: 40%;
+}
+
+.section9 .left img:nth-of-type(2) {
+  width: 100%;
+  margin-top: 50%;
+  bottom: 0;
+}
+
+
+
+.section10 {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: white;
+  transition: background-color 0.5s 0.4s;
+}
+
+.section10.on {
+  background-color: #1CC64C;
+}
+
+.section10-p1 {
+  color: white;
+  font-size: 55px;
+  font-family: "Apple_Gothic_Neo_Hard";
+  margin-left: 100px;
+  opacity: 0;
+  transition: all ease 1.5s 0.5s;
+}
+
+.section10-p2, .section10-p3 {
+  color: white;
+  font-size: 30px;
+  font-family: "Apple_Gothic_Neo_Middle";
+  margin: 0 0 10px;
+  margin-right: 100px;
+  opacity: 0;
+  transition: all ease 1.5s 1s;
+}
+
+.section10-p1.on {
+  margin-left: 0px;
+  opacity: 1;
+}
+
+.section10-p2.on {
+  margin-right: 0;
+  opacity: 1;
+}
+
+.section10-p3.on {
+  margin-right: 0;
+  opacity: 1;
+}
+
+.section10 .bottom {
+  position: relative;
+  width: 100%;
+  height: 50%;
+  opacity: 0;
+  transition: all ease 1s 1.5s;
+}
+
+.section10.on .bottom {
+  opacity: 1;
+}
+
+.section10 img:nth-of-type(1) {
+  width: 40%;
+  position: absolute;
+  bottom: -50px;
+}
+
+.section10 img:nth-of-type(2) {
+  width: 15%;
+  position: absolute;
+  top: 10%;
+  right: 30%;
+  transform: rotate(-15deg);
+}
+
+.section10 img:nth-of-type(3) {
+  width: 15%;
+  position: absolute;
+  top: 20%;
+  right: 12%;
+  transform: rotate(20deg);
+}
+
+.section10 img:nth-of-type(4) {
+  width: 10%;
+  position: absolute;
+  top: 50%;
+  right: 25%;
+}
+
+
+
+
+.section11 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: white;
+  transition: background-color 0.5s 0.4s;
+}
+
+.section11.on {
+  background-color: #4caaff;
+}
+
+.section11 p {
+  color: white;
+  font-size: 60px;
+  font-family: "Apple_Gothic_Neo_Hard";
+  letter-spacing: 1.5px;
+  margin: 0;
+}
+
+.section11-p1 {
+  opacity: 0;
+  transition: all 0.8s 0.6s;
+}
+
+.section11-p1.on {
+  opacity: 1;
+}
+
+.section11-p2 {
+  opacity: 0;
+  transition: all 0.8s 1.5s;
+}
+
+.section11-p2.on {
+  opacity: 1;
 }
