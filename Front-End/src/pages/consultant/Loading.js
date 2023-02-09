@@ -8,7 +8,7 @@ import Consultant from './Consultant';
 const Loading = () => {
   const [loading, setLoading] = useState(true);
   useEffect(() => {
-    setTimeout(() => setLoading(false), 3000);
+    setTimeout(() => setLoading(false), 2000);
   }, []);
 
   return loading ? (
@@ -24,6 +24,7 @@ const Loading = () => {
       </div>
       <div className={classes["loading-text"]}>
         <h1>스타일 변신하기 준비 중</h1>
+        <h1>상담중에는 기능이 제한 될 수 있습니다.</h1>
       </div>
     </div>
   ) : (

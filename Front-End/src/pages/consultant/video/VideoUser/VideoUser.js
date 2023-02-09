@@ -11,6 +11,7 @@ import Video from "../Video";
 import { chatActions } from "../../../../store/chat";
 import Swal from "sweetalert2";
 import reload from '../../../../assets/reload.png';
+import { authActions } from "../../../../store/auth";
 
 const APPLICATION_SERVER_URL =
   process.env.NODE_ENV === "production"
@@ -192,6 +193,7 @@ const Consultant = (props) => {
     if (mySession) {
       sendLeave(mySessionId);
       mySession.disconnect();
+      dispatch(authActions.endConsulting(false))
     }
 
     // Empty all properties...
