@@ -10,13 +10,24 @@ const NotFound = () =>{
   }
 
   return(
-    <div className={classes.notfoundBox}>
-      <h1>404 ERROR</h1>
-      <br />
-      <p>죄송합니다. 페이지를 찾을 수 없습니다.</p>
-      <p>존재하지 않는 주소를 입력하셨거나</p>
-      <p>요청하신 페이지의 주소가 변경, 삭제되어 찾을 수 없습니다.</p>
-      <button onClick={toHome}>홈으로</button>
+    <div className={classes["section1"]}>
+      <h1>
+        404
+        <br />
+        Not
+        <br />
+        Found
+      </h1>
+      <p className={classes["section1-p1"]}>죄송합니다. 페이지를 찾을 수 없습니다.</p>
+      <p className={classes["section1-p2"]}>
+        존재하지 않는 주소를 입력하셨거나 <br/>
+        요청하신 페이지의 주소가 변경, 삭제되어 찾을 수 없습니다.
+      </p>
+      <div className={classes.btn}>
+        <button onClick={toHome}>
+          <span className={classes['button-span']}>홈으로</span>
+        </button>
+      </div>
     </div>
   )
 }
