@@ -5,6 +5,8 @@ import { Navigate, useNavigate } from "react-router-dom";
 import ButtonBox from "./ButtonBox";
 import classes from "../Home/Home.module.css";
 
+import section1Video from "../../assets/mainPage/section1.mp4";
+
 import section3Image1 from "../../assets/mainPage/소개팅남.png"
 import section3Image2 from "../../assets/mainPage/소개팅녀.png"
 import section3Image3 from "../../assets/mainPage/생각말풍선.png"
@@ -128,27 +130,32 @@ const Home = () => {
     <div id="main-page" className={classes["main-page"]}>
       <ButtonBox pageNumber={pageNumber} buttonMove={ButtonMove} topMoveHandler={TopMoveHandler}/>
       <div className={classes["section1"]}>
-        <h1>
-          STYLE
-          <br />
-          WITH
-          <br />
-          US
-        </h1>
-        <p className={classes["section1-p1"]}>스타일 추천의 INOVATION</p>
-        <p className={classes["section1-p2"]}>스타일 혁신의 가장 확실한 방법</p>
-        {isLogIn ? "": <div className={classes.btn}>
-          <button onClick={LoginHandler}>
-            <span className={classes['button-span']}>로그인</span>
-            &nbsp;&nbsp;
-            <span className="material-symbols-outlined">login</span>
-          </button>
-          <button onClick={SignUpHandler}>
-            <span className={classes['button-span']}>회원가입</span>
-            &nbsp;&nbsp;
-            <span className="material-symbols-outlined">person_add</span>
-          </button>
-        </div>}
+        <div className={classes.right}>
+          <h1>
+            STYLE
+            <br />
+            WITH
+            <br />
+            US
+          </h1>
+          <p className={classes["section1-p1"]}>스타일 추천의 INOVATION</p>
+          <p className={classes["section1-p2"]}>스타일 혁신의 가장 확실한 방법</p>
+          {isLogIn ? "": <div className={classes.btn}>
+            <button onClick={LoginHandler}>
+              <span className={classes['button-span']}>로그인</span>
+              &nbsp;&nbsp;
+              <span className="material-symbols-outlined">login</span>
+            </button>
+            <button onClick={SignUpHandler}>
+              <span className={classes['button-span']}>회원가입</span>
+              &nbsp;&nbsp;
+              <span className="material-symbols-outlined">person_add</span>
+            </button>
+          </div>}
+        </div>
+        <div className={classes.left}>
+          <video src={section1Video} autoPlay="autoplay" muted="muted" loop="10"></video>
+        </div>
       </div>
       <div className={pageNumber !== 2? classes["section2"] : `${classes["section2"]} ${classes.on}`}>
         <p className={pageNumber !== 2? classes["section2-p1"] : `${classes["section2-p1"]} ${classes.on}`}>스타일 추천은</p>
