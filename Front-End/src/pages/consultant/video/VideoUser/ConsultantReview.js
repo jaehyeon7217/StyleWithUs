@@ -1,9 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import classes from "./ConsultantReview.module.css";
 import axios from "axios";
-import { DataInput } from "./reviewinput/ReviewInput";
 import { useSelector } from "react-redux";
-import InputLabel from "./reviewinput/ReviewInputLabel";
 import StarRating from "./reviewinput/StarRating";
 
 const APPLICATION_SERVER_URL =
@@ -43,7 +41,8 @@ const ConsultantReview = (props) => {
   const userId = useSelector((state) => state.auth.userId);
 
   const [review, setReview] = useState("");
-  const [reviewScore, setReviewScore, reviewScoreError] = DataInput(undefined);
+  // const [reviewScore, setReviewScore, reviewScoreError] = DataInput(undefined);
+  const [reviewScore, setReviewScore] = useState(5);
 
   const onSubmitHandler = async (event) => {
     event.preventDefault();
@@ -76,13 +75,19 @@ const ConsultantReview = (props) => {
         },
       }
     );
-    console.log(response.data);
+    // console.log(response.data);
     return response.data;
   };
 
   const onInputHandler = (event) => {
     setReview(event.target.value);
   };
+
+  const onReviewScoreHandler = (reviewScore) => {
+    setReviewScore(reviewScore);
+  };
+
+  useEffect(() => {}, [reviewScore]);
 
   return (
     <div>
@@ -93,18 +98,7 @@ const ConsultantReview = (props) => {
       >
         <h1>컨설턴트 리뷰</h1>
         <div>
-          <StarRating />
-          <InputLabel
-            label="점수"
-            type="number"
-            value={reviewScore}
-            placeholder="0.1 ~ 5.0 숫자를 입력해주세요"
-            onChange={setReviewScore}
-            min="0.1"
-            max="5.0"
-            step="0.1"
-            errorMessage={reviewScoreError ? "" : "0.1 ~ 5.0"}
-          />
+          <StarRating onReviewScore={onReviewScoreHandler} />
         </div>
         <div>
           <p>후기</p>
@@ -118,13 +112,9 @@ const ConsultantReview = (props) => {
             onInput={onInputHandler}
           ></textarea>
         </div>
-        {reviewScore && <div className={classes.button}>
-          <input
-            disabled={!reviewScoreError}
-            type="submit"
-            value="리뷰 작성하기"
-          />
-        </div>}
+        <div className={classes.button}>
+          <input type="submit" value="리뷰 작성하기" />
+        </div>
       </form>
     </div>
   );

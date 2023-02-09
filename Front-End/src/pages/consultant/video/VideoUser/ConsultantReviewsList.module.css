@@ -1,0 +1,6 @@
+.star-yellow {
+    cursor: pointer;
+    width: 25px;
+    height: 25px;
+    transition: color 200ms;
+}
