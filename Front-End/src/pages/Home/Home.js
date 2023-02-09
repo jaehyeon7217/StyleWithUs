@@ -63,7 +63,6 @@ const Home = () => {
   }, [])
 
   useEffect(() => {
-    console.log(scrollMoveControll);
     if (scrollMoveControll !== 0) {
       if (scrollMoveControll >= 100) {
         if (pageNumber + 1 <= lastPageNumber) {
@@ -105,9 +104,13 @@ const Home = () => {
   };
 
   const ButtonMove = (num) => {
-    MoveHandler(num);
-    console.log(pageNumber);
-    setPageNumber(num);
+    if (Number(num) === 1) {
+      TopMoveHandler();
+      setPageNumber(Number(num));
+    } else {
+      MoveHandler(Number(num));
+      setPageNumber(Number(num));
+    }
   };
 
   return (
