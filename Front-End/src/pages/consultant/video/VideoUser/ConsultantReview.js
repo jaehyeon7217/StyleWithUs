@@ -4,6 +4,7 @@ import axios from "axios";
 import { DataInput } from "./reviewinput/ReviewInput";
 import { useSelector } from "react-redux";
 import InputLabel from "./reviewinput/ReviewInputLabel";
+import StarRating from "./reviewinput/StarRating";
 
 const APPLICATION_SERVER_URL =
   process.env.NODE_ENV === "production" ? "" : "https://i8d105.p.ssafy.io/be/";
@@ -92,6 +93,7 @@ const ConsultantReview = (props) => {
       >
         <h1>컨설턴트 리뷰</h1>
         <div>
+          <StarRating />
           <InputLabel
             label="점수"
             type="number"
