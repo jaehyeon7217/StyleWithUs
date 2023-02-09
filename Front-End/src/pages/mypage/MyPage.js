@@ -8,6 +8,8 @@ import MyPageSideBar from './MyPageSideBar';
 import MyWishItemBig from './MyWishItemBig';
 import userImg from "../../assets/userimg.png";
 import { useEffect } from 'react';
+import userMan from '../../assets/footermantwo.png';
+import userWoman from '../../assets/footerwoman.png';
 
 
 const MyPage = () =>{
@@ -76,8 +78,8 @@ const MyPage = () =>{
               <h3 className={classes.MainLabel}>회원 정보</h3>
               <div className={classes.MyInformBackground}>
                 <div className={classes.MyInformUserCircle}>
-                  
-                <img src={userImg} alt="" className={classes.userImg}/>
+                <p >{(userData.userGender ? <img src={userMan} className={classes.userImgetwo} /> : <img src={userWoman} className={classes.userImge} />)}</p>
+                {/* <img src={userImg} alt="" className={classes.userImg}/> */}
                   </div>
                 <div className={classes.MyInformLetter}>
                   <p className={classes.MyInformNickName}>{userData.userNickname}</p>
@@ -96,8 +98,8 @@ const MyPage = () =>{
                   <h3 className={classes.MainLabel}>나의 스타일</h3>
                   <div className={classes.MyBodyBackground}>
                     <div className={classes.MyBodyItemBox}>
-                      <p className={classes.MyBodyItemLabel}>상체</p>
-                      <p className={classes.MyBodyItemDap}>{(userData.userGender ? "남" : "여")}</p>
+                      <p className={classes.MyBodyLabel}>상체</p>
+                  
                     </div>
                     <div className={classes.vLine}></div>
                     <div className={classes.MyBodyItemBox}>
@@ -119,24 +121,23 @@ const MyPage = () =>{
                   </div>
               <div className={classes.MyBodyBackground}>
                 <div className={classes.MyBodyItemBox}>
-                  <p className={classes.MyBodyItemLabel}>하체</p>
-                  <p className={classes.MyBodyItemDap}>{(userData.userGender ? "남" : "여")}</p>
+                  <p className={classes.MyBodyLabel}>하체</p>
                 </div>
                 <div className={classes.vLine}></div>
                 <div className={classes.MyBodyItemBox}>
-                  <p className={classes.MyBodyItemLabel}>허리단면</p>
+                  <p className={classes.MyBodyItemLabel}>허리</p>
                   <p className={classes.MyBodyItemDap}>{userData.userWaist}</p>
                 </div>
                 <div className={classes.MyBodyItemBox}>
-                  <p className={classes.MyBodyItemLabel}>엉덩이단면</p>
+                  <p className={classes.MyBodyItemLabel}>엉덩이</p>
                   <p className={classes.MyBodyItemDap}>{userData.userHip}</p>
                 </div>
                 <div className={classes.MyBodyItemBox}>
-                  <p className={classes.MyBodyItemLabel}>허벅지단면</p>
+                  <p className={classes.MyBodyItemLabel}>허벅지</p>
                   <p className={classes.MyBodyItemDap}>{userData.userThigh}</p>
                 </div>
                 <div className={classes.MyBodyItemBox}>
-                  <p className={classes.MyBodyItemLabel}>밑단단면</p>
+                  <p className={classes.MyBodyItemLabel}>밑단</p>
                   <p className={classes.MyBodyItemDap}>{userData.userHem}</p>
                 </div>
                 <div className={classes.MyBodyItemBox}>

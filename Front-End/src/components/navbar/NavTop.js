@@ -4,6 +4,7 @@ import Swal from "sweetalert2"
 
 import classes from "./NavTop.module.css"
 import { useNavigate } from "react-router-dom"
+import wishcart from '../../assets/wishcart.png'
 
 const NavTop = () =>{
   const navigate = useNavigate();
@@ -23,9 +24,9 @@ const NavTop = () =>{
     navigate('/mypage')
   }
 
-  const toServie = (event) => {
+  const toWishPage = (event) => {
     event.preventDefault();
-    navigate('/servicecenter')
+    navigate('/mypagewish')
   }
 
 
@@ -46,7 +47,7 @@ const NavTop = () =>{
     <div className={classes.top}>
       <p className={(isLogined ? classes.LinkTopHidden : classes.LinkTop)} onClick={toLogin}>로그인</p>
       <p className={(isLogined ? classes.LinkTopHidden : classes.LinkTop)} onClick={toSignup}>회원가입</p>
-      <p className={(!isLogined ? classes.LinkTopHidden : classes.LinkTop)} onClick={toServie}>고객센터</p>
+      <p className={(!isLogined ? classes.LinkTopHidden : classes.LinkTop)} onClick={toWishPage}><img src={wishcart} className={classes.wishcart} /></p>
       <p className={(!isLogined ? classes.LinkTopHidden : classes.LinkTop)} onClick={toMypage}>마이페이지</p>
       <p className={(!isLogined ? classes.LinkTopHidden : classes.LinkTop)} onClick={toLogout}>로그아웃</p>
     </div>
