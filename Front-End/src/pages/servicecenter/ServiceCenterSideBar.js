@@ -10,6 +10,11 @@ const ServiceCenterSideBar = () => {
         navigate('/servicecenter')
     }
 
+    const MyPage = (event) => {
+        event.preventDefault();
+        navigate('/mypage')
+    }
+
 
     return(
         <div>
