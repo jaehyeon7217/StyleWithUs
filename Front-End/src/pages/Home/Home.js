@@ -41,8 +41,6 @@ import section10Image1 from "../../assets/mainPage/쓰레기더미.png"
 import section10Image2 from "../../assets/mainPage/버려지는옷1.png"
 import section10Image3 from "../../assets/mainPage/버려지는옷2.png"
 import section10Image4 from "../../assets/mainPage/버려지는신발.png"
-import { logDOM } from "@testing-library/react";
-
 
 
 const Home = () => {
@@ -65,8 +63,9 @@ const Home = () => {
   }, [])
 
   useEffect(() => {
+    console.log(scrollMoveControll);
     if (scrollMoveControll !== 0) {
-      if (scrollMoveControll === 100) {
+      if (scrollMoveControll >= 100) {
         if (pageNumber + 1 <= lastPageNumber) {
           MoveHandler(pageNumber + 1);
           setPageNumber((prevState) => {
