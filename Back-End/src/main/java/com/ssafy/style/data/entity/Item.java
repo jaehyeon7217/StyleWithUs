@@ -24,7 +24,7 @@ public class Item implements Serializable {
     private User userId;
     @Column(nullable = false)
     private String itemImgLink;
-    @Column(nullable = false, length = 20)
+    @Column(nullable = false, length = 200)
     private String itemName;
     @Column(nullable = false, length = 1024)
     private String itemUri;
