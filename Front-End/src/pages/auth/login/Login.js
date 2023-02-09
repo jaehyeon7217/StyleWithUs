@@ -60,6 +60,18 @@ const Login = () => {
           } else {
             if (response.data.data.consultantApproval === 1) {
               dispatch(authActions.consultantLogin(response.data));
+                axios.get(
+                  "https://i8d105.p.ssafy.io/be/review/show/" + response.data.data.consultantId,
+                  {
+                    headers:{
+                      Authorization : response.data.auth_token
+                    }
+                  }
+                ).then((response2)=>{
+                  dispatch(authActions.getMyReview(response2.data.data))
+                }).catch((error)=>{
+                  console.log(error);
+                })
               navigate("/");
             }
             else {
