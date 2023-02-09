@@ -6,17 +6,14 @@ import com.ssafy.style.data.entity.User;
 import java.util.Map;
 
 public interface UserService {
-    UserDto insertUser(UserDto userDto) throws Exception;
-    UserDto selectUser(UserDto userDto)  throws Exception;
+    UserDto registerUser(UserDto userDto) throws Exception;
+    UserDto loginUser(UserDto userDto)  throws Exception;
     UserDto updateUser(UserDto userDto)  throws Exception;
-    void deleteUser(UserDto userDto) throws Exception;
     boolean validId(String userId);
     boolean validEmail(String userEmail);
     boolean validNickname(String userNickname);
     UserDto getById(String userId);
-    String changePw(Map<String, String> userInfo) throws Exception;
-
+    String updatePassword(Map<String, String> userInfo) throws Exception;
     boolean matchIdAndEmail(String userId, String userEmail);
-
-    void changePwById(Map<String, String> userInfo);
+    void updatePwById(Map<String, String> userInfo);
 }

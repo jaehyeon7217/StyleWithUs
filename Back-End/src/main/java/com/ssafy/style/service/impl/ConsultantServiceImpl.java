@@ -25,7 +25,7 @@ public class ConsultantServiceImpl implements ConsultantService {
     }
 
     @Override
-    public ConsultantDto insertConsultant(ConsultantDto consultantDto) {
+    public ConsultantDto registerConsultant(ConsultantDto consultantDto) {
 
         String encodedPw = passwordEncoder.encode(consultantDto.getConsultantPw());
 
@@ -92,7 +92,7 @@ public class ConsultantServiceImpl implements ConsultantService {
     }
 
     @Override
-    public String changePw(Map<String, String> consultantInfo) {
+    public String updatePw(Map<String, String> consultantInfo) {
         String consultantId = consultantInfo.get("consultantId");
         String encodedNewPw = passwordEncoder.encode(consultantInfo.get("newConsultantPw"));
 
@@ -131,7 +131,7 @@ public class ConsultantServiceImpl implements ConsultantService {
     }
 
     @Override
-    public void changePwById(Map<String, String> consultantInfo) {
+    public void updatePwById(Map<String, String> consultantInfo) {
         Consultant consultantTemp = consultantDAO.getById(consultantInfo.get("consultantId"));
 
         String encodedNewPw = passwordEncoder.encode(consultantInfo.get("consultantPw"));

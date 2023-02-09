@@ -70,7 +70,7 @@ public class DataServiceImpl implements DataService {
     }
 
     @Override
-    public List<DataDto> getCommendTopItem(UserDto userInfo) {
+    public List<DataDto> getRecommendTopItem(UserDto userInfo) {
 
         int should = userInfo.getUserShoulder();
         int chest = userInfo.getUserChest();
@@ -85,7 +85,7 @@ public class DataServiceImpl implements DataService {
     }
 
     @Override
-    public List<DataDto> getCommendBottomItem(UserDto userInfo) {
+    public List<DataDto> getRecommendBottomItem(UserDto userInfo) {
 
         int waist = userInfo.getUserWaist();
         int hip = userInfo.getUserHip();
@@ -102,7 +102,7 @@ public class DataServiceImpl implements DataService {
     }
 
     @Override
-    public List<DataDto> getCommendOuterItem(UserDto userInfo) {
+    public List<DataDto> getRecommendOuterItem(UserDto userInfo) {
 
         int should = userInfo.getUserShoulder();
         int chest = userInfo.getUserChest();
@@ -117,7 +117,7 @@ public class DataServiceImpl implements DataService {
     }
 
     @Override
-    public List<DataDto> getCommendShoesItem(UserDto userInfo) {
+    public List<DataDto> getRecommendShoesItem(UserDto userInfo) {
 
         String URL = "https://www.musinsa.com/categories/item/005?shoeSizeOption="
                 + userInfo.getUserFoot(); // 원하는 url
