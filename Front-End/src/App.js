@@ -10,11 +10,11 @@ import MyPageWish from "./pages/mypage/MyPageWish";
 import MyProfile from './pages/mypage/MyProfile';
 import Recommend from './pages/recommend/Recommend';
 import ServiceCenter from './pages/servicecenter/ServiceCenter';
-import OnetoOneQuestion from './pages/servicecenter/OnetoOneQuestion';
 import ManageConsultant from "./pages/admin/ManageConsultant";
 import Sbti from "./pages/sbti/Sbti";
 import NotFound from "./pages/notfound/NotFound"
 import DeveloperPage from './pages/developer/DeveloperPage';
+import PrivateRoute from "./components/PrivateRoute";
 
 
 function App() {
@@ -35,17 +35,18 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/auth/*" element={<Auth />} />
-        <Route path="/mypage" element={<MyPage />} />
-        <Route path="/mypagewish" element={<MyPageWish />}/>
-        <Route path="/myprofile" element={<MyProfile/>}/>
-        <Route path="/recommend" element={<Recommend/>}/>
         <Route path="/servicecenter" element={<ServiceCenter />} />
-        <Route path="/onetoonequestion" element={<OnetoOneQuestion />}/>
-        <Route path="/sbti" element={<Sbti/>}/>
-        <Route path='manageconsultant' element={<ManageConsultant/>}/>
-        <Route path="/consultant" element={<Loading />}/>
-        <Route path="/developerpage" element={<DeveloperPage />}></Route>
-        <Route path="/*" element={<NotFound/>}></Route>
+        <Route path="/developerpage" element={<DeveloperPage />} />
+        <Route element={<PrivateRoute/>}>
+          <Route path="/mypage" element={<MyPage />} />
+          <Route path="/mypagewish" element={<MyPageWish />}/>
+          <Route path="/myprofile" element={<MyProfile/>}/>
+          <Route path="/recommend" element={<Recommend/>}/>
+          <Route path="/sbti" element={<Sbti/>}/>
+          <Route path="/consultant" element={<Loading />}/>
+          <Route path='/manageconsultant' element={<ManageConsultant/>}/>
+        </Route>
+        <Route path="/*" element={<NotFound/>} />
       </Routes>
     </div>
   );
