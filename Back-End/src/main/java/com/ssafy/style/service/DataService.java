@@ -10,11 +10,11 @@ public interface DataService {
 
     List<DataDto> getWData(String no);
 
-    List<DataDto> getCommendTopItem(UserDto userInfo);
+    List<DataDto> getRecommendTopItem(UserDto userInfo);
 
-    List<DataDto> getCommendBottomItem(UserDto userInfo);
+    List<DataDto> getRecommendBottomItem(UserDto userInfo);
 
-    List<DataDto> getCommendOuterItem(UserDto userInfo);
+    List<DataDto> getRecommendOuterItem(UserDto userInfo);
 
-    List<DataDto> getCommendShoesItem(UserDto userInfo);
+    List<DataDto> getRecommendShoesItem(UserDto userInfo);
 }

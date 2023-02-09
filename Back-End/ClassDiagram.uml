@@ -1,0 +1,765 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement />
+  <nodes>
+    <node x="2933.7875" y="139.0">com.ssafy.style.data.entity.Review</node>
+    <node x="3131.8470238095238" y="139.0">com.ssafy.style.data.dto.ReviewDto</node>
+    <node x="2642.99082076116" y="567.0">com.ssafy.style.controller.DataController</node>
+    <node x="1020.6964285714284" y="567.0">com.ssafy.style.service.impl.ConsultantServiceImpl</node>
+    <node x="1246.3019318722713" y="139.0">com.ssafy.style.data.dto.ConsultantDto</node>
+    <node x="3983.5426386819404" y="567.0">com.ssafy.style.service.impl.ItemServiceImpl</node>
+    <node x="704.9732142857142" y="318.0">com.ssafy.style.data.repository.ConsultantRepository</node>
+    <node x="2627.7160714285715" y="139.0">com.ssafy.style.data.dto.UserDto</node>
+    <node x="2412.3711686559673" y="567.0">com.ssafy.style.data.dao.impl.ReviewDAOImpl</node>
+    <node x="1243.053571428571" y="567.0">com.ssafy.style.controller.AdminController</node>
+    <node x="1426.7035714285712" y="567.0">com.ssafy.style.controller.ConsultantController</node>
+    <node x="233.0" y="720.0">com.ssafy.style.config.WebSecurityConfig</node>
+    <node x="73.12499999999955" y="567.0">com.ssafy.style.data.dao.impl.MeetingDAOImpl</node>
+    <node x="419.3690476190475" y="318.0">com.ssafy.style.service.MeetingService</node>
+    <node x="1600.8961686559671" y="318.0">com.ssafy.style.jwt.JwtProvider</node>
+    <node x="2444.016071428571" y="318.0">com.ssafy.style.data.repository.ReviewRepository</node>
+    <node x="3776.756924396226" y="318.0">com.ssafy.style.data.repository.ItemRepository</node>
+    <node x="1800.7035714285712" y="567.0">com.ssafy.style.service.impl.MailServiceImpl</node>
+    <node x="1634.7035714285712" y="567.0">com.ssafy.style.interceptor.JwtInterceptor</node>
+    <node x="0.0" y="318.0">com.ssafy.style.data.repository.MeetingRepository</node>
+    <node x="3577.2271624914642" y="318.0">com.ssafy.style.data.repository.UserRepository</node>
+    <node x="3968.7428571428572" y="139.0">com.ssafy.style.data.entity.Item</node>
+    <node x="1627.7035714285712" y="646.0">com.ssafy.style.config.JwtConfiguration</node>
+    <node x="2808.99082076116" y="567.0">com.ssafy.style.service.impl.DataServiceImpl</node>
+    <node x="3595.817261904762" y="567.0">com.ssafy.style.data.dao.impl.UserDAOImpl</node>
+    <node x="210.6055355073372" y="139.0">com.ssafy.style.data.entity.Meeting</node>
+    <node x="978.2678571428569" y="318.0">com.ssafy.style.data.dao.ConsultantDAO</node>
+    <node x="2139.703571428571" y="567.0">com.ssafy.style.controller.UserController</node>
+    <node x="615.0" y="720.0">com.ssafy.style.config.MailConfig</node>
+    <node x="3142.99082076116" y="318.0">com.ssafy.style.service.ReviewService</node>
+    <node x="941.0" y="720.0">com.ssafy.style.config.AopConfig</node>
+    <node x="1927.555535507337" y="318.0">com.ssafy.style.service.MailService</node>
+    <node x="3460.2271624914642" y="318.0">com.ssafy.style.data.dao.UserDAO</node>
+    <node x="778.0" y="720.0">com.ssafy.style.filter.CorsFilter</node>
+    <node x="452.6190476190475" y="567.0">com.ssafy.style.controller.OpenViduController</node>
+    <node x="1184.7035714285712" y="318.0">com.ssafy.style.service.AdminService</node>
+    <node x="4159.152757729559" y="567.0">com.ssafy.style.controller.ItemController</node>
+    <node x="1337.7035714285712" y="318.0">com.ssafy.style.service.ConsultantService</node>
+    <node x="2976.847963618303" y="318.0">com.ssafy.style.data.dao.ReviewDAO</node>
+    <node x="3168.99082076116" y="567.0">com.ssafy.style.controller.ReviewController</node>
+    <node x="2697.7160714285715" y="318.0">com.ssafy.style.service.DataService</node>
+    <node x="2981.99082076116" y="567.0">com.ssafy.style.service.impl.ReviewServiceImpl</node>
+    <node x="4124.486091062893" y="318.0">com.ssafy.style.service.ItemService</node>
+    <node x="646.6190476190475" y="567.0">com.ssafy.style.data.dao.impl.ConsultantDAOImpl</node>
+    <node x="3760.564285714286" y="567.0">com.ssafy.style.data.dao.impl.ItemDAOImpl</node>
+    <node x="443.23206130616154" y="139.0">com.ssafy.style.data.dto.MeetingDto</node>
+    <node x="2770.885714285714" y="139.0">com.ssafy.style.data.dto.DataDto</node>
+    <node x="445.0" y="720.0">com.ssafy.style.filter.ClientUtils</node>
+    <node x="222.94047619047615" y="318.0">com.ssafy.style.data.dao.MeetingDAO</node>
+    <node x="2299.016071428571" y="318.0">com.ssafy.style.service.UserService</node>
+    <node x="0.0" y="720.0">com.ssafy.style.config.SwaggerConfiguration</node>
+    <node x="258.6190476190475" y="567.0">com.ssafy.style.service.impl.MeetingServiceImpl</node>
+    <node x="1973.7035714285712" y="567.0">com.ssafy.style.controller.MailController</node>
+    <node x="988.7678571428569" y="0.0">com.ssafy.style.data.entity.Consultant</node>
+    <node x="3943.756924396226" y="318.0">com.ssafy.style.data.dao.ItemDAO</node>
+    <node x="833.6190476190475" y="567.0">com.ssafy.style.service.impl.AdminServiceImpl</node>
+    <node x="3375.584305348607" y="567.0">com.ssafy.style.service.impl.UseServiceImpl</node>
+    <node x="3529.5255952380953" y="0.0">com.ssafy.style.data.entity.User</node>
+    <node x="4090.0315476190476" y="139.0">com.ssafy.style.data.dto.ItemDto</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="com.ssafy.style.data.dao.ReviewDAO" target="com.ssafy.style.data.entity.User">
+      <point x="37.0" y="-14.5" />
+      <point x="3069.347963618303" y="298.0" />
+      <point x="3079.7875" y="298.0" />
+      <point x="3079.7875" y="89.0" />
+      <point x="3545.358928571429" y="89.0" />
+      <point x="-22.166666666666515" y="14.5" />
+    </edge>
+    <edge source="com.ssafy.style.data.repository.ConsultantRepository" target="com.ssafy.style.data.entity.Consultant">
+      <point x="0.0" y="-14.5" />
+      <point x="798.9732142857142" y="109.0" />
+      <point x="1029.6140109890107" y="109.0" />
+      <point x="-18.15384615384619" y="14.5" />
+    </edge>
+    <edge source="com.ssafy.style.controller.ReviewController" target="com.ssafy.style.data.dto.ReviewDto">
+      <point x="53.3333333333336" y="-14.5" />
+      <point x="3302.3241540944937" y="527.0" />
+      <point x="3292.49082076116" y="527.0" />
+      <point x="3292.49082076116" y="298.0" />
+      <point x="3228.9720238095238" y="298.0" />
+      <point x="41.625" y="14.5" />
+    </edge>
+    <edge source="com.ssafy.style.service.impl.ItemServiceImpl" target="com.ssafy.style.data.dto.ItemDto">
+      <point x="43.714285714285325" y="-14.5" />
+      <point x="4103.756924396226" y="547.0" />
+      <point x="4097.569424396226" y="547.0" />
+      <point x="4097.569424396226" y="298.0" />
+      <point x="4126.406547619048" y="298.0" />
+      <point x="-12.125" y="14.5" />
+    </edge>
+    <edge source="com.ssafy.style.service.impl.ConsultantServiceImpl" target="com.ssafy.style.data.entity.Consultant">
+      <point x="-27.85714285714289" y="-14.5" />
+      <point x="1090.3392857142856" y="447.0" />
+      <point x="1127.7678571428569" y="447.0" />
+      <point x="1127.7678571428569" y="119.0" />
+      <point x="1056.84478021978" y="119.0" />
+      <point x="9.076923076923094" y="14.5" />
+    </edge>
+    <edge source="com.ssafy.style.data.entity.Review" target="com.ssafy.style.data.entity.Consultant">
+      <point x="-22.5" y="-14.5" />
+      <point x="2956.2875" y="59.0" />
+      <point x="1093.1524725274724" y="59.0" />
+      <point x="45.38461538461547" y="14.5" />
+    </edge>
+    <edge source="com.ssafy.style.controller.OpenViduController" target="com.ssafy.style.service.MeetingService">
+      <point x="-21.75" y="-14.5" />
+      <point x="517.8690476190475" y="507.0" />
+      <point x="541.0357142857142" y="507.0" />
+      <point x="48.66666666666666" y="14.5" />
+    </edge>
+    <edge source="com.ssafy.style.service.impl.ConsultantServiceImpl" target="com.ssafy.style.data.dto.ConsultantDto">
+      <point x="27.85714285714289" y="-14.5" />
+      <point x="1146.0535714285713" y="457.0" />
+      <point x="1149.7678571428569" y="457.0" />
+      <point x="1149.7678571428569" y="278.0" />
+      <point x="1281.0519318722713" y="278.0" />
+      <point x="-34.75" y="14.5" />
+    </edge>
+    <edge source="com.ssafy.style.controller.AdminController" target="com.ssafy.style.service.AdminService">
+      <point x="-30.59999999999991" y="-14.5" />
+      <point x="1288.9535714285712" y="467.0" />
+      <point x="1294.7035714285712" y="467.0" />
+      <point x="44.0" y="14.5" />
+    </edge>
+    <edge source="com.ssafy.style.service.impl.MeetingServiceImpl" target="com.ssafy.style.data.dto.MeetingDto">
+      <point x="24.85714285714289" y="-14.5" />
+      <point x="370.47619047619037" y="507.0" />
+      <point x="373.44047619047615" y="507.0" />
+      <point x="373.44047619047615" y="288.0" />
+      <point x="455.0320613061615" y="288.0" />
+      <point x="-47.200000000000045" y="14.5" />
+    </edge>
+    <edge source="com.ssafy.style.service.impl.ItemServiceImpl" target="com.ssafy.style.data.dao.ItemDAO">
+      <point x="-65.57142857142844" y="-14.5" />
+      <point x="3994.471210110512" y="547.0" />
+      <point x="3992.256924396226" y="547.0" />
+      <point x="0.0" y="14.5" />
+    </edge>
+    <edge source="com.ssafy.style.data.dao.UserDAO" target="com.ssafy.style.data.entity.User">
+      <point x="0.0" y="-14.5" />
+      <point x="3508.7271624914642" y="119.0" />
+      <point x="3564.358928571429" y="119.0" />
+      <point x="-3.166666666666515" y="14.5" />
+    </edge>
+    <edge source="com.ssafy.style.data.repository.ItemRepository" target="com.ssafy.style.data.entity.Item">
+      <point x="36.5" y="-14.5" />
+      <point x="3886.256924396226" y="288.0" />
+      <point x="3976.3428571428576" y="288.0" />
+      <point x="-30.399999999999636" y="14.5" />
+    </edge>
+    <edge source="com.ssafy.style.controller.ItemController" target="com.ssafy.style.data.dto.ItemDto">
+      <point x="48.666666666666515" y="-14.5" />
+      <point x="4280.819424396226" y="547.0" />
+      <point x="4259.986091062893" y="547.0" />
+      <point x="4259.986091062893" y="288.0" />
+      <point x="4174.906547619048" y="288.0" />
+      <point x="36.375" y="14.5" />
+    </edge>
+    <edge source="com.ssafy.style.controller.UserController" target="com.ssafy.style.service.UserService">
+      <point x="63.875" y="-14.5" />
+      <point x="2276.578571428571" y="547.0" />
+      <point x="2361.516071428571" y="547.0" />
+      <point x="0.0" y="14.5" />
+    </edge>
+    <edge source="com.ssafy.style.controller.AdminController" target="com.ssafy.style.data.dto.ConsultantDto">
+      <point x="0.0" y="-14.5" />
+      <point x="1319.553571428571" y="467.0" />
+      <point x="1327.2035714285712" y="467.0" />
+      <point x="1327.2035714285712" y="298.0" />
+      <point x="1322.7519318722714" y="298.0" />
+      <point x="6.9500000000000455" y="14.5" />
+    </edge>
+    <edge source="com.ssafy.style.service.ConsultantService" target="com.ssafy.style.data.dto.ConsultantDto">
+      <point x="0.0" y="-14.5" />
+      <point x="1421.2035714285712" y="298.0" />
+      <point x="1336.6519318722712" y="298.0" />
+      <point x="20.84999999999991" y="14.5" />
+    </edge>
+    <edge source="com.ssafy.style.data.dao.impl.MeetingDAOImpl" target="com.ssafy.style.data.repository.MeetingRepository">
+      <point x="-36.5" y="-14.5" />
+      <point x="109.62499999999955" y="547.0" />
+      <point x="125.25" y="547.0" />
+      <point x="41.75" y="14.5" />
+    </edge>
+    <edge source="com.ssafy.style.service.impl.MeetingServiceImpl" target="com.ssafy.style.data.dao.MeetingDAO">
+      <point x="-49.714285714285666" y="-14.5" />
+      <point x="295.9047619047619" y="487.0" />
+      <point x="321.27380952380963" y="487.0" />
+      <point x="39.33333333333337" y="14.5" />
+    </edge>
+    <edge source="com.ssafy.style.data.dao.impl.ItemDAOImpl" target="com.ssafy.style.data.dao.ItemDAO">
+      <point x="53.57142857142844" y="-14.5" />
+      <point x="3876.6357142857146" y="547.0" />
+      <point x="3959.923591062893" y="547.0" />
+      <point x="-32.33333333333303" y="14.5" />
+    </edge>
+    <edge source="com.ssafy.style.data.dao.ReviewDAO" target="com.ssafy.style.data.entity.Review">
+      <point x="-37.0" y="-14.5" />
+      <point x="2995.347963618303" y="298.0" />
+      <point x="3014.7875" y="298.0" />
+      <point x="36.0" y="14.5" />
+    </edge>
+    <edge source="com.ssafy.style.service.impl.ConsultantServiceImpl" target="com.ssafy.style.data.dao.ConsultantDAO">
+      <point x="-55.71428571428578" y="-14.5" />
+      <point x="1062.4821428571427" y="437.0" />
+      <point x="1094.1011904761901" y="437.0" />
+      <point x="46.33333333333326" y="14.5" />
+    </edge>
+    <edge source="com.ssafy.style.data.dao.ConsultantDAO" target="com.ssafy.style.data.entity.Consultant">
+      <point x="0.0" y="-14.5" />
+      <point x="0.0" y="14.5" />
+    </edge>
+    <edge source="com.ssafy.style.service.impl.ReviewServiceImpl" target="com.ssafy.style.data.dto.ReviewDto">
+      <point x="23.857142857142662" y="-14.5" />
+      <point x="3089.347963618303" y="527.0" />
+      <point x="3098.347963618303" y="527.0" />
+      <point x="3098.347963618303" y="288.0" />
+      <point x="3145.7220238095238" y="288.0" />
+      <point x="-41.625" y="14.5" />
+    </edge>
+    <edge source="com.ssafy.style.interceptor.JwtInterceptor" target="com.ssafy.style.jwt.JwtProvider">
+      <point x="36.5" y="-14.5" />
+      <point x="1744.2035714285712" y="517.0" />
+      <point x="1686.8336686559671" y="517.0" />
+      <point x="23.4375" y="14.5" />
+    </edge>
+    <edge source="com.ssafy.style.data.repository.UserRepository" target="com.ssafy.style.data.entity.User">
+      <point x="0.0" y="-14.5" />
+      <point x="3650.2271624914642" y="119.0" />
+      <point x="3570.692261904762" y="119.0" />
+      <point x="3.166666666666515" y="14.5" />
+    </edge>
+    <edge source="com.ssafy.style.data.dao.impl.UserDAOImpl" target="com.ssafy.style.data.repository.UserRepository">
+      <point x="-15.625" y="-14.5" />
+      <point x="3642.692261904762" y="547.0" />
+      <point x="3638.0604958247977" y="547.0" />
+      <point x="-12.166666666666515" y="14.5" />
+    </edge>
+    <edge source="com.ssafy.style.service.impl.UseServiceImpl" target="com.ssafy.style.data.entity.User">
+      <point x="0.0" y="-14.5" />
+      <point x="3448.584305348607" y="527.0" />
+      <point x="3438.7271624914642" y="527.0" />
+      <point x="3438.7271624914642" y="99.0" />
+      <point x="3551.692261904762" y="99.0" />
+      <point x="-15.833333333333485" y="14.5" />
+    </edge>
+    <edge source="com.ssafy.style.data.dao.impl.UserDAOImpl" target="com.ssafy.style.data.entity.User">
+      <point x="46.875" y="-14.5" />
+      <point x="3705.192261904762" y="547.0" />
+      <point x="3733.7271624914642" y="547.0" />
+      <point x="3733.7271624914642" y="109.0" />
+      <point x="3577.0255952380953" y="109.0" />
+      <point x="9.5" y="14.5" />
+    </edge>
+    <edge source="com.ssafy.style.data.dao.impl.ReviewDAOImpl" target="com.ssafy.style.data.repository.ConsultantRepository">
+      <point x="-62.55000000000018" y="-14.5" />
+      <point x="2419.321168655967" y="427.0" />
+      <point x="857.7232142857142" y="427.0" />
+      <point x="58.75" y="14.5" />
+    </edge>
+    <edge source="com.ssafy.style.service.impl.AdminServiceImpl" target="com.ssafy.style.data.repository.ConsultantRepository">
+      <point x="-40.0" y="-14.5" />
+      <point x="873.6190476190475" y="437.0" />
+      <point x="834.2232142857142" y="437.0" />
+      <point x="35.25" y="14.5" />
+    </edge>
+    <edge source="com.ssafy.style.data.dao.impl.ReviewDAOImpl" target="com.ssafy.style.data.entity.Consultant">
+      <point x="-34.75" y="-14.5" />
+      <point x="2447.1211686559673" y="407.0" />
+      <point x="2162.021168655967" y="407.0" />
+      <point x="2162.021168655967" y="99.0" />
+      <point x="1074.9986263736262" y="99.0" />
+      <point x="27.230769230769283" y="14.5" />
+    </edge>
+    <edge source="com.ssafy.style.config.JwtConfiguration" target="com.ssafy.style.interceptor.JwtInterceptor">
+      <point x="-40.0" y="-14.5" />
+      <point x="1667.7035714285712" y="621.0" />
+      <point x="1671.2035714285712" y="621.0" />
+      <point x="-36.5" y="14.5" />
+    </edge>
+    <edge source="com.ssafy.style.data.entity.Item" target="com.ssafy.style.data.entity.User">
+      <point x="0.0" y="-14.5" />
+      <point x="4006.7428571428572" y="69.0" />
+      <point x="3602.358928571429" y="69.0" />
+      <point x="34.833333333333485" y="14.5" />
+    </edge>
+    <edge source="com.ssafy.style.service.DataService" target="com.ssafy.style.data.dto.UserDto">
+      <point x="-31.25" y="-14.5" />
+      <point x="2728.9660714285715" y="238.0" />
+      <point x="2686.9938492063493" y="238.0" />
+      <point x="10.777777777777828" y="14.5" />
+    </edge>
+    <edge source="com.ssafy.style.controller.UserController" target="com.ssafy.style.jwt.JwtProvider">
+      <point x="-63.875" y="-14.5" />
+      <point x="2148.828571428571" y="507.0" />
+      <point x="1702.4586686559671" y="507.0" />
+      <point x="39.0625" y="14.5" />
+    </edge>
+    <edge source="com.ssafy.style.data.dao.impl.UserDAOImpl" target="com.ssafy.style.data.dao.UserDAO">
+      <point x="-46.875" y="-14.5" />
+      <point x="3611.442261904762" y="527.0" />
+      <point x="3541.0604958247977" y="527.0" />
+      <point x="32.333333333333485" y="14.5" />
+    </edge>
+    <edge source="com.ssafy.style.service.UserService" target="com.ssafy.style.data.dto.UserDto">
+      <point x="0.0" y="-14.5" />
+      <point x="2361.516071428571" y="248.0" />
+      <point x="2665.4382936507936" y="248.0" />
+      <point x="-10.777777777777828" y="14.5" />
+    </edge>
+    <edge source="com.ssafy.style.controller.ConsultantController" target="com.ssafy.style.jwt.JwtProvider">
+      <point x="35.25" y="-14.5" />
+      <point x="1555.9535714285712" y="517.0" />
+      <point x="1655.5836686559671" y="517.0" />
+      <point x="-7.8125" y="14.5" />
+    </edge>
+    <edge source="com.ssafy.style.controller.UserController" target="com.ssafy.style.service.MailService">
+      <point x="-27.375" y="-14.5" />
+      <point x="2185.328571428571" y="487.0" />
+      <point x="2025.7698212216228" y="487.0" />
+      <point x="35.71428571428578" y="14.5" />
+    </edge>
+    <edge source="com.ssafy.style.controller.MailController" target="com.ssafy.style.service.MailService">
+      <point x="36.5" y="-14.5" />
+      <point x="2083.203571428571" y="537.0" />
+      <point x="2007.9126783644797" y="537.0" />
+      <point x="17.857142857142662" y="14.5" />
+    </edge>
+    <edge source="com.ssafy.style.data.dao.impl.MeetingDAOImpl" target="com.ssafy.style.data.repository.ConsultantRepository">
+      <point x="60.83333333333337" y="-14.5" />
+      <point x="206.95833333333303" y="527.0" />
+      <point x="740.2232142857142" y="527.0" />
+      <point x="-58.75" y="14.5" />
+    </edge>
+    <edge source="com.ssafy.style.data.dao.ItemDAO" target="com.ssafy.style.data.entity.User">
+      <point x="-24.25" y="-14.5" />
+      <point x="3968.006924396226" y="278.0" />
+      <point x="3958.2428571428572" y="278.0" />
+      <point x="3958.2428571428572" y="79.0" />
+      <point x="3596.0255952380953" y="79.0" />
+      <point x="28.5" y="14.5" />
+    </edge>
+    <edge source="com.ssafy.style.service.MeetingService" target="com.ssafy.style.data.dto.MeetingDto">
+      <point x="0.0" y="-14.5" />
+      <point x="492.3690476190475" y="298.0" />
+      <point x="502.23206130616154" y="298.0" />
+      <point x="0.0" y="14.5" />
+    </edge>
+    <edge source="com.ssafy.style.data.repository.ItemRepository" target="com.ssafy.style.data.entity.User">
+      <point x="-36.5" y="-14.5" />
+      <point x="3813.256924396226" y="89.0" />
+      <point x="3589.692261904762" y="89.0" />
+      <point x="22.166666666666515" y="14.5" />
+    </edge>
+    <edge source="com.ssafy.style.data.repository.ReviewRepository" target="com.ssafy.style.data.entity.Review">
+      <point x="40.0" y="-14.5" />
+      <point x="2564.016071428571" y="258.0" />
+      <point x="2942.7875" y="258.0" />
+      <point x="-36.0" y="14.5" />
+    </edge>
+    <edge source="com.ssafy.style.data.dao.impl.ReviewDAOImpl" target="com.ssafy.style.data.repository.UserRepository">
+      <point x="48.65000000000009" y="-14.5" />
+      <point x="2530.521168655967" y="537.0" />
+      <point x="3589.3938291581308" y="537.0" />
+      <point x="-60.833333333333485" y="14.5" />
+    </edge>
+    <edge source="com.ssafy.style.data.dao.impl.ConsultantDAOImpl" target="com.ssafy.style.data.dao.ConsultantDAO">
+      <point x="62.625" y="-14.5" />
+      <point x="792.7440476190475" y="457.0" />
+      <point x="1001.4345238095234" y="457.0" />
+      <point x="-46.33333333333337" y="14.5" />
+    </edge>
+    <edge source="com.ssafy.style.service.impl.MeetingServiceImpl" target="com.ssafy.style.service.MeetingService">
+      <point x="74.57142857142856" y="-14.5" />
+      <point x="420.19047619047615" y="507.0" />
+      <point x="443.70238095238074" y="507.0" />
+      <point x="-48.66666666666666" y="14.5" />
+    </edge>
+    <edge source="com.ssafy.style.service.impl.DataServiceImpl" target="com.ssafy.style.data.dto.DataDto">
+      <point x="19.125" y="-14.5" />
+      <point x="2904.61582076116" y="507.0" />
+      <point x="2867.597963618303" y="507.0" />
+      <point x="2867.597963618303" y="218.0" />
+      <point x="2831.510714285714" y="218.0" />
+      <point x="12.125" y="14.5" />
+    </edge>
+    <edge source="com.ssafy.style.jwt.JwtProvider" target="com.ssafy.style.data.dto.ConsultantDto">
+      <point x="-31.25" y="-14.5" />
+      <point x="1632.1461686559671" y="268.0" />
+      <point x="1378.3519318722713" y="268.0" />
+      <point x="62.549999999999955" y="14.5" />
+    </edge>
+    <edge source="com.ssafy.style.data.dao.MeetingDAO" target="com.ssafy.style.data.entity.Meeting">
+      <point x="0.0" y="-14.5" />
+      <point x="281.94047619047615" y="298.0" />
+      <point x="259.1055355073372" y="298.0" />
+      <point x="0.0" y="14.5" />
+    </edge>
+    <edge source="com.ssafy.style.controller.ReviewController" target="com.ssafy.style.service.ReviewService">
+      <point x="0.0" y="-14.5" />
+      <point x="3248.99082076116" y="527.0" />
+      <point x="3258.8241540944937" y="527.0" />
+      <point x="46.333333333333485" y="14.5" />
+    </edge>
+    <edge source="com.ssafy.style.service.impl.ItemServiceImpl" target="com.ssafy.style.service.ItemService">
+      <point x="65.57142857142844" y="-14.5" />
+      <point x="4125.614067253369" y="547.0" />
+      <point x="4145.319424396226" y="547.0" />
+      <point x="-41.666666666666515" y="14.5" />
+    </edge>
+    <edge source="com.ssafy.style.data.dao.impl.MeetingDAOImpl" target="com.ssafy.style.data.dao.MeetingDAO">
+      <point x="12.166666666666629" y="-14.5" />
+      <point x="158.29166666666606" y="507.0" />
+      <point x="242.6071428571429" y="507.0" />
+      <point x="-39.333333333333314" y="14.5" />
+    </edge>
+    <edge source="com.ssafy.style.data.entity.Meeting" target="com.ssafy.style.data.entity.Consultant">
+      <point x="0.0" y="-14.5" />
+      <point x="259.1055355073372" y="79.0" />
+      <point x="1002.3832417582414" y="79.0" />
+      <point x="-45.38461538461547" y="14.5" />
+    </edge>
+    <edge source="com.ssafy.style.data.dao.impl.ReviewDAOImpl" target="com.ssafy.style.data.dao.ReviewDAO">
+      <point x="34.75" y="-14.5" />
+      <point x="2516.6211686559673" y="527.0" />
+      <point x="2995.347963618303" y="527.0" />
+      <point x="-37.0" y="14.5" />
+    </edge>
+    <edge source="com.ssafy.style.service.ReviewService" target="com.ssafy.style.data.dto.ReviewDto">
+      <point x="0.0" y="-14.5" />
+      <point x="3212.49082076116" y="298.0" />
+      <point x="3201.2220238095238" y="298.0" />
+      <point x="13.875" y="14.5" />
+    </edge>
+    <edge source="com.ssafy.style.data.dao.impl.ReviewDAOImpl" target="com.ssafy.style.data.repository.ReviewRepository">
+      <point x="-6.949999999999818" y="-14.5" />
+      <point x="2474.9211686559674" y="497.0" />
+      <point x="2484.016071428571" y="497.0" />
+      <point x="-40.0" y="14.5" />
+    </edge>
+    <edge source="com.ssafy.style.service.impl.AdminServiceImpl" target="com.ssafy.style.service.AdminService">
+      <point x="66.66666666666663" y="-14.5" />
+      <point x="980.2857142857142" y="467.0" />
+      <point x="1206.7035714285712" y="467.0" />
+      <point x="-44.0" y="14.5" />
+    </edge>
+    <edge source="com.ssafy.style.data.entity.Review" target="com.ssafy.style.data.entity.User">
+      <point x="22.5" y="-14.5" />
+      <point x="3001.2875" y="79.0" />
+      <point x="3539.0255952380953" y="79.0" />
+      <point x="-28.5" y="14.5" />
+    </edge>
+    <edge source="com.ssafy.style.data.dao.impl.ConsultantDAOImpl" target="com.ssafy.style.data.repository.ConsultantRepository">
+      <point x="20.875" y="-14.5" />
+      <point x="750.9940476190475" y="547.0" />
+      <point x="787.2232142857142" y="547.0" />
+      <point x="-11.75" y="14.5" />
+    </edge>
+    <edge source="com.ssafy.style.controller.AdminController" target="com.ssafy.style.jwt.JwtProvider">
+      <point x="30.59999999999991" y="-14.5" />
+      <point x="1350.153571428571" y="487.0" />
+      <point x="1608.7086686559671" y="487.0" />
+      <point x="-54.6875" y="14.5" />
+    </edge>
+    <edge source="com.ssafy.style.data.repository.MeetingRepository" target="com.ssafy.style.data.entity.Consultant">
+      <point x="-41.75" y="-14.5" />
+      <point x="41.75" y="69.0" />
+      <point x="993.3063186813183" y="69.0" />
+      <point x="-54.46153846153857" y="14.5" />
+    </edge>
+    <edge source="com.ssafy.style.service.impl.UseServiceImpl" target="com.ssafy.style.data.dao.UserDAO">
+      <point x="62.57142857142844" y="-14.5" />
+      <point x="3511.1557339200353" y="527.0" />
+      <point x="3508.7271624914642" y="527.0" />
+      <point x="0.0" y="14.5" />
+    </edge>
+    <edge source="com.ssafy.style.data.dao.impl.ReviewDAOImpl" target="com.ssafy.style.data.entity.User">
+      <point x="-20.84999999999991" y="-14.5" />
+      <point x="2461.021168655967" y="397.0" />
+      <point x="2288.516071428571" y="397.0" />
+      <point x="2288.516071428571" y="69.0" />
+      <point x="3532.692261904762" y="69.0" />
+      <point x="-34.833333333333485" y="14.5" />
+    </edge>
+    <edge source="com.ssafy.style.data.dao.ItemDAO" target="com.ssafy.style.data.entity.Item">
+      <point x="24.25" y="-14.5" />
+      <point x="4016.506924396226" y="298.0" />
+      <point x="4006.7428571428572" y="298.0" />
+      <point x="0.0" y="14.5" />
+    </edge>
+    <edge source="com.ssafy.style.service.impl.ReviewServiceImpl" target="com.ssafy.style.data.dao.ReviewDAO">
+      <point x="0.0" y="-14.5" />
+      <point x="3065.49082076116" y="527.0" />
+      <point x="3069.347963618303" y="527.0" />
+      <point x="37.0" y="14.5" />
+    </edge>
+    <edge source="com.ssafy.style.controller.DataController" target="com.ssafy.style.data.dto.UserDto">
+      <point x="-54.75" y="-14.5" />
+      <point x="2661.24082076116" y="517.0" />
+      <point x="2676.2160714285715" y="517.0" />
+      <point x="0.0" y="14.5" />
+    </edge>
+    <edge source="com.ssafy.style.controller.DataController" target="com.ssafy.style.service.DataService">
+      <point x="18.25" y="-14.5" />
+      <point x="2734.24082076116" y="517.0" />
+      <point x="2718.5494047619045" y="517.0" />
+      <point x="-41.66666666666674" y="14.5" />
+    </edge>
+    <edge source="com.ssafy.style.service.impl.UseServiceImpl" target="com.ssafy.style.data.dto.UserDto">
+      <point x="-20.857142857142662" y="-14.5" />
+      <point x="3427.7271624914647" y="367.0" />
+      <point x="3354.1098683802074" y="367.0" />
+      <point x="3354.1098683802074" y="188.0" />
+      <point x="2719.327182539683" y="188.0" />
+      <point x="43.11111111111131" y="14.5" />
+    </edge>
+    <edge source="com.ssafy.style.service.impl.AdminServiceImpl" target="com.ssafy.style.data.dto.ConsultantDto">
+      <point x="40.0" y="-14.5" />
+      <point x="953.6190476190475" y="447.0" />
+      <point x="957.6607142857142" y="447.0" />
+      <point x="957.6607142857142" y="268.0" />
+      <point x="1267.1519318722712" y="268.0" />
+      <point x="-48.65000000000009" y="14.5" />
+    </edge>
+    <edge source="com.ssafy.style.controller.UserController" target="com.ssafy.style.data.dto.UserDto">
+      <point x="27.375" y="-14.5" />
+      <point x="2240.078571428571" y="527.0" />
+      <point x="2277.516071428571" y="527.0" />
+      <point x="2277.516071428571" y="238.0" />
+      <point x="2654.660515873016" y="238.0" />
+      <point x="-21.555555555555657" y="14.5" />
+    </edge>
+    <edge source="com.ssafy.style.service.ItemService" target="com.ssafy.style.data.dto.ItemDto">
+      <point x="0.0" y="-14.5" />
+      <point x="4186.986091062893" y="298.0" />
+      <point x="4150.656547619048" y="298.0" />
+      <point x="12.125" y="14.5" />
+    </edge>
+    <edge source="com.ssafy.style.data.repository.ReviewRepository" target="com.ssafy.style.data.entity.Consultant">
+      <point x="-40.0" y="-14.5" />
+      <point x="2484.016071428571" y="208.0" />
+      <point x="2184.021168655967" y="208.0" />
+      <point x="2184.021168655967" y="89.0" />
+      <point x="1084.0755494505493" y="89.0" />
+      <point x="36.30769230769238" y="14.5" />
+    </edge>
+    <edge source="com.ssafy.style.data.dao.impl.ConsultantDAOImpl" target="com.ssafy.style.data.entity.Consultant">
+      <point x="-62.625" y="-14.5" />
+      <point x="667.4940476190475" y="507.0" />
+      <point x="658.2537497930516" y="507.0" />
+      <point x="658.2537497930516" y="99.0" />
+      <point x="1020.5370879120876" y="99.0" />
+      <point x="-27.230769230769283" y="14.5" />
+    </edge>
+    <edge source="com.ssafy.style.controller.DataController" target="com.ssafy.style.data.dto.DataDto">
+      <point x="-18.25" y="-14.5" />
+      <point x="2697.74082076116" y="517.0" />
+      <point x="2687.2160714285715" y="517.0" />
+      <point x="2687.2160714285715" y="248.0" />
+      <point x="2783.010714285714" y="248.0" />
+      <point x="-36.375" y="14.5" />
+    </edge>
+    <edge source="com.ssafy.style.service.impl.ItemServiceImpl" target="com.ssafy.style.data.entity.Item">
+      <point x="-21.857142857143117" y="-14.5" />
+      <point x="4038.1854958247973" y="547.0" />
+      <point x="4051.256924396226" y="547.0" />
+      <point x="4051.256924396226" y="298.0" />
+      <point x="4021.942857142857" y="298.0" />
+      <point x="15.199999999999818" y="14.5" />
+    </edge>
+    <edge source="com.ssafy.style.data.dao.impl.ReviewDAOImpl" target="com.ssafy.style.data.entity.Review">
+      <point x="20.84999999999991" y="-14.5" />
+      <point x="2502.7211686559667" y="517.0" />
+      <point x="2614.516071428571" y="517.0" />
+      <point x="2614.516071428571" y="268.0" />
+      <point x="2960.7875" y="268.0" />
+      <point x="-18.0" y="14.5" />
+    </edge>
+    <edge source="com.ssafy.style.service.impl.UseServiceImpl" target="com.ssafy.style.service.UserService">
+      <point x="-62.57142857142844" y="-14.5" />
+      <point x="3386.0128767771785" y="387.0" />
+      <point x="2403.1827380952377" y="387.0" />
+      <point x="41.666666666666515" y="14.5" />
+    </edge>
+    <edge source="com.ssafy.style.data.dao.impl.MeetingDAOImpl" target="com.ssafy.style.data.entity.Meeting">
+      <point x="-12.166666666666515" y="-14.5" />
+      <point x="133.95833333333303" y="497.0" />
+      <point x="177.5" y="497.0" />
+      <point x="177.5" y="298.0" />
+      <point x="239.70553550733712" y="298.0" />
+      <point x="-19.40000000000009" y="14.5" />
+    </edge>
+    <edge source="com.ssafy.style.data.dao.impl.ItemDAOImpl" target="com.ssafy.style.data.entity.User">
+      <point x="-17.857142857143117" y="-14.5" />
+      <point x="3805.207142857143" y="517.0" />
+      <point x="3760.444424396226" y="517.0" />
+      <point x="3760.444424396226" y="99.0" />
+      <point x="3583.358928571429" y="99.0" />
+      <point x="15.833333333333485" y="14.5" />
+    </edge>
+    <edge source="com.ssafy.style.service.impl.MailServiceImpl" target="com.ssafy.style.service.MailService">
+      <point x="0.0" y="-14.5" />
+      <point x="1877.2035714285712" y="547.0" />
+      <point x="1972.1983926501944" y="547.0" />
+      <point x="-17.85714285714289" y="14.5" />
+    </edge>
+    <edge source="com.ssafy.style.service.AdminService" target="com.ssafy.style.data.dto.ConsultantDto">
+      <point x="0.0" y="-14.5" />
+      <point x="1250.7035714285712" y="298.0" />
+      <point x="1308.8519318722713" y="298.0" />
+      <point x="-6.9500000000000455" y="14.5" />
+    </edge>
+    <edge source="com.ssafy.style.data.dao.impl.ItemDAOImpl" target="com.ssafy.style.data.repository.UserRepository">
+      <point x="-35.714285714285325" y="-14.5" />
+      <point x="3787.350000000001" y="527.0" />
+      <point x="3711.0604958247977" y="527.0" />
+      <point x="60.833333333333485" y="14.5" />
+    </edge>
+    <edge source="com.ssafy.style.service.impl.AdminServiceImpl" target="com.ssafy.style.data.entity.Consultant">
+      <point x="-13.333333333333258" y="-14.5" />
+      <point x="900.2857142857142" y="437.0" />
+      <point x="935.6607142857142" y="437.0" />
+      <point x="935.6607142857142" y="119.0" />
+      <point x="1038.6909340659338" y="119.0" />
+      <point x="-9.076923076923094" y="14.5" />
+    </edge>
+    <edge source="com.ssafy.style.service.DataService" target="com.ssafy.style.data.dto.DataDto">
+      <point x="31.25" y="-14.5" />
+      <point x="2791.4660714285715" y="248.0" />
+      <point x="2807.260714285714" y="248.0" />
+      <point x="-12.125" y="14.5" />
+    </edge>
+    <edge source="com.ssafy.style.data.repository.MeetingRepository" target="com.ssafy.style.data.entity.Meeting">
+      <point x="41.75" y="-14.5" />
+      <point x="125.25" y="288.0" />
+      <point x="220.30553550733703" y="288.0" />
+      <point x="-38.80000000000001" y="14.5" />
+    </edge>
+    <edge source="com.ssafy.style.service.impl.ConsultantServiceImpl" target="com.ssafy.style.service.ConsultantService">
+      <point x="83.57142857142867" y="-14.5" />
+      <point x="1201.767857142857" y="477.0" />
+      <point x="1365.5369047619047" y="477.0" />
+      <point x="-55.66666666666674" y="14.5" />
+    </edge>
+    <edge source="com.ssafy.style.service.impl.ReviewServiceImpl" target="com.ssafy.style.service.ReviewService">
+      <point x="71.57142857142844" y="-14.5" />
+      <point x="3137.0622493325886" y="527.0" />
+      <point x="3166.1574874278267" y="527.0" />
+      <point x="-46.333333333333485" y="14.5" />
+    </edge>
+    <edge source="com.ssafy.style.controller.ConsultantController" target="com.ssafy.style.service.MailService">
+      <point x="58.75" y="-14.5" />
+      <point x="1579.4535714285712" y="527.0" />
+      <point x="1936.4841069359086" y="527.0" />
+      <point x="-53.57142857142867" y="14.5" />
+    </edge>
+    <edge source="com.ssafy.style.data.dao.ReviewDAO" target="com.ssafy.style.data.entity.Consultant">
+      <point x="0.0" y="-14.5" />
+      <point x="3032.347963618303" y="288.0" />
+      <point x="3068.7875" y="288.0" />
+      <point x="3068.7875" y="49.0" />
+      <point x="1102.2293956043954" y="49.0" />
+      <point x="54.46153846153857" y="14.5" />
+    </edge>
+    <edge source="com.ssafy.style.service.impl.ReviewServiceImpl" target="com.ssafy.style.data.entity.Review">
+      <point x="-71.57142857142844" y="-14.5" />
+      <point x="2993.9193921897318" y="487.0" />
+      <point x="2929.285463618303" y="487.0" />
+      <point x="2929.285463618303" y="278.0" />
+      <point x="2978.7875" y="278.0" />
+      <point x="0.0" y="14.5" />
+    </edge>
+    <edge source="com.ssafy.style.data.dto.MeetingDto" target="com.ssafy.style.data.entity.Consultant">
+      <point x="0.0" y="-14.5" />
+      <point x="502.23206130616154" y="89.0" />
+      <point x="1011.4601648351645" y="89.0" />
+      <point x="-36.30769230769238" y="14.5" />
+    </edge>
+    <edge source="com.ssafy.style.data.dao.impl.ItemDAOImpl" target="com.ssafy.style.data.entity.Item">
+      <point x="35.714285714285325" y="-14.5" />
+      <point x="3858.7785714285715" y="537.0" />
+      <point x="3933.256924396226" y="537.0" />
+      <point x="3933.256924396226" y="298.0" />
+      <point x="3991.5428571428574" y="298.0" />
+      <point x="-15.199999999999818" y="14.5" />
+    </edge>
+    <edge source="com.ssafy.style.controller.OpenViduController" target="com.ssafy.style.data.dto.MeetingDto">
+      <point x="21.75" y="-14.5" />
+      <point x="561.3690476190475" y="507.0" />
+      <point x="575.8690476190475" y="507.0" />
+      <point x="575.8690476190475" y="298.0" />
+      <point x="525.8320613061614" y="298.0" />
+      <point x="23.59999999999991" y="14.5" />
+    </edge>
+    <edge source="com.ssafy.style.service.impl.DataServiceImpl" target="com.ssafy.style.service.DataService">
+      <point x="-57.375" y="-14.5" />
+      <point x="2828.11582076116" y="517.0" />
+      <point x="2801.882738095238" y="517.0" />
+      <point x="41.66666666666674" y="14.5" />
+    </edge>
+    <edge source="com.ssafy.style.service.impl.DataServiceImpl" target="com.ssafy.style.data.dto.UserDto">
+      <point x="-19.125" y="-14.5" />
+      <point x="2866.36582076116" y="517.0" />
+      <point x="2856.597963618303" y="517.0" />
+      <point x="2856.597963618303" y="228.0" />
+      <point x="2697.771626984127" y="228.0" />
+      <point x="21.555555555555657" y="14.5" />
+    </edge>
+    <edge source="com.ssafy.style.data.dao.impl.ItemDAOImpl" target="com.ssafy.style.data.repository.ItemRepository">
+      <point x="17.857142857143117" y="-14.5" />
+      <point x="3840.9214285714293" y="527.0" />
+      <point x="3886.256924396226" y="527.0" />
+      <point x="36.5" y="14.5" />
+    </edge>
+    <edge source="com.ssafy.style.controller.ItemController" target="com.ssafy.style.service.ItemService">
+      <point x="-48.666666666666515" y="-14.5" />
+      <point x="4183.486091062893" y="547.0" />
+      <point x="4186.986091062893" y="547.0" />
+      <point x="0.0" y="14.5" />
+    </edge>
+    <edge source="com.ssafy.style.controller.ConsultantController" target="com.ssafy.style.service.ConsultantService">
+      <point x="-58.75" y="-14.5" />
+      <point x="1461.9535714285712" y="477.0" />
+      <point x="1476.8702380952382" y="477.0" />
+      <point x="55.66666666666674" y="14.5" />
+    </edge>
+    <edge source="com.ssafy.style.service.impl.MeetingServiceImpl" target="com.ssafy.style.data.entity.Meeting">
+      <point x="0.0" y="-14.5" />
+      <point x="345.6190476190475" y="507.0" />
+      <point x="362.44047619047615" y="507.0" />
+      <point x="362.44047619047615" y="278.0" />
+      <point x="297.90553550733716" y="278.0" />
+      <point x="38.799999999999955" y="14.5" />
+    </edge>
+    <edge source="com.ssafy.style.controller.ConsultantController" target="com.ssafy.style.data.dto.ConsultantDto">
+      <point x="-11.75" y="-14.5" />
+      <point x="1508.9535714285712" y="477.0" />
+      <point x="1526.2035714285712" y="477.0" />
+      <point x="1526.2035714285712" y="278.0" />
+      <point x="1364.4519318722714" y="278.0" />
+      <point x="48.65000000000009" y="14.5" />
+    </edge>
+    <edge source="com.ssafy.style.jwt.JwtProvider" target="com.ssafy.style.data.dto.UserDto">
+      <point x="31.25" y="-14.5" />
+      <point x="1694.6461686559671" y="218.0" />
+      <point x="2633.10496031746" y="218.0" />
+      <point x="-43.11111111111131" y="14.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="0.4" x="2376.369047619048" y="1420.5" />
+  <SelectedNodes>
+    <node>com.ssafy.style.config.AopConfig</node>
+  </SelectedNodes>
+  <Categories />
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

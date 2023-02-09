@@ -43,28 +43,30 @@ public class UserController {
             @RequestBody @ApiParam(value = "로그인 정보", required = true) Map<String, String> data) {
         Map<String , Object> check = new HashMap<>();
 
-        logger.info("userLogin - 호출");
-
-        System.out.println("userId : " + data.get("userId") + "\nuserPw : " + data.get("userPw"));
-        System.out.println("data : " + data);
+        logger.info("*** loginUser 메서드 호출");
+        logger.info("입력 데이터 : userId = " + data.get("userId"));
 
         UserDto userDto = new UserDto();
         userDto.setUserId(data.get("userId"));
         userDto.setUserPw(data.get("userPw"));
 
         try {
-            UserDto result = userService.selectUser(userDto);
+            UserDto result = userService.loginUser(userDto);
             if (result != null) {
-                logger.info("로그인 정보 : {}", result);
 
                 String key = jwtProvider.createToken(result);
-    //            check.put("access-token", key);
                 check.put("msg", "success");
                 check.put("data", result);
                 check.put("auth_token", key);
+
+                logger.info("*** loginUser 메서드 종료");
+                logger.info("반환 데이터 : msg = success, data = " + result);
+
                 return ResponseEntity.status(HttpStatus.OK).body(check);
             } else {
                 check.put("msg", "fail");
+                logger.info("*** loginUser 메서드 실패");
+                logger.info("반환 데이터 : fail");
                 return ResponseEntity.status(HttpStatus.NO_CONTENT).body(check);
             }
         } catch (Exception e) {
@@ -82,22 +84,27 @@ public class UserController {
 
         Map<String , Object> check = new HashMap<>();
 
-        logger.info("updateUser - 호출");
-        logger.info("updateUser userDto : {}", userDto);
+        logger.info("*** updateUser 메서드 호출");
+        logger.info("입력 데이터 :  userDto = " + userDto);
+
 
         try{
             UserDto user = userService.updateUser(userDto);
             if(user != null) {
-                logger.info("회원 정보 : {}", user);
 
                 String key = jwtProvider.createToken(user);
                 check.put("msg", "success");
                 check.put("data", user);
                 check.put("auth_token", key);
 
+                logger.info("*** updateUser 메서드 종료");
+                logger.info("반환 데이터 : msg = success, data = " + user);
+
                 return ResponseEntity.status(HttpStatus.OK).body(check);
             } else {
                 check.put("msg", "fail");
+                logger.info("*** updateUser 메서드 실패");
+                logger.info("반환 데이터 : fail");
                 return ResponseEntity.status(HttpStatus.NO_CONTENT).body(check);
             }
         }catch (Exception e) {
@@ -115,22 +122,25 @@ public class UserController {
 
         Map<String, Object> check = new HashMap<>();
 
-        logger.info("registUser - 호출");
-        logger.info("registUser userDto : {}", userDto);
+        logger.info("*** registerUser 메서드 호출");
+        logger.info("입력 데이터 :  userDto = " + userDto);
 
         try{
-            UserDto user = userService.insertUser(userDto);
+            UserDto user = userService.registerUser(userDto);
             if(user != null) {
-                logger.info("회원가입 정보 : {}", user);
 
                 check.put("msg", "success");
+                logger.info("*** registerUser 메서드 종료");
+                logger.info("반환 데이터 : msg = success");
 
-                return ResponseEntity.status(HttpStatus.OK).body(check);
-            } else {
-                check.put("msg", "fail");
-                return ResponseEntity.status(HttpStatus.NO_CONTENT).body(check);
-            }
-        }catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.OK).body(check);
+        } else {
+            check.put("msg", "fail");
+                logger.info("*** registerUser 메서드 실패");
+                logger.info("반환 데이터 : fail");
+            return ResponseEntity.status(HttpStatus.NO_CONTENT).body(check);
+        }
+    }catch (Exception e) {
             e.printStackTrace();
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
         }
@@ -140,7 +150,8 @@ public class UserController {
    @GetMapping("/get/{userId}")
    @ApiOperation(value = "ID를 통한 유저정보 획득")
     public ResponseEntity<?> getById(@PathVariable @ApiParam(value = "유저 아이디", required = true) String userId){
-
+       logger.info("*** getById 메서드 호출");
+       logger.info("입력 데이터 : userId = " + userId);
         Map<String, Object> check = new HashMap<>();
 
         try {
@@ -149,9 +160,15 @@ public class UserController {
             if(user != null){
                 check.put("msg", "success");
                 check.put("data", user);
+
+                logger.info("*** getById 메서드 종료");
+                logger.info("반환 데이터 : msg = success, data = " + user);
+
                 return ResponseEntity.status(HttpStatus.OK).body(check);
             }else{
                 check.put("msg", "fail");
+                logger.info("*** getById 메서드 실패");
+                logger.info("반환 데이터 : fail");
                 return ResponseEntity.status(HttpStatus.NO_CONTENT).body(check);
             }
 
@@ -164,19 +181,25 @@ public class UserController {
     // 비밀번호 변경
     @PostMapping("/password")
     @ApiOperation(value = "유저 비밀번호 변경", response = UserDto.class)
-    public ResponseEntity<?> changePassword(@RequestBody @ApiParam(value = "유저 인포") Map<String, String> userInfo){
+    public ResponseEntity<?> updatePassword(@RequestBody @ApiParam(value = "유저 인포") Map<String, String> userInfo){
 
+        logger.info("*** updatePassword 메서드 호출");
+        logger.info("입력 데이터 : userId = " + userInfo.get("userId"));
         Map<String, Object> check = new HashMap<>();
 
         try{
-            String msg = userService.changePw(userInfo);
+            String msg = userService.updatePassword(userInfo);
 
             if(msg.equals("OK")){
 
                 check.put("msg", msg);
+                logger.info("*** updatePassword 메서드 종료");
+                logger.info("반환 데이터 : success");
                 return ResponseEntity.status(HttpStatus.OK).body(check);
             }else{
                 check.put("msg", msg);
+                logger.info("*** updatePassword 메서드 실패");
+                logger.info("반환 데이터 : fail");
                 return ResponseEntity.status(HttpStatus.NO_CONTENT).body(check);
             }
         }catch (Exception e){
@@ -188,6 +211,9 @@ public class UserController {
     @PostMapping(value = "/findpw")
     @ApiOperation(value = "비밀번호 찾기 중 이메일 인증")
     public ResponseEntity<?> findPw(@RequestBody @ApiParam(value = "유저 ID") Map<String, String> data){
+
+        logger.info("*** findPw 메서드 호출");
+        logger.info("입력 데이터 :  userId = " + data.get("userId") + ", userEmail = " + data.get("userEmail"));
 
         String userId = data.get("userId");
         String userEmail = data.get("userEmail");
@@ -202,6 +228,9 @@ public class UserController {
                 map.put("msg", "success");
                 map.put("data", authCode);
 
+                logger.info("*** findPw 메서드 종료");
+                logger.info("반환 데이터 : success");
+
                 return ResponseEntity.status(HttpStatus.OK).body(map);
             }catch (Exception e){
                 e.printStackTrace();
@@ -209,6 +238,10 @@ public class UserController {
             }
         }else{
             map.put("msg", "fail");
+
+            logger.info("*** findPw 메서드 실패");
+            logger.info("반환 데이터 : fail");
+
             return ResponseEntity.status(HttpStatus.NO_CONTENT).body(null);
         }
 
@@ -216,14 +249,19 @@ public class UserController {
 
     @PutMapping(value = "/findpw/changepw")
     @ApiOperation(value = "이메일 인증 후 비밀번호 변경")
-    public ResponseEntity<?> changePwAfterEmailVaild(@RequestBody @ApiParam(value = "유저 정보") Map<String, String> userInfo){
+    public ResponseEntity<?> updatePwAfterEmailVaild(@RequestBody @ApiParam(value = "유저 정보") Map<String, String> userInfo){
+
+        logger.info("*** updatePwById 메서드 호출");
+        logger.info("입력 데이터 :  userId = " + userInfo.get("userId"));
 
         try{
-            userService.changePwById(userInfo);
+            userService.updatePwById(userInfo);
 
             Map<String, String> check = new HashMap<>();
 
             check.put("msg", "success");
+            logger.info("*** updatePwById 메서드 종료");
+            logger.info("반환 데이터 : success");
             return ResponseEntity.status(HttpStatus.OK).body(check);
 
         }catch (Exception e){
@@ -240,9 +278,12 @@ public class UserController {
     @GetMapping(value = "/valid/id/{userId}")
     @ApiOperation(value = "ID 중복검사")
     public ResponseEntity<Boolean> validId(@PathVariable @ApiParam(value = "유저 ID", required = true) String userId){
-
+        logger.info("*** validId 메서드 호출");
+        logger.info("입력 데이터 :  userId = " + userId);
         try {
             boolean isValid = userService.validId(userId);
+            logger.info("*** validId 메서드 종료");
+            logger.info("반환 데이터 : isValid = " + isValid);
             return ResponseEntity.status(HttpStatus.OK).body(isValid);
         }catch (Exception e){
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
@@ -254,9 +295,12 @@ public class UserController {
     @GetMapping(value = "/valid/email/{userEmail}")
     @ApiOperation(value = "Email 중복검사")
     public ResponseEntity<Boolean> validEmail(@PathVariable @ApiParam(value = "유저 Email", required = true) String userEmail){
-
+        logger.info("*** validEmail 메서드 호출");
+        logger.info("입력 데이터 :  userEmail = " + userEmail);
         try{
             boolean isValid = userService.validEmail(userEmail);
+            logger.info("*** validEmail 메서드 종료");
+            logger.info("반환 데이터 : isValid = " + isValid);
             return ResponseEntity.status(HttpStatus.OK).body(isValid);
         }catch (Exception e){
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
@@ -267,9 +311,12 @@ public class UserController {
     @GetMapping(value = "/valid/nickname/{userNickname}")
     @ApiOperation(value = "Nickname 중복검사")
     public ResponseEntity<Boolean> validNickname(@PathVariable @ApiParam(value = "유저 Nickname", required = true) String userNickname){
-
+        logger.info("*** validNickname 메서드 호출");
+        logger.info("입력 데이터 :  userNickname = " + userNickname);
         try {
             boolean isValid = userService.validNickname(userNickname);
+            logger.info("*** validNickname 메서드 종료");
+            logger.info("반환 데이터 : isValid = " + isValid);
             return ResponseEntity.status(HttpStatus.OK).body(isValid);
         }catch (Exception e){
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);

@@ -6,9 +6,9 @@ import java.util.List;
 import java.util.Map;
 
 public interface AdminService {
-    boolean adminLogin(Map<String, String> data);
+    boolean loginAdmin(Map<String, String> data);
 
     List<ConsultantDto> getConsultant();
 
-    int changeApproval(String consultantId);
+    int updateApproval(String consultantId);
 }
