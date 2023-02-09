@@ -1,6 +1,8 @@
 import { Fragment } from "react";
 import { useSelector, useDispatch } from "react-redux";
+import { useRef } from "react";
 import axios from "axios";
+import Swal from "sweetalert2";
 
 import { cartActions } from "../../store/cart";
 import classes from "./RecommendItem.module.css";
@@ -11,6 +13,8 @@ const RecommendItem = (props) => {
   const userId = useSelector((state) => state.auth.userId);
   const token = useSelector((state) => state.auth.token);
 
+  const img = useRef();
+
   const url = "https://i8d105.p.ssafy.io/be/item/regist";
 
   const onClickHandler = async () => {
@@ -19,10 +23,10 @@ const RecommendItem = (props) => {
         url,
         {
           userId: userId,
-          itemImgLink: clothesData.image,
+          itemImgLink: clothesData.imgLink,
           itemName: clothesData.title,
-          itemUri: clothesData.url,
-          itemPrice: clothesData.price,
+          itemUri: clothesData.link,
+          itemPrice: clothesData.afterPrice,
         },
         {
           headers: {
@@ -31,7 +35,16 @@ const RecommendItem = (props) => {
         }
       )
       .then((response) => {
-        console.log(response.data);
+        Swal.fire({
+          position: 'bottom-end',
+          html: '<div style="font-size:15px;font-family:Apple_Gothic_Neo_SB; display:flex;justify-content:center;align-items:center;line-height:18px; color: white;">장바구니에 담겼습니다</div>',
+          width: 180,
+          showConfirmButton: false,
+          timer: 1000,
+          backdrop: 'transparent',
+          background: '#4CAAFF',
+          padding: 10
+        })
       })
       .catch((error) => {
         console.log(error);
@@ -51,14 +64,21 @@ const RecommendItem = (props) => {
       });
   };
 
+  const imgLink = clothesData.imgLink.slice(0, -7) + '500.jpg';
+  const errorImgLink = clothesData.imgLink.slice(0, -7) + '500.png';
+
+  const onErrorHandler = () => {
+    img.current.src = errorImgLink;
+  };
+
   return (
     <Fragment>
       <div className={classes.div}>
-        <a href={clothesData.url} className={classes.clothes} target="_blank">
-          <img src={clothesData.image} alt="clothes_img" />
+        <a href={clothesData.link} className={classes.clothes} target="_blank">
+          <img src={imgLink} alt="clothes_img" onError={onErrorHandler} ref={img}/>
           <div className={classes.title}>{clothesData.title}</div>
           <div className={classes.maker}>{clothesData.maker}</div>
-          <div className={classes.price}>{clothesData.price}</div>
+          <div className={classes.price}>{clothesData.afterPrice}</div>
         </a>
         <div className={classes.btn}>
           <button onClick={onClickHandler}>장바구니에 담기 +</button>
