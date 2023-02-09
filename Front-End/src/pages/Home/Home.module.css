@@ -220,12 +220,14 @@
   color: white;
 }
 
-.btn button a {
+.btn button .button-span {
   text-decoration: none;
   font-size: 18px;
+  line-height: 18px;
   font-weight: 600;
   font-family: "Apple_Gothic_Neo_Middle";
   color: black;
+  padding-top: 3px;
 }
 
 

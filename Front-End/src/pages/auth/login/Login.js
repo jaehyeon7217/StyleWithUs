@@ -4,6 +4,7 @@ import { useState } from "react";
 
 import { useDispatch } from "react-redux";
 import { authActions } from "../../../store/auth";
+import { cartActions } from "../../../store/cart";
 import { useNavigate } from "react-router-dom";
 // component 분리
 import InputLabel from "../component/InputLabel";
@@ -42,7 +43,19 @@ const Login = () => {
       .then((response) => {
         if (response.status === 200) {
           if (isUser) {
-            dispatch(authActions.userLogin(response.data))
+            dispatch(authActions.userLogin(response.data));
+            axios
+            .get(`https://i8d105.p.ssafy.io/be/item/show/${response.data.data.userId}`, {
+              headers: {
+                Authorization: response.data.auth_token,
+              },
+            })
+            .then((response) => {
+              dispatch(cartActions.getCart(response.data.data));
+            })
+            .catch((error) => {
+              console.log(error);
+            });
             navigate("/");
           } else {
             if (response.data.data.consultantApproval === 1) {
