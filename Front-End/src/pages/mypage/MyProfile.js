@@ -38,9 +38,6 @@ const MyProfile = () => {
                     <p className={classes.PersonalSmallLabel}>성별</p>
                     <p className={classes.userData}>{(userData.userGender ? "남" : "여")}</p>
                     <div className={classes.BottomShort}></div>
-                    <p className={classes.PersonalSmallLabel}>나이</p>
-                    <p className={classes.userData}>{userData.userAge}</p>
-                    <div className={classes.BottomShort}></div>
                     <br /><br />
                 </div>
 
