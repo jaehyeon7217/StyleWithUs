@@ -2,6 +2,7 @@ import { useState } from 'react';
 import classes from './ServiceCenter.module.css';
 import ServiceCenterSideBar from './ServiceCenterSideBar';
 import Question from './Question';
+import MyPageSideBar from '../mypage/MyPageSideBar';
 
 const ServiceCenter = () => {
     const [visible, setVisible] = useState(false);
@@ -9,10 +10,9 @@ const ServiceCenter = () => {
     return(
         <div className={classes.MarginBox}>
             <div className={classes.WrapPage}>
-                {/* <ServiceCenterSideBar/> */}
-                <div>
-                <h1 className={classes.PageName}>고객센터</h1>
+                <MyPageSideBar />
                 <div className={classes.ServiceCenterBox}>
+                <div>
                     <h3 className={classes.QuestionName}>자주 묻는 질문</h3>
                     <hr className={classes.hr} />
                 </div>
@@ -47,7 +47,7 @@ const ServiceCenter = () => {
                                 <br/>
                                 <div className={classes.QdapLight}>- 4년제 대학을 졸업한 패션 디자인 전공자 </div>
                                 <div className={classes.QdapLight}>- 패션 및 디자인 관련 분야 5년 이상의 경력자</div>
-                                <div className={classes.QdapLight}>- 인스타 팔로워 5만 이상</div>
+                                <div className={classes.QdapLight}>- 인스타 팔로워 50만 이상</div>
                                 <br/>
                                 <div className={classes.QdapLight}>위 조건을 만족한 패션 전문가만이 STYLE WITH US의 컨설턴트가 될 수 있습니다.</div>
                             </div>
