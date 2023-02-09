@@ -1,0 +1,118 @@
+@import url('https://fonts.googleapis.com/css2?family=Blinker:wght@100;200;300;400;600;700;800;900&display=swap');
+
+@font-face {
+    font-family: "Apple_Gothic_Neo_Hard";
+    src: url("../../fonts/AppleSDGothicNeoH.ttf");
+}
+
+@font-face {
+    font-family: "Apple_Gothic_Neo_Bold";
+    src: url("../../fonts/AppleSDGothicNeoB.ttf");
+}
+
+@font-face {
+    font-family: "Apple_Gothic_Neo_SB";
+    src: url("../../fonts/AppleSDGothicNeoSB.ttf");
+}
+
+@font-face {
+    font-family: "Apple_Gothic_Neo_Light";
+    src: url("../../fonts/AppleSDGothicNeoL.ttf");
+}
+
+.MyPage{
+    display: flex;
+    justify-content: center;
+    
+    
+}
+
+.mainBox{
+    margin-top: 100px;
+    margin-left: 60px;
+    
+}
+
+.MainTitle{
+    font-family: "Apple_Gothic_Neo_SB";
+    font-size: 25px;
+    color: #2B2B2B;
+}
+
+.MyInformBox{
+  width: 900px;
+  height: 135px;
+  border: 2px solid rgb(213, 213, 213);
+  border-radius: 20px;
+  margin-top: -10px;
+  margin-bottom: 50px;
+}
+
+.consultantWoman{
+  width: 70px;
+  margin-left: 30px;
+}
+
+.MyInformBox{
+    display: flex;
+    justify-content: left;
+}
+
+.HelloText{
+    display: flex;
+    justify-content: left;
+}
+
+.consultantNickname{
+    font-size: 19px;
+    font-family: "Apple_Gothic_Neo_Bold";
+    margin-left: 30px;
+}
+
+.Hello{
+    font-family: "Apple_Gothic_Neo_Light";
+    font-size: 18px;
+    margin-top: 22px;
+    margin-left: 3px;
+    
+}
+
+.RevieBox{
+    display: flex;
+    justify-content: space-between;
+}
+
+.ReviewOne{
+    display: flex;
+    justify-content: left;
+}
+
+.star{
+    font-family: "Apple_Gothic_Neo_Light";
+    margin-left: 20px;
+}
+
+.userId{
+    margin-left: 10px;
+    font-family: "Apple_Gothic_Neo_Mid";
+}
+
+.ReviewBox{
+  width: 900px;
+  height: 100px;
+  background-color: rgba(227, 227, 227, 0.327);
+  border-radius: 20px;
+  margin-bottom: 10px;
+  
+}
+
+.reviewScore{
+    margin-left: 10px;
+    font-family: "Apple_Gothic_Neo_Light";
+}
+
+.reviewContent{
+    font-family: "Apple_Gothic_Neo_Bold";
+    margin-left: 20px;
+    margin-top: 0px;
+}

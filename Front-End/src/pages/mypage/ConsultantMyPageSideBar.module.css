@@ -1,0 +1,42 @@
+@import url('https://fonts.googleapis.com/css2?family=Blinker:wght@100;200;300;400;600;700;800;900&display=swap');
+
+@font-face {
+    font-family: "Apple_Gothic_Neo_Hard";
+    src: url("../../fonts/AppleSDGothicNeoH.ttf");
+}
+
+@font-face {
+    font-family: "Apple_Gothic_Neo_Bold";
+    src: url("../../fonts/AppleSDGothicNeoB.ttf");
+}
+
+@font-face {
+    font-family: "Apple_Gothic_Neo_SB";
+    src: url("../../fonts/AppleSDGothicNeoSB.ttf");
+}
+
+@font-face {
+    font-family: "Apple_Gothic_Neo_Light";
+    src: url("../../fonts/AppleSDGothicNeoL.ttf");
+}
+
+.SideBar{
+   margin-top: 100px;
+   margin-right: 10px;
+}
+
+.PageName{
+    font-family: "Apple_Gothic_Neo_SB";
+    font-size: 33px;
+}
+
+.SideBarName{
+    font-family: "Apple_Gothic_Neo_Mid";
+    font-size: 25px;
+}
+
+.SidBarNameSmall{
+    font-family: "Apple_Gothic_Neo_Light";
+    font-size: 22px;
+    color: #8B8B8BC6;
+}
