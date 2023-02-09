@@ -9,7 +9,9 @@ const initialAuthState = {
   confirmEmail : "",
   resetCode : {},
   userData : "",
-  consultantList: {}
+  consultantList: {},
+  isConsulting: false,
+  myReviewList : {},
 };
 
 const authSlice = createSlice({
@@ -26,7 +28,7 @@ const authSlice = createSlice({
     },
     consultantLogin(state, action){
       state.token = action.payload.auth_token;
-      state.userId = action.payload.data.userId
+      state.userId = action.payload.data.consultantId
       state.userType = 1;
       state.isLogined = true;
       state.userData = action.payload.data;
@@ -51,6 +53,18 @@ const authSlice = createSlice({
     getConsultantList(state, action) {
       state.consultantList = action.payload
     },
+    // 컨설팅 시작
+    startConsulting(state, action) {
+      state.isConsulting = action.payload
+    },
+    // 컨설팅 종료
+    endConsulting(state, action) {
+      state.isConsulting = action.payload
+    },
+    // 리뷰 가져오기
+    getMyReview(state, action) {
+      state.myReviewList = action.payload
+    },
     // 로그아웃
     logout(state, action) {
       state.token = action.payload
@@ -60,6 +74,8 @@ const authSlice = createSlice({
       state.confirmEmail = action.payload
       state.userData = action.payload
       state.consultantList = action.payload
+      state.isConsulting = false
+      state.myReviewList = action.payload
     },
   }
 });

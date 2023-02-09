@@ -1,8 +1,12 @@
 import { useState, useEffect } from "react";
 import ConsultantResume from "./ConsultantResume";
 import classes from "./ConsultantList.module.css";
+import { useDispatch } from "react-redux";
+import { authActions } from "../../../../store/auth";
 
 const ConsultantList = (props) => {
+  const dispatch = useDispatch();
+
   const consultantId = props.consultantId;
   const consultantNickname = props.consultantNickname;
   const consultantGender = props.consultantGender;
@@ -18,6 +22,7 @@ const ConsultantList = (props) => {
     props.onAddSessionId(sessionId);
     props.setGetConsultantId(consultantId)
     props.setGetSessionStatus(false);
+    dispatch(authActions.startConsulting(true))
   };
 
   const showResumeHandler = () => {
