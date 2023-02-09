@@ -10,6 +10,11 @@ const NavBottom = () =>{
   const navigate = useNavigate();
   const isLogined = useSelector((state)=> state.auth.isLogined)
 
+  const isConsulting = useSelector((state) => state.auth.isConsulting)
+
+  const nonAction = () =>{
+    
+  }
 
   const toRecommend = (event) =>{
     event.preventDefault();
@@ -88,9 +93,9 @@ const NavBottom = () =>{
     
   return(
     <div className={classes.bottom}>
-      <p className={classes.LinkBottom} onClick={toRecommend}>추천</p>
-      <p className={classes.LinkBottom} onClick={toSBTI}>SBTI</p>
-      <p className={classes.LinkBottom} onClick={toConsultant}>컨설턴트 상담</p>
+      <p className={classes.LinkBottom} onClick={isConsulting ? nonAction : toRecommend}>추천</p>
+      <p className={classes.LinkBottom} onClick={isConsulting ? nonAction : toSBTI}>SBTI</p>
+      <p className={classes.LinkBottom} onClick={isConsulting ? nonAction : toConsultant}>컨설턴트 상담</p>
       {/* <NavLink to="/recommend" className={(navData) => navData.isActive ? classes['LinkBottom-active'] : classes.LinkBottom}>추천</NavLink>  */}
       {/* <NavLink to="/sbti" className={(navData) => navData.isActive ? classes['LinkBottom-active'] : classes.LinkBottom}>SBTI</NavLink>  */}
       {/* <NavLink to="/consultant" className={(navData) => navData.isActive ? classes['LinkBottom-active'] : classes.LinkBottom} >컨설턴트 상담</NavLink> */}

@@ -4,13 +4,19 @@ import Swal from "sweetalert2"
 
 import classes from "./NavTop.module.css"
 import { useNavigate } from "react-router-dom"
-import wishcart from '../../assets/wishcart.png'
 
 const NavTop = () =>{
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const isLogined = useSelector((state)=> state.auth.isLogined)
+  const userType = useSelector((state) => state.auth.userType)
 
+  const isConsulting = useSelector((state) => state.auth.isConsulting)
+
+  const nonAction = () =>{
+    
+  }
+  
   const toLogin = (event) =>{
     event.preventDefault();
     navigate('/auth/login')
@@ -21,7 +27,13 @@ const NavTop = () =>{
   }
   const toMypage = (event) =>{
     event.preventDefault();
-    navigate('/mypage')
+    if(userType===0){
+      navigate('/mypage')
+    }else if(userType===1){
+      navigate('/consultantmypage')
+    }else{
+      navigate('/manageconsultant')
+    }
   }
 
   const toWishPage = (event) => {
@@ -47,9 +59,9 @@ const NavTop = () =>{
     <div className={classes.top}>
       <p className={(isLogined ? classes.LinkTopHidden : classes.LinkTop)} onClick={toLogin}>로그인</p>
       <p className={(isLogined ? classes.LinkTopHidden : classes.LinkTop)} onClick={toSignup}>회원가입</p>
-      <p className={(!isLogined ? classes.LinkTopHidden : classes.LinkTop)} onClick={toWishPage}><img src={wishcart} className={classes.wishcart} /></p>
-      <p className={(!isLogined ? classes.LinkTopHidden : classes.LinkTop)} onClick={toMypage}>마이페이지</p>
-      <p className={(!isLogined ? classes.LinkTopHidden : classes.LinkTop)} onClick={toLogout}>로그아웃</p>
+      <p className={(!isLogined ? classes.LinkTopHidden : classes.LinkTop)} onClick={isConsulting ? nonAction : toMypage}>마이페이지</p>
+      <p className={(!isLogined ? classes.LinkTopHidden : classes.LinkTop)} onClick={isConsulting ? nonAction : toWishPage}>장바구니</p>
+      <p className={(!isLogined ? classes.LinkTopHidden : classes.LinkTop)} onClick={isConsulting ? nonAction : toLogout}>로그아웃</p>
     </div>
   )
 }
