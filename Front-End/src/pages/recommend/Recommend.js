@@ -1,5 +1,5 @@
 import { useSelector } from "react-redux";
-import { Fragment } from "react";
+import { Fragment, useState } from "react";
 
 import LengthType from "./LengthType";
 import classes from "./Recommend.module.css";
@@ -10,11 +10,11 @@ import axios from "axios";
 
 const Recommend = () => {
   const user = useSelector(state => state.auth);
+  let [clothesData, setClothesData] = useState([]);
 
   const url = "https://i8d105.p.ssafy.io/be/data/recommend";
 
   const clothesTypes = ["상의", "하의", "아우터", "신발"];
-  let clothesData = []
 
   const clothesLengthTypes = [
     { type: "어깨너비", data: user.userData.userShoulder },
@@ -55,10 +55,7 @@ const Recommend = () => {
         }
       )
       .then((response) => {
-        clothesData.push(response.data["top"]);
-        clothesData.push(response.data["bottom"]);
-        clothesData.push(response.data["outer"]);
-        clothesData.push(response.data["shoes"]);
+        setClothesData([response.data["top"], response.data["bottom"], response.data["outer"], response.data["shoes"]])
       })
       .catch((error) => {
         console.log(error);
@@ -85,9 +82,10 @@ const Recommend = () => {
             );
           })}
         </div>
-        <div className={classes.recommend}>
-          {clothesTypes.map((type, idx) => {
-            return <RecommendItemBox type={type} key={`${type}-${idx}`} />;
+        <div className={classes.loading}></div>
+        <div className={clothesData.length !== 4 ? classes.recommend : `${classes.recommend} ${classes.on}`}>
+          {clothesData.map((data, idx) => {
+            return <RecommendItemBox data={data} type={clothesTypes[idx]} key={`${clothesTypes[idx]}-${idx}`} />;
           })}
         </div>
       </div>
