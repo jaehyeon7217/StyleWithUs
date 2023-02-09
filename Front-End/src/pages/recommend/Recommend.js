@@ -5,21 +5,65 @@ import LengthType from "./LengthType";
 import classes from "./Recommend.module.css";
 import RecommendItemBox from "./RecommendItemBox";
 import { useEffect } from "react";
+import axios from "axios";
 // import TopLengthImage from "../../assets/clothes/상의.png";
 
 const Recommend = () => {
-  const clothesLengthTypes = [
-    { type: "어깨너비", data: 47 },
-    { type: "가슴단면", data: 50 },
-    { type: "소매길이", data: 60 },
-    { type: "허리단면", data: 31 },
-    { type: "엉덩이단면", data: 35 },
-    { type: "허벅지단면", data: 26 },
-    { type: "밑단단면", data: 24 },
-    { type: "키", data: 171 },
-    { type: "신발사이즈", data: 265 },
-  ];
+  const user = useSelector(state => state.auth);
+
+  const url = "https://i8d105.p.ssafy.io/be/data/recommend";
+
   const clothesTypes = ["상의", "하의", "아우터", "신발"];
+  let clothesData = []
+
+  const clothesLengthTypes = [
+    { type: "어깨너비", data: user.userData.userShoulder },
+    { type: "가슴단면", data: user.userData.userChest },
+    { type: "소매길이", data: user.userData.userSleeve },
+    { type: "허리단면", data: user.userData.userWaist },
+    { type: "엉덩이단면", data: user.userData.userHip },
+    { type: "허벅지단면", data: user.userData.userThigh },
+    { type: "밑단단면", data: user.userData.userHem },
+    { type: "키", data: user.userData.userHeight },
+    { type: "신발사이즈", data: user.userData.userFoot },
+  ];
+
+  useEffect(() => {
+    axios
+      .post(
+        url,
+        {
+          userId: user.userData.userId,
+          userName: user.userData.userName,
+          userNickname: user.userData.userNickname,
+          userEmail: user.userData.userEmail,
+          userGender: user.userData.userGender,
+          userHeight: user.userData.userHeight,
+          userShoulder : user.userData.userShoulder,
+          userChest : user.userData.userChest,
+          userSleeve : user.userData.userSleeve,
+          userWaist : user.userData.userWaist,
+          userHip : user.userData.userHip,
+          userThigh : user.userData.userThigh,
+          userHem : user.userData.userHem,
+          userFoot:  user.userData.userFoot,
+        },
+        {
+          headers: {
+            Authorization: user.token,
+          },
+        }
+      )
+      .then((response) => {
+        clothesData.push(response.data["top"]);
+        clothesData.push(response.data["bottom"]);
+        clothesData.push(response.data["outer"]);
+        clothesData.push(response.data["shoes"]);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, [])
 
   useEffect(() => {
     document.querySelector(`#App`).scrollIntoView({behavior: "smooth", block: "start"});
