@@ -1,11 +1,8 @@
-import React, { useState } from "react";
-// import { FaStar } from "react-icons/fa";
-import classes from "./StarRating.module.css";
 import yellowStar from "../../../../../assets/yellow_star.png";
+import classes from "./GetStarRating.module.css";
 
-const StarRating = (props) => {
-  const [rating, setRating] = useState(3);
-  const [hover, setHover] = useState(null);
+const GetStarRating = (props) => {
+  const reviewScore = props.reviewScore;
 
   return (
     <div>
@@ -19,22 +16,15 @@ const StarRating = (props) => {
                 type="radio"
                 name="rating"
                 value={ratingValue}
-                onClick={() => {
-                  setRating(ratingValue);
-                  props.onReviewScore(rating);
-                }}
               />
               <img
                 className={`${
-                  ratingValue <= (hover || rating)
+                  ratingValue <= reviewScore
                     ? classes["star-yellow"]
                     : classes["star-gray"]
                 }`}
                 src={yellowStar}
                 alt="star"
-                onMouseEnter={() => setHover(ratingValue)}
-                onMouseLeave={() => setHover(null)}
-                size={25}
               />
               {/* <FaStar
                 className={classes.star}
@@ -44,11 +34,11 @@ const StarRating = (props) => {
                 onMouseLeave={() => setHover(null)}
               /> */}
             </label>
-          );
+          ); ///
         })}
       </div>
     </div>
   );
 };
 
-export default StarRating;
+export default GetStarRating;
