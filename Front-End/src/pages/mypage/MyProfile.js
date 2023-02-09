@@ -2,6 +2,8 @@ import classes from './MyProfile.module.css';
 import MyPageSideBar from './MyPageSideBar';
 import { useSelector } from 'react-redux';
 import userImage from "../../assets/mypageuser.png";
+import userMan from '../../assets/footermantwo.png';
+import userWoman from '../../assets/footerwoman.png';
 
 const MyProfile = () => {
     const userData = useSelector((state) => state.auth.userData)
@@ -14,7 +16,8 @@ const MyProfile = () => {
                 <h3 className={classes.ProfileName}>프로필</h3>
                 <hr className={classes.hr} />
                 <div className={classes.ProfileImgBox}>
-                    <img src={userImage} alt="user" className={classes.userImg}/>
+                        <p >{(userData.userGender ? <img src={userMan} className={classes.userImgetwo} /> : <img src={userWoman} className={classes.userImge} />)}</p>
+                    {/* <img src={userImage} alt="user" className={classes.userImg}/> */}
                     <div className={classes.ProfileImgLetter}>
                         <p className={classes.ImgName}>{userData.userName}</p>
                         <p className={classes.ImgUserType}>일반 유저</p>
