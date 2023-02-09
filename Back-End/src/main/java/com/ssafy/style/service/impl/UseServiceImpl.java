@@ -26,7 +26,7 @@ public class UseServiceImpl implements UserService {
     ////////////////////////////////////////////////////////////////////////////////////////////////////
 
     @Override
-    public UserDto insertUser(UserDto userDto) throws Exception {
+    public UserDto registerUser(UserDto userDto) throws Exception {
 
         String encodedPW = passwordEncoder.encode(userDto.getUserPw());
 
@@ -38,7 +38,7 @@ public class UseServiceImpl implements UserService {
     }
 
     @Override
-    public UserDto selectUser(UserDto userDto) {
+    public UserDto loginUser(UserDto userDto) {
 
         String userId = userDto.getUserId();
 
@@ -62,11 +62,6 @@ public class UseServiceImpl implements UserService {
 
         UserDto saveUserDto = toUserDto(saveUser);
         return saveUserDto;
-    }
-
-    @Override
-    public void deleteUser(UserDto userDto) {
-        //////////////구현?
     }
 
     @Override
@@ -97,7 +92,7 @@ public class UseServiceImpl implements UserService {
     }
 
     @Override
-    public String changePw(Map<String, String> userInfo) throws Exception {
+    public String updatePassword(Map<String, String> userInfo) throws Exception {
         String userId = userInfo.get("userId");
         String encodedNewInputPw = passwordEncoder.encode(userInfo.get("newUserPw"));
 
@@ -136,7 +131,7 @@ public class UseServiceImpl implements UserService {
     }
 
     @Override
-    public void changePwById(Map<String, String> userInfo) {
+    public void updatePwById(Map<String, String> userInfo) {
         User userTemp = userDAO.getById(userInfo.get("userId"));
 
         String encodePw = passwordEncoder.encode(userInfo.get("userPw"));

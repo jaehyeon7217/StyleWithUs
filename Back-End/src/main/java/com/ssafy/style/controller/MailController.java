@@ -38,8 +38,8 @@ public class MailController {
     public ResponseEntity<?> checkMail(@RequestBody @ApiParam(value = "전송할 이메일", required = true) Map<String, String> data){
 
         String email = data.get("email");
-        logger.info("checkMail Start");
-        logger.info("email : " + email);
+        logger.info("*** checkMail 메서드 호출");
+        logger.info("입력 데이터 :  email = " +data.get("email"));
 
         try {
             String authCode = mailService.sendEmail(email);
@@ -48,7 +48,8 @@ public class MailController {
 
             map.put("msg", "success");
             map.put("data", authCode);
-
+            logger.info("*** checkMail 메서드 종료");
+            logger.info("반환 데이터 : success");
             return ResponseEntity.status(HttpStatus.OK).body(map);
         }catch (Exception e){
             e.printStackTrace();

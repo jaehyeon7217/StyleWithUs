@@ -37,13 +37,12 @@ public class DataController {
     // 무신사 Item 정보 크롤링
     @GetMapping(value = "consulting/{gender}/{no}")
     @ApiOperation(value = "무신사 Item 정보 크롤링")
-    public ResponseEntity<?> getDataTest(
+    public ResponseEntity<?> getData(
             @PathVariable @ApiParam(value = "Item 카테고리 number", required = true) String no,
             @PathVariable @ApiParam(value = "Item 카테고리 number", required = true) String gender){
         Map<String, Object> map = new HashMap<>();
-
-        logger.info("Starting get data");
-        logger.info("Item Category number : " + no);
+        logger.info("*** getData 메서드 호출");
+        logger.info("입력 데이터 :  no = "+ no+ ", gender = " + gender);
 
         try {
             List<DataDto> list = new ArrayList<>();
@@ -59,9 +58,13 @@ public class DataController {
                 map.put("msg", "success");
                 map.put("data", list);
 
+                logger.info("*** getData 메서드 종료");
+                logger.info("반환 데이터 : msg = success, data = " + list);
                 return ResponseEntity.status(HttpStatus.OK).body(map);
             }else{
                 map.put("msg", "fail");
+                logger.info("*** getData 메서드 실패");
+                logger.info("반환 데이터 : fail");
                 return ResponseEntity.status(HttpStatus.NO_CONTENT).body(map);
             }
         }catch (Exception e){
@@ -72,30 +75,31 @@ public class DataController {
 
     @PostMapping(value = "/recommend")
     @ApiOperation(value = "추천 상품")
-    public ResponseEntity<?> recomemendItem (@RequestBody @ApiParam UserDto userInfo){
-        logger.info("Call the recommendItem Methods");
-
+    public ResponseEntity<?> getRecomemendItem (@RequestBody @ApiParam UserDto userInfo){
+        logger.info("*** getRecomemendItem 메서드 호출");
+        logger.info("입력 데이터 :  userInfo = " + userInfo);
         Map<String, Object> map = new HashMap<>();
-//        int[] no = {001, 003, 002, 005};
 
         if(userInfo.getUserHeight() == null)
             return  ResponseEntity.status(HttpStatus.NO_CONTENT).body(null);
 
         try{
             List<DataDto> list = new ArrayList<>();
-            list = dataService.getCommendTopItem(userInfo);
+            list = dataService.getRecommendTopItem(userInfo);
             map.put("top", list);
             list = new ArrayList<>();
-            list = dataService.getCommendBottomItem(userInfo);
+            list = dataService.getRecommendBottomItem(userInfo);
             map.put("bottom", list);
             list = new ArrayList<>();
-            list = dataService.getCommendOuterItem(userInfo);
+            list = dataService.getRecommendOuterItem(userInfo);
             map.put("outer", list);
             list = new ArrayList<>();
-            list = dataService.getCommendShoesItem(userInfo);
+            list = dataService.getRecommendShoesItem(userInfo);
             map.put("shoes", list);
 
             map.put("msg", "success");
+            logger.info("*** getRecomemendItem 메서드 종료");
+            logger.info("반환 데이터 : msg = success, list = " + list);
             return ResponseEntity.status(HttpStatus.OK).body(map);
         }catch (Exception e){
             e.printStackTrace();

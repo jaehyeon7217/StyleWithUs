@@ -23,7 +23,7 @@ public class AdminServiceImpl implements AdminService {
     }
 
     @Override
-    public boolean adminLogin(Map<String, String> data) {
+    public boolean loginAdmin(Map<String, String> data) {
 
         String adminId = data.get("adminId");
         String adminPw = data.get("adminPw");
@@ -64,7 +64,7 @@ public class AdminServiceImpl implements AdminService {
     }
 
     @Override
-    public int changeApproval(String consultantId) {
+    public int updateApproval(String consultantId) {
 
         Consultant consultant = consultantRepository.getById(consultantId);
 
