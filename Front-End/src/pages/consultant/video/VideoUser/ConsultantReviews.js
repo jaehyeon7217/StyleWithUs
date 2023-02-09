@@ -2,6 +2,7 @@ import axios from "axios";
 import { useSelector } from "react-redux";
 import { useState, useEffect } from "react";
 import ConsultantReviewsList from "./ConsultantReviewsList";
+import GetStarRating from "./reviewinput/GetStarRating";
 
 const APPLICATION_SERVER_URL =
   process.env.NODE_ENV === "production" ? "" : "https://i8d105.p.ssafy.io/be/";
@@ -39,7 +40,7 @@ const ConsultantReviews = (props) => {
   return (
     <div>
       <h1>ConsultantReviews</h1>
-      <div>평균 평점: {avgScore}</div>
+      <div>평균 평점: <GetStarRating reviewScore={Math.round(avgScore)}/>{avgScore}</div>
       <br />
       {reviewLists.map((list, idx) => {
         return (

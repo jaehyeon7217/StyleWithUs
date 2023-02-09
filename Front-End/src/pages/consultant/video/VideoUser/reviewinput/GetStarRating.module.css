@@ -1,16 +1,8 @@
-.section {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-}
-
 .star-type {
     display: none;
 }
 
 .star-yellow {
-    cursor: pointer;
     width: 25px;
     height: 25px;
     transition: color 200ms;
@@ -18,13 +10,7 @@
 
 .star-gray {
     filter: grayscale(100);
-    cursor: pointer;
     width: 25px;
     height: 25px;
     transition: color 200ms;
 }
-
-/* 
-yellow: #ffc107
-gray: #e4e5e9
- */

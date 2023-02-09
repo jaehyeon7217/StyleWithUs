@@ -1,6 +1,7 @@
 import { useSelector } from "react-redux";
 import { useState, useEffect } from "react";
 import axios from 'axios';
+import GetStarRating from "./reviewinput/GetStarRating";
 
 const APPLICATION_SERVER_URL =
   process.env.NODE_ENV === "production"
@@ -14,7 +15,7 @@ const ConsultantReviewsList = (props) => {
 
   const reviewUserId = props.userId;
   const reviewNo = props.reviewNo;
-  const reviewScore = props.reviewScore;
+  const reviewScore = Math.round(props.reviewScore);
   const reviewContent = props.reviewContent;
 
   // 작성한 아이디와 로그인한 아이디가 같은 경우 삭제 버튼 보이게
@@ -48,6 +49,7 @@ const ConsultantReviewsList = (props) => {
   return (
     <div>
       <div>{reviewScore}</div>
+      <GetStarRating reviewScore={reviewScore}/>
       <div>{reviewContent}</div>
       {checkUserId && <input type="button" value="삭제" onClick={deleteReviewHandler} />}
       <br />
