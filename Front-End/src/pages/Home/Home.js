@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { Navigate, useNavigate } from "react-router-dom";
 
 import ButtonBox from "./ButtonBox";
 import classes from "../Home/Home.module.css";
@@ -46,6 +47,8 @@ import section10Image4 from "../../assets/mainPage/버려지는신발.png"
 const Home = () => {
   const [scrollMoveControll, setScrollMoveControll] = useState(0);
   const [pageNumber, setPageNumber] = useState(1);
+  const navigate = useNavigate();
+  const isLogIn = useSelector(state => state.auth.isLogined);
 
   const lastPageNumber = 11;
 
@@ -113,6 +116,14 @@ const Home = () => {
     }
   };
 
+  const LoginHandler = () => {
+    navigate('/auth/login')
+  };
+
+  const SignUpHandler = () => {
+    navigate('/auth/signup')
+  };
+
   return (
     <div id="main-page" className={classes["main-page"]}>
       <ButtonBox pageNumber={pageNumber} buttonMove={ButtonMove} topMoveHandler={TopMoveHandler}/>
@@ -126,18 +137,18 @@ const Home = () => {
         </h1>
         <p className={classes["section1-p1"]}>스타일 추천의 INOVATION</p>
         <p className={classes["section1-p2"]}>스타일 혁신의 가장 확실한 방법</p>
-        <div className={classes.btn}>
-          <button>
-            <Link to="/auth/login">로그인</Link>
+        {isLogIn ? "": <div className={classes.btn}>
+          <button onClick={LoginHandler}>
+            <span className={classes['button-span']}>로그인</span>
             &nbsp;&nbsp;
             <span className="material-symbols-outlined">login</span>
           </button>
-          <button>
-            <Link to="/auth/signup">회원가입</Link>
+          <button onClick={SignUpHandler}>
+            <span className={classes['button-span']}>회원가입</span>
             &nbsp;&nbsp;
             <span className="material-symbols-outlined">person_add</span>
           </button>
-        </div>
+        </div>}
       </div>
       <div className={pageNumber !== 2? classes["section2"] : `${classes["section2"]} ${classes.on}`}>
         <p className={pageNumber !== 2? classes["section2-p1"] : `${classes["section2-p1"]} ${classes.on}`}>스타일 추천은</p>

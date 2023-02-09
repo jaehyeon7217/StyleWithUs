@@ -23,12 +23,16 @@
   src: url("../../fonts/AppleSDGothicNeoM.ttf");
 }
 
-.clothes {
+.div {
   width: 24%;
+}
+
+.clothes {
+  width: 100%;
   display: inline-block;
   text-decoration: none;
   color: black;
-  margin-bottom: 30px;
+  margin-bottom: 0;
 }
 
 .clothes img {
@@ -55,4 +59,25 @@
 .price {
   font-weight: 500;
   font-size: 18px;
+  margin-bottom: 0;
+}
+
+.div .btn {
+  width: 100%;
+  overflow: hidden;
+  margin-bottom: 30px;
+}
+
+.div div button {
+  float: right;
+  background-color: transparent;
+  border: none;
+  font-family: "Apple_Gothic_Neo_Light";
+  color: gray;
+  transition: color .1s;
+}
+
+.div div button:hover {
+  cursor: pointer;
+  color: black;
 }
