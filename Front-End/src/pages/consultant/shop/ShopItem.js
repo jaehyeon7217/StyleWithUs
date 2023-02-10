@@ -14,8 +14,6 @@ const ShopItem = (props) => {
   const user = useSelector(state => state.auth);
   const userId = props.userId;
 
-  const cartUpdate = useSelector((state) => state.cart.update);
-
   const dispatch = useDispatch();
 
   const onClickHandler = async () => {
@@ -50,23 +48,30 @@ const ShopItem = (props) => {
       .catch((error) => {
         console.log(error);
       });
+    
+    await props.session
+    .signal({
+      data: 'cart select', 
+      to: [], 
+      type: "cart", 
+    })
+    .then(() => {
+    })
+    .catch((error) => {
+      console.error(error);
+    });
 
-    if (user.userType === 0) {
-      axios
-      .get(`https://i8d105.p.ssafy.io/be/item/show/${userId}`, {
-        headers: {
-          Authorization: user.token,
-        },
-      })
+    axios.get(`https://i8d105.p.ssafy.io/be/item/show/${userId}`, {
+      headers: {
+        Authorization: user.token,
+      },
+    })
       .then((response) => {
         dispatch(cartActions.getCart(response.data.data));
       })
       .catch((error) => {
         console.log(error);
       });
-    } else {
-      dispatch(cartActions.updateCart());
-    }
   };
 
   return (

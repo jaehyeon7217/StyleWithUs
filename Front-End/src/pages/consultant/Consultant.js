@@ -124,7 +124,7 @@ const Consultant = (props) => {
       <main className={classes.main}>
         <section>{!userType ? <VideoUser sessionSend={sessionSend} /> : <VideoConsultant sessionSend={sessionSend} getUserId={getSessionUserId} />}</section>
         <section className={classes.section}>
-          {userType === 0 ? <Shop userGender={user.userData.userGender} userId={user.userId}/> : <Shop userGender={sessionUserGender} userId={sessionUserId}/>}
+          {userType === 0 ? <Shop userGender={user.userData.userGender} userId={user.userId} session={session}/> : <Shop userGender={sessionUserGender} userId={sessionUserId} session={session}/>}
         </section>
         <section className={classes.section}>
           <div className={classes["show-cart-chat"]}>

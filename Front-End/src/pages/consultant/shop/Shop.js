@@ -66,7 +66,7 @@ const Shop = (props) => {
           })}
         </ul>
       )}
-      {shopOn && gender !== null && <ShopItems detailPage={detailPage} detailShopOff={detailShopOff} gender={gender} userId={props.userId}/>}
+      {shopOn && gender !== null && <ShopItems detailPage={detailPage} detailShopOff={detailShopOff} gender={gender} userId={props.userId} session={props.session}/>}
     </div>
   );
 };
