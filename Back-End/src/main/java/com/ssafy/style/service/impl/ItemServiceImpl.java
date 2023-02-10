@@ -22,18 +22,18 @@ public class ItemServiceImpl implements ItemService {
     ////////////////////////////////////////////////////////////////////////////////////////////////////
 
     @Override
-    public ItemDto insertItem(ItemDto itemDto) throws Exception {
+    public ItemDto createItem(ItemDto itemDto) throws Exception {
         Item item = toItem(itemDto);
-        Item saveItem = itemDAO.insertItem(item);
-        return toItemDto(saveItem);
+        Item createItem = itemDAO.createItem(item);
+        return toItemDto(createItem);
     }
 
     @Override
-    public List<ItemDto> selectUserItem(String userId) throws Exception {
+    public List<ItemDto> readUserItem(String userId) throws Exception {
         ArrayList<ItemDto> list = new ArrayList<ItemDto>();
-        List<Item> selectUserItem = itemDAO.selectUserItem(userId);
+        List<Item> readUserItem = itemDAO.readUserItem(userId);
 
-        for(Item i : selectUserItem) {
+        for(Item i : readUserItem) {
             list.add(new ItemDto(
                     i.getItemNo(),
                     itemDAO.toUserId(i.getUserId()),
@@ -52,6 +52,8 @@ public class ItemServiceImpl implements ItemService {
     public void deleteItem(int itemNo) throws Exception {
         itemDAO.deleteItem(itemNo);
     }
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////
 
     private Item toItem(ItemDto itemDto) {
         Item item = new Item();

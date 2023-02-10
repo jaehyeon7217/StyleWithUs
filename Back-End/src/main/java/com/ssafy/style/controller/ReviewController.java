@@ -33,25 +33,28 @@ public class ReviewController {
     /////////////////////////////////////////////////////////////////////////////////////////////////////
     @PostMapping("/write")
     @ApiOperation(value = "리뷰 작성", response = ReviewDto.class)
-    public ResponseEntity<?> writeReview(
+    public ResponseEntity<?> createReview(
             @RequestBody @ApiParam(value = "리뷰 작성 정보", required = true) ReviewDto reviewDto) {
 
         Map<String, Object> check = new HashMap<>();
 
-        logger.info("writeReview - 호출");
-        logger.info("writeReview reviewDto : {}", reviewDto);
+        logger.info("*** createReview 메소드 호출");
+        logger.info("*** createReview reviewDto : {}", reviewDto);
 
         try {
-            ReviewDto review = reviewService.insertReview(reviewDto);
+            ReviewDto review = reviewService.createReview(reviewDto);
             if (review != null) {
-                logger.info("리뷰 정보 : {}", review);
 
                 check.put("msg", "success");
                 check.put("data", review);
 
+                logger.info("*** createReview 메소드 종료");
+                logger.info("*** 리뷰 정보 : {}", review);
                 return ResponseEntity.status(HttpStatus.OK).body(check);
             } else {
                 check.put("msg", "fail");
+                logger.info("*** createReview 메소드 실패");
+                logger.info("*** 리뷰 정보 : {}", review);
                 return ResponseEntity.status(HttpStatus.NO_CONTENT).body(check);
             }
         } catch (Exception e) {
@@ -60,18 +63,18 @@ public class ReviewController {
         }
     }
 
-    @GetMapping("/show/{consultantId}")
+    @GetMapping("/show/consultant/{consultantId}")
     @ApiOperation(value = "컨설턴트 리뷰 조회")
-    public ResponseEntity<?> showConsultantReview(
+    public ResponseEntity<?> getConsultantReview(
             @PathVariable @ApiParam(value = "컨설턴트 아이디", required = true) String consultantId) {
 
         Map<String, Object> check = new HashMap<>();
 
-        logger.info("showConsultantReview - 호출");
-        logger.info("showConsultantReview consultantId : {}", consultantId);
+        logger.info("*** getConsultantReview 메소드 호출");
+        logger.info("*** getConsultantReview consultantId : {}", consultantId);
 
         try {
-            List<ReviewDto> list = reviewService.selectConsultantReview(consultantId);
+            List<ReviewDto> list = reviewService.readConsultantReview(consultantId);
 
             double avgScore = 0;
 
@@ -83,11 +86,40 @@ public class ReviewController {
 
             avgScore = Math.round(avgScore*10)/10.0;
 
-            logger.info("컨설턴트 리뷰 리스트 : {}", list);
 
             check.put("msg", "success");
             check.put("data", list);
             check.put("avgScore", avgScore);
+
+            logger.info("*** getConsultantReview 메소드 호출");
+            logger.info("*** 컨설턴트 리뷰 리스트 : {}", list);
+            logger.info("*** 컨설턴트 리뷰 점수 : {}", avgScore);
+
+            return ResponseEntity.status(HttpStatus.OK).body(check);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
+        }
+    }
+
+    @GetMapping("/show/user/{userId}")
+    @ApiOperation(value = "유저가 작성한 리뷰 조회")
+    public ResponseEntity<?> getUserReview(
+            @PathVariable @ApiParam(value = "유저 아이디", required = true) String userId) {
+
+        Map<String, Object> check = new HashMap<>();
+
+        logger.info("*** getUserReview 메소드 호출");
+        logger.info("*** getUserReview userId : {}", userId);
+
+        try {
+            List<ReviewDto> list = reviewService.readUserReview(userId);
+
+            check.put("msg", "success");
+            check.put("data", list);
+
+            logger.info("*** getUserReview 메소드 호출");
+            logger.info("*** 유저 리뷰 리스트 : {}", list);
 
             return ResponseEntity.status(HttpStatus.OK).body(check);
         } catch (Exception e) {
@@ -104,21 +136,24 @@ public class ReviewController {
 
         Map<String, Object> check = new HashMap<>();
 
-        logger.info("updateReview - 호출");
-        logger.info("updateReview reviewDto : {}", reviewDto);
-        logger.info("updateReview reviewNo : {}", reviewNo);
+        logger.info("*** updateReview 메소드 호출");
+        logger.info("*** updateReview reviewDto : {}", reviewDto);
+        logger.info("*** updateReview reviewNo : {}", reviewNo);
 
         try {
             ReviewDto review = reviewService.updateReview(reviewDto, reviewNo);
             if(review != null) {
-                logger.info("리뷰 정보 : {}", review);
 
                 check.put("msg", "success");
                 check.put("data", review);
 
+                logger.info("*** updateReview 메소드 종료");
+                logger.info("*** 리뷰 정보 : {}", review);
                 return ResponseEntity.status(HttpStatus.OK).body(check);
             } else {
                 check.put("msg", "fail");
+                logger.info("*** updateReview 메소드 실패");
+                logger.info("*** 리뷰 정보 : {}", review);
                 return ResponseEntity.status(HttpStatus.NO_CONTENT).body(check);
             }
 
@@ -135,14 +170,15 @@ public class ReviewController {
 
         Map<String, Object> check = new HashMap<>();
 
-        logger.info("deleteReview - 호출");
-        logger.info("deleteReview reviewNo : {}", reviewNo);
+        logger.info("*** deleteReview 메소드 호출");
+        logger.info("*** deleteReview reviewNo : {}", reviewNo);
 
         try {
             reviewService.deleteReview(reviewNo);
 
             check.put("msg", "success");
 
+            logger.info("*** deleteReview 메소드 종료");
             return ResponseEntity.status(HttpStatus.OK).body(check);
         } catch (Exception e) {
             e.printStackTrace();

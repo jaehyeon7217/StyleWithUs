@@ -28,38 +28,41 @@ public class ReviewDAOImpl implements ReviewDAO {
     }
 
     @Override
-    public Review insertReview(Review review) throws Exception {
-        Review saveReview = reviewRepository.save(review);
-        return saveReview;
+    public Review createReview(Review review) throws Exception {
+        Review createReview = reviewRepository.save(review);
+        return createReview;
     }
 
     @Override
-    public List<Review> selectConsultantReview(String consultantId) throws Exception {
-        System.out.println("selectConsultantReview 호출");
-        List<Review> showConsultantReview = reviewRepository.findByConsultantId(consultantRepository.getById(consultantId));
-        System.out.println("selectConsultantReview 종료");
-        System.out.println("showConsultantReview : " + showConsultantReview);
-        return showConsultantReview;
+    public List<Review> readConsultantReview(String consultantId) throws Exception {
+        List<Review> readConsultantReview = reviewRepository.findByConsultantId(consultantRepository.getById(consultantId));
+        return readConsultantReview;
     }
 
     @Override
-    public Review selectReview(int reviewNo) throws Exception {
-        Review review = reviewRepository.getById(reviewNo);
-        return review;
+    public List<Review> readUserReview(String userId) throws Exception {
+        List<Review> readUserReview = reviewRepository.findByUserId(userRepository.getById(userId));
+        return readUserReview;
+    }
+
+    @Override
+    public Review readReview(int reviewNo) throws Exception {
+        Review readReview = reviewRepository.getById(reviewNo);
+        return readReview;
     }
 
     @Override
     public Review updateReview(Review review) throws Exception {
-        Review saveReview = reviewRepository.save(review);
-        return saveReview;
+        Review updateReview = reviewRepository.save(review);
+        return updateReview;
     }
 
     @Override
     public void deleteReview(int reviewNo) throws Exception {
-        Optional<Review> selectedReview = reviewRepository.findById(reviewNo);
+        Optional<Review> readReview = reviewRepository.findById(reviewNo);
 
-        if(selectedReview.isPresent()) {
-            Review deleteReview = selectedReview.get();
+        if(readReview.isPresent()) {
+            Review deleteReview = readReview.get();
 
             reviewRepository.delete(deleteReview);
         } else {
