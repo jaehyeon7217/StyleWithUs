@@ -10,6 +10,7 @@ const APPLICATION_SERVER_URL =
 const ConsultantReviews = (props) => {
   // token
   const token = useSelector((state) => state.auth.token);
+  const userId = useSelector((state) => state.auth.userData.userId);
 
   const [reviewLists, setReviewLists] = useState([]);
   const [avgScore, setAvgScore] = useState(undefined);
@@ -46,10 +47,11 @@ const ConsultantReviews = (props) => {
         return (
           <ConsultantReviewsList
             key={idx}
-            userId={list.userId}
+            reviewUserId={list.userId}
             reviewNo={list.reviewNo}
             reviewScore={list.reviewScore}
             reviewContent={list.reviewContent}
+            deleteAllowed={(userId === list.userId) ? true : false}
             isDeleted={isDeleted}
             setIsDeleted={setIsDeleted}
           />
