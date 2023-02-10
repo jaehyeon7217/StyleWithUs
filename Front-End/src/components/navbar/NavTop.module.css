@@ -10,6 +10,11 @@
   src: url("../../fonts/AppleSDGothicNeoUL.ttf");
 }
 
+@font-face {
+  font-family: "Apple_Gothic_Neo_Bold";
+  src: url("../../fonts/AppleSDGothicNeoB.ttf");
+}
+
 .top{
   height: 25%;
   justify-content: flex-end;
@@ -18,29 +23,11 @@
   padding-top: 5px;
 }
 
-.top a {
-  color: gray;
-}
-
 .LinkTop{
   font-family: "Apple_Gothic_Neo_ULight";
   text-decoration-line: none;
   margin-left: 30px;
-  color: black;
+  color: rgb(0, 0, 0);
   font-size: 13px;
   cursor: pointer;
-}
-
-.LinkTopHidden{
-  font-family: "Apple_Gothic_Neo_ULight";
-  text-decoration-line: none;
-  margin-left: 30px;
-  color: black;
-  font-size: 13px;
-  cursor: pointer;
-  display: none;
-}
-
-.wishcart{
- 
 }
