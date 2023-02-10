@@ -9,7 +9,7 @@ import MyWishItemBig from './MyWishItemBig';
 import userImg from "../../assets/userimg.png";
 import { useEffect } from 'react';
 import userMan from '../../assets/footermantwo.png';
-import userWoman from '../../assets/footerwoman.png';
+import userWoman from '../../assets/mypageuserwoman.png';
 
 
 const MyPage = () =>{
