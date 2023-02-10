@@ -12,6 +12,7 @@ import { chatActions } from "../../../../store/chat";
 import Swal from "sweetalert2";
 import reload from "../../../../assets/reload.png";
 import { authActions } from "../../../../store/auth";
+import { cartActions } from "../../../../store/cart";
 
 const APPLICATION_SERVER_URL =
   process.env.NODE_ENV === "production"
@@ -27,6 +28,7 @@ const Consultant = (props) => {
 
   // 유저 아이디
   const userType = useSelector((state) => state.auth.userType);
+  const userId = useSelector((state) => state.auth.userId);
   const user = useSelector((state) => state.auth.userData);
   const nickname = userType === 1 ? user.consultantNickname : user.userNickname;
 
@@ -153,6 +155,20 @@ const Consultant = (props) => {
         if (event.stream.typeOfVideo === "CUSTOM") {
           deleteSubscriber(event.stream.streamManager);
         }
+      });
+
+      newSession.on("signal:cart", (event) => {
+        axios.get(`https://i8d105.p.ssafy.io/be/item/show/${user.userId}`, {
+        headers: {
+          Authorization: user.token,
+        },
+        })
+        .then((response) => {
+          dispatch(cartActions.getCart(response.data.data));
+        })
+        .catch((error) => {
+          console.log(error);
+        });
       });
 
       newSession.on("signal", (event) => {

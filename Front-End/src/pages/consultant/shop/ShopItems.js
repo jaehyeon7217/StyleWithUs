@@ -95,7 +95,7 @@ const ShopItems = (props) => {
           return clothesCount * (pagination - 1) <= idx &&
             clothesCount * (pagination - 1) + clothesCount > idx ? (
             <li key={idx} className={classes.li}>
-              <ShopItem item={item} userId={props.userId}/>
+              <ShopItem item={item} userId={props.userId} session={props.session}/>
             </li>
           ) : (
             ""
