@@ -6,6 +6,7 @@ import axios from "axios";
 import classes from "./VideoConsultant.module.css";
 import Video from "../Video";
 import { chatActions } from "../../../../store/chat";
+import { authActions } from "../../../../store/auth";
 
 const APPLICATION_SERVER_URL =
   process.env.NODE_ENV === "production"
@@ -164,6 +165,7 @@ const Consultant = (props) => {
     if (mySession) {
       sendLeave(mySessionId);
       mySession.disconnect();
+      dispatch(authActions.endConsulting(false));
     }
 
     // Empty all properties...
@@ -280,6 +282,7 @@ const Consultant = (props) => {
               onSubmit={(event) => {
                 event.preventDefault();
                 joinSession(event);
+                dispatch(authActions.startConsulting(true));
               }}
             >
               <p>
