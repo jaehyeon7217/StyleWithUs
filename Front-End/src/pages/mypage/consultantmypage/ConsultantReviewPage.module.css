@@ -1,0 +1,93 @@
+@import url('https://fonts.googleapis.com/css2?family=Blinker:wght@100;200;300;400;600;700;800;900&display=swap');
+
+@font-face {
+    font-family: "Apple_Gothic_Neo_Hard";
+    src: url("../../../fonts/AppleSDGothicNeoH.ttf");
+}
+
+@font-face {
+    font-family: "Apple_Gothic_Neo_Bold";
+    src: url("../../../fonts/AppleSDGothicNeoB.ttf");
+}
+
+@font-face {
+    font-family: "Apple_Gothic_Neo_SB";
+    src: url("../../../fonts/AppleSDGothicNeoSB.ttf");
+}
+
+@font-face {
+    font-family: "Apple_Gothic_Neo_Light";
+    src: url("../../../fonts/AppleSDGothicNeoL.ttf");
+}
+
+.ReviewPage{
+    display: flex;
+    justify-content: center;
+}
+
+.ReviewMainBox{
+    margin-top: 100px;
+}
+
+.MyReviewName{
+    font-family: "Apple_Gothic_Neo_SB";
+    font-size: 27px;
+
+}
+
+.hr{
+    border-bottom: solid 5px black;
+    border-top: 0;
+    padding: 0;
+    border-radius: 2.5px;
+    margin-bottom: 10px;
+}
+
+.RevieBox {
+    display: flex;
+    justify-content: space-between;
+}
+
+.ReviewOne {
+    display: flex;
+    justify-content: left;
+}
+
+
+
+.ReviewBox {
+    width: 900px;
+    height: 100px;
+    /* background-color: rgba(227, 227, 227, 0.327); */
+    /* border-radius: 20px; */
+    /* margin-bottom: 10px; */
+
+}
+
+.star {}
+
+.reviewScore {
+    margin-left: 10px;
+    margin-top: 5px;
+    font-family: "Apple_Gothic_Neo_Light";
+    width: 20px;
+}
+
+.userId {
+    margin-left: 15px;
+    margin-top: 5px;
+    font-family: "Apple_Gothic_Neo_Mid";
+}
+
+.reviewContent {
+    font-family: "Apple_Gothic_Neo_Bold";
+    /* margin-left: 20px; */
+    margin-top: 20px;
+
+}
+
+.borderbottom {
+    border-bottom: 2px solid lightgray;
+    border-radius: 2px;
+
+}

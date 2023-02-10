@@ -2,22 +2,22 @@
 
 @font-face {
     font-family: "Apple_Gothic_Neo_Hard";
-    src: url("../../fonts/AppleSDGothicNeoH.ttf");
+    src: url("../../../fonts/AppleSDGothicNeoH.ttf");
 }
 
 @font-face {
     font-family: "Apple_Gothic_Neo_Bold";
-    src: url("../../fonts/AppleSDGothicNeoB.ttf");
+    src: url("../../../fonts/AppleSDGothicNeoB.ttf");
 }
 
 @font-face {
     font-family: "Apple_Gothic_Neo_SB";
-    src: url("../../fonts/AppleSDGothicNeoSB.ttf");
+    src: url("../../../fonts/AppleSDGothicNeoSB.ttf");
 }
 
 @font-face {
     font-family: "Apple_Gothic_Neo_Light";
-    src: url("../../fonts/AppleSDGothicNeoL.ttf");
+    src: url("../../../fonts/AppleSDGothicNeoL.ttf");
 }
 
 .MyPage{
@@ -87,32 +87,40 @@
     justify-content: left;
 }
 
-.star{
-    font-family: "Apple_Gothic_Neo_Light";
-    margin-left: 20px;
-}
 
-.userId{
-    margin-left: 10px;
-    font-family: "Apple_Gothic_Neo_Mid";
-}
 
 .ReviewBox{
   width: 900px;
   height: 100px;
-  background-color: rgba(227, 227, 227, 0.327);
-  border-radius: 20px;
-  margin-bottom: 10px;
+  /* background-color: rgba(227, 227, 227, 0.327); */
+  /* border-radius: 20px; */
+  margin-bottom: 20px;
   
 }
 
 .reviewScore{
     margin-left: 10px;
+    margin-top: 5px;
     font-family: "Apple_Gothic_Neo_Light";
+    width: 20px;
+}
+
+.userId {
+    font-family: "Apple_Gothic_Neo_SBold";
+    margin-left: 15px;
+    margin-top: 5px;
 }
 
 .reviewContent{
-    font-family: "Apple_Gothic_Neo_Bold";
-    margin-left: 20px;
-    margin-top: 0px;
+    font-family: "Apple_Gothic_Neo_Mid";
+    margin-left: 1px;
+    margin-top: 10px;
+    
 }
+
+.borderbottom{
+    border-bottom: 2px solid lightgray;
+    border-radius: 2px;
+    
+}
+

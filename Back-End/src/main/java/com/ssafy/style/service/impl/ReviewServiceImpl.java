@@ -22,21 +22,18 @@ public class ReviewServiceImpl implements ReviewService {
     ////////////////////////////////////////////////////////////////////////////////////////////////////
 
     @Override
-    public ReviewDto insertReview(ReviewDto reviewDto) throws Exception {
+    public ReviewDto createReview(ReviewDto reviewDto) throws Exception {
         Review review = toReview(reviewDto);
-        Review saveReview = reviewDAO.insertReview(review);
-        return toReviewDto(saveReview);
+        Review createReview = reviewDAO.createReview(review);
+        return toReviewDto(createReview);
     }
 
     @Override
-    public List<ReviewDto> selectConsultantReview(String consultantId) throws Exception {
-
-        System.out.println("selectConsultantReview 호출");
-
+    public List<ReviewDto> readConsultantReview(String consultantId) throws Exception {
         ArrayList<ReviewDto> list = new ArrayList<ReviewDto>();
-        List<Review> selectConsultantReview = reviewDAO.selectConsultantReview(consultantId);
+        List<Review> readConsultantReview = reviewDAO.readConsultantReview(consultantId);
 
-        for(Review r : selectConsultantReview) {
+        for(Review r : readConsultantReview) {
             list.add(new ReviewDto(
                     r.getReviewNo(),
                     reviewDAO.toUserId(r.getUserId()),
@@ -47,22 +44,37 @@ public class ReviewServiceImpl implements ReviewService {
             ));
         }
 
-        System.out.println("selectConsultantReview 종료");
-        System.out.println("list : " + list);
+        return list;
+    }
 
+    @Override
+    public List<ReviewDto> readUserReview(String userId) throws Exception {
+        ArrayList<ReviewDto> list = new ArrayList<ReviewDto>();
+        List<Review> readUserReview = reviewDAO.readUserReview(userId);
+
+        for(Review r : readUserReview) {
+            list.add(new ReviewDto(
+                    r.getReviewNo(),
+                    reviewDAO.toUserId(r.getUserId()),
+                    reviewDAO.toConsultantId(r.getConsultantId()),
+                    r.getReviewScore(),
+                    r.getReviewContent(),
+                    r.getReviewRegisterTime()
+            ));
+        }
 
         return list;
     }
 
     @Override
     public ReviewDto updateReview(ReviewDto reviewDto, int reviewNo) throws Exception {
-        reviewDto.setReviewNo(reviewDAO.selectReview(reviewNo).getReviewNo());
-        reviewDto.setConsultantId(reviewDAO.toConsultantId(reviewDAO.selectReview(reviewNo).getConsultantId()));
-        reviewDto.setUserId(reviewDAO.toUserId(reviewDAO.selectReview(reviewNo).getUserId()));
-        reviewDto.setReviewRegisterTime(reviewDAO.selectReview(reviewNo).getReviewRegisterTime());
+        reviewDto.setReviewNo(reviewDAO.readReview(reviewNo).getReviewNo());
+        reviewDto.setConsultantId(reviewDAO.toConsultantId(reviewDAO.readReview(reviewNo).getConsultantId()));
+        reviewDto.setUserId(reviewDAO.toUserId(reviewDAO.readReview(reviewNo).getUserId()));
+        reviewDto.setReviewRegisterTime(reviewDAO.readReview(reviewNo).getReviewRegisterTime());
 
-        Review saveReview = reviewDAO.updateReview(toReview(reviewDto));
-        return toReviewDto(saveReview);
+        Review updateReview = reviewDAO.updateReview(toReview(reviewDto));
+        return toReviewDto(updateReview);
     }
 
     @Override

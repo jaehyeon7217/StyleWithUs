@@ -114,6 +114,7 @@ const Consultant = (props) => {
           event.stream,
           JSON.parse(event.stream.connection.data).clientData
         );
+        console.log(JSON.parse(event.stream.connection.data).clientData);
 
         const newSubscribers = subscribers;
         newSubscribers.push(newSubscriber);
