@@ -75,7 +75,7 @@ const ConsultantMyPage = () => {
         <div className={classes.mainBox}>
           <h3 className={classes.MainTitle}>회원 정보</h3>
           <div className={classes.MyInformBox}>
-            <p >{(data.userGender ? <img src={consultantMan} className={classes.consultantman} /> : <img src={consultantWoman} className={classes.consultantWoman} />)}</p>
+            <p >{(data.consultantGender ? <img src={consultantMan} className={classes.consultantMan} /> : <img src={consultantWoman} className={classes.consultantWoman} />)}</p>
             <div>
               <div className={classes.HelloText}>
                 <p className={classes.consultantNickname}>{data.consultantNickname }</p>
@@ -88,8 +88,10 @@ const ConsultantMyPage = () => {
               </div>
             </div>
           </div>
-          <h3 className={classes.MainTitle}>나의 경력</h3>
-          <p>{data.consultantResume}</p>
+          <div className={classes.consultantResumeBox}>
+            <h3 className={classes.MainTitle}>나의 경력</h3>
+            <p>{data.consultantResume}</p>
+          </div>
           <div>
             <div className={classes.RevieBox}>
               <h3 className={classes.MainTitle}>나의 리뷰</h3>
@@ -104,7 +106,7 @@ const ConsultantMyPage = () => {
                       <GetStarRating reviewScore={review[idx].reviewScore} className={classes.star} />
                       <p className={classes.reviewScore}>{review[idx].reviewScore}</p>
                       <p className={classes.userId}>{review[idx].userId}</p>
-                      <p className={classes.userDate}>{review[idx].reviewRegisterTime[0]}.{review[idx].reviewRegisterTime[1]}.{review[idx].reviewRegisterTime[2]}</p>
+                      <p className={classes.userDate}>{review[idx].reviewRegisterTime}</p>
                     </div>
                     <div className={classes.reviewContent}>
                       <p>{review[idx].reviewContent}</p>
