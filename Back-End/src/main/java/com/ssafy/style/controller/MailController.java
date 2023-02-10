@@ -4,6 +4,7 @@ import com.ssafy.style.service.MailService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
+import lombok.RequiredArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,15 +21,16 @@ import java.util.Map;
 @RestController
 @RequestMapping(value = "/mail")
 @Api("Mail Controller API V1")
+@RequiredArgsConstructor
 public class MailController {
 
     public static final Logger logger = LoggerFactory.getLogger(MailController.class);
     private final MailService mailService;
 
-    @Autowired
-    public MailController(MailService mailService) {
-        this.mailService = mailService;
-    }
+//    @Autowired
+//    public MailController(MailService mailService) {
+//        this.mailService = mailService;
+//    }
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 

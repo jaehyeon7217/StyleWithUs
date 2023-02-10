@@ -6,10 +6,8 @@ import java.util.List;
 import java.util.Map;
 
 import javax.annotation.PostConstruct;
-import javax.persistence.EntityManager;
 
 import com.ssafy.style.data.dto.MeetingDto;
-import com.ssafy.style.data.entity.Consultant;
 import com.ssafy.style.service.MeetingService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -64,12 +62,12 @@ public class OpenViduController {
 
     @PostMapping("/api/sessions")
     @ApiOperation(value = "방 생성을 위한 세션ID 생성")
-    public ResponseEntity<?> initializeSession(@RequestBody(required = false) Map<String, Object> params)
+    public ResponseEntity<?> createSession(@RequestBody(required = false) Map<String, Object> params)
             throws OpenViduJavaClientException, OpenViduHttpException {
 
         Map<String, Object> check = new HashMap<>();
 
-        logger.info("initializeSession - 호출");
+        logger.info("*** createSession 메소드 호출");
 
         SessionProperties properties = SessionProperties.fromJson(params).build();
         Session session = openvidu.createSession(properties);
@@ -78,17 +76,18 @@ public class OpenViduController {
         meetingDto.setSessionId(session.getSessionId());
 
         try {
-            meetingService.deleteAllMeetingConsultantId(params.get("ConsultantId").toString());
-            logger.info("deleteAllMeetingConsultantId - 호출");
+            meetingService.deleteAllSessionConsultantId(params.get("ConsultantId").toString());
+            logger.info("*** deleteAllSessionConsultantId 호출");
 
-            meetingService.insertMeeting(meetingDto, params.get("ConsultantId").toString());
-            logger.info("insertMeeting - 호출");
+            meetingService.createSession(meetingDto, params.get("ConsultantId").toString());
+            logger.info("*** createSession 호출");
 
-            logger.info("세션 생성 : " + session.getSessionId());
             check.put("msg", "success");
             check.put("sessionId", session.getSessionId());
 
-          return ResponseEntity.status(HttpStatus.OK).body(check);
+            logger.info("*** createSession 메소드 종료");
+            logger.info("*** 세션 생성 : " + session.getSessionId());
+            return ResponseEntity.status(HttpStatus.OK).body(check);
         } catch (Exception e) {
 
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
@@ -110,25 +109,28 @@ public class OpenViduController {
 
         Map<String, Object> check = new HashMap<>();
 
-        logger.info("createConnection - 호출");
+        logger.info("*** createConnection 메소드 호출");
 
         Session session = openvidu.getActiveSession(sessionId);
         if (session == null) {
             // 세션이 없다
             check.put("msg","fail");
+            logger.info("*** createConnection 메소드 오류");
             return ResponseEntity.status(HttpStatus.NO_CONTENT).body(check);
         } else {
             ConnectionProperties properties = ConnectionProperties.fromJson(params).build();
             Connection connection = session.createConnection(properties);
 
             try {
-                MeetingDto meetingDto = meetingService.selectMeeting(session.getSessionId());
+                MeetingDto meetingDto = meetingService.readMeeting(session.getSessionId());
+                logger.info("*** getMeeting 호출");
+
                 if(meetingDto.getNumberOfPeople() >= 2) {
                     // 세션 방에 인원이 2명 이상이면 입장 안됨.
 
                     check.put("msg", "The session room is full.");
+                    logger.info("*** createConnection 오류 - 방 인원이 가득 참");
                     return ResponseEntity.status(HttpStatus.OK).body(check);
-
                 } else {
                     meetingDto.setNumberOfPeople(meetingDto.getNumberOfPeople() + 1);
                     meetingService.updateMeeting(meetingDto);
@@ -137,7 +139,10 @@ public class OpenViduController {
                     check.put("sessionId", session.getSessionId());
                     check.put("token", connection.getToken());
 
-                  return ResponseEntity.status(HttpStatus.OK).body(check);
+                    logger.info("*** createConnection 종료");
+                    logger.info("*** sessionId : {}", session.getSessionId());
+                    logger.info("*** token : {}", connection.getToken());
+                    return ResponseEntity.status(HttpStatus.OK).body(check);
                 }
             } catch (Exception e) {
                 return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
@@ -148,11 +153,11 @@ public class OpenViduController {
 
     @PostMapping("/api/sessions/{sessionId}/disconnections")
     @ApiOperation(value = "세션ID로 생성된 방 퇴장")
-    public ResponseEntity<?> createDisConnection(@PathVariable("sessionId") @ApiParam(value = "세션 아이디", required = true) String sessionId) {
+    public ResponseEntity<?> deleteConnection(@PathVariable("sessionId") @ApiParam(value = "세션 아이디", required = true) String sessionId) {
 
         Map<String, Object> check = new HashMap<>();
 
-        logger.info("createDisConnection - 호출");
+        logger.info("*** deleteConnection 메소드 호출");
 
         Session session = openvidu.getActiveSession(sessionId);
 
@@ -163,7 +168,7 @@ public class OpenViduController {
         } else {
 
             try {
-                MeetingDto meetingDto = meetingService.selectMeeting(session.getSessionId());
+                MeetingDto meetingDto = meetingService.readMeeting(session.getSessionId());
                 meetingDto.setNumberOfPeople(meetingDto.getNumberOfPeople() - 1);
 
                 if(meetingDto.getNumberOfPeople() <= 0) {
@@ -174,6 +179,7 @@ public class OpenViduController {
 
                 check.put("msg", "success");
 
+                logger.info("*** deleteConnection 메소드 종료");
                 return ResponseEntity.status(HttpStatus.OK).body(check);
             } catch (Exception e) {
                 return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
@@ -184,18 +190,18 @@ public class OpenViduController {
 
     @GetMapping("/api/sessions")
     @ApiOperation(value = "생성된 방 모두 조회")
-    public ResponseEntity<?> AllSession() {
+    public ResponseEntity<?> getAllSession() {
 
         Map<String, Object> check = new HashMap<>();
 
-        logger.info("AllSession - 호출");
+        logger.info("*** getAllSession - 호출");
 
         try {
-            List<MeetingDto> list = meetingService.selectAllMeeting();
+            List<MeetingDto> list = meetingService.readAllMeeting();
 
             if(list != null) {
 
-                logger.info("AllSession list : {} ", list);
+                logger.info("*** getAllSession list : {} ", list);
 
                 check.put("msg", "success");
                 check.put("data", list);
@@ -213,11 +219,11 @@ public class OpenViduController {
 
     @DeleteMapping("/api/sessions/{sessionId}")
     @ApiOperation(value = "세션ID로 생성된 방 삭제")
-    public ResponseEntity<?> DeleteSession(@PathVariable("sessionId") @ApiParam(value = "세션 아이디", required = true) String sessionId) {
+    public ResponseEntity<?> deleteSession(@PathVariable("sessionId") @ApiParam(value = "세션 아이디", required = true) String sessionId) {
 
         Map<String, Object> check = new HashMap<>();
 
-        logger.info("DeleteSession - 호출");
+        logger.info("*** deleteSession - 호출");
 
         try {
             meetingService.deleteMeeting(sessionId);

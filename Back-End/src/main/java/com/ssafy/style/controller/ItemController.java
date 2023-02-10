@@ -34,25 +34,28 @@ public class ItemController {
 
     @PostMapping("/regist")
     @ApiOperation(value = "아이템 추가", response = ItemDto.class)
-    public ResponseEntity<?> registItem(
+    public ResponseEntity<?> createItem(
             @RequestBody @ApiParam(value = "아이템 정보", required = true) ItemDto itemDto) {
 
         Map<String, Object> check = new HashMap<>();
 
-        logger.info("registItem - 호출");
-        logger.info("registItem itemDto : {}", itemDto);
+        logger.info("*** createItem 메소드 호출");
+        logger.info("*** createItem itemDto : {}", itemDto);
 
         try {
-            ItemDto item = itemService.insertItem(itemDto);
+            ItemDto item = itemService.createItem(itemDto);
             if (item != null) {
-                logger.info("리뷰 정보 : {}", item);
 
                 check.put("msg", "success");
                 check.put("data", item);
 
+                logger.info("*** createItem 메소드 종료");
+                logger.info("*** 리뷰 정보 : {}", item);
                 return ResponseEntity.status(HttpStatus.OK).body(check);
             } else {
                 check.put("msg", "fail");
+                logger.info("*** createItem 메소드 오류");
+                logger.info("*** 리뷰 정보 : {}", item);
                 return ResponseEntity.status(HttpStatus.NO_CONTENT).body(check);
             }
         } catch (Exception e) {
@@ -62,23 +65,23 @@ public class ItemController {
     }
 
     @GetMapping("/show/{userId}")
-    @ApiOperation(value = "리뷰 장바구니 조회")
-    public ResponseEntity<?> showUserItem(
+    @ApiOperation(value = "유저 장바구니 조회")
+    public ResponseEntity<?> readUserItem(
             @PathVariable @ApiParam(value = "유저 아이디", required = true) String userId) {
 
         Map<String, Object> check = new HashMap<>();
 
-        logger.info("showUserItem - 호출");
-        logger.info("showUserItem userId : {}", userId);
+        logger.info("*** readUserItem 메소드 호출");
+        logger.info("*** readUserItem userId : {}", userId);
 
         try {
-            List<ItemDto> list = itemService.selectUserItem(userId);
-
-            logger.info("유저 장바구니 리스트 : {}", list);
+            List<ItemDto> list = itemService.readUserItem(userId);
 
             check.put("msg", "success");
             check.put("data", list);
 
+            logger.info("*** readUserItem 메소드 종료");
+            logger.info("*** 유저 장바구니 리스트 : {}", list);
             return ResponseEntity.status(HttpStatus.OK).body(check);
         } catch (Exception e) {
             e.printStackTrace();
@@ -93,14 +96,15 @@ public class ItemController {
 
         Map<String, Object> check = new HashMap<>();
 
-        logger.info("deleteItem - 호출");
-        logger.info("deleteItem itemNo : {}", itemNo);
+        logger.info("*** deleteItem 메소드 호출");
+        logger.info("*** deleteItem itemNo : {}", itemNo);
 
         try {
             itemService.deleteItem(itemNo);
 
             check.put("msg", "success");
 
+            logger.info("*** deleteItem 메소드 호출");
             return ResponseEntity.status(HttpStatus.OK).body(check);
         } catch (Exception e) {
             e.printStackTrace();

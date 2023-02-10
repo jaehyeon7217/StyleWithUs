@@ -26,40 +26,36 @@ public class MeetingDAOImpl implements MeetingDAO {
     }
 
     @Override
-    public Meeting insertMeeting(Meeting meeting, String ConsultantId) throws Exception {
-
-
+    public Meeting createMeeting(Meeting meeting, String ConsultantId) throws Exception {
         meeting.setConsultantId(consultantRepository.findById(ConsultantId).get());
-        Meeting saveMeeting = meetingRepository.save(meeting);
-        return saveMeeting;
+        Meeting createMeeting = meetingRepository.save(meeting);
+        return createMeeting;
     }
 
     @Override
-    public List<Meeting> selectAllMeeting() throws Exception {
-        List<Meeting> showAllMeeting = meetingRepository.findAll();
-        return showAllMeeting;
+    public List<Meeting> readAllMeeting() throws Exception {
+        List<Meeting> readAllMeeting = meetingRepository.findAll();
+        return readAllMeeting;
     }
 
     @Override
-    public Meeting selectMeeting(String sessionId) throws Exception {
-        Meeting showMeeting = meetingRepository.findById(sessionId).get();
-        return showMeeting;
+    public Meeting readMeeting(String sessionId) throws Exception {
+        Meeting readMeeting = meetingRepository.findById(sessionId).get();
+        return readMeeting;
     }
 
     @Transactional
     @Override
     public Meeting updateMeeting(Meeting meeting) throws Exception {
-//        Meeting temp = meetingRepository.getById(meeting.getSessionId());
-//        meeting.setNumberOfPeople(temp.getNumberOfPeople());
         return meetingRepository.save(meeting);
     }
 
     @Override
     public void deleteMeeting(String sessionId) throws Exception {
-        Optional<Meeting> selectedMeeting = meetingRepository.findById(sessionId);
+        Optional<Meeting> readMeeting = meetingRepository.findById(sessionId);
 
-        if(selectedMeeting.isPresent()) {
-            Meeting deleteMeeting = selectedMeeting.get();
+        if(readMeeting.isPresent()) {
+            Meeting deleteMeeting = readMeeting.get();
 
             meetingRepository.delete(deleteMeeting);
         } else {
