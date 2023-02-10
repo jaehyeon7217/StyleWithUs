@@ -2,22 +2,22 @@
 
 @font-face {
     font-family: "Apple_Gothic_Neo_Hard";
-    src: url("../../fonts/AppleSDGothicNeoH.ttf");
+    src: url("../../../fonts/AppleSDGothicNeoH.ttf");
 }
 
 @font-face {
     font-family: "Apple_Gothic_Neo_Bold";
-    src: url("../../fonts/AppleSDGothicNeoB.ttf");
+    src: url("../../../fonts/AppleSDGothicNeoB.ttf");
 }
 
 @font-face {
     font-family: "Apple_Gothic_Neo_SB";
-    src: url("../../fonts/AppleSDGothicNeoSB.ttf");
+    src: url("../../../fonts/AppleSDGothicNeoSB.ttf");
 }
 
 @font-face {
     font-family: "Apple_Gothic_Neo_Light";
-    src: url("../../fonts/AppleSDGothicNeoL.ttf");
+    src: url("../../../fonts/AppleSDGothicNeoL.ttf");
 }
 
 .SideBar{
@@ -28,6 +28,7 @@
 .PageName{
     font-family: "Apple_Gothic_Neo_SB";
     font-size: 33px;
+    width: 200px;
 }
 
 .SideBarName{
