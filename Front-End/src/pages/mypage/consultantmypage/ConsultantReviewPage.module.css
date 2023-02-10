@@ -40,31 +40,22 @@
     border-top: 0;
     padding: 0;
     border-radius: 2.5px;
-    margin-bottom: 10px;
+    margin-bottom: 30px;
 }
+.ReviewBox {
+    width: 900px;
+    /* background-color: rgba(227, 227, 227, 0.327); */
+    /* border-radius: 20px; */
+    margin-bottom: 30px;
 
-.RevieBox {
-    display: flex;
-    justify-content: space-between;
 }
 
 .ReviewOne {
     display: flex;
     justify-content: left;
-}
-
-
-
-.ReviewBox {
-    width: 900px;
-    height: 100px;
-    /* background-color: rgba(227, 227, 227, 0.327); */
-    /* border-radius: 20px; */
-    /* margin-bottom: 10px; */
 
 }
 
-.star {}
 
 .reviewScore {
     margin-left: 10px;
@@ -74,20 +65,29 @@
 }
 
 .userId {
+    font-family: "Apple_Gothic_Neo_SBold";
     margin-left: 15px;
     margin-top: 5px;
-    font-family: "Apple_Gothic_Neo_Mid";
+    width: 100px;
+}
+
+.userDate {
+    font-family: "Apple_Gothic_Neo_SBold";
+    width: 100px;
+    margin-top: 0px;
+    text-align: right;
+    margin-left: 530px;
+
 }
 
 .reviewContent {
-    font-family: "Apple_Gothic_Neo_Bold";
-    /* margin-left: 20px; */
-    margin-top: 20px;
-
-}
-
-.borderbottom {
+    font-family: "Apple_Gothic_Neo_Mid";
+    margin-left: 1px;
+    width: 900px;
+    word-break: break-all;
+    overflow-wrap: break-word;
     border-bottom: 2px solid lightgray;
-    border-radius: 2px;
+
+
 
 }

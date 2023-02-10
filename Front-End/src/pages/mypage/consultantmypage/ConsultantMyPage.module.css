@@ -51,6 +51,7 @@
 .consultantWoman{
   width: 70px;
   margin-left: 30px;
+  margin-top: -5px;
 }
 
 .MyInformBox{
@@ -60,7 +61,6 @@
 
 .HelloText{
     display: flex;
-    justify-content: left;
 }
 
 .consultantNickname{
@@ -77,26 +77,76 @@
     
 }
 
+.consultantEmail{
+    font-family: "Apple_Gothic_Neo_Light";
+    margin-left: 28px;
+    font-size: 17px;
+    margin-top: -30px;
+}
+
+.myinformbtnone{
+    font-family: "Apple_Gothic_Neo_SBold";
+    margin-top: -15px;
+    border: none;  
+    width: 100px;
+    height: 29px;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-left: 25px;
+    transition: all .15s;
+    padding-top: 3px;
+    font-size: 14px;
+}
+
+.myinformbtnone:hover{
+    font-weight: 600;
+    color: rgb(26, 26, 26);
+    transition: all .15s;
+
+}
+
+
+.myinformbtntwo{
+    font-family: "Apple_Gothic_Neo_SBold";
+    font-size: 14px;
+    border: none;
+    width: 100px;
+    height: 27px;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-left: 5px;
+    transition: all .15s;
+    padding-top: 3px;
+}
+
+.myinformbtntwo:hover {
+    color: black;
+    font-weight: bolder;
+    transition: all .15s;
+    font-weight: 600;
+    color: rgb(26, 26, 26);
+
+}
+
 .RevieBox{
     display: flex;
     justify-content: space-between;
 }
 
+.ReviewBox{
+  width: 900px;
+  /* background-color: rgba(227, 227, 227, 0.327); */
+  /* border-radius: 20px; */
+  margin-bottom: 30px;
+  
+}
+
 .ReviewOne{
     display: flex;
     justify-content: left;
+    
 }
 
-
-
-.ReviewBox{
-  width: 900px;
-  height: 100px;
-  /* background-color: rgba(227, 227, 227, 0.327); */
-  /* border-radius: 20px; */
-  margin-bottom: 20px;
-  
-}
 
 .reviewScore{
     margin-left: 10px;
@@ -109,18 +159,28 @@
     font-family: "Apple_Gothic_Neo_SBold";
     margin-left: 15px;
     margin-top: 5px;
+    width: 100px;
+}
+
+.userDate{
+    font-family: "Apple_Gothic_Neo_SBold";
+    width: 100px;
+    margin-top: 0px;
+    text-align: right;
+    margin-left: 530px;
+    
 }
 
 .reviewContent{
     font-family: "Apple_Gothic_Neo_Mid";
     margin-left: 1px;
-    margin-top: 10px;
+    width: 900px;
+    word-break: break-all;
+    overflow-wrap: break-word;
+    border-bottom: 2px solid lightgray;
+    
+    
     
 }
 
-.borderbottom{
-    border-bottom: 2px solid lightgray;
-    border-radius: 2px;
-    
-}
 
