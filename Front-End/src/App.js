@@ -15,7 +15,9 @@ import Sbti from "./pages/sbti/Sbti";
 import NotFound from "./pages/notfound/NotFound"
 import DeveloperPage from './pages/developer/DeveloperPage';
 import PrivateRoute from "./components/PrivateRoute";
-import ConsultantMyPage from "./pages/mypage/ConsultantMyPage";
+import ConsultantMyPage from "./pages/mypage/consultantmypage/ConsultantMyPage";
+import ConsultantReviewPage from './pages/mypage/consultantmypage/ConsultantReviewPage';
+
 
 
 function App() {
@@ -41,6 +43,7 @@ function App() {
         <Route element={<PrivateRoute/>}>
           <Route path="/mypage" element={<MyPage />} />
           <Route path="/consultantmypage" element={<ConsultantMyPage/>}/>
+          <Route path="/consultantreivewpage" element={<ConsultantReviewPage />}/>
           <Route path="/mypagewish" element={<MyPageWish />}/>
           <Route path="/myprofile" element={<MyProfile/>}/>
           <Route path="/recommend" element={<Recommend/>}/>
