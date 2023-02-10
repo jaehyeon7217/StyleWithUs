@@ -12,6 +12,7 @@ const initialAuthState = {
   consultantList: {},
   isConsulting: false,
   myReviewList : {},
+  mySessionId : "",
 };
 
 const authSlice = createSlice({
@@ -57,9 +58,15 @@ const authSlice = createSlice({
     startConsulting(state, action) {
       state.isConsulting = action.payload
     },
+    getMySessionId(state, action) {
+      state.mySessionId = action.payload
+    },
     // 컨설팅 종료
     endConsulting(state, action) {
       state.isConsulting = action.payload
+    },
+    deleteMySessionId(state, action) {
+      state.mySessionId = action.payload
     },
     // 리뷰 가져오기
     getMyReview(state, action) {
