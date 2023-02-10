@@ -47,7 +47,7 @@ const ConsultantMyPage = () => {
       }
     ).then(response=>{
       if (response.status==200){
-        dispatch(authActions.myReviewList(response.data.data))
+        dispatch(authActions.myReviewList(response.data))
       }
     }).catch(error => {
       console.log(error);
