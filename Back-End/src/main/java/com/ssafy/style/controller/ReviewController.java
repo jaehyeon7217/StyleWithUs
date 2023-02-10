@@ -65,13 +65,13 @@ public class ReviewController {
 
     @GetMapping("/show/consultant/{consultantId}")
     @ApiOperation(value = "컨설턴트 리뷰 조회")
-    public ResponseEntity<?> getConsultantReview(
+    public ResponseEntity<?> readConsultantReview(
             @PathVariable @ApiParam(value = "컨설턴트 아이디", required = true) String consultantId) {
 
         Map<String, Object> check = new HashMap<>();
 
-        logger.info("*** getConsultantReview 메소드 호출");
-        logger.info("*** getConsultantReview consultantId : {}", consultantId);
+        logger.info("*** readConsultantReview 메소드 호출");
+        logger.info("*** readConsultantReview consultantId : {}", consultantId);
 
         try {
             List<ReviewDto> list = reviewService.readConsultantReview(consultantId);
@@ -91,7 +91,7 @@ public class ReviewController {
             check.put("data", list);
             check.put("avgScore", avgScore);
 
-            logger.info("*** getConsultantReview 메소드 호출");
+            logger.info("*** readConsultantReview 메소드 호출");
             logger.info("*** 컨설턴트 리뷰 리스트 : {}", list);
             logger.info("*** 컨설턴트 리뷰 점수 : {}", avgScore);
 
@@ -104,13 +104,13 @@ public class ReviewController {
 
     @GetMapping("/show/user/{userId}")
     @ApiOperation(value = "유저가 작성한 리뷰 조회")
-    public ResponseEntity<?> getUserReview(
+    public ResponseEntity<?> readUserReview(
             @PathVariable @ApiParam(value = "유저 아이디", required = true) String userId) {
 
         Map<String, Object> check = new HashMap<>();
 
-        logger.info("*** getUserReview 메소드 호출");
-        logger.info("*** getUserReview userId : {}", userId);
+        logger.info("*** readUserReview 메소드 호출");
+        logger.info("*** readUserReview userId : {}", userId);
 
         try {
             List<ReviewDto> list = reviewService.readUserReview(userId);
@@ -118,7 +118,7 @@ public class ReviewController {
             check.put("msg", "success");
             check.put("data", list);
 
-            logger.info("*** getUserReview 메소드 호출");
+            logger.info("*** readUserReview 메소드 호출");
             logger.info("*** 유저 리뷰 리스트 : {}", list);
 
             return ResponseEntity.status(HttpStatus.OK).body(check);
