@@ -147,6 +147,12 @@ public class UseServiceImpl implements UserService {
 
     }
 
+    @Override
+    public UserDto getUserGender(String userNickname) throws Exception {
+        User user = userDAO.getUserGender(userNickname);
+        return toUserDto(user);
+    }
+
     /////////////////////////////////////////////////////////////////////////////////////////////////////
 
     private User toUser(UserDto userDto) {

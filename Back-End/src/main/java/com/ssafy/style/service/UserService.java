@@ -1,7 +1,6 @@
 package com.ssafy.style.service;
 
 import com.ssafy.style.data.dto.UserDto;
-import com.ssafy.style.data.entity.User;
 
 import java.util.Map;
 
@@ -16,4 +15,5 @@ public interface UserService {
     String updatePassword(Map<String, String> userInfo) throws Exception;
     boolean matchIdAndEmail(String userId, String userEmail);
     void updatePwById(Map<String, String> userInfo);
+    UserDto getUserGender(String userNickname) throws Exception;
 }
