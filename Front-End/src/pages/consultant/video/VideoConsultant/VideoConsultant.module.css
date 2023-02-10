@@ -9,6 +9,10 @@
   src: url("../../../../fonts/AppleSDGothicNeoL.ttf");
 }
 
+.div {
+  height: 100%;
+}
+
 .consultant {
   width: 100%;
   height: 100%;
@@ -28,4 +32,25 @@
   height: 5px;
   background-color: black;
   border-radius: 2.5px;
+}
+
+.form {
+  width: 100%;
+  height: calc(100% - 75px);
+}
+
+.section {
+  width: 100%;
+  height: 100%; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* background-color: red;
+  border-color: blue; */
 }
