@@ -36,6 +36,7 @@
   width: 75px;
   margin-top: -28px;
   margin-left: 10px;
+  transform: scaleX(-1);
 }
 
 .userImgetwo{

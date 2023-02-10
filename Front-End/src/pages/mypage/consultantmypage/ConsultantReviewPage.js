@@ -10,6 +10,8 @@ const ConsultantReviewPage = () => {
     const data = useSelector((state) => state.auth.userData);
     const review = useSelector((state) => state.auth.myReviewList);
 
+    
+
     return(
         <div className={classes.ReviewPage}>
             <ConsultantMyPageSideBar />
@@ -23,9 +25,13 @@ const ConsultantReviewPage = () => {
                                 <GetStarRating reviewScore={review[idx].reviewScore} className={classes.star} />
                                 <p className={classes.reviewScore}>{review[idx].reviewScore}</p>
                                 <p className={classes.userId}>{review[idx].userId}</p>
+                                <p className={classes.userDate}>{review[idx].reviewRegisterTime[0]}.{review[idx].reviewRegisterTime[1]}.{review[idx].reviewRegisterTime[2]}</p>
                             </div>
-                            <p className={classes.reviewContent}>{review[idx].reviewContent}</p>
-                            <div className={classes.borderbottom}></div>
+                            <div className={classes.reviewContent}>
+                                <p>{review[idx].reviewContent}</p>
+                            </div >
+                            {/* <div className={classes.borderbottom}></div> */}
+
                         </div>
                     )
                 })}
