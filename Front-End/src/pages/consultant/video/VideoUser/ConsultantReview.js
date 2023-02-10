@@ -42,7 +42,7 @@ const ConsultantReview = (props) => {
 
   const [review, setReview] = useState("");
   // const [reviewScore, setReviewScore, reviewScoreError] = DataInput(undefined);
-  const [reviewScore, setReviewScore] = useState(5);
+  const [reviewScore, setReviewScore] = useState(null);
 
   const onSubmitHandler = async (event) => {
     event.preventDefault();
