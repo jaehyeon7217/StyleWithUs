@@ -118,7 +118,7 @@ const Consultant = (props) => {
         );
         // console.log(JSON.parse(event.stream.connection.data).clientData);
 
-        props.getUserId(JSON.parse(event.stream.connection.data).clientData);
+        props.getUserNickname(JSON.parse(event.stream.connection.data).clientData);
 
         const newSubscribers = subscribers;
         newSubscribers.push(newSubscriber);
@@ -130,12 +130,12 @@ const Consultant = (props) => {
         if (event.stream.typeOfVideo === "CUSTOM") {
           deleteSubscriber(event.stream.streamManager);
         }
-        props.getUserId(null);
+        props.getUserNickname(null);
       });
 
       newSession.on("signal:my-chat", (event) => {
         // {"clientData":"bingbang"}
-        props.getUserId(JSON.parse(event.stream.connection.data).clientData);
+        props.getUserNickname(JSON.parse(event.from.data).clientData);
         const userName = JSON.parse(event.from.data).clientData;
 
         if (event.data.trim() !== "") {
@@ -156,7 +156,8 @@ const Consultant = (props) => {
       });
 
       newSession.on("signal:cart", (event) => {
-        props.getUserId(JSON.parse(event.stream.connection.data).clientData);
+        props.getUserNickname(JSON.parse(event.from.data).clientData);
+        console.log(200);
         axios.get(`https://i8d105.p.ssafy.io/be/item/show/${props.userId}`, {
         headers: {
           Authorization: userToken,

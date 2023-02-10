@@ -122,7 +122,7 @@ const Consultant = (props) => {
   return (
     <Fragment>
       <main className={classes.main}>
-        <section>{!userType ? <VideoUser sessionSend={sessionSend} /> : <VideoConsultant sessionSend={sessionSend} getUserId={getSessionUserNickname} userId={sessionUserId} />}</section>
+        <section>{!userType ? <VideoUser sessionSend={sessionSend} /> : <VideoConsultant sessionSend={sessionSend} getUserNickname={getSessionUserNickname} userId={sessionUserId} />}</section>
         <section className={classes.section}>
           {userType === 0 ? <Shop userGender={user.userData.userGender} userId={user.userId} session={session}/> : <Shop userGender={sessionUserGender} userId={sessionUserId} session={session}/>}
         </section>
