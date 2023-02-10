@@ -4,6 +4,8 @@ import GetStarRating from '../../consultant/video/VideoUser/reviewinput/GetStarR
 import ConsultantMyPageSideBar from './ConsultantMyPageSideBar';
 import { useState } from "react";
 import { useEffect } from "react";
+import consultantWoman from '../../../assets/consultantwoman.png';
+import consultantman from '../../../assets/consultantman.png'
 
 
 const ConsultantReviewPage = () => {
@@ -16,10 +18,16 @@ const ConsultantReviewPage = () => {
     const [msg, setMsg] = useState("");
 
     const reviewMsg = () =>{
-      if(reviewAvg>3){
-        setMsg("이달의 우수")
-      }else{
-        setMsg("나쁜사람")
+        if (reviewAvg === 5){
+        setMsg("당신은 완벽한 컨설턴트!")
+        }else if(reviewAvg>=4){
+        setMsg("당신은 우수 컨설턴트!")
+      } else if (reviewAvg >=3){
+        setMsg("당신은 조금만 더 노력하면 우수 컨설턴트!")
+      } else if(reviewAvg >=2){
+        setMsg("당신은 분발해야 하는 컨설턴트!")
+      } else if (reviewAvg >=0){
+        setMsg("당신은 해고 위기 컨설턴트!")
       }
     }
     
@@ -32,8 +40,15 @@ const ConsultantReviewPage = () => {
             <ConsultantMyPageSideBar />
             <div className={classes.ReviewMainBox}>
                 <h3 className={classes.MyReviewName}>나의 리뷰</h3>
-                <p>{msg}</p>
                 <hr className={classes.hr}/>
+                <div className={classes.ImgTextBox}>
+                    <p >{(data.consultantGender ? <img src={consultantman} className={classes.consultantman} /> : <img src={consultantWoman} className={classes.consultantWoman} />)}</p>
+                    <div>
+                        <p className={classes.reviewAvg}>나의 점수 {reviewAvg}</p>
+                        <p className={classes.msg}>{msg}</p>
+                    </div>
+                </div>
+                <hr className={classes.hrgrey} />
                 {review.map((item, idx) => {
                     return (
                         <div key={idx} className={classes.ReviewBox}>

@@ -20,115 +20,69 @@
     src: url("../../../fonts/AppleSDGothicNeoL.ttf");
 }
 
-.ReviewPage{
+.ProfilePage {
     display: flex;
     justify-content: center;
 }
 
-.ReviewMainBox{
+.ProfileMainBox {
     margin-top: 100px;
 }
 
-.MyReviewName{
+.ProfileName {
     font-family: "Apple_Gothic_Neo_SB";
     font-size: 27px;
 
 }
 
-.hr{
+.hr {
     border-bottom: solid 5px black;
     border-top: 0;
     padding: 0;
     border-radius: 2.5px;
     margin-bottom: 30px;
+    width: 900px;
 }
 
-.ImgTextBox{
+.ImgTextBox {
     display: flex;
 }
 
-.consultantman{
+.consultantman {
     width: 100px;
     margin-left: 30px;
     margin-top: -20px;
 }
 
-.consultantWoman{
-    width: 100px;
+.consultantWoman {
+    width: 80px;
     margin-left: 30px;
-    margin-top: -20px;
+    margin-top: -30px;
 }
 
-.reviewAvg{
+.consultantName{
+    font-family: "Apple_Gothic_Neo_Bold";
+    font-size: 23px;
+    margin-left: 40px;
+    margin-top: 20px;
+}
+
+.userType{
     font-family: "Apple_Gothic_Neo_SBold";
     font-size: 20px;
-    margin-left: 50px;
-    margin-top: 35px;
+    margin-left: 40px;
+    color: #555555;
+    margin-top: -15px;
+    
 }
 
-.msg{
-    font-family: "Apple_Gothic_Neo_Bold";
-    font-size: 30px;
-    margin-left: 50px;
-    margin-top: -10px;
-}
 
-.hrgrey{
+.hrgrey {
     border-bottom: solid 3.5px lightgrey;
     border-top: 0;
     padding: 0;
     border-radius: 2.5px;
     margin-bottom: 30px;
-}
-
-
-
-.ReviewBox {
     width: 900px;
-    /* background-color: rgba(227, 227, 227, 0.327); */
-    /* border-radius: 20px; */
-    margin-bottom: 30px;
-
-}
-
-.ReviewOne {
-    display: flex;
-    justify-content: left;
-
-}
-
-
-.reviewScore {
-    margin-left: 10px;
-    margin-top: 5px;
-    font-family: "Apple_Gothic_Neo_Light";
-    width: 20px;
-}
-
-.userId {
-    font-family: "Apple_Gothic_Neo_SBold";
-    margin-left: 15px;
-    margin-top: 5px;
-    width: 100px;
-}
-
-.userDate {
-    font-family: "Apple_Gothic_Neo_SBold";
-    width: 100px;
     margin-top: 0px;
-    text-align: right;
-    margin-left: 530px;
-
-}
-
-.reviewContent {
-    font-family: "Apple_Gothic_Neo_Mid";
-    margin-left: 1px;
-    width: 900px;
-    word-break: break-all;
-    overflow-wrap: break-word;
-    border-bottom: 2px solid lightgray;
-
-
-
 }
