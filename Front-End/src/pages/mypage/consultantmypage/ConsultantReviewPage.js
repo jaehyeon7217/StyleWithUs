@@ -2,6 +2,8 @@ import {useSelector } from "react-redux";
 import classes from './ConsultantReviewPage.module.css';
 import GetStarRating from '../../consultant/video/VideoUser/reviewinput/GetStarRating';
 import ConsultantMyPageSideBar from './ConsultantMyPageSideBar';
+import { useState } from "react";
+import { useEffect } from "react";
 
 
 const ConsultantReviewPage = () => {
@@ -9,14 +11,28 @@ const ConsultantReviewPage = () => {
     const token = useSelector((state) => state.auth.token);
     const data = useSelector((state) => state.auth.userData);
     const review = useSelector((state) => state.auth.myReviewList);
+    const reviewAvg = useSelector((state) => state.auth.reviewAvg);
 
+    const [msg, setMsg] = useState("");
+
+    const reviewMsg = () =>{
+      if(reviewAvg>3){
+        setMsg("이달의 우수")
+      }else{
+        setMsg("나쁜사람")
+      }
+    }
     
+    useEffect(()=>{
+      reviewMsg();
+    },[])
 
     return(
         <div className={classes.ReviewPage}>
             <ConsultantMyPageSideBar />
             <div className={classes.ReviewMainBox}>
                 <h3 className={classes.MyReviewName}>나의 리뷰</h3>
+                <p>{msg}</p>
                 <hr className={classes.hr}/>
                 {review.map((item, idx) => {
                     return (

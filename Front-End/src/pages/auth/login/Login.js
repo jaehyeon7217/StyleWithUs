@@ -68,7 +68,7 @@ const Login = () => {
                     }
                   }
                 ).then((response2)=>{
-                  dispatch(authActions.getMyReview(response2.data.data))
+                  dispatch(authActions.getMyReview(response2.data))
                 }).catch((error)=>{
                   console.log(error);
                 })

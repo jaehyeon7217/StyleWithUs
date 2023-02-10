@@ -11,7 +11,13 @@ const initialAuthState = {
   userData : "",
   consultantList: {},
   isConsulting: false,
-  myReviewList : {},
+  reviewAvg : "",
+  myReviewList : [{
+    reviewScore : null,
+    userId : null,
+    userRegisterTime: null,
+    reviewContent: null},
+  ],
   mySessionId : "",
 };
 
@@ -70,7 +76,8 @@ const authSlice = createSlice({
     },
     // 리뷰 가져오기
     getMyReview(state, action) {
-      state.myReviewList = action.payload
+      state.reviewAvg = action.payload.avgScore
+      state.myReviewList = action.payload.data
     },
     // 로그아웃
     logout(state, action) {
@@ -82,7 +89,13 @@ const authSlice = createSlice({
       state.userData = action.payload
       state.consultantList = action.payload
       state.isConsulting = false
-      state.myReviewList = action.payload
+      state.reviewAvg = ""
+      state.myReviewList = [{
+        reviewScore : null,
+        userId : null,
+        userRegisterTime: null,
+        reviewContent: null},
+      ]
     },
   }
 });
