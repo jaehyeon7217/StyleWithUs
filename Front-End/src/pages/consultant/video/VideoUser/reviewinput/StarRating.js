@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-// import { FaStar } from "react-icons/fa";
 import classes from "./StarRating.module.css";
 import yellowStar from "../../../../../assets/yellow_star.png";
 
@@ -21,7 +20,7 @@ const StarRating = (props) => {
                 value={ratingValue}
                 onClick={() => {
                   setRating(ratingValue);
-                  props.onReviewScore(rating);
+                  props.onReviewScore(ratingValue);
                 }}
               />
               <img
@@ -36,13 +35,6 @@ const StarRating = (props) => {
                 onMouseLeave={() => setHover(null)}
                 size={25}
               />
-              {/* <FaStar
-                className={classes.star}
-                color={ratingValue <= (hover || rating) ? "#ffc107" : "#e4e5e9"}
-                size={25}
-                onMouseEnter={() => setHover(ratingValue)}
-                onMouseLeave={() => setHover(null)}
-              /> */}
             </label>
           );
         })}
