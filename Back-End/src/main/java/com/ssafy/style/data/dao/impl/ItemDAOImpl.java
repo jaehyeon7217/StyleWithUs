@@ -24,23 +24,23 @@ public class ItemDAOImpl implements ItemDAO {
     }
 
     @Override
-    public Item insertItem(Item item) throws Exception {
-        Item saveitem = itemRepository.save(item);
-        return saveitem;
+    public Item createItem(Item item) throws Exception {
+        Item createItem = itemRepository.save(item);
+        return createItem;
     }
 
     @Override
-    public List<Item> selectUserItem(String userId) throws Exception {
-        List<Item> showUserItem = itemRepository.findByUserId(userRepository.getById(userId));
-        return showUserItem;
+    public List<Item> readUserItem(String userId) throws Exception {
+        List<Item> readUserItem = itemRepository.findByUserId(userRepository.getById(userId));
+        return readUserItem;
     }
 
     @Override
     public void deleteItem(int itemNo) throws Exception {
-        Optional<Item> seletedItem = itemRepository.findById(itemNo);
+        Optional<Item> readItem = itemRepository.findById(itemNo);
 
-        if(seletedItem.isPresent()) {
-            Item deleteItem = seletedItem.get();
+        if(readItem.isPresent()) {
+            Item deleteItem = readItem.get();
 
             itemRepository.delete(deleteItem);
         } else {

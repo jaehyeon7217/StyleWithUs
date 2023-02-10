@@ -20,17 +20,17 @@ public class MeetingServiceImpl implements MeetingService {
     ////////////////////////////////////////////////////////////////////////////////////////////////////
 
     @Override
-    public MeetingDto insertMeeting(MeetingDto meetingDto, String ConsultantId) throws Exception {
+    public MeetingDto createSession(MeetingDto meetingDto, String ConsultantId) throws Exception {
         Meeting meeting = toMeeting(meetingDto);
-        Meeting saveMeeting = meetingDAO.insertMeeting(meeting, ConsultantId);
+        Meeting saveMeeting = meetingDAO.createMeeting(meeting, ConsultantId);
         return toMeetingDto(saveMeeting);
     }
 
     @Override
-    public List<MeetingDto> selectAllMeeting() throws Exception {
+    public List<MeetingDto> readAllMeeting() throws Exception {
 
         ArrayList<MeetingDto> list = new ArrayList<MeetingDto>();
-        List<Meeting> selectAllMeeting = meetingDAO.selectAllMeeting();
+        List<Meeting> selectAllMeeting = meetingDAO.readAllMeeting();
 
         for(Meeting m : selectAllMeeting) {
             list.add(new MeetingDto(
@@ -44,8 +44,8 @@ public class MeetingServiceImpl implements MeetingService {
     }
 
     @Override
-    public MeetingDto selectMeeting(String sessionId) throws Exception {
-        Meeting selectMeeting = meetingDAO.selectMeeting(sessionId);
+    public MeetingDto readMeeting(String sessionId) throws Exception {
+        Meeting selectMeeting = meetingDAO.readMeeting(sessionId);
         return toMeetingDto(selectMeeting);
     }
 
@@ -62,7 +62,7 @@ public class MeetingServiceImpl implements MeetingService {
     }
 
     @Override
-    public void deleteAllMeetingConsultantId(String consultantId) throws Exception {
+    public void deleteAllSessionConsultantId(String consultantId) throws Exception {
         meetingDAO.deleteAllMeetingConsultantId(consultantId);
     }
 
