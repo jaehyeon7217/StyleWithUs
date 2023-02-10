@@ -15,6 +15,8 @@ import DeveloperPage from './pages/developer/DeveloperPage';
 import Recommend from './pages/recommend/Recommend';
 import Sbti from "./pages/sbti/Sbti";
 import Loading from "./pages/consultant/Loading";
+import ConsultantMyProfile from './pages/mypage/consultantmypage/ConsultantMyProfile';
+import ConsultantServiceCenter from './pages/mypage/consultantmypage/ConsultantServiceCenter';
 
 import NotFound from "./pages/notfound/NotFound"
 
@@ -55,6 +57,8 @@ function App() {
           <Route path="/sbti" element={<Sbti/>}/>
           <Route path="/consultant" element={<Loading />}/>
           <Route path='/manageconsultant' element={<ManageConsultant/>}/>
+          <Route path="/consultantmyprofile" element={<ConsultantMyProfile/>}></Route>
+          <Route path="/consultantservicecenter" element={<ConsultantServiceCenter />}></Route>
         </Route>
         <Route path="/*" element={<NotFound/>} />
       </Routes>
