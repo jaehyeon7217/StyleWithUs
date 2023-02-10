@@ -35,6 +35,7 @@ const Consultant = (props) => {
   const [subscribers, setSubscribers] = useState([]);
   const [session, setSession] = useState(undefined);
 
+  const maintainSessionId = useSelector((state) => state.auth.mySessionId);
   // 돌아가기 버튼 함수
   const pageBackHandler = () => {
     leaveSession();
@@ -162,11 +163,13 @@ const Consultant = (props) => {
     // --- 7) Leave the session by calling 'disconnect' method over the Session object ---
 
     const mySession = session;
-
-    if (mySession) {
-      sendLeave(mySessionId);
-      mySession.disconnect();
+    if (maintainSessionId) {
+      sendLeave(maintainSessionId);
+      if (mySession) {
+        mySession.disconnect();
+      }
       dispatch(authActions.endConsulting(false));
+      dispatch(authActions.deleteMySessionId(""));
     }
 
     // Empty all properties...
@@ -210,6 +213,8 @@ const Consultant = (props) => {
     );
     // console.log(response.data.sessionId);
     setMySessionId(response.data.sessionId);
+    dispatch(authActions.startConsulting(true));
+    dispatch(authActions.getMySessionId(response.data.sessionId));
     return response.data.sessionId; // The sessionId
   };
 
@@ -280,7 +285,7 @@ const Consultant = (props) => {
             <h2 className={classes.h2}>상담</h2>
             <div className={classes.wall}></div>
             <form
-            className={classes.form}
+              className={classes.form}
               onSubmit={(event) => {
                 event.preventDefault();
                 joinSession(event);

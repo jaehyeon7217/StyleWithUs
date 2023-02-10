@@ -4,13 +4,13 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import useInterval from "./useInterval";
 import axios from "axios";
-import classes from './VideoUser.module.css';
+import classes from "./VideoUser.module.css";
 import ConsultantList from "./ConsultantList";
 import ConsultantReview from "./ConsultantReview";
 import Video from "../Video";
 import { chatActions } from "../../../../store/chat";
 import Swal from "sweetalert2";
-import reload from '../../../../assets/reload.png';
+import reload from "../../../../assets/reload.png";
 import { authActions } from "../../../../store/auth";
 
 const APPLICATION_SERVER_URL =
@@ -184,16 +184,17 @@ const Consultant = (props) => {
     // 4. session에 connect하는 과정
     connection();
   };
-
+  const maintainSessionId = useSelector((state) => state.auth.mySessionId)
   const leaveSession = () => {
     // --- 7) Leave the session by calling 'disconnect' method over the Session object ---
-
     const mySession = session;
-
-    if (mySession) {
-      sendLeave(mySessionId);
-      mySession.disconnect();
-      dispatch(authActions.endConsulting(false))
+    if (maintainSessionId) {
+      sendLeave(maintainSessionId);
+      if (mySession) {
+        mySession.disconnect();
+      }
+      dispatch(authActions.endConsulting(false));
+      dispatch(authActions.deleteMySessionId(""));
     }
 
     // Empty all properties...
@@ -235,16 +236,17 @@ const Consultant = (props) => {
       },
     });
     // 이미 상담 중인 경우
-    if (response.data.msg === 'The session room is full.') {
+    if (response.data.msg === "The session room is full.") {
       Swal.fire({
-        title: '<div style="font-size:24px;font-family:Apple_Gothic_Neo_Bold;font-weight:bold;">접속 실패!<div>', 
-        html: '<div style="font-size:16px;font-family:Apple_Gothic_Neo_Mid;">이미 상담중인 방입니다</div>', 
-        width : 330,
-        icon: 'error',
-        confirmButtonText:'<div style="font-size:16px;font-family:Apple_Gothic_Neo_Mid;">확인</div>',
-        confirmButtonColor: '#9A9A9A',
-      })
-      console.log('이미 상담 중인 방입니다.')
+        title:
+          '<div style="font-size:24px;font-family:Apple_Gothic_Neo_Bold;font-weight:bold;">접속 실패!<div>',
+        html: '<div style="font-size:16px;font-family:Apple_Gothic_Neo_Mid;">이미 상담중인 방입니다</div>',
+        width: 330,
+        icon: "error",
+        confirmButtonText:
+          '<div style="font-size:16px;font-family:Apple_Gothic_Neo_Mid;">확인</div>',
+        confirmButtonColor: "#9A9A9A",
+      });
 
       setOV(null);
       setSession(undefined);
@@ -253,8 +255,8 @@ const Consultant = (props) => {
       setMyUserName(nickname);
       setMainStreamManager(undefined);
       setPublisher(undefined);
-  
-      dispatch(chatActions.leaveChatting())
+
+      dispatch(chatActions.leaveChatting());
 
       return;
     } else {
@@ -289,8 +291,8 @@ const Consultant = (props) => {
 
   // 세션 종료 후 대기창 원래 상태로
   useEffect(() => {
-    setSessionLists([])
-  }, [getSessionStatus])
+    setSessionLists([]);
+  }, [getSessionStatus]);
 
   // 메세지를 보내기 위해서 세션을 올려보낸다.
   useEffect(() => {
@@ -308,7 +310,25 @@ const Consultant = (props) => {
 
   useEffect(() => {
     getSession();
-  }, [])
+  }, []);
+
+    // 새로고침 시 axios 보내기
+  const beforeUnLoad = (e) => {
+      // e.preventDefault();
+      e.stopPropagation();
+      e.returnValue = '';
+    }
+  
+  useEffect(() => {
+    window.addEventListener('beforeunload', beforeUnLoad);
+    leaveSession();
+     
+    return () => {
+      window.removeEventListener('beforeunload', beforeUnLoad);
+    };
+  }, []);
+
+
 
   return (
     <Fragment>
@@ -317,8 +337,14 @@ const Consultant = (props) => {
           <div className={classes.user}>
             <h2 className={classes.h2}>상담</h2>
             <div className={classes.wall}></div>
-            <h3 className={classes.font}>현재 상담 가능한 컨설턴트
-            <img className={classes.reload} src={reload} alt="reload" onClick={getSession} />
+            <h3 className={classes.font}>
+              현재 상담 가능한 컨설턴트
+              <img
+                className={classes.reload}
+                src={reload}
+                alt="reload"
+                onClick={getSession}
+              />
             </h3>
             {sessionLists.map((list, idx) => {
               return (
