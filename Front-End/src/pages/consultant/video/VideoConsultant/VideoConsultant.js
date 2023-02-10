@@ -114,6 +114,8 @@ const Consultant = (props) => {
           JSON.parse(event.stream.connection.data).clientData
         );
 
+        props.getUserId(JSON.parse(event.stream.connection.data).clientData);
+
         const newSubscribers = subscribers;
         newSubscribers.push(newSubscriber);
 
@@ -124,11 +126,12 @@ const Consultant = (props) => {
         if (event.stream.typeOfVideo === "CUSTOM") {
           deleteSubscriber(event.stream.streamManager);
         }
+        props.getUserId(null);
       });
 
       newSession.on("signal", (event) => {
         // {"clientData":"bingbang"}
-        const userName = event.from.data.slice(15, -2);
+        const userName = JSON.parse(event.from.data).clientData;
 
         if (event.data.trim() !== "") {
           let today = new Date();

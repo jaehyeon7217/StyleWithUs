@@ -32,10 +32,12 @@
 }
 
 .ul {
+  height: 90%;
   list-style: none;
   padding-left: 0px;
   font-family: "Apple_Gothic_Neo_Light";
   margin: 0;
+  overflow-y: auto;
 }
 
 .ul li:hover {
