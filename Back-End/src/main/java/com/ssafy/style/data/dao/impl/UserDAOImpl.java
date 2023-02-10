@@ -74,4 +74,9 @@ public class UserDAOImpl implements UserDAO {
     public void changePw(User user) throws Exception {
         userRepository.save(user);
     }
+
+    @Override
+    public User getUserGender(String userNickname) throws Exception {
+        return userRepository.findByUserNickname(userNickname);
+    }
 }

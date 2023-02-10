@@ -323,6 +323,32 @@ public class UserController {
         }
     }
 
+    @GetMapping(value = "/gender/{userNickname}")
+    @ApiOperation(value = "유저 닉네임으로 유저id와 성별 찾기")
+    public ResponseEntity<?> findUserGender(@PathVariable @ApiParam(value = "유저 Nickname", required = true) String userNickname){
+        logger.info("*** findUserGender 메서드 호출");
+        logger.info("입력 데이터 :  userNickname = " + userNickname);
+
+        Map<String, Object> check = new HashMap<>();
+
+        try {
+            UserDto userDto = userService.getUserGender(userNickname);
+
+            check.put("msg", "success");
+            check.put("userId", userDto.getUserId());
+            check.put("userGender", userDto.getUserGender());
+
+            logger.info("*** findUserGender 메서드 종료");
+            logger.info("*** 반환 데이터 : userDto = " + userDto);
+            logger.info("*** 반환 데이터 : userId = " + userDto.getUserId());
+            logger.info("*** 반환 데이터 : userGender = " + userDto.getUserGender());
+
+            return ResponseEntity.status(HttpStatus.OK).body(check);
+        }catch (Exception e){
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
+        }
+    }
+
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 }
