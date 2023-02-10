@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Navigate, useNavigate } from "react-router-dom";
 
 import ButtonBox from "./ButtonBox";
@@ -45,14 +45,21 @@ import section10Image2 from "../../assets/mainPage/버려지는옷1.png"
 import section10Image3 from "../../assets/mainPage/버려지는옷2.png"
 import section10Image4 from "../../assets/mainPage/버려지는신발.png"
 
+import { authActions } from "../../store/auth"
 
 const Home = () => {
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+
   const [scrollMoveControll, setScrollMoveControll] = useState(0);
   const [pageNumber, setPageNumber] = useState(1);
-  const navigate = useNavigate();
   const isLogIn = useSelector(state => state.auth.isLogined);
 
   const lastPageNumber = 11;
+
+  useEffect(() =>{
+    dispatch(authActions.endConsulting(false))
+  }, [])
 
   useEffect(() => {
     document.querySelector('#main-page').addEventListener(
