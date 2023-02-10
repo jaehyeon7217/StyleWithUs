@@ -190,18 +190,18 @@ public class OpenViduController {
 
     @GetMapping("/api/sessions")
     @ApiOperation(value = "생성된 방 모두 조회")
-    public ResponseEntity<?> getAllSession() {
+    public ResponseEntity<?> readAllSession() {
 
         Map<String, Object> check = new HashMap<>();
 
-        logger.info("*** getAllSession - 호출");
+        logger.info("*** readAllSession - 호출");
 
         try {
             List<MeetingDto> list = meetingService.readAllMeeting();
 
             if(list != null) {
 
-                logger.info("*** getAllSession list : {} ", list);
+                logger.info("*** readAllSession list : {} ", list);
 
                 check.put("msg", "success");
                 check.put("data", list);
