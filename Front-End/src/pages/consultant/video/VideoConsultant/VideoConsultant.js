@@ -135,6 +135,7 @@ const Consultant = (props) => {
 
       newSession.on("signal:my-chat", (event) => {
         // {"clientData":"bingbang"}
+        props.getUserId(JSON.parse(event.stream.connection.data).clientData);
         const userName = JSON.parse(event.from.data).clientData;
 
         if (event.data.trim() !== "") {
@@ -155,7 +156,8 @@ const Consultant = (props) => {
       });
 
       newSession.on("signal:cart", (event) => {
-        axios.get(`https://i8d105.p.ssafy.io/be/item/show/${props.getUserId}`, {
+        props.getUserId(JSON.parse(event.stream.connection.data).clientData);
+        axios.get(`https://i8d105.p.ssafy.io/be/item/show/${props.userId}`, {
         headers: {
           Authorization: userToken,
         },
