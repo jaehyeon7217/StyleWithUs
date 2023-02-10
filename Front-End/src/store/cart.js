@@ -1,3 +1,4 @@
+// import axios from "axios";
 import { createSlice } from "@reduxjs/toolkit";
 
 //userType => 0: user 1: consultant
@@ -5,6 +6,7 @@ const initialCartState = {
   cartItems: [
     
   ],
+  update: false,
 };
 
 const cartSlice = createSlice({
@@ -13,6 +15,9 @@ const cartSlice = createSlice({
   reducers: {
     getCart(state, action) {
       state.cartItems = action.payload
+    },
+    updateCart(state, action) {
+      state.update = !state.update;
     }
   }
 });
