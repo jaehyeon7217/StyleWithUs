@@ -114,7 +114,7 @@ const Consultant = (props) => {
           event.stream,
           JSON.parse(event.stream.connection.data).clientData
         );
-        console.log(JSON.parse(event.stream.connection.data).clientData);
+        // console.log(JSON.parse(event.stream.connection.data).clientData);
 
         const newSubscribers = subscribers;
         newSubscribers.push(newSubscriber);
@@ -274,26 +274,28 @@ const Consultant = (props) => {
 
   return (
     <Fragment>
-      <div>
+      <div className={classes.div}>
         {session === undefined ? (
           <div className={classes.consultant}>
             <h2 className={classes.h2}>상담</h2>
             <div className={classes.wall}></div>
             <form
+            className={classes.form}
               onSubmit={(event) => {
                 event.preventDefault();
                 joinSession(event);
                 dispatch(authActions.startConsulting(true));
               }}
             >
-              <p>
+              <div className={classes.section}>
                 <input
-                  className="btn btn-lg btn-success"
+                  // className="btn btn-lg btn-success"
+                  className={classes.button}
                   name="commit"
                   type="submit"
-                  value="JOIN"
+                  value="방 생성하기"
                 />
-              </p>
+              </div>
             </form>
           </div>
         ) : null}
@@ -302,17 +304,6 @@ const Consultant = (props) => {
           <div id="session">
             <div id="video-container" className="col-md-6">
               {userType === 0 ? userVideo() : consultantVideo()}
-              {/* {subscribers.map((sub, i) => (
-                <div key={i} className="stream-container col-md-6 col-xs-6">
-                  <span>{sub.id}</span>
-                  <Video streamManager={sub} />
-                </div>
-              ))}
-              {publisher !== undefined ? (
-                <div className="stream-container col-md-6 col-xs-6">
-                  <Video streamManager={publisher} />
-                </div>
-              ) : null} */}
             </div>
             <button onClick={pageBackHandler}>Back</button>
           </div>
