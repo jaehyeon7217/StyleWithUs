@@ -61,7 +61,7 @@ const Login = () => {
             if (response.data.data.consultantApproval === 1) {
               dispatch(authActions.consultantLogin(response.data));
                 axios.get(
-                  "https://i8d105.p.ssafy.io/be/review/show/" + response.data.data.consultantId,
+                  "https://i8d105.p.ssafy.io/be/review/show/consultant/" + response.data.data.consultantId,
                   {
                     headers:{
                       Authorization : response.data.auth_token
