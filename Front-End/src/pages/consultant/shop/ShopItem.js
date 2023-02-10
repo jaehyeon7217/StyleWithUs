@@ -12,7 +12,12 @@ const ShopItem = (props) => {
   const item = props.item;
 
   const user = useSelector(state => state.auth);
-  const userId = props.userId;
+  const userType = useSelector(state => state.auth.userType);
+  let userId = useSelector(state => state.auth.userId);
+
+  if (userType === 1) {
+    userId = props.userId;
+  } 
 
   const dispatch = useDispatch();
 
@@ -49,17 +54,19 @@ const ShopItem = (props) => {
         console.log(error);
       });
     
-    await props.session
-    .signal({
-      data: 'cart select', 
-      to: [], 
-      type: "cart", 
-    })
-    .then(() => {
-    })
-    .catch((error) => {
-      console.error(error);
-    });
+    if (props.session !== undefined) {
+      await props.session
+      .signal({
+        data: 'cart select', 
+        to: [], 
+        type: "cart", 
+      })
+      .then(() => {
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+    }
 
     axios.get(`https://i8d105.p.ssafy.io/be/item/show/${userId}`, {
       headers: {
