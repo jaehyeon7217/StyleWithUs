@@ -40,11 +40,13 @@
   cursor: pointer;
 }
 
-.LinkBottom-active {
+.linkbottomhidden {
   text-decoration: none;
   margin-left: 30px;
   color: black;
-  font-family: "Apple_Gothic_Neo_Bold";
+  font-family: "Apple_Gothic_Neo_Mid";
   font-size: 19px;
-  font-weight: 500;
+  font-weight: 300;
+  cursor: pointer;
+  visibility:visible
 }

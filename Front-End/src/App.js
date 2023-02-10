@@ -2,21 +2,23 @@ import { Route, Routes } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 
 import NavBar from "./components/navbar/NavBar";
-import Auth from "./pages/auth/Auth";
 import Home from "./pages/Home/Home";
+import Auth from "./pages/auth/Auth";
+import ManageConsultant from "./pages/admin/ManageConsultant";
 import MyPage from "./pages/mypage/MyPage";
-import Loading from "./pages/consultant/Loading";
+import ConsultantMyPage from "./pages/mypage/ConsultantMyPage";
 import MyPageWish from "./pages/mypage/MyPageWish";
 import MyProfile from './pages/mypage/MyProfile';
-import Recommend from './pages/recommend/Recommend';
 import ServiceCenter from './pages/servicecenter/ServiceCenter';
-import ManageConsultant from "./pages/admin/ManageConsultant";
-import Sbti from "./pages/sbti/Sbti";
-import NotFound from "./pages/notfound/NotFound"
 import DeveloperPage from './pages/developer/DeveloperPage';
-import PrivateRoute from "./components/PrivateRoute";
-import ConsultantMyPage from "./pages/mypage/ConsultantMyPage";
+import Recommend from './pages/recommend/Recommend';
+import Sbti from "./pages/sbti/Sbti";
+import Loading from "./pages/consultant/Loading";
 
+import NotFound from "./pages/notfound/NotFound"
+
+import PrivateRoute from "./components/PrivateRoute";
+import PublicRoute from "./components/PublicRoute";
 
 function App() {
   // 파라미터 값을 가져온다.
@@ -38,6 +40,9 @@ function App() {
         <Route path="/auth/*" element={<Auth />} />
         <Route path="/servicecenter" element={<ServiceCenter />} />
         <Route path="/developerpage" element={<DeveloperPage />} />
+        <Route element={<PublicRoute/>}>
+          <Route path="/auth/*" element={<Auth />} />
+        </Route>
         <Route element={<PrivateRoute/>}>
           <Route path="/mypage" element={<MyPage />} />
           <Route path="/consultantmypage" element={<ConsultantMyPage/>}/>
