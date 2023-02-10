@@ -158,9 +158,9 @@ const Consultant = (props) => {
       });
 
       newSession.on("signal:cart", (event) => {
-        axios.get(`https://i8d105.p.ssafy.io/be/item/show/${user.userId}`, {
+        axios.get(`https://i8d105.p.ssafy.io/be/item/show/${userId}`, {
         headers: {
-          Authorization: user.token,
+          Authorization: userToken,
         },
         })
         .then((response) => {

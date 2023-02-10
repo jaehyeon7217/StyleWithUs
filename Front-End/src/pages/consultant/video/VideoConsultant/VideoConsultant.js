@@ -24,7 +24,6 @@ const Consultant = (props) => {
   // 유저 아이디
   const userType = useSelector((state) => state.auth.userType);
   const user = useSelector((state) => state.auth.userData);
-  const token = useSelector((state)=> state.auth.token);
   const consultantId = user.consultantId;
   const nickname = userType === 1 ? user.consultantNickname : user.userNickname;
 
@@ -156,9 +155,9 @@ const Consultant = (props) => {
       });
 
       newSession.on("signal:cart", (event) => {
-        axios.get(`https://i8d105.p.ssafy.io/be/item/show/${props.userId}`, {
+        axios.get(`https://i8d105.p.ssafy.io/be/item/show/${props.getUserId}`, {
         headers: {
-          Authorization: token,
+          Authorization: userToken,
         },
         })
         .then((response) => {

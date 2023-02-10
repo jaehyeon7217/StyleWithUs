@@ -21,7 +21,6 @@ const Cart = (props) => {
         },
       })
       .then((response) => {
-        console.log(response);
         dispatch(cartActions.getCart(response.data.data));
       })
       .catch((error) => {
