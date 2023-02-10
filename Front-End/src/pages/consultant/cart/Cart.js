@@ -27,7 +27,6 @@ const Cart = (props) => {
         console.log(error);
       });
     } else if (userType === 1 && props.userId === null) {
-      console.log(1);
       dispatch(cartActions.resetCart());
     }
   }, [props.userId]);
@@ -43,11 +42,13 @@ const Cart = (props) => {
           return (
             <li key={idx}>
               <CartItem
-                index={idx + 1}
+                index={item.itemNo}
                 title={item.itemName}
                 img={item.itemImgLink}
                 price={item.itemPrice}
                 url={item.itemUri}
+                session={props.session}
+                userId={props.userId}
               />
             </li>
           );

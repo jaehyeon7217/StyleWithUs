@@ -135,6 +135,7 @@ const Consultant = (props) => {
                   : classes["toggle-animation-off"]
                 }
               userId={sessionUserId}
+              session={session}
             />
             <ChatContent
               className={
