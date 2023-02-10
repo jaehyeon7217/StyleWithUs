@@ -8,13 +8,36 @@
   src: url("../../../fonts/AppleSDGothicNeoL.ttf");
 }
 
+.div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: gray;
+  border-bottom: 1px solid rgb(211, 211, 211);
+}
+
+.div button {
+  border: none;
+  background-color: transparent;
+  margin-top: 40px;
+  margin-right: 15px;
+  color: gray;
+  transition: color .15s;
+}
+
+.div button:hover {
+  text-decoration: underline;
+  cursor: pointer;
+  color: black;
+}
+
 .a {
   display: flex;
   align-items: center;
   justify-content: space-between;
   text-decoration: none;
   color: gray;
-  border-bottom: 1px solid rgb(211, 211, 211);
+  width: 88%;
   height: 50px;
   margin-top: 11px;
   padding-bottom: 10px;
@@ -27,7 +50,16 @@
 
 .a div {
   display: flex;
+  justify-content: flex-start;
   align-items: center;
+  width: 83%;
+}
+
+.a div > span {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 88%;
 }
 
 .a > span {
