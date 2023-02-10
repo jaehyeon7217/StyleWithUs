@@ -8,8 +8,7 @@ import ClothesDetail from "./ClothesDetail";
 
 const ClothesType = (props) => {
   // 타입, 카테고리, 디테일 항목들을 리덕스에서 가져온다.
-  const userGender = useSelector(state => state.auth.userData.userGender);
-  const gender = userGender ? "men" : "women";
+  const gender = props.gender;
 
   const category = useSelector((state) => state.shop.category[gender]);
   const type = props.type;

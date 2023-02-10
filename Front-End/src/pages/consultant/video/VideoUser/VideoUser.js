@@ -157,7 +157,7 @@ const Consultant = (props) => {
 
       newSession.on("signal", (event) => {
         // {"clientData":"bingbang"}
-        const userName = event.from.data.slice(15, -2);
+        const userName = JSON.parse(event.from.data).clientData;
 
         if (event.data.trim() !== "") {
           let today = new Date();

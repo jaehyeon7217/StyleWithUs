@@ -12,10 +12,9 @@ const ShopItems = (props) => {
   const [pagination, setPagination] = useState(1);
   const [divPagination, setDivPageNation] = useState(1);
 
-  const userGender = useSelector((state) => state.auth.userData.userGender);
   const token = useSelector((state) => state.auth.token);
 
-  const gender = userGender ? "men" : "women";
+  const gender = props.gender;
   const type = props.detailPage.type;
   const detail = props.detailPage.detail;
 
@@ -96,7 +95,7 @@ const ShopItems = (props) => {
           return clothesCount * (pagination - 1) <= idx &&
             clothesCount * (pagination - 1) + clothesCount > idx ? (
             <li key={idx} className={classes.li}>
-              <ShopItem item={item} />
+              <ShopItem item={item} userId={props.userId}/>
             </li>
           ) : (
             ""

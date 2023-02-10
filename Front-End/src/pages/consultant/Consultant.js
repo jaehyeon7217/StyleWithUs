@@ -10,6 +10,7 @@ import Cart from "./cart/Cart";
 import ChatContent from "./chat/ChatContent";
 import ChatForm from "./chat/ChatForm";
 import chatImage from "../../assets/chat.png";
+import axios from "axios";
 
 const Consultant = (props) => {
   const [toggleChatToCart, setToggleChatToCart] = useState(false);
@@ -17,8 +18,14 @@ const Consultant = (props) => {
   // 세션
   const [session, setSession] = useState();
 
-  // 유저 아이디
-  const userType = useSelector((state) => state.auth.userType);
+  // 유저, 유저타입
+  const user = useSelector((state) => state.auth);
+  const userType = user.userType;
+
+  // 컨설턴트인 경우 세션에 유저가 접속하면 유저 아이디를 받는다.
+  const [sessionUserNickname, setSessionUserNickname] = useState(null);
+  const [sessionUserGender, setSessionUserGender] = useState(null);
+  const [sessionUserId, setSessionUserId] = useState(null);
 
   // 채팅창 아이템들
   const chattings = useSelector((state) => state.chat.chattings);
@@ -86,12 +93,38 @@ const Consultant = (props) => {
     setSession(session);
   }
 
+  // 만약 컨설턴트일 경우 
+  const getSessionUserId = (id) => {
+    setSessionUserNickname(id);
+  }
+
+  useEffect(() => {
+    if (sessionUserNickname !== null) {
+      axios
+        .get(`https://i8d105.p.ssafy.io/be/user/gender/${sessionUserNickname}`, {
+          headers: {
+            Authorization: user.token,
+          },
+        })
+        .then((response) => {
+          setSessionUserGender(response.data.userGender);
+          setSessionUserId(response.data.userId);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    } else {
+      setSessionUserId(null);
+      setSessionUserGender(null);
+    }
+  }, [sessionUserNickname]);
+
   return (
     <Fragment>
       <main className={classes.main}>
-        <section>{!userType ? <VideoUser sessionSend={sessionSend} /> : <VideoConsultant sessionSend={sessionSend} />}</section>
+        <section>{!userType ? <VideoUser sessionSend={sessionSend} /> : <VideoConsultant sessionSend={sessionSend} getUserId={getSessionUserId} />}</section>
         <section className={classes.section}>
-          <Shop />
+          {userType === 0 ? <Shop userGender={user.userData.userGender} userId={user.userId}/> : <Shop userGender={sessionUserGender} userId={sessionUserId}/>}
         </section>
         <section className={classes.section}>
           <div className={classes["show-cart-chat"]}>
@@ -100,7 +133,8 @@ const Consultant = (props) => {
                 !toggleChatToCart
                   ? classes["toggle-animation-on"]
                   : classes["toggle-animation-off"]
-              }
+                }
+              userId={sessionUserId}
             />
             <ChatContent
               className={
