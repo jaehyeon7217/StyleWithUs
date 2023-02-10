@@ -328,25 +328,36 @@ const Consultant = (props) => {
                 dispatch(authActions.startConsulting(true));
               }}
             >
-              <div className={classes.section}>
-                <input
-                  // className="btn btn-lg btn-success"
-                  className={classes.button}
-                  name="commit"
-                  type="submit"
-                  value="방 생성하기"
-                />
+              <div className={classes.state}>
+                <p>지금 컨설팅을 시작해보세요</p>
+                <p>Style With Us</p>
+
+                <div className={classes.section}>
+                  <input
+                    className={classes["join-button"]}
+                    name="commit"
+                    type="submit"
+                    value="방 생성하기"
+                  />
+                </div>
               </div>
             </form>
           </div>
         ) : null}
 
         {session !== undefined ? (
-          <div id="session">
+          <div className={classes["session-on"]} id="session">
+            <div className={classes["button-section"]}>
+              <button
+                className={classes["back-button"]}
+                onClick={pageBackHandler}
+              >
+                Back
+              </button>
+            </div>
             <div id="video-container" className="col-md-6">
               {userType === 0 ? userVideo() : consultantVideo()}
             </div>
-            <button onClick={pageBackHandler}>Back</button>
           </div>
         ) : null}
       </div>
