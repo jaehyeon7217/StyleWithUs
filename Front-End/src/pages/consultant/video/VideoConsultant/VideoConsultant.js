@@ -134,7 +134,7 @@ const Consultant = (props) => {
         props.getUserId(null);
       });
 
-      newSession.on("signal", (event) => {
+      newSession.on("signal:my-chat", (event) => {
         // {"clientData":"bingbang"}
         const userName = JSON.parse(event.from.data).clientData;
 
