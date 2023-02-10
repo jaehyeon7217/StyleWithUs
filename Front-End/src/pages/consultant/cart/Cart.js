@@ -27,6 +27,7 @@ const Cart = (props) => {
         console.log(error);
       });
     } else if (userType === 1 && props.userId === null) {
+      console.log(1);
       dispatch(cartActions.resetCart());
     }
   }, [props.userId]);
