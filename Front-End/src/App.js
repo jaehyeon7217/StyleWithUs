@@ -6,7 +6,8 @@ import Home from "./pages/Home/Home";
 import Auth from "./pages/auth/Auth";
 import ManageConsultant from "./pages/admin/ManageConsultant";
 import MyPage from "./pages/mypage/MyPage";
-import ConsultantMyPage from "./pages/mypage/ConsultantMyPage";
+import ConsultantMyPage from "./pages/mypage/consultantmypage/ConsultantMyPage";
+import ConsultantReviewPage from './pages/mypage/consultantmypage/ConsultantReviewPage';
 import MyPageWish from "./pages/mypage/MyPageWish";
 import MyProfile from './pages/mypage/MyProfile';
 import ServiceCenter from './pages/servicecenter/ServiceCenter';
@@ -16,10 +17,6 @@ import Sbti from "./pages/sbti/Sbti";
 import Loading from "./pages/consultant/Loading";
 
 import NotFound from "./pages/notfound/NotFound"
-import DeveloperPage from './pages/developer/DeveloperPage';
-import PrivateRoute from "./components/PrivateRoute";
-import ConsultantMyPage from "./pages/mypage/consultantmypage/ConsultantMyPage";
-import ConsultantReviewPage from './pages/mypage/consultantmypage/ConsultantReviewPage';
 
 
 import PrivateRoute from "./components/PrivateRoute";
