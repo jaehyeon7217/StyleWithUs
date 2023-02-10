@@ -21,7 +21,7 @@ const ConsultantReviews = (props) => {
   }, []);
 
   const getReviews = async (consultantId) => {
-    const url = APPLICATION_SERVER_URL + "review/show/" + consultantId;
+    const url = APPLICATION_SERVER_URL + "review/show/consultant/" + consultantId;
     const response = await axios.get(url, {
       headers: {
         Authorization: token,
