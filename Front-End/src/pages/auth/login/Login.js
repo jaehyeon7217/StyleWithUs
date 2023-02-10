@@ -1,7 +1,6 @@
 import axios from "axios";
 import Swal from "sweetalert2";
 import { useState } from "react";
-
 import { useDispatch } from "react-redux";
 import { authActions } from "../../../store/auth";
 import { cartActions } from "../../../store/cart";
@@ -11,6 +10,7 @@ import InputLabel from "../component/InputLabel";
 import { DataInput } from "../component/Effectiveness";
 // css 클래스
 import classes from "./Login.module.css";
+// 이미지
 import footerImge from "../../../assets/footerman.png";
 import footerImgetwo from "../../../assets/footermantwo.png";
 import tmpImg from "../../../assets/tempImg.png";

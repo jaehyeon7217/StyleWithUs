@@ -16,9 +16,6 @@ const Auth = () => {
 
   return(
     <div className={classes.AuthBox}>
-      <div className={classes.AuthTitle}>
-        {/* <p>Style With Us</p> */}
-      </div>
       <div className={classes.AuthBody}>
         <Routes>
           <Route path="login" element={<Login/>}></Route>
@@ -29,7 +26,6 @@ const Auth = () => {
           <Route path="setnewpassword" element={<SetNewPassword/>}></Route>
           <Route path="passwordchange" element={<PasswordChange/>}></Route>
           <Route path="adminlogin" element={<AdminLogin/>}></Route>
-          
         </Routes>
       </div>
     </div>
