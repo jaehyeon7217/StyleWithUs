@@ -23,6 +23,7 @@ const ConsultantList = (props) => {
     props.setGetConsultantId(consultantId)
     props.setGetSessionStatus(false);
     dispatch(authActions.startConsulting(true))
+    dispatch(authActions.getMySessionId(sessionId))
   };
 
   const showResumeHandler = () => {
