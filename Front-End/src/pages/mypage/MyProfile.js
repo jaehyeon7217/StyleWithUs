@@ -3,7 +3,8 @@ import MyPageSideBar from './MyPageSideBar';
 import { useSelector } from 'react-redux';
 import userImage from "../../assets/mypageuser.png";
 import userMan from '../../assets/footermantwo.png';
-import userWoman from '../../assets/footerwoman.png';
+import userWoman from '../../assets/mypageuserwoman.png';
+
 
 const MyProfile = () => {
     const userData = useSelector((state) => state.auth.userData)

@@ -1,5 +1,7 @@
 import classes from './DeveloperPage.module.css'
 import diarytemp1 from "../../assets/diarytemp1.png"
+import gif from '../../assets/styleWithUsGif.gif'
+import giftwo from '../../assets/stylewithusgiftwo.gif'
 
 const DeveloperPage = () => {
     return(
@@ -60,6 +62,8 @@ const DeveloperPage = () => {
                     <div className={classes.marginbox}></div>
                 </div>
             </div>
+            <img src={gif} alt="" className={classes.gif}/>
+            <img src={giftwo} alt="" className={classes.giftwo}/>
         </div>
     )
 }
