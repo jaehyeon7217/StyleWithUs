@@ -1,33 +1,117 @@
+@import url('https://fonts.googleapis.com/css2?family=Blinker:wght@100;200;300;400;600;700;800;900&display=swap');
+
 @font-face {
   font-family: "Apple_Gothic_Neo_Hard";
   src: url("../../fonts/AppleSDGothicNeoH.ttf");
 }
 
-
 @font-face {
-  font-family: "SF_Pro";
-  src: url("../../fonts/SF-Pro-Display-Regular.otf");
+  font-family: "Apple_Gothic_Neo_Bold";
+  src: url("../../fonts/AppleSDGothicNeoB.ttf");
 }
 
+@font-face {
+  font-family: "Apple_Gothic_Neo_SB";
+  src: url("../../fonts/AppleSDGothicNeoSB.ttf");
+}
+
+@font-face {
+  font-family: "Apple_Gothic_Neo_Light";
+  src: url("../../fonts/AppleSDGothicNeoL.ttf");
+}
 .container {
   top: 50%;
   left: 50%;
-  width: 60%;
+  width: 80%;
   max-width: 1440px;
-  margin: 0 auto;
   overflow: hidden;
-  font-family: "SF_Pro";
+  margin: 30px auto;
+  height: 80vh;
 }
 
 .sliderContainer {
   width: 100%;
   display: flex;
-  flex: auto;
+  
+}
+/* 1번 컴포넌트 start */
+.carouselItem1 {
+  width: 100%;
+  height: auto;
+  flex-shrink: 0;
+  text-align: center;
+  justify-content: space-around;
+}
+.carouselItem1 img{
+  height: 340px;
+  opacity: 1;
 }
 
-.buttonbox{
+.PageName {
+  font-family: "Apple_Gothic_Neo_Hard";
+  font-size: 54px;
+  font-style: italic;
+  margin-top: 0px;
+}
+
+.SubPageName {
+  font-family: "Apple_Gothic_Neo_Bold";
+  font-style: italic;
+  margin-top: -50px;
+  font-size : 24px
+}
+
+.carouselbutton1 {
+  all: unset;
+  border: 2px solid #206cde;
+  padding: 0.5em 2em;
+  color: #1758BA;
+  border-radius: 10px;
+  width: 150px;
+  height: 30px;
+  font-family: "Apple_Gothic_Neo_Light";
+  font-weight: 700;
+}
+.carouselbutton1:hover {
+  transition: all 0.8s ease-in-out;
+  background-color: #404eca;
+  color: #fff;
+  font-family: "Apple_Gothic_Neo_Light";
+}
+/* 1번 컴포넌트 end */
+
+/* 2번 컴포넌트 start */
+.carouselItem {
+  width: 100%;
+  height: auto;
+  flex-shrink: 0;
+  text-align: center;
   display: flex;
   justify-content: space-around;
+  align-items: center;
+}
+.surveyBox{
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  flex-direction: column;
+  height: 100%;
+  width: 70%;
+}
+
+.questionBox{
+
+}
+
+.answerBox{
+  width: 100%;
+  height: 30%;
+}
+
+.question{
+  font-family: "Apple_Gothic_Neo_Bold";
+  font-size: 48px;
+  margin: 0 0 0;
 }
 
 .carouselbutton {
@@ -36,9 +120,13 @@
   padding: 0.5em 2em;
   color: #d4d4d4;
   border-radius: 10px;
+  width: 50px;
+  height: 30px;
 }
 .carouselbutton:hover {
   transition: all 0.3s ease-in-out;
   background-color: #333333;
   color: #fff;
 }
+
+/* 2번 컴포넌트 끝 */

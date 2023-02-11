@@ -2,17 +2,11 @@ import axios from "axios";
 import { useEffect, useRef, useState } from "react";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-
-import Start from "./component/Start";
-import UserHeight from "./component/UserHeight";
-import UserFoot from "./component/UserFoot";
-import SlideComponent from "./component/SlideComponent"
-
-import End from "./component/End";
+import man from "../../assets/mainPage/컨설턴트.png"
 
 import classes from "./Sbti.module.css";
 
-const totalSlide = 10;
+const totalSlide = 4;
 const Sbti = () => {
   const userData = useSelector((state) => state.auth.userData);
   const token = useSelector((state) => state.auth.token);
@@ -33,7 +27,7 @@ const Sbti = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const slideRef = useRef(null);
 
-  const userGender = useSelector((state) => state.auth.userData.userGender)
+  const userGender = useSelector((state) => state.auth.userData.userGender);
 
   const nextSlide = () => {
     if (currentSlide >= totalSlide) {
@@ -57,10 +51,10 @@ const Sbti = () => {
     // 백틱을 사용하여 슬라이드로 이동하는 애니메이션 구현.
   }, [currentSlide]);
 
-  const stringToInt = (data) =>{
-    const ans = parseInt(data, 10)
-    return ans
-  }
+  const stringToInt = (data) => {
+    const ans = parseInt(data, 10);
+    return ans;
+  };
 
   const submitSbti = (event) => {
     event.preventDefault();
@@ -100,91 +94,75 @@ const Sbti = () => {
         console.log(userData);
       });
   };
-  
-  const checkConsole = (event) => {
-    event.preventDefault();
-    console.log(userGender);
-    console.log(height);
-    console.log(foot);
-    console.log(shoulder);
-    console.log(chest);
-    console.log(stringToInt(sleeve));
-  };
+
+  const nextQuestion = () =>{
+
+  }
 
   return (
     <div className={classes.container}>
-      {currentSlide}
-      <button onClick={checkConsole}></button>
+      
       <div className={classes.sliderContainer} ref={slideRef}>
-        <Start setData={nextSlide} />
-        <UserHeight setData={setHeight} />
-        <UserFoot setData={setFoot} />
-        <SlideComponent
-          label='shoulder'
-          onChange={(event) => {
-            setShoulder(event.target.value);
-          }}
-          value={{userGender} ? [52, 55, 56, 58] : [55, 58, 61, 63]}
-          size={['S','M','L','XL']}
-        />
-        <SlideComponent
-          label='chest'
-          onChange={(event) => {
-            setChest(event.target.value);
-          }}
-          value={{userGender} ? [56, 59, 61, 63] : [59, 62, 65, 68]}
-          size={['S','M','L','XL']}
-        />
-        <SlideComponent
-          label='sleeve'
-          onChange={(event) => {
-            setSleeve(event.target.value);
-          }}
-          value={{userGender} ? [56, 58, 60, 61] : [57, 59, 60, 62]}
-          size={['S','M','L','XL']}
-        />
-        <SlideComponent
-          label='waist'
-          onChange={(event) => {
-            setWaist(event.target.value);
-          }}
-          value={{userGender} ? [33, 34, 36, 39] : [35, 37, 39, 41]}
-          size={['S','M','L','XL']}
-        />
-        <SlideComponent
-          label='hip'
-          onChange={(event) => {
-            setHip(event.target.value);
-          }}
-          value={{userGender} ? [57, 59, 61, 63] : [55, 57, 59, 62]}
-          size={['S','M','L','XL']}
-        />
-        <SlideComponent
-          label='thigh'
-          onChange={(event) => {
-            setThigh(event.target.value);
-          }}
-          value={{userGender} ? [31, 34, 35, 35] : [33, 34, 36, 37]}
-          size={['S','M','L','XL']}
-        />
-        <SlideComponent
-          label='hem'
-          onChange={(event) => {
-            setHem(event.target.value);
-          }}
-          value={{userGender} ? [22, 23, 24, 25] : [25, 26, 27, 28]}
-          size={['S','M','L','XL']}
-        />
-        <End setData={submitSbti} />
-      </div>
-      <div className={classes.buttonbox}>
-        <button onClick={prevSlide} className={classes.carouselbutton}>
-          prev
-        </button>
-        <button onClick={nextSlide} className={classes.carouselbutton}>
-          next
-        </button>
-      </div>
+
+        <div className={classes.carouselItem1}>
+          <p className={classes.PageName}>STYLE WITH US</p>
+          <p className={classes.SubPageName}>스타일 혁신의 가장 확실한 방법</p>
+          <img src={man} alt="" /><br />
+          <button onClick={nextSlide} className={classes.carouselbutton1}>
+            검사 시작하기
+          </button>
+        </div>
+
+        <div className={classes.carouselItem}>
+          <button onClick={prevSlide} className={classes.carouselbutton}>
+            prev
+          </button>
+          <div className={classes.surveyBox}>
+           <p className={classes.question}>SBTI #1</p>
+           <p>정확한 스타일 진단을 위해 솔직하게 답변해 주세요</p>
+           <div className={classes.answerBox}>
+            <p>키</p>
+            <input type="text" />
+           </div>
+           <div className={classes.answerBox}>
+            <p>발 사이즈</p>
+            <input type="text" />
+           </div>
+          </div>
+          <button onClick={nextSlide} className={classes.carouselbutton}>
+            next
+          </button>
+        </div>
+
+        <div className={classes.carouselItem}>
+          <button onClick={prevSlide} className={classes.carouselbutton}>
+            prev
+          </button>
+          <h1>test3</h1>
+          <button onClick={nextSlide} className={classes.carouselbutton}>
+            next
+          </button>
+        </div>
+
+        <div className={classes.carouselItem}>
+          <button onClick={prevSlide} className={classes.carouselbutton}>
+            prev
+          </button>
+          <h1>test4</h1>
+          <button onClick={nextSlide} className={classes.carouselbutton}>
+            next
+          </button>
+        </div>
+
+        <div className={classes.carouselItem1}>
+          <p className={classes.PageName}>STYLE WITH US</p>
+          <p className={classes.SubPageName}>스타일 혁신의 가장 확실한 방법</p>
+          <img src={man} alt="" /><br />
+          <button onClick={submitSbti} className={classes.carouselbutton1}>
+            제출하기
+          </button>
+        </div>
+      </div>  
     </div>
   );
 };
