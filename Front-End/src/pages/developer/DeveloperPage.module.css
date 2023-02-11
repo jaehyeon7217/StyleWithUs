@@ -141,3 +141,14 @@
 .marginbox{
     margin-top: 100px;
 }
+
+.gif{
+    width: 500px;
+    float: center;
+}
+
+.giftwo{
+    width: 500px;
+    border-radius: 15px;
+    float: center;
+}
