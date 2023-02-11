@@ -26,7 +26,7 @@
 }
 
 .ReviewMainBox{
-    margin-top: 100px;
+    margin-top: 90px;
 }
 
 .MyReviewName{
@@ -45,38 +45,51 @@
 
 .ImgTextBox{
     display: flex;
+    width: 900px;
 }
 
 .consultantman{
-    width: 100px;
+    width: 90px;
     margin-left: 30px;
-    margin-top: -20px;
+    margin-top: -35px;
+    margin-bottom: -10px;
 }
 
 .consultantWoman{
-    width: 100px;
+    width: 95px;
     margin-left: 30px;
-    margin-top: -20px;
+    margin-top: -35px;
+    margin-bottom: -10px;
 }
 
 .reviewAvg{
-    font-family: "Apple_Gothic_Neo_SBold";
+    font-family: "Apple_Gothic_Neo_Bold";
     font-size: 20px;
     margin-left: 50px;
-    margin-top: 35px;
+    margin-top: 5px;
 }
 
 .msg{
     font-family: "Apple_Gothic_Neo_Bold";
-    font-size: 30px;
+    font-size: 27px;
     margin-left: 50px;
     margin-top: -10px;
+}
+
+.msgTwo{
+    font-family: "Apple_Gothic_Neo_Mid";
+    margin-left: 52px;
+    font-size: 18px;
+    margin-top: -25px;
+    color: rgb(71, 71, 71);
+    
+
 }
 
 .hrgrey{
     border-bottom: solid 3.5px lightgrey;
     border-top: 0;
-    padding: 0;
+    /* padding: 0; */
     border-radius: 2.5px;
     margin-bottom: 30px;
 }
@@ -103,6 +116,7 @@
     margin-top: 5px;
     font-family: "Apple_Gothic_Neo_Light";
     width: 20px;
+    margin-bottom: 30px;
 }
 
 .userId {
@@ -128,7 +142,20 @@
     word-break: break-all;
     overflow-wrap: break-word;
     border-bottom: 2px solid lightgray;
+    display: flex;
+    justify-content: space-between;
 
 
 
+}
+
+.girlface{
+    width: 40px;
+    margin-top: -20px;
+    margin-left: 50px;
+}
+
+.boyface{
+    width: 40px;
+    margin-top: -20px;
 }
