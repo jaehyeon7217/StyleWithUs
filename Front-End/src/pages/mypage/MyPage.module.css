@@ -47,7 +47,7 @@
 
 /* 중앙 메인 박스 */
 .MainBox{
-  float: left;
+  /* float: left; */
   height: 100px;
   margin-top: -10px;
   
@@ -183,6 +183,34 @@
   
 }
 
+.userTypeBox{
+  display: flex;
+  justify-content: right;
+}
+
+.userType{
+  font-family: "Apple_Gothic_Neo_Bold";
+  font-size: 20px;
+  margin-top: 55px;
+  
+}
+
+.vline{
+  border: 0.5px solid lightgrey;
+  width: 0.1px;
+  height: 80px;
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-top: 30px;
+}
+
+.userTypeDap{
+  font-size: 19px;
+  font-family: "Apple_Gothic_Neo_Mid";
+  margin-top: 56.5px;
+  color: black;
+  margin-right: 35px;
+}
 
 .MyBodyDataBox{
  padding-top: 10px;

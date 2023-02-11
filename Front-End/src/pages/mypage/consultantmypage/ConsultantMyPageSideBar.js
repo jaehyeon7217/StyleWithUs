@@ -23,10 +23,16 @@ const ConsultantMyPageSideBar = () => {
         navigate("/consultantservicecenter")
     }
 
+    // 마이페이지로 이동
+    const MyPage = (event) => {
+        event.preventDefault();
+        navigate('/consultantmypage')
+    }
+
 
     return(
         <div className={classes.SideBar}>
-            <h1 className={classes.PageName}>마이 페이지</h1>
+            <h1 className={classes.PageName} onClick={MyPage}>마이 페이지</h1>
             <h3 className={classes.SideBarName}>내 정보</h3>
             <h1 className={classes.SidBarNameSmall} onClick={ProfilePage}>프로필 정보</h1>
             <h3 className={classes.SidBarNameSmall} onClick={ReviewPage}>나의 리뷰</h3>

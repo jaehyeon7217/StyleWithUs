@@ -91,8 +91,13 @@ const MyPage = () =>{
                   <button className={classes.MyInformBtntwo} onClick={MyProfile}>프로필 정보</button>
                   <button className={classes.MyInformBtn} onClick={SetNewPassword}>비밀번호 수정</button>
                 </div>
-          
+                <div className={classes.userTypeBox}>
+                <p className={classes.userType}>회원유형</p>
+                <div className={classes.vline}></div>
+                <p className={classes.userTypeDap}>사용자</p>
+                </div>
               </div>
+              
               <div className={classes.MyBodyDataBox}>
               <p className={classes.StyleCheckBtn} onClick={SBTIPage}>다시 검사하기</p>
                   <h3 className={classes.MainLabel}>나의 스타일</h3>

@@ -8,6 +8,8 @@ import consultantMan from '../../../assets/consultantman.png';
 import consultantWoman from '../../../assets/consultantwoman.png';
 import GetStarRating from '../../consultant/video/VideoUser/reviewinput/GetStarRating';
 import { useNavigate } from "react-router-dom";
+import boyface from '../../../assets/boyface.png';
+import girlface from '../../../assets/girlface.png';
 
 
 const ConsultantMyPage = () => {
@@ -17,6 +19,7 @@ const ConsultantMyPage = () => {
   const token = useSelector((state) => state.auth.token);
   const data = useSelector((state) => state.auth.userData);
   const review = useSelector((state) => state.auth.myReviewList);
+
 
   const getMyData = () =>{
     const url = "https://i8d105.p.ssafy.io/be/consultant/get/" + consultantId
@@ -67,6 +70,14 @@ const ConsultantMyPage = () => {
     navigate("/consultantreivewpage")
   }
 
+  // 프로필페이지로 이동
+  const ProfilePage = (event) => {
+    event.preventDefault();
+    navigate("/consultantmyprofile")
+  }
+
+
+
 
   return(
     <div>
@@ -83,21 +94,39 @@ const ConsultantMyPage = () => {
               </div>
               <div className={classes.consultantEmail}><p>{data.consultantEmail}</p></div>
               <div>
-                <button className={classes.myinformbtnone}>프로필 정보</button>
+                <button className={classes.myinformbtnone} onClick={ProfilePage}>프로필 정보</button>
                 <button className={classes.myinformbtntwo}>비밀번호 변경</button>
               </div>
             </div>
+              <p className={classes.userType}>회원유형</p>
+              <div className={classes.Vline}></div>
+              <p className={classes.userTypeDap}>컨설턴트</p>
           </div>
           <div className={classes.consultantResumeBox}>
-            <h3 className={classes.MainTitle}>나의 경력</h3>
-            <p>{data.consultantResume}</p>
+            <div className={classes.resumetitlebox}>
+              <h3 className={classes.MainTitle}>나의 경력</h3>
+              <p onClick={ProfilePage} className={classes.viewmore}>더보기</p>
+            </div>
+            {/* <div>
+              <p className={classes.consultantResume}>{data.consultantResume}</p>
+            </div> */}
+            <div className={classes.ResumeBox}>
+              <p className={classes.ResumeName}>경력 1</p>
+              <div className={classes.vline}></div>
+              <p className={classes.consultantResume}>{data.consultantResume}</p>
+            </div>
+            <div className={classes.ResumeBox}>
+                <p className={classes.ResumeName}>경력 2</p>
+                <div className={classes.vline}></div>
+                <p className={classes.consultantResume}>{data.consultantResume}</p>
+            </div>
           </div>
+          <br/>
           <div>
             <div className={classes.RevieBox}>
               <h3 className={classes.MainTitle}>나의 리뷰</h3>
-              <p onClick={ReviewPage}>더보기</p>
+              <p onClick={ReviewPage} className={classes.viewmore}>더보기</p>
             </div>
-            <p></p>
             <div className={classes.ReviewAllBox}>
               {review.slice(0, 2).map((item, idx) => {
                 return (
@@ -110,8 +139,9 @@ const ConsultantMyPage = () => {
                     </div>
                     <div className={classes.reviewContent}>
                       <p>{review[idx].reviewContent}</p>
+                      <p >{(data.userGender ? <img src={boyface} className={classes.boyface} /> : <img src={girlface} className={classes.girlface} />)}</p>
                     </div >
-                    {/* <div className={classes.borderbottom}></div> */}
+          
                     
                   </div>
                 )
@@ -121,7 +151,7 @@ const ConsultantMyPage = () => {
 
         </div>
       </div>
-
+    
 
       
      

@@ -28,8 +28,8 @@
 }
 
 .mainBox{
-    margin-top: 100px;
-    margin-left: 60px;
+    margin-top: 90px;
+    /* margin-left: 60px; */
     
 }
 
@@ -49,9 +49,9 @@
 }
 
 .consultantMan{
-    width: 70px;
+    width: 60px;
     margin-left: 30px;
-    margin-top: -10px;
+    margin-top: 0px;
 }
 
 .consultantWoman{
@@ -134,14 +134,100 @@
 
 }
 
+.userType{
+    font-family: "Apple_Gothic_Neo_Bold";
+    font-size: 20px;
+    margin-left: 360px;
+    margin-top: 55px;
+}
+
+.Vline{
+    border: 0.5px solid lightgrey;
+    width: 0.1px;
+    height: 80px;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-top: 30px;
+}
+
+.userTypeDap{
+    font-size: 19px;
+    font-family: "Apple_Gothic_Neo_Mid";
+    margin-top: 56.5px;
+    color: black;
+}
+
 .consultantResumeBox{
     width: 900px;
+    
 }
+
+.resumetitlebox{
+    display: flex;
+    justify-content: space-between;
+}
+
+.viewmore{
+    margin-top: 30px;
+    font-family: "Apple_Gothic_Neo_Mid";
+    color: #616161;
+    cursor: pointer;
+}
+
+.viewmore:hover{
+    font-weight: 600;
+    color: rgb(26, 26, 26);
+    transition: all .15s;
+}
+
+
+
+/* .consultantResume{
+    font-family: "Apple_Gothic_Neo_Mid";
+    font-size: 18.5px;
+    background-color: rgba(227, 227, 227, 0.327);
+    border-radius: 20px;
+    padding: 25px;
+    margin-top: -5px;
+} */
+
+.ResumeBox{
+    display: flex;
+    background-color: rgb(242, 242, 242);
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+
+.ResumeName{
+    margin-left: 30px;
+    font-family: "Apple_Gothic_Neo_SBold";
+    font-size: 20px;
+    width: 60px;
+}
+
+.vline{
+    border: 1px solid rgb(160, 160, 160);
+    width: 0.1px;
+    height: 30px;
+    margin-left: 30px;
+    margin-top: 17px;
+}
+
+.consultantResume{
+    margin-left: 40px;
+    font-family: "Apple_Gothic_Neo_Mid";
+    margin-top: 22px;
+}
+
+
 
 .RevieBox{
     display: flex;
     justify-content: space-between;
 }
+
+
 
 .ReviewBox{
   width: 900px;
@@ -163,6 +249,7 @@
     margin-top: 5px;
     font-family: "Apple_Gothic_Neo_Light";
     width: 20px;
+    margin-bottom: 30px;
 }
 
 .userId {
@@ -188,9 +275,21 @@
     word-break: break-all;
     overflow-wrap: break-word;
     border-bottom: 2px solid lightgray;
+    display: flex;
+    justify-content: space-between;
     
     
     
+}
+
+.girlface{
+    width: 40px;
+    margin-top: -20px;
+}
+
+.boyface{
+    width: 40px;
+    margin-top: -20px;
 }
 
 
