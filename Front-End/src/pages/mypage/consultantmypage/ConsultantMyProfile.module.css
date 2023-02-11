@@ -26,7 +26,7 @@
 }
 
 .ProfileMainBox {
-    margin-top: 100px;
+    margin-top: 90px;
 }
 
 .ProfileName {
@@ -49,13 +49,13 @@
 }
 
 .consultantman {
-    width: 100px;
+    width: 70px;
     margin-left: 30px;
-    margin-top: -20px;
+    margin-top: -30px;
 }
 
 .consultantWoman {
-    width: 80px;
+    width: 75px;
     margin-left: 30px;
     margin-top: -30px;
 }
@@ -76,6 +76,34 @@
     
 }
 
+.levelbox{
+    display: flex;
+    
+}
+
+.leveltitle{
+    font-family: "Apple_Gothic_Neo_Bold";
+    font-size: 22px;
+    margin-left: 400px;
+    margin-top: 35px;
+}
+
+.VLine{
+    border: 1px solid rgb(200, 200, 200);
+    height: 110px;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-top: -5px;
+
+}
+
+.msg{
+    font-family: "Apple_Gothic_Neo_Mid";
+    margin-top: 35px;
+    font-size: 19px;
+    margin-top: 38px;
+}
+
 
 .hrgrey {
     border-bottom: solid 3.5px lightgrey;
@@ -85,4 +113,68 @@
     margin-bottom: 30px;
     width: 900px;
     margin-top: 0px;
+}
+
+.ResumeBox{
+    /* border: 2px solid rgb(199, 199, 199); */
+    display: flex;
+    background-color: rgb(242, 242, 242);
+    border-radius: 5px;
+    margin-bottom: 10px;
+    
+}
+
+.ResumeName{
+    margin-left: 30px;
+    font-family: "Apple_Gothic_Neo_SBold";
+    font-size: 20px;
+    width: 60px;
+}
+
+.vline{
+    border: 1px solid rgb(160, 160, 160);
+    width: 0.1px;
+    height: 30px;
+    margin-left: 30px;
+    margin-top: 17px;
+}
+
+.consultantResume{
+    margin-left: 40px;
+    font-family: "Apple_Gothic_Neo_Mid";
+    margin-top: 22px;
+}
+
+.resumebtn{
+    font-family: "Apple_Gothic_Neo_Bold";
+    font-size: 15px;
+    border: none;
+    padding: 8px;
+    border-radius: 7px;
+    margin-top: 10px;
+    background-color: rgb(125, 125, 125);
+    color: rgb(255, 255, 255);
+}
+
+
+
+.PersonalSmallLabel{
+    font-family: "Apple_Gothic_Neo_Bold";
+    font-size: 20px;
+    margin-top: 20px;
+    
+}
+
+.BottomShort{
+    border-bottom: 3px solid rgb(208, 208, 208);
+    width: 400px;
+    border-radius: 10px;
+    margin-top: -6px;
+    
+}
+
+.userData{
+    font-family: "Apple_Gothic_Neo_SBold";
+    font-size: 18px;
+    color: rgb(85, 85, 85);
 }

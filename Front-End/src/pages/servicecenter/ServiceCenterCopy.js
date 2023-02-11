@@ -25,7 +25,7 @@ const ServiceCenterCopy = () => {
                     <Question
                         category="공통"
                         title="고객센터 연락처를 알려주세요"
-                        contentHard="고객센터 1588-4747"
+                        contentHard="고객센터 02-3429-5100 "
                         content1="서비스를 이용하며 느끼신 불편한 점이나 바라는 점을 알려주세요. 소중한 의견으로 더욱 성장하는 STYLE WITH US가 되겠습니다."
                         content2="운영시간 평일 11:00 - 18:00(토일, 공휴일 휴무)"
                     />
@@ -56,9 +56,9 @@ const ServiceCenterCopy = () => {
                     <Question
                         category="이용정책"
                         title="로그인이 이상해요 / 회원가입이 이상해요"
-                        contentHard="컨설턴트로 로그인을 했는지 확인해주세요."
-                        content1="로그인 진행시, 위 토글 버튼이 User가 아닌 Consultant로 되어있는지 확인해 주세요."
-                        content3="혹은 회원가입을 User가 아닌 Consultant로 했는지 확인해 주세요."
+                        contentHard="컨설턴트/사용자 로 로그인을 했는지 확인해주세요."
+                        content1="로그인 진행시, 위 토글 버튼이 User/Consultant로 되어있는지 확인해 주세요."
+                        content3="혹은 회원가입을 User/Consultant로 했는지 확인해 주세요."
                     />
 
                     <Question
@@ -72,7 +72,7 @@ const ServiceCenterCopy = () => {
                         category="사회공헌"
                         title="패스트 패션으로 인한 환경 오염 해소에 동참하고 싶어요"
                         contentHard="STYLE WITH US 회원들은 모두 이미 환경 오염 해소에 동참하고 있습니다."
-                        content2="신중한 의류 선택을 통한 STYLE WITH US 회원들은 이미 환경 오염에 동참하고 있습니다."
+                        content2="STYLE WITH US를 통해 신중한 의류 선택을 하는 회원들은 이미 환경 오염에 동참하고 있습니다."
                         content1="추가로 기부를 희망하는 회원은"
                         content3="농협 352-1222-9987로 입금 바랍니다."
                     />
