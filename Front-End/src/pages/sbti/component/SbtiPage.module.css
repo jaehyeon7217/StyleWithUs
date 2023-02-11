@@ -1,9 +1,27 @@
 .carouselItem {
   width: 100%;
-  height: 300px;
+  height: auto;
   flex-shrink: 0;
   text-align: center;
 }
 .carouselItem img{
   width: 90%;
+}
+
+.buttonbox{
+  display: flex;
+  justify-content: space-around;
+}
+
+.carouselbutton {
+  all: unset;
+  border: 1px solid #d4d4d4;
+  padding: 0.5em 2em;
+  color: #d4d4d4;
+  border-radius: 10px;
+}
+.carouselbutton:hover {
+  transition: all 0.3s ease-in-out;
+  background-color: #333333;
+  color: #fff;
 }
