@@ -35,7 +35,7 @@ const ConsultantResume = (props) => {
 
   return (
     <div ref={modalRef} className={classes.container}>
-      <h1>ConsultantResume</h1>
+      <h1>경력사항</h1>
       <div>{props.consultantResume}</div>
       <input
         className={classes.close}

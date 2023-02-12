@@ -1,6 +1,6 @@
-/* .color-picker-container img:hover{
-  background-color: black;
-} */
+.color-picker-container{
+  margin-top: 5px;
+}
 
 .color-picker{
   width: 50px;

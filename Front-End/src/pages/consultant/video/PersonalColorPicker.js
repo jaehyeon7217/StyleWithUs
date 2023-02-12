@@ -2,6 +2,7 @@ import Spring from "../../../assets/spring_warm.png";
 import Summer from "../../../assets/summer_cool.png";
 import Fall from "../../../assets/fall_warm.png";
 import Winter from "../../../assets/winter_cool.png";
+import classes from './PersonalColorPicker.module.css';
 
 import { useState } from "react";
 
@@ -37,37 +38,37 @@ const PersonalColorPicker = (props) => {
   };
 
   return (
-    <div onMouseEnter={props.mouseEnter}>
-      <div>
-        <span
+    <div className={classes.seasons} onMouseEnter={props.mouseEnter}>
+      {/* <div> */}
+        <div
           onMouseEnter={springMouseEnterHandler}
           onMouseLeave={springMouseLeaveHandler}
         >
-          <span>봄</span>
+          <div>봄</div>
           {hoverSpring && <img src={Spring} alt="spring_warm" />}
-        </span>
-        <span
+        </div>
+        <div
           onMouseEnter={summerMouseEnterHandler}
           onMouseLeave={summerMouseLeaveHandler}
         >
-          <span>여름</span>
+          <div>여름</div>
           {hoverSummer && <img src={Summer} alt="summer_cool" />}
-        </span>
-        <span
+        </div>
+        <div
           onMouseEnter={fallMouseEnterHandler}
           onMouseLeave={fallMouseLeaveHandler}
         >
-          <span>가을</span>
+          <div>가을</div>
           {hoverFall && <img src={Fall} alt="fall_warm" />}
-        </span>
-        <span
+        </div>
+        <div
           onMouseEnter={winterMouseEnterHandler}
           onMouseLeave={winterMouseLeaveHandler}
         >
-          <span>겨울</span>
+          <div>겨울</div>
           {hoverWinter && <img src={Winter} alt="winter_warm" />}
-        </span>
-      </div>
+        </div>
+      {/* </div> */}
     </div>
   );
 };

@@ -158,17 +158,18 @@ const Consultant = (props) => {
       });
 
       newSession.on("signal:cart", (event) => {
-        axios.get(`https://i8d105.p.ssafy.io/be/item/show/${userId}`, {
-        headers: {
-          Authorization: userToken,
-        },
-        })
-        .then((response) => {
-          dispatch(cartActions.getCart(response.data.data));
-        })
-        .catch((error) => {
-          console.log(error);
-        });
+        axios
+          .get(`https://i8d105.p.ssafy.io/be/item/show/${userId}`, {
+            headers: {
+              Authorization: userToken,
+            },
+          })
+          .then((response) => {
+            dispatch(cartActions.getCart(response.data.data));
+          })
+          .catch((error) => {
+            console.log(error);
+          });
       });
 
       newSession.on("signal:my-chat", (event) => {
@@ -276,7 +277,7 @@ const Consultant = (props) => {
 
       return;
     } else {
-      // console.log(response.data.token);
+      console.log(response.data.token);
       return response.data.token; // The token
     }
   };
@@ -294,7 +295,7 @@ const Consultant = (props) => {
         Authorization: userToken,
       },
     });
-    // console.log(response.data.data);
+    console.log(response.data.data);
     setSessionLists(response.data.data);
   };
 
@@ -321,7 +322,7 @@ const Consultant = (props) => {
   const [getConsultantId, setGetConsultantId] = useState(undefined);
 
   useEffect(() => {
-    // console.log(getConsultantId);
+    console.log(getConsultantId);
   }, [getConsultantId]);
 
   useEffect(() => {
@@ -380,7 +381,15 @@ const Consultant = (props) => {
         ) : null}
 
         {session !== undefined ? (
-          <div id="session">
+          <div className={classes["session-on"]} id="session">
+            <div className={classes["button-section"]}>
+              <button
+                className={classes["back-button"]}
+                onClick={pageBackHandler}
+              >
+                Back
+              </button>
+            </div>
             {mainStreamManager !== undefined ? (
               <div id="main-video" className="col-md-6">
                 <Video streamManager={mainStreamManager} />
@@ -399,7 +408,6 @@ const Consultant = (props) => {
                 </div>
               ))}
             </div>
-            <button onClick={pageBackHandler}>Back</button>
           </div>
         ) : null}
         {backIsClicked && (
