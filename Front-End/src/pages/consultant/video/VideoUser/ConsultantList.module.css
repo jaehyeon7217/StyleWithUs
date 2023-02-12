@@ -1,0 +1,50 @@
+@import url('https://fonts.googleapis.com/css2?family=Blinker:wght@100;200;300;400;600;700;800;900&display=swap');
+@font-face {
+  font-family: "Apple_Gothic_Neo_Bold";
+  src: url("../../../../fonts/AppleSDGothicNeoB.ttf");
+}
+
+@font-face {
+  font-family: "Apple_Gothic_Neo_Light";
+  src: url("../../../../fonts/AppleSDGothicNeoL.ttf");
+}
+
+.consultant-list{
+    display: flex;
+    padding: 2px;
+    border-bottom: 1px solid gray;
+    justify-content: space-around;
+}
+
+.consultant{
+    font-family: "Apple_Gothic_Neo_Light";
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.button-display{
+    display: flex;
+    flex-direction: column;
+}
+
+.button, .button-unable{
+    width: 100%;
+    height: 50%;
+    margin: 2%;
+    border-radius: 8px;
+    background-color: white;
+    /* border: 1px solid black; */
+    border: none;
+    box-sizing: border-box;
+    font-family: "Apple_Gothic_Neo_Light";
+    font-size: 16px;
+    transition: all 0.15s;
+}
+
+.button:hover {
+    cursor: pointer;
+    background-color: rgb(202, 202, 202);
+    /* border: 1px solid rgb(202, 202, 202); */
+    color: white;
+  }

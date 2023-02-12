@@ -20,10 +20,10 @@ const ConsultantList = (props) => {
   const enterSessionHandler = () => {
     const sessionId = consultantSessionId;
     props.onAddSessionId(sessionId);
-    props.setGetConsultantId(consultantId)
+    props.setGetConsultantId(consultantId);
     props.setGetSessionStatus(false);
-    dispatch(authActions.startConsulting(true))
-    dispatch(authActions.getMySessionId(sessionId))
+    dispatch(authActions.startConsulting(true));
+    dispatch(authActions.getMySessionId(sessionId));
   };
 
   const showResumeHandler = () => {
@@ -31,23 +31,35 @@ const ConsultantList = (props) => {
   };
 
   return (
-    <div>
-      <div>{consultantNickname}</div>
-      <div>{consultantGenderType}</div>
-      <input type="button" value="경력보기" onClick={showResumeHandler} />
-      {showResume && (
-        <ConsultantResume
-          setShowResume={setShowResume}
-          consultantId={consultantId}
-          consultantResume={consultantResume}
+    <div className={classes["consultant-list"]}>
+      <div className={classes.consultant}>
+        <div>
+          {consultantNickname}({consultantGenderType[0]}) 님과 함께
+        </div>
+        <div>스타일을 변경해보시겠습니까?</div>
+      </div>
+      <div className={classes["button-display"]}>
+        <input
+          className={classes.button}
+          type="button"
+          value="경력보기"
+          onClick={showResumeHandler}
         />
-      )}
-      <input
-        type="button"
-        value="입장하기"
-        disabled={!numberOfPeople}
-        onClick={enterSessionHandler}
-      />
+        {showResume && (
+          <ConsultantResume
+            setShowResume={setShowResume}
+            consultantId={consultantId}
+            consultantResume={consultantResume}
+          />
+        )}
+        <input
+          className={numberOfPeople ? classes.button : classes["button-unable"]}
+          type="button"
+          value={numberOfPeople ? "입장하기" : "상담 중"}
+          disabled={!numberOfPeople}
+          onClick={enterSessionHandler}
+        />
+      </div>
     </div>
   );
 };
