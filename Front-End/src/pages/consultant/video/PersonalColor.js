@@ -18,8 +18,7 @@ const PersonalColor = () => {
   };
 
   return (
-    // <div className={classes["color-picker-container"]}>
-    <div>
+    <div className={classes["color-picker-container"]}>
       <div
         onMouseEnter={personalColorPickerMouseEnterHandler}
         onMouseLeave={personalColorPickerMouseOutHandler}

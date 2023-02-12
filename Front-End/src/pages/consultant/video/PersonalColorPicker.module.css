@@ -1,0 +1,7 @@
+.seasons{
+    /* position: absolute; */
+    display: flex;
+    margin-top: 500%;
+    width: 300px;
+    background-color: aqua;
+}
