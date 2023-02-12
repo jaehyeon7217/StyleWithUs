@@ -3,6 +3,7 @@ import { useSelector } from "react-redux";
 import { useState, useEffect } from "react";
 import ConsultantReviewsList from "./ConsultantReviewsList";
 import GetStarRating from "./reviewinput/GetStarRating";
+import classes from './ConsultantReviews.module.css';
 
 const APPLICATION_SERVER_URL =
   process.env.NODE_ENV === "production" ? "" : "https://i8d105.p.ssafy.io/be/";
@@ -40,9 +41,8 @@ const ConsultantReviews = (props) => {
 
   return (
     <div>
-      <h1>ConsultantReviews</h1>
-      <div>평균 평점: <GetStarRating reviewScore={Math.round(avgScore)}/>{avgScore}</div>
-      <br />
+      <div className={classes["reviews-title"]}>ConsultantReviews</div>
+      <div className={classes["reviews-avg-score"]}>평균 평점: {avgScore}<GetStarRating reviewScore={Math.round(avgScore)}/></div>
       {reviewLists.map((list, idx) => {
         return (
           <ConsultantReviewsList
