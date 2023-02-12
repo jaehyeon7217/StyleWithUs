@@ -1,0 +1,20 @@
+.inputLabel{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.inputLabel input[type=radio]{
+  appearance: none;
+  border: max(2px, 0.1em) solid gray;
+  border-radius: 50%;
+  width: 1.25em;
+  height: 1.25em;
+  transition: border 0.2s ease-in-out
+}
+
+
+.inputLabel input[type=radio]:checked {
+  border: 0.7em solid rgb(241, 72, 72);
+}

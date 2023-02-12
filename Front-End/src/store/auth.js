@@ -27,8 +27,8 @@ const authSlice = createSlice({
   reducers: {
     //login
     userLogin(state, action) {
-      state.token = action.payload.auth_token
-      state.userId = action.payload.data.userId
+      state.token = action.payload.auth_token;
+      state.userId = action.payload.data.userId;
       state.userType = 0;
       state.isLogined = true;
       state.userData = action.payload.data;
@@ -44,6 +44,11 @@ const authSlice = createSlice({
       state.token = action.payload.auth_token;
       state.userType = 2;
       state.isLogined = true;
+    },
+    // 회원정보 수정
+    newSBTi(state, action){
+      state.token = action.payload.auth_token;
+      state.userData = action.payload.data;
     },
     //이메일 인증
     validEmail(state, action){

@@ -41,7 +41,6 @@ function App() {
       <NavBar />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/auth/*" element={<Auth />} />
         <Route path="/servicecenter" element={<ServiceCenter />} />
         <Route path="/developerpage" element={<DeveloperPage />} />
         <Route element={<PublicRoute/>}>

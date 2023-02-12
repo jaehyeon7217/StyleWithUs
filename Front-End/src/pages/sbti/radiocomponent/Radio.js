@@ -1,6 +1,8 @@
+import classes from "./Radio.module.css"
+
 const Radio = ({value, name, defaultChecked, disabled, children }) =>{
   return(
-    <label htmlFor="">
+    <label className={classes.inputLabel}>
       <input 
         type="radio"
         value={value}
@@ -8,7 +10,6 @@ const Radio = ({value, name, defaultChecked, disabled, children }) =>{
         defaultChecked={defaultChecked}
         disabled={disabled}
       />
-      {children}
     </label>
   )
 }
