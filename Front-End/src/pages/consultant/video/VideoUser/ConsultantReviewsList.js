@@ -1,17 +1,16 @@
 import { useSelector } from "react-redux";
-import axios from 'axios';
+import axios from "axios";
 import GetStarRating from "./reviewinput/GetStarRating";
+import classes from "./ConsultantReviewsList.module.css";
 
 const APPLICATION_SERVER_URL =
-  process.env.NODE_ENV === "production"
-    ? ""
-    : "https://i8d105.p.ssafy.io/be/";
+  process.env.NODE_ENV === "production" ? "" : "https://i8d105.p.ssafy.io/be/";
 
 const ConsultantReviewsList = (props) => {
   // token
-  const token = useSelector((state) => state.auth.token)
+  const token = useSelector((state) => state.auth.token);
 
-  const reviewUserId = props.reviewuserId;
+  const reviewUserId = props.reviewUserId;
   const reviewNo = props.reviewNo;
   const reviewScore = Math.round(props.reviewScore);
   const reviewContent = props.reviewContent;
@@ -19,29 +18,35 @@ const ConsultantReviewsList = (props) => {
 
   const deleteReviewHandler = async () => {
     await deleteReview(reviewNo);
-  }
+  };
 
   const deleteReview = async (reviewNo) => {
     const url = APPLICATION_SERVER_URL + "review/delete/" + reviewNo;
-    const response = await axios.delete(
-      url,
-      {
-        headers: {
-          Authorization: token,
-        },
-      }
-    );
+    const response = await axios.delete(url, {
+      headers: {
+        Authorization: token,
+      },
+    });
     // console.log(response.data);
     props.setIsDeleted(!props.isDeleted);
     return response.data;
   };
 
   return (
-    <div>
-      <div>{reviewScore}</div>
-      <GetStarRating reviewScore={reviewScore}/>
-      <div>{reviewContent}</div>
-      {deleteAllowed && <input type="button" value="삭제" onClick={deleteReviewHandler} />}
+    <div className={classes.review}>
+      <div className={classes["review-content-box"]}>
+        <div className={classes["review-writer"]}>{reviewUserId}</div>
+        <GetStarRating reviewScore={reviewScore} />
+        <div className={classes["review-content"]}>{reviewContent}</div>
+      </div>
+      {deleteAllowed && (
+        <input
+          type="button"
+          value="삭제"
+          className={classes.button}
+          onClick={deleteReviewHandler}
+        />
+      )}
       <br />
     </div>
   );

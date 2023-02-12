@@ -1,6 +1,51 @@
-.star-yellow {
-    cursor: pointer;
-    width: 25px;
-    height: 25px;
-    transition: color 200ms;
+@import url('https://fonts.googleapis.com/css2?family=Blinker:wght@100;200;300;400;600;700;800;900&display=swap');
+@font-face {
+  font-family: "Apple_Gothic_Neo_Bold";
+  src: url("../../../../fonts/AppleSDGothicNeoB.ttf");
 }
+
+@font-face {
+  font-family: "Apple_Gothic_Neo_Light";
+  src: url("../../../../fonts/AppleSDGothicNeoL.ttf");
+}
+
+.review{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    width: 100%;
+    font-family: "Apple_Gothic_Neo_Light";
+}
+
+.review-content-box{
+    margin: 13px;
+}
+
+.review-writer{
+    overflow: auto;
+}
+
+.review-content{
+    width: 150px;
+}
+
+.button{
+    width: 20%;
+    height: 50%;
+    margin: 5%;
+    text-align: center;
+    border-radius: 8px;
+    background-color: white;
+    border: 1px solid black;
+    box-sizing: border-box;
+    font-family: "Apple_Gothic_Neo_Light";
+    font-size: 16px;
+    transition: all 0.15s;
+}
+
+.button:hover {
+    cursor: pointer;
+    background-color: rgb(202, 202, 202);
+    border: 1px solid rgb(202, 202, 202);
+    color: white;
+  }
