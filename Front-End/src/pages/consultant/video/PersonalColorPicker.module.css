@@ -1,30 +1,49 @@
-.separation{
-    /* display: flex;
-    flex-direction: row; */
-    position: relative;
+.separation img {
+    margin-left: 100px;
+    margin-top: -70px;
+    height: 300px;
 }
 
 .seasons{
-    display: flex;
-    flex-direction: column;
-    padding-top: 10%;
-    width: 20%;
-    height: 40%;
+    position: relative;
+    width: 0;
 }
 
-.image-spring{
-    width: 80%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    flex-grow: 1;
+.spring{
+    width: 40px;
 }
 
-.hide-img{
-    visibility: hidden;
+.spring:hover{
+    cursor: pointer;
 }
 
-.separation img {
-    margin-left: 30%;
-    margin-top: -70px;
+.summer{
+    top: 50px;
+    width: 40px;
+}
+
+.summer:hover{
+    cursor: pointer;
+}
+
+.fall{
+    top: 100px;
+    width: 40px;
+}
+
+.fall:hover{
+    cursor: pointer;
+}
+
+.winter{
+    top: 150px;
+    width: 40px;
+}
+
+.winter:hover{
+    cursor: pointer;
+}
+
+.img-section{
+    width: 0;
 }

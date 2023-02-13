@@ -10,22 +10,10 @@ const PersonalColor = () => {
   const personalColorPickerClickHandler = () => {
     setPickerStatus(!pickerStatus);
   };
-  const personalColorPickerMouseEnterHandler = () => {
-    setPickerStatus(true);
-    // console.log(pickerStatus);
-  };
-  const personalColorPickerMouseOutHandler = () => {
-    setPickerStatus(false);
-    // console.log(pickerStatus);
-  };
 
   return (
     <Fragment>
-      <div
-        onMouseEnter={personalColorPickerMouseEnterHandler}
-        onMouseLeave={personalColorPickerMouseOutHandler}
-        className={classes["color-picker"]}
-      >
+      <div className={classes["color-picker"]}>
         <img
           className={classes["image-color-picker"]}
           src={colorCircle}
