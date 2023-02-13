@@ -10,11 +10,7 @@ import InputLabel from "../component/InputLabel";
 import { DataInput } from "../component/Effectiveness";
 // css 클래스
 import classes from "./Login.module.css";
-// 이미지
-import footerImge from "../../../assets/footerman.png";
-import footerImgetwo from "../../../assets/footermantwo.png";
-import tmpImg from "../../../assets/tempImg.png";
-import footerwoan from "../../../assets/footerwoman.png"
+
 
 const Login = () => {
   const dispatch = useDispatch();
@@ -188,33 +184,6 @@ const Login = () => {
         </p>
       </div>
 
-      {/* <footer className={classes.footer}>
-        <div className={classes.fotterBoxone}>
-          <div>
-            <p className={classes.fottername}>SERVICE GUIDE</p>
-            <p className={classes.fottercontent}>STYLE WITH US는 처음이지?</p>
-            <p className={classes.fottercontent}>서비스 소개를 확인해보세요.</p>
-            <button className={classes.fotterBtn} onClick={toMainPage}>서비스 안내</button>
-          </div>
-          <div>
-
-          <img src={footerImgetwo} alt="유저" className={classes.footerImgatwo}/>
-          <img src={footerwoan} alt="" className={classes.footerwoman}/>
-          </div>
-        </div>
-        <div className={classes.fotterBoxtwo}>
-            <div>
-            <p className={classes.fottername}>DEVELOPER GUIDE</p>
-            <p className={classes.fottercontent}>개발팀 소개는 처음이지?</p>
-            <p className={classes.fottercontent}>STYLE WITH US의 개발 일기를 확인해보세요.</p>
-            <button className={classes.fotterBtntwo} onClick={toDeveloperpage}>개발팀</button>
-            </div>
-            <div>
-            </div>
-            <img src={footerImge} alt="개발팀" className={classes.footerImge} />
-            <img src={tmpImg} alt="" className={classes.tmpImg} />
-          </div>
-      </footer> */}
     </div>
   );
 };
