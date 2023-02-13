@@ -6,10 +6,25 @@ import { useDispatch, useSelector } from 'react-redux';
 
 const MyWishItem = (props) => {
     const dispatch = useDispatch();
-
+    const userId = useSelector((state)=>state.auth.userId)
     const token = useSelector((state)=>state.auth.token)
-    const itemNo = 1
-    
+    const itemNo = props.index
+
+    const getMyWish = () => {
+        const url = "https://i8d105.p.ssafy.io/be/item/show/" + userId;
+        axios.get(
+            url,
+            {
+                headers: {
+                    Authorization: token
+                }
+            }
+        ).then((response) => {
+            dispatch(cartActions.getCart(response.data.data))
+        })
+    }
+
+
     const deleteItem = (event) => {
         event.preventDefault();
         const url = "https://i8d105.p.ssafy.io/be/item/delete/" + itemNo;
@@ -20,8 +35,8 @@ const MyWishItem = (props) => {
                     Authorization: token
                 }
             }
-        ).then(response => {
-            console.log(response);
+        ).then(() => {
+            getMyWish();
         }
         ).catch(error => {
             console.log(error);
@@ -37,7 +52,7 @@ const MyWishItem = (props) => {
             </div>
             <span>{props.price}</span>
         </a>
-        <span className={classes.DelBtn} onClick={deleteItem}>삭제</span>
+        <button className={classes.DelBtn} onClick={deleteItem}>삭제</button>
         <hr className={classes.hr}/>
     </Fragment>
 };
