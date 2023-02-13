@@ -173,17 +173,19 @@ const Consultant = (props) => {
           });
         }
 
-        axios.get(`https://i8d105.p.ssafy.io/be/item/show/${id}`, {
-        headers: {
-          Authorization: userToken,
-        },
-        })
-        .then((response) => {
-          dispatch(cartActions.getCart(response.data.data));
-        })
-        .catch((error) => {
-          console.log(error);
-        });
+        if (id !== null) {
+          await axios.get(`https://i8d105.p.ssafy.io/be/item/show/${id}`, {
+            headers: {
+              Authorization: userToken,
+            },
+            })
+            .then((response) => {
+              dispatch(cartActions.getCart(response.data.data));
+            })
+            .catch((error) => {
+              console.log(error);
+            });
+        }
       });
 
       // 1-3 예외처리
