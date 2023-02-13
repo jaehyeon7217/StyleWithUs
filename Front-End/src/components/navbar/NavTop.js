@@ -88,11 +88,19 @@ const NavTop = () =>{
       document.getElementsByClassName(`${classes.LinkTop}`)[3].style.fontFamily = "Apple_Gothic_Neo_ULight";
     }
     if(isLogined){
-      document.getElementsByClassName(`${classes.LinkTop}`)[0].style.display= "none";
-      document.getElementsByClassName(`${classes.LinkTop}`)[1].style.display= "none";
-      document.getElementsByClassName(`${classes.LinkTop}`)[2].style.display= "block";
-      document.getElementsByClassName(`${classes.LinkTop}`)[3].style.display= "block";
-      document.getElementsByClassName(`${classes.LinkTop}`)[4].style.display= "block";
+      if(userType){
+        document.getElementsByClassName(`${classes.LinkTop}`)[0].style.display= "none";
+        document.getElementsByClassName(`${classes.LinkTop}`)[1].style.display= "none";
+        document.getElementsByClassName(`${classes.LinkTop}`)[2].style.display= "block";
+        document.getElementsByClassName(`${classes.LinkTop}`)[3].style.display= "none";
+        document.getElementsByClassName(`${classes.LinkTop}`)[4].style.display= "block";
+      }else{
+        document.getElementsByClassName(`${classes.LinkTop}`)[0].style.display= "none";
+        document.getElementsByClassName(`${classes.LinkTop}`)[1].style.display= "none";
+        document.getElementsByClassName(`${classes.LinkTop}`)[2].style.display= "block";
+        document.getElementsByClassName(`${classes.LinkTop}`)[3].style.display= "block";
+        document.getElementsByClassName(`${classes.LinkTop}`)[4].style.display= "block";
+      }
     }else{
       document.getElementsByClassName(`${classes.LinkTop}`)[0].style.display= "block";
       document.getElementsByClassName(`${classes.LinkTop}`)[1].style.display= "block";
