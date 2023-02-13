@@ -92,6 +92,7 @@
 .BottomLabelBox {
   display: flex;
   justify-content: center;
+  margin-bottom: 200px;
 }
 
 .Vline {
@@ -122,6 +123,8 @@
   margin-left: 10px;
   cursor: pointer;
 }
+
+/* footer관련 */
 
 .footer{
   position: absolute;
