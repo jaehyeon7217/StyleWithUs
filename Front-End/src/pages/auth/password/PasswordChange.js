@@ -37,7 +37,7 @@ const PasswordChange = () => {
           ? {
               consultantId: id,
               consultantPw: password,
-              newCosultantPw: newPassword,
+              newConsultantPw: newPassword,
             }
           : { userId: id, userPw: password, newUserPw: newPassword },
         {
@@ -48,7 +48,6 @@ const PasswordChange = () => {
       )
       .then((response) => {
         if (response.status === 200) {
-          dispatch(authActions.logout(""));
           Swal.fire({
             title:
               '<div style="font-size:24px;font-family:Apple_Gothic_Neo_Bold;font-weight:bold;">변경 성공<div>',
@@ -60,6 +59,7 @@ const PasswordChange = () => {
               '<div style="font-size:16px;font-family:Apple_Gothic_Neo_Mid;">확인</div>',
           }).then(() => {
             navigate("/auth/login");
+            dispatch(authActions.logout(""));
           });
         } else {
           Swal.fire({
@@ -95,7 +95,8 @@ const PasswordChange = () => {
   const submitError = nullError && effectivnessError;
 
   return (
-    <div>
+    <div className={classes.AuthBox}>
+      <div className={classes.AuthBody}>
       <h1 className={classes.PageName}>비밀번호 변경</h1>
       <br />
       <br />
@@ -141,6 +142,7 @@ const PasswordChange = () => {
         </button>
       </form>
     </div>
+  </div>
   );
 };
 

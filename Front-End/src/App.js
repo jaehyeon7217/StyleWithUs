@@ -18,6 +18,7 @@ import Loading from "./pages/consultant/Loading";
 import ConsultantMyProfile from './pages/mypage/consultantmypage/ConsultantMyProfile';
 import ConsultantServiceCenter from './pages/mypage/consultantmypage/ConsultantServiceCenter';
 import ServiceCenterCopy from './pages/servicecenter/ServiceCenterCopy';
+import PasswordChange from "./pages/auth/password/PasswordChange";
 
 import NotFound from "./pages/notfound/NotFound"
 
@@ -60,8 +61,9 @@ function App() {
           <Route path="/consultant" element={<Loading />}/>
           <Route path='/manageconsultant' element={<ManageConsultant/>}/>
           <Route path="/consultantmyprofile" element={<ConsultantMyProfile/>}></Route>
-          <Route path="/consultantservicecenter" element={<ConsultantServiceCenter />}></Route>
-          <Route path="/servicecentercopy" element={<ServiceCenterCopy />}></Route>
+          <Route path="/consultantservicecenter" element={<ConsultantServiceCenter />}/>
+          <Route path="/servicecentercopy" element={<ServiceCenterCopy />}/>
+          <Route path="/passwordchange" element={<PasswordChange/>}/>
         </Route>
         <Route path="/*" element={<NotFound/>} />
       </Routes>

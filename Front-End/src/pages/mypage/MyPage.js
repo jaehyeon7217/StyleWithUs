@@ -61,7 +61,7 @@ const MyPage = () =>{
   // 비밀번호 변경 페이지 이동
   const SetNewPassword = (event) =>{
     event.preventDefault();
-    navigate("/auth/passwordchange")
+    navigate("/passwordchange")
     
   }
 
