@@ -19,6 +19,7 @@ import ConsultantMyProfile from './pages/mypage/consultantmypage/ConsultantMyPro
 import ConsultantServiceCenter from './pages/mypage/consultantmypage/ConsultantServiceCenter';
 import ServiceCenterCopy from './pages/servicecenter/ServiceCenterCopy';
 import PasswordChange from "./pages/auth/password/PasswordChange";
+import UseStyleWithUs from "./pages/usestylewithus/UseStyleWithUs";
 
 import NotFound from "./pages/notfound/NotFound"
 
@@ -64,6 +65,7 @@ function App() {
           <Route path="/consultantservicecenter" element={<ConsultantServiceCenter />}/>
           <Route path="/servicecentercopy" element={<ServiceCenterCopy />}/>
           <Route path="/passwordchange" element={<PasswordChange/>}/>
+          <Route path="/usestylewithus" element={<UseStyleWithUs/>}></Route>
         </Route>
         <Route path="/*" element={<NotFound/>} />
       </Routes>
