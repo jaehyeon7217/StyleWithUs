@@ -23,13 +23,29 @@ const Footer = () => {
         navigate("/developerpage")
     }
 
-    return(
-        <footer >
-            {/* <div className={classes.footerTop}>
-                <div className={classes.footerTopOne}>
+    // 메인페이지 이동
+    const toMainPage = (event) => {
+        event.preventDefault();
+        navigate("/mainpage")
+    }
 
+    return(
+        <footer className={classes.footer}>
+            <div className={classes.footerTop}>
+                <div className={classes.footerTopOne}>
+                    <div>
+                        <p className={classes.fottername}>SERVICE GUIDE</p>
+                        <p className={classes.fottercontent}>STYLE WITH US는 처음이지?</p>
+                        <p className={classes.fottercontent}>서비스 소개를 확인해보세요.</p>
+                        <button className={classes.fotterBtn} onClick={toMainPage}>서비스 안내</button>
+                    </div>
+                    <div>
+
+                        <img src={footerImgetwo} alt="유저" className={classes.footerImgatwo} />
+                        <img src={footerwoan} alt="" className={classes.footerwoman} />
+                    </div>
                 </div>
-                <div className={classes.footerTopTwo}>
+                <div className={classes.fotterToptwo}>
                     <div>
                         <p className={classes.fottername}>DEVELOPER GUIDE</p>
                         <p className={classes.fottercontent}>개발팀 소개는 처음이지?</p>
@@ -41,8 +57,8 @@ const Footer = () => {
                     <img src={footerImge} alt="개발팀" className={classes.footerImge} />
                     <img src={tmpImg} alt="" className={classes.tmpImg} />
                 </div>
-            </div> */}
-            <div className={classes.footer}>
+            </div>
+            <div className={classes.footerBottom}>
                 <div className={classes.footerBoxone}>
                     <div className={classes.footerBoxOneTitle}>
                         <p className={classes.oneBoxP}>서비스 안내</p>
@@ -67,7 +83,6 @@ const Footer = () => {
                 </div>
                 <div className={classes.footerBoxtwo}>
                     <div>
-
                         <h3 className={classes.servicecentername}>고객센터 02-3429-5100</h3>
                         <p className={classes.ContentOne}>
                             <p className={classes.ContentOneTitle}>이메일 문의 </p>
@@ -85,7 +100,6 @@ const Footer = () => {
                     </div>
                 </div>
             </div>
-                
         </footer>
     )
 }
