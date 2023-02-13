@@ -44,7 +44,7 @@ const ShopItem = (props) => {
           html: '<div style="font-size:15px;font-family:Apple_Gothic_Neo_SB; display:flex;justify-content:center;align-items:center;line-height:18px; color: white;">장바구니에 담겼습니다</div>',
           width: 180,
           showConfirmButton: false,
-          timer: 1000,
+          timer: 1500,
           backdrop: 'transparent',
           background: '#4CAAFF',
           padding: 10

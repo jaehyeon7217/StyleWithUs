@@ -1,6 +1,7 @@
 import { Fragment } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import axios from "axios";
+import Swal from "sweetalert2";
 
 import { cartActions } from "../../../store/cart";
 import classes from "./CartItem.module.css";
@@ -23,6 +24,16 @@ const CartItem = (props) => {
         },
       })
       .then((response) => {
+        Swal.fire({
+          position: 'bottom-end',
+          html: '<div style="font-size:15px;font-family:Apple_Gothic_Neo_SB; display:flex;justify-content:center;align-items:center;line-height:18px; color: white;">장바구니에서 삭제되었습니다</div>',
+          width: 230,
+          showConfirmButton: false,
+          timer: 1500,
+          backdrop: 'transparent',
+          background: '#f24141',
+          padding: 10
+        })
       })
       .catch((error) => {
         console.log(error);
@@ -42,12 +53,13 @@ const CartItem = (props) => {
       });
     };
 
-    axios.get(`https://i8d105.p.ssafy.io/be/item/show/${userId}`, {
+    await axios.get(`https://i8d105.p.ssafy.io/be/item/show/${userId}`, {
       headers: {
         Authorization: token,
       },
     })
       .then((response) => {
+        console.log(response.data);
         dispatch(cartActions.getCart(response.data.data));
       })
       .catch((error) => {

@@ -23,8 +23,8 @@ const Loading = () => {
         <img src={consultantIamge} alt="consultantIamge" />
       </div>
       <div className={classes["loading-text"]}>
-        <h1>스타일 변신하기 준비 중</h1>
-        <h1>상담중에는 기능이 제한 될 수 있습니다.</h1>
+        <h1 className={classes['h1-1']}>스타일 변신하기 준비 중</h1>
+        <h1 className={classes['h1-2']}>상담중에는 기능이 제한 될 수 있습니다.</h1>
       </div>
     </div>
   ) : (
