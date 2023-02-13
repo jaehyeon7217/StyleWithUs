@@ -120,12 +120,13 @@
 .surveyBox{
   height: 100%;
   width: 70%;
-  margin: 0 20px;
+  margin: 0px 20px;
 }
 
 .yChangeBox{
   height: 100%;
   overflow: hidden;
+  margin-top: 40px;
 }
 
 .question{
