@@ -39,11 +39,12 @@
   padding-left: 10px;
   margin-bottom: 0;;
   position: relative;
+  font-family: "Apple_Gothic_Neo_Light";
 }
 
 .reload {
   width: 7%;
-  height: auto;
+  height: 7%;
 }
 
 .reload:hover {
