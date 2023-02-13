@@ -89,7 +89,7 @@ const ConsultantMyProfile = () => {
     <div className={classes.ProfilePage}>
         <ConsultantMyPageSideBar />
         <div className={classes.ProfileMainBox}>
-        <h3 className={classes.ProfileName}>프로필</h3>
+        <h3 className={classes.ProfileNameMain}>프로필</h3>
         <hr className={classes.hr} />
         <div className={classes.ImgTextBox}>
                 <p >{(data.consultantGender ? <img src={consultantman} className={classes.consultantman} /> : <img src={consultantWoman} className={classes.consultantWoman} />)}</p>
@@ -109,12 +109,7 @@ const ConsultantMyProfile = () => {
             <div>
                 <h3 className={classes.ProfileName}>경력 기술서</h3>
                     <div className={classes.ResumeBox}>
-                        <p className={classes.ResumeName}>경력 1</p>
-                        <div className={classes.vline}></div>
-                        <p className={classes.consultantResume}>{data.consultantResume}</p>
-                    </div>
-                    <div className={classes.ResumeBox}>
-                        <p className={classes.ResumeName}>경력 2</p>
+                        <p className={classes.ResumeName}>경력</p>
                         <div className={classes.vline}></div>
                         <p className={classes.consultantResume}>{data.consultantResume}</p>
                     </div>

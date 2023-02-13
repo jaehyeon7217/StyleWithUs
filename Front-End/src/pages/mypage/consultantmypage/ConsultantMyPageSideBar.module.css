@@ -21,32 +21,38 @@
 }
 
 .SideBar{
-   margin-top: 85px;
-   margin-right: 80px;
+  width: 200px;
+  height: 400px;
+  margin-top: 85px;
+  margin-right: 70px;
 }
 
 .PageName{
     font-family: "Apple_Gothic_Neo_SB";
-    font-size: 33px;
+    font-size: 30px;
     width: 200px;
     cursor: pointer;
 }
 
 .SideBarName{
     font-family: "Apple_Gothic_Neo_Mid";
-    font-size: 25px;
+    font-size: 24px;
+    padding-top: 5px;
+    margin-top: 15px;
+    margin-bottom: 0;
 }
 
 .SidBarNameSmall{
+    display: inline-block;
     font-family: "Apple_Gothic_Neo_Light";
-    font-size: 22px;
-    color: #8B8B8BC6;
+    font-size: 19px;
+    color: rgba(171, 171, 171);
     cursor: pointer;
+    transition: all .15s;
+    margin: 10px 60px 5px 0;
+    padding-left: 5px;
 }
 
 .SidBarNameSmall:hover{
     color: black;
-    font-weight: bolder;
-    transition: all .15s;
-    font-weight: 600;
 }

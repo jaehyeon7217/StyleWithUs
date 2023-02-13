@@ -89,6 +89,11 @@
   opacity: 1;
 }
 
+.recommend.off {
+  overflow: hidden;
+  height: 100vh;
+}
+
 .userInfo {
   display: inline-block;
   height: 50px;

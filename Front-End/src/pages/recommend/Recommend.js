@@ -110,7 +110,7 @@ const Recommend = () => {
           })}
         </div>
         <div className={classes.loading}></div>
-        <div className={clothesData.length !== 4 ? classes.recommend : `${classes.recommend} ${classes.on}`}>
+        <div className={clothesData.length !== 4 ? `${classes.recommend} ${classes.off}` : `${classes.recommend} ${classes.on}`}>
           {clothesData.map((data, idx) => {
             return <RecommendItemBox data={data} type={clothesTypes[idx]} key={`${clothesTypes[idx]}-${idx}`} />;
           })}
