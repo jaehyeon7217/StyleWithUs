@@ -61,6 +61,7 @@ function App() {
         </Route>
         <Route path="/*" element={<NotFound/>} />
       </Routes>
+      <div>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Minus, in harum! Porro, animi? Perspiciatis doloremque deserunt autem expedita accusamus consequatur officia veritatis ut molestiae. Inventore nihil autem accusantium deleniti molestias.</div>
     </div>
   );
 }
