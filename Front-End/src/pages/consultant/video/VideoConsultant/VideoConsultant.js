@@ -118,6 +118,7 @@ const Consultant = (props) => {
         );
         // console.log(JSON.parse(event.stream.connection.data).clientData);
 
+        console.log(subscribers);
         props.getUserNickname(JSON.parse(event.stream.connection.data).clientData);
 
         const newSubscribers = subscribers;
@@ -157,13 +158,13 @@ const Consultant = (props) => {
 
       newSession.on("signal:cart", (event) => {
         props.getUserNickname(JSON.parse(event.from.data).clientData);
-        console.log(200);
         axios.get(`https://i8d105.p.ssafy.io/be/item/show/${props.userId}`, {
         headers: {
           Authorization: userToken,
         },
         })
         .then((response) => {
+          console.log(response.data);
           dispatch(cartActions.getCart(response.data.data));
         })
         .catch((error) => {

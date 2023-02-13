@@ -95,10 +95,13 @@ const Consultant = (props) => {
 
   // 만약 컨설턴트일 경우 
   const getSessionUserNickname = (nickname) => {
-    setSessionUserNickname(nickname);
+    if (nickname !== user.userData.consultantNickname) {
+      setSessionUserNickname(nickname);
+    }
   }
 
   useEffect(() => {
+    console.log(sessionUserNickname);
     if (sessionUserNickname !== null) {
       axios
         .get(`https://i8d105.p.ssafy.io/be/user/gender/${sessionUserNickname}`, {
