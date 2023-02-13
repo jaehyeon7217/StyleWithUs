@@ -52,7 +52,7 @@ const ConsultantMyPage = () => {
       if (response.status==200){
         dispatch(authActions.myReviewList(response.data))
       }
-    }).catch(error => {
+    }).catch((error) => {
       console.log(error);
     })
   };
@@ -75,7 +75,12 @@ const ConsultantMyPage = () => {
     event.preventDefault();
     navigate("/consultantmyprofile")
   }
-
+  
+  const toPasswordChange = (event) => {
+    event.preventDefault();
+    navigate("/auth/passwordchange")
+  }
+  
 
 
 
@@ -95,7 +100,7 @@ const ConsultantMyPage = () => {
               <div className={classes.consultantEmail}><p>{data.consultantEmail}</p></div>
               <div>
                 <button className={classes.myinformbtnone} onClick={ProfilePage}>프로필 정보</button>
-                <button className={classes.myinformbtntwo}>비밀번호 변경</button>
+                <button className={classes.myinformbtntwo} onClick={toPasswordChange}>비밀번호 변경</button>
               </div>
             </div>
               <p className={classes.userType}>회원유형</p>
