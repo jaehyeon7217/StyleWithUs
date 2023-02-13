@@ -26,6 +26,7 @@
     margin-bottom: 25px;
     font-size: 30px;
     cursor: pointer;
+    margin-bottom: 25px;
 }
 
 /* 사이드 메뉴 부분 */
@@ -56,8 +57,8 @@
     color: rgba(171, 171, 171);
     cursor: pointer;
     transition: all .15s;
-    margin: 10px 60px 5px 0;
     padding-left: 5px;
+    margin: 10px 60px 5px 0;
 }
 
 .SideMenuDetail:hover {

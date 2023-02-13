@@ -29,9 +29,16 @@
     margin-top: 90px;
 }
 
-.ProfileName {
+.ProfileNameMain {
+    margin: 15px 0;
     font-family: "Apple_Gothic_Neo_SB";
     font-size: 27px;
+}
+
+.ProfileName {
+    margin-top: 30px;
+    font-family: "Apple_Gothic_Neo_SB";
+    font-size: 22px;
 
 }
 
@@ -106,7 +113,7 @@
 
 
 .hrgrey {
-    border-bottom: solid 3.5px lightgrey;
+    border-bottom: solid 2px lightgrey;
     border-top: 0;
     padding: 0;
     border-radius: 2.5px;
@@ -120,7 +127,7 @@
     display: flex;
     background-color: rgb(242, 242, 242);
     border-radius: 5px;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
     
 }
 
@@ -135,8 +142,8 @@
     border: 1px solid rgb(160, 160, 160);
     width: 0.1px;
     height: 30px;
-    margin-left: 30px;
-    margin-top: 17px;
+    margin-left: 20px;
+    margin-top: 20px;
 }
 
 .consultantResume{
@@ -145,7 +152,7 @@
     margin-top: 22px;
 }
 
-.resumebtn{
+.resumebtn {
     font-family: "Apple_Gothic_Neo_Bold";
     font-size: 15px;
     border: none;
@@ -157,25 +164,30 @@
     padding-right: 13px;
 }
 
+.resumebtn:hover {
+  cursor: pointer;
+}
+
 
 
 .PersonalSmallLabel{
     font-family: "Apple_Gothic_Neo_Bold";
-    font-size: 20px;
+    font-size: 19px;
     margin-top: 20px;
     
 }
 
 .BottomShort{
-    border-bottom: 3px solid rgb(208, 208, 208);
-    width: 400px;
-    border-radius: 10px;
-    margin-top: -6px;
-    
+  border-bottom: 1px solid rgb(184, 184, 184);
+  width: 300px;
+  border-radius: 15px;
+  margin-top: -6px;
 }
 
 .userData{
-    font-family: "Apple_Gothic_Neo_SBold";
-    font-size: 18px;
-    color: rgb(85, 85, 85);
+  font-family: "Apple_Gothic_Neo_Middle";
+  font-size: 17px;
+  margin-bottom: 10px;
+  margin-left: 3px;
+  color: rgb(85, 85, 85);
 }

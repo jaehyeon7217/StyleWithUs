@@ -49,7 +49,7 @@ const ConsultantMyPage = () => {
         }
       }
     ).then(response=>{
-      if (response.status==200){
+      if (response.status === 200){
         dispatch(authActions.myReviewList(response.data))
       }
     }).catch((error) => {
@@ -100,7 +100,7 @@ const ConsultantMyPage = () => {
               <div className={classes.consultantEmail}><p>{data.consultantEmail}</p></div>
               <div>
                 <button className={classes.myinformbtnone} onClick={ProfilePage}>프로필 정보</button>
-                <button className={classes.myinformbtntwo} onClick={toPasswordChange}>비밀번호 변경</button>
+                <button className={`${classes.myinformbtnone} ${classes.btntwo}`} onClick={toPasswordChange}>비밀번호 변경</button>
               </div>
             </div>
               <p className={classes.userType}>회원유형</p>
@@ -116,14 +116,9 @@ const ConsultantMyPage = () => {
               <p className={classes.consultantResume}>{data.consultantResume}</p>
             </div> */}
             <div className={classes.ResumeBox}>
-              <p className={classes.ResumeName}>경력 1</p>
+              <p className={classes.ResumeName}>경력</p>
               <div className={classes.vline}></div>
               <p className={classes.consultantResume}>{data.consultantResume}</p>
-            </div>
-            <div className={classes.ResumeBox}>
-                <p className={classes.ResumeName}>경력 2</p>
-                <div className={classes.vline}></div>
-                <p className={classes.consultantResume}>{data.consultantResume}</p>
             </div>
           </div>
           <br/>
@@ -146,8 +141,6 @@ const ConsultantMyPage = () => {
                       <p>{review[idx].reviewContent}</p>
                       <p >{(data.userGender ? <img src={boyface} className={classes.boyface} /> : <img src={girlface} className={classes.girlface} />)}</p>
                     </div >
-          
-                    
                   </div>
                 )
               })}
