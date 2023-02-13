@@ -25,6 +25,7 @@ const Consultant = (props) => {
   const userType = useSelector((state) => state.auth.userType);
   const user = useSelector((state) => state.auth.userData);
   const consultantId = user.consultantId;
+  const consultantNickname = user.consultantNickname;
   const nickname = userType === 1 ? user.consultantNickname : user.userNickname;
 
   // openvidu useState
@@ -117,7 +118,7 @@ const Consultant = (props) => {
           JSON.parse(event.stream.connection.data).clientData
         );
 
-        if (JSON.parse(event.stream.connection.data).clientData !== consultantId) {
+        if (JSON.parse(event.stream.connection.data).clientData !== consultantNickname) {
           props.getUserNickname(JSON.parse(event.stream.connection.data).clientData);
         }
 
@@ -156,6 +157,7 @@ const Consultant = (props) => {
       });
 
       newSession.on("signal:cart", async (event) => {
+        // if (JSON.parse(event.from.data).clientData !== con)
         // await axios
         // .get(`https://i8d105.p.ssafy.io/be/user/gender/${userId}`, {
         //   headers: {
