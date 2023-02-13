@@ -62,11 +62,6 @@
   margin-top: 25px;
 }
 
-
-.MyInformBox{
-
-}
-
 .MyInformBackground{
   width: 900px;
   height: 135px;
@@ -139,50 +134,23 @@
 
 .MyInformBtn{
   font-family: "Apple_Gothic_Neo_SBold";
-  /* margin-left: -85px; */
+  font-size: 14px;
   margin-top: 18px;
-  border: none;
+  margin-left: 5px;
+  padding-top: 3px;
   width: 100px;
   height: 29px;
   border-radius: 6px;
-  cursor: pointer;
-  margin-left: 5px;
-  transition: all .15s;
-  padding-top: 3px;
-  font-size: 14px;
+  border: 1px solid rgb(26, 26, 26);
+  color: rgb(56, 56, 56);
+  background-color: white;
+  transition: all .2s;
 }
 
 .MyInformBtn:hover{
-  font-weight: 600;
-  color: rgb(26, 26, 26);
-  transition: all .15s;
-}
-
-
-
-.MyInformBtntwo{
-  font-family: "Apple_Gothic_Neo_SBold";
-  font-size: 14px;
-  /* margin-left: -85px; */
-  margin-top: 18px;
-  border: none;
-  width: 100px;
-  height: 27px;
-  border-radius: 6px;
   cursor: pointer;
-  margin-left: -3px;
-  transition: all .15s;
-  padding-top: 3px;
-  
-}
-
-.MyInformBtntwo:hover{
-  color: black;
-  font-weight: bolder;
-  transition: all .15s;
-  font-weight: 600;
-  color: rgb(26, 26, 26);
-  
+  border: 1px solid gray;
+  background-color: rgb(240, 240, 240);
 }
 
 .userTypeBox{
@@ -220,39 +188,37 @@
 
 .StyleCheckBtn {
   font-family: "Apple_Gothic_Neo_Mid";
-  color: rgb(97, 97, 97);
+  color: rgb(171, 171, 171);
   width: 90px;
   float: right;
   margin-top: 35px;
   text-align: right;
   margin-right: 15px;
   cursor: pointer;
-  transition: all .15s;
+  transition: all .2s;
   
 }
 
 .StyleCheckBtn:hover{
   color: black;
-  font-family: "Apple_Gothic_Neo_Bold";
-  transition: all .15s;
+  transition: all .2s;
 }
 
 .ViewMoreBtn{
   font-family: "Apple_Gothic_Neo_Mid";
-  color: rgb(97, 97, 97);
+  color: rgb(171, 171, 171);
   width: 50px;
   float: right;
   margin-top: 35px;
   text-align: right;
   margin-right: 15px;
   cursor: pointer;
-  transition: all .15s;
+  transition: all .2s;
 }
 
 .ViewMoreBtn:hover{
   color: black;
-  font-family: "Apple_Gothic_Neo_Bold";
-  transition: all .15s;
+  transition: all .2s;
 }
 
 .MyBodyLabel{
@@ -320,19 +286,11 @@
 
 .WarpAllItem {
   display: flex;
-  justify-content: left;
+  justify-content: space-between;
   padding-top: 10px;
 }
 
-.footer{
-  background-color: red;
-  position: fixed;
-  left: 0px;
-  bottom: 0px;
-  height: 100px;
-  width: 100%;
- 
+.CartItemDiv {
+  width: 24%;
 }
-
-
 

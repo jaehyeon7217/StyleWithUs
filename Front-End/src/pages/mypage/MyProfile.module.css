@@ -20,6 +20,11 @@
     src: url("../../fonts/AppleSDGothicNeoL.ttf");
 }
 
+@font-face {
+  font-family: "Apple_Gothic_Neo_EBold";
+  src: url("../../fonts/AppleSDGothicNeoEB.ttf");
+}
+
 .MarginBox{
     margin-top: 100px;
 }
@@ -50,23 +55,22 @@
 
 .ImgName{
     font-family: "Apple_Gothic_Neo_Bold";
-    font-size: 23px;
+    font-size: 25px;
+    margin-bottom: 10px;
 }
 
 .ImgUserType{
-    font-family: "Apple_Gothic_Neo_Bold";
-    margin-top: -18px;
+    font-family: "Apple_Gothic_Neo_Light";
     color: rgb(85, 85, 85);
-    font-size: 18px;
-    margin-left: 1px;
-    
+    font-size: 17px;
+    margin: 0;
 }
 
 .ProfileName {
     font-family: "Apple_Gothic_Neo_SBold";
     font-size: 28px;
     margin-top: 15px;
-
+    margin-bottom: 15px;
 }
 
 .userImge {
@@ -86,7 +90,7 @@
 .hrlong{
     font-family: "Apple_Gothic_Neo_Light";
     color: lightgrey;
-    border: solid 2px;
+    border: solid 1px;
     border-radius: 10px;
     margin-top: -20px;
 }
@@ -96,37 +100,33 @@
     border-top: 0;
     padding: 0;
     border-radius: 2.5px;
-    margin-top: -10px;
-}
-
-
-.PersonalInform{
-
 }
 
 .PersonalLabel{
-    margin-top: 50px;
+    margin-top: 30px;
     font-family: "Apple_Gothic_Neo_SBold";
-    font-size: 25px;
+    font-size: 22px;
 }
 
 .PersonalSmallLabel{
     font-family: "Apple_Gothic_Neo_Bold";
-    font-size: 20px;
+    font-size: 19px;
     margin-top: 20px;
     
 }
 
 .BottomShort{
-    border-bottom: 3px solid rgb(208, 208, 208);
-    width: 400px;
-    border-radius: 10px;
+    border-bottom: 1px solid rgb(184, 184, 184);
+    width: 300px;
+    border-radius: 15px;
     margin-top: -6px;
     
 }
 
 .userData{
-    font-family: "Apple_Gothic_Neo_SBold";
-    font-size: 18px;
+    font-family: "Apple_Gothic_Neo_Middle";
+    font-size: 17px;
+    margin-bottom: 10px;
+    margin-left: 3px;
     color: rgb(85, 85, 85);
 }

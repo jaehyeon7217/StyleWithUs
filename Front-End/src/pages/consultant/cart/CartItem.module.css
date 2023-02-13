@@ -20,9 +20,10 @@
   border: none;
   background-color: transparent;
   margin-top: 40px;
-  margin-right: 15px;
+  margin-right: 8px;
   color: gray;
   transition: color .15s;
+  font-family: "Apple_Gothic_Neo_Light";
 }
 
 .div button:hover {
@@ -37,7 +38,7 @@
   justify-content: space-between;
   text-decoration: none;
   color: gray;
-  width: 85%;
+  width: 88%;
   height: 50px;
   margin-top: 11px;
   padding-bottom: 10px;

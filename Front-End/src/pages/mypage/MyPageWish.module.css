@@ -30,11 +30,11 @@
     font-family: "Apple_Gothic_Neo_SBold";
     font-size: 27px;
     margin-top: 15px;
-
+    margin-bottom: 15px;
 }
 
 .WishBox{
-    width: 950px;
+    width: 900px;
 }
 
 .hr{
@@ -42,15 +42,25 @@
     border-top: 0;
     padding: 0;
     border-radius: 2.5px;
+    margin-bottom: 10px;
+    margin-top: 0;
 }
 
+.WrapMyPage .WishBox .ul {
+  margin-right: 0;
+}
 
 .ul {
-    list-style: none;
-    padding-left: 0px;
-    font-family: "Apple_Gothic_Neo_Light";
-    margin: 0;
-    width: 930px;
+  list-style: none;
+  font-family: "Apple_Gothic_Neo_Light";
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.ul li {
+  width: 100%;
+  border-bottom: 1px solid rgb(228, 226, 226);
 }
 
 .ul li:hover {
@@ -58,7 +68,7 @@
 }
 
 .scroll{
-    width: 950px;
+    width: 900px;
     height: 630px;
     overflow: auto;
 }

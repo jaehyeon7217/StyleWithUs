@@ -24,7 +24,7 @@
 .PageName {
     font-family: "Apple_Gothic_Neo_SBold";
     margin-bottom: 25px;
-    font-size: 33px;
+    font-size: 30px;
     cursor: pointer;
 }
 
@@ -40,11 +40,10 @@
 .SideMenu {
     font-family: "Apple_Gothic_Neo_Mid";
     text-align: left;
-    font-size: 25px;
+    font-size: 24px;
     padding-top: 5px;
-    margin-bottom: 0;
-    margin-top: -5px;
-    
+    margin: 0;   
+    margin-top: 15px;
 }
 
 
@@ -52,13 +51,13 @@
 .SideMenuDetail {
     display: inline-block;
     font-family: "Apple_Gothic_Neo_Light";
-    font-size: 22px;
+    font-size: 19px;
     text-align: left;
-    color: rgba(139, 139, 139, 0.778);
+    color: rgba(171, 171, 171);
     cursor: pointer;
     transition: all .15s;
-    margin-right: 60px;
-    margin-top: 15px;
+    margin: 10px 60px 5px 0;
+    padding-left: 5px;
 }
 
 .SideMenuDetail:hover {

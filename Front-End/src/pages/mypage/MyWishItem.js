@@ -1,5 +1,7 @@
 import axios from "axios";
+import Swal from "sweetalert2";
 import { Fragment } from "react";
+
 import classes from "./MyWishItem.module.css";
 import { cartActions } from '../../store/cart';
 import { useDispatch, useSelector } from 'react-redux';
@@ -36,7 +38,17 @@ const MyWishItem = (props) => {
                 }
             }
         ).then(() => {
-            getMyWish();
+          Swal.fire({
+            position: 'bottom-end',
+            html: '<div style="font-size:15px;font-family:Apple_Gothic_Neo_SB; display:flex;justify-content:center;align-items:center;line-height:18px; color: white;">장바구니에서 삭제되었습니다</div>',
+            width: 230,
+            showConfirmButton: false,
+            timer: 1500,
+            backdrop: 'transparent',
+            background: '#f24141',
+            padding: 10
+          })
+          getMyWish();
         }
         ).catch(error => {
             console.log(error);
@@ -53,7 +65,6 @@ const MyWishItem = (props) => {
             <span>{props.price}</span>
         </a>
         <button className={classes.DelBtn} onClick={deleteItem}>삭제</button>
-        <hr className={classes.hr}/>
     </Fragment>
 };
 
