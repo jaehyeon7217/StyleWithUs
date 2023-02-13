@@ -1,6 +1,5 @@
 import classes from './Footer.module.css';
 import { useNavigate } from "react-router-dom";
-import FooterTop from './FooterTop';
 
 //이미지
 import footerImge from "../../assets/footerman.png";
