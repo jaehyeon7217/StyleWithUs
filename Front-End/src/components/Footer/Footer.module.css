@@ -123,6 +123,17 @@
 }
 
 
+.developimg{
+  margin-top: 20px;
+  margin-right: 10px;
+  width: 200px;
+  height: 90px;
+
+  border-radius: 5px;
+  transform: rotate( 5deg );
+}
+
+
 /* footer 바닥 */
 
 .footerBottom{

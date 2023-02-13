@@ -48,28 +48,44 @@
     justify-content: space-between;
 }
 
-.diarytemp1{
-    height: 250px;
-    margin-top: 50px;
-    
+.man{
+    height: 200px;
+    margin-top: 100px;
+    margin-left: 150px;
 }
 
-.diarytemp2{
-    height: 250px;
-    margin-top: 100px;
+.man2{
+    height: 200px;
+    margin-top: 130px;
+    margin-left: -10px;
 }
 
-.diarytemp3{
-    height: 250px;
+.man3{
+    height: 200px;
     margin-top: 100px;
+    margin-left: 150px;
 }
 
-.diarytemp4{
-    height: 250px;
+.man4{
+    height: 200px;
+    margin-top: 130px;
+    margin-left: -10px;
+}
+
+.woman{
+    height: 200px;
     margin-top: 100px;
+    margin-left: 150px;
+}
+
+.woman2{
+    height: 200px;
+    margin-top: 130px;
+    margin-left: -10px;
 }
 
 .diaryboxone{
+    margin-right: 50px;
 }
 
 .dateboxone{
@@ -82,6 +98,7 @@
     margin-right: 10px;
     margin-left: 10px;
     margin-top: 20px;
+    color: white;
 }
 
 .dateone{
@@ -134,8 +151,9 @@
 .vLine{
     border: 1px solid lightgrey;
     width: 0.1px;
-    height: 1200px;
+    height: 1800px;
     margin-top: 30px;
+    margin-left: -60px;
 }
 
 .marginbox{

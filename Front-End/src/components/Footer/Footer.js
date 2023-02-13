@@ -4,7 +4,8 @@ import { useNavigate } from "react-router-dom";
 //이미지
 import footerImge from "../../assets/footerman.png";
 import footerImgetwo from "../../assets/footermantwo.png";
-import tmpImg from "../../assets/tempImg.png";
+import developimg from "../../assets/developimg.png";
+import developimg2 from "../../assets/developimg2.png";
 import footerwoman from "../../assets/footerwoman.png"
 
 const Footer = () => {
@@ -54,7 +55,7 @@ const Footer = () => {
                     <div>
                     </div>
                     <img src={footerImge} alt="개발팀" className={classes.footerImge} />
-                    <img src={tmpImg} alt="" className={classes.tmpImg} />
+                    <img src={developimg} alt="" className={classes.developimg} />
                 </div>
             </div>
             <div className={classes.footerBottom}>
