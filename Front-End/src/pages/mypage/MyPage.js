@@ -10,6 +10,7 @@ import userImg from "../../assets/userimg.png";
 import { useEffect } from 'react';
 import userMan from '../../assets/footermantwo.png';
 import userWoman from '../../assets/mypageuserwoman.png';
+import { cartActions } from '../../store/cart';
 
 
 const MyPage = () =>{
@@ -20,7 +21,7 @@ const MyPage = () =>{
   const navigate = useNavigate();
 
   const cartItems = useSelector((state)=> state.cart.cartItems)
-
+  // console.log(cartItems)
   const getMyData = () =>{
     const url = "https://i8d105.p.ssafy.io/be/user/get/" + userId
     axios.get(
@@ -40,8 +41,22 @@ const MyPage = () =>{
       console.log(error);
     })    
   }
+  const getMyWish = () =>{
+    const url = "https://i8d105.p.ssafy.io/be/item/show/" + userId;
+    axios.get(
+      url,
+      {
+        headers: {
+          Authorization: token
+        }
+      }
+    ).then((response) => {
+      dispatch(cartActions.getCart(response.data.data))
+    })
+  }
   useEffect(()=>{
-    getMyData()
+    getMyData();
+    getMyWish();
   }, [])
   // 비밀번호 변경 페이지 이동
   const SetNewPassword = (event) =>{
@@ -156,15 +171,15 @@ const MyPage = () =>{
           <p className={classes.ViewMoreBtn} onClick={MyPagewish}>더보기</p>
               <h3 className={classes.MainLabel}>관심 상품</h3>
                 <div className={classes.WarpAllItem}>
-                {cartItems.map((item, idx) => {
+                {cartItems.slice(0,4).map((item, idx) => {
                   return (
                     <div key={idx} className={classes.CartItemDiv}>
                       <MyWishItemBig
                         index={idx + 1}
-                        title={item.title}
-                        img={item.image}
-                        price={item.price}
-                        url={item.url}
+                        title={item.itemName}
+                        img={item.itemImgLink}
+                        price={item.itemPrice}
+                        url={item.itemUri}
                       />
                     </div>
                   );

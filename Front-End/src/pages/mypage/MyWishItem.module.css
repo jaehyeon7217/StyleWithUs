@@ -57,11 +57,20 @@
 .DelBtn{
     float: right;
     margin-top: -35px;
-    color: grey;
+    color: black;
     transition: all .15s;
+    border: none;
+    /* background-color: skyblue; */
+    font-size: 13px;
+    font-family: "Apple_Gothic_Neo_SBold";
+    padding-top: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    
 }
 
 .DelBtn:hover {
-    color: black;
     text-decoration: underline;
+    /* color: white;
+    background-color: black; */
 }
