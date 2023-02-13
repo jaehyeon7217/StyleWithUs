@@ -157,7 +157,7 @@ const Consultant = (props) => {
       });
 
       newSession.on("signal:cart", (event) => {
-        props.getUserNickname(JSON.parse(event.from.data).clientData);
+        console.log(props.userId);
         axios.get(`https://i8d105.p.ssafy.io/be/item/show/${props.userId}`, {
         headers: {
           Authorization: userToken,
