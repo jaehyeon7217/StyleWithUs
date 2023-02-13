@@ -187,7 +187,8 @@ const Login = () => {
           비밀번호 찾기
         </p>
       </div>
-      <footer className={classes.footer}>
+
+      {/* <footer className={classes.footer}>
         <div className={classes.fotterBoxone}>
           <div>
             <p className={classes.fottername}>SERVICE GUIDE</p>
@@ -202,18 +203,18 @@ const Login = () => {
           </div>
         </div>
         <div className={classes.fotterBoxtwo}>
-          <div>
-          <p className={classes.fottername}>DEVELOPER GUIDE</p>
-          <p className={classes.fottercontent}>개발팀 소개는 처음이지?</p>
-          <p className={classes.fottercontent}>STYLE WITH US의 개발 일기를 확인해보세요.</p>
-          <button className={classes.fotterBtntwo} onClick={toDeveloperpage}>개발팀</button>
+            <div>
+            <p className={classes.fottername}>DEVELOPER GUIDE</p>
+            <p className={classes.fottercontent}>개발팀 소개는 처음이지?</p>
+            <p className={classes.fottercontent}>STYLE WITH US의 개발 일기를 확인해보세요.</p>
+            <button className={classes.fotterBtntwo} onClick={toDeveloperpage}>개발팀</button>
+            </div>
+            <div>
+            </div>
+            <img src={footerImge} alt="개발팀" className={classes.footerImge} />
+            <img src={tmpImg} alt="" className={classes.tmpImg} />
           </div>
-          <div>
-          </div>
-          <img src={footerImge} alt="개발팀" className={classes.footerImge} />
-          <img src={tmpImg} alt="" className={classes.tmpImg} />
-        </div>
-      </footer>
+      </footer> */}
     </div>
   );
 };
