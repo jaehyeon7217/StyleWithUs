@@ -9,57 +9,46 @@
 }
 
 .ItemBox {
-    margin-top: -10px;
-    margin-left: -10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
     transition: all .15s;
 }
 
 .ItemBox:hover {
-    font-weight: 600;
     color: rgb(26, 26, 26);
-    
 }
 
 .a {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    text-decoration: none;
-    color: gray;
-    height: 200px;
-
-    padding-bottom: 10px;
-    transition: color .15s;
-
-    
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  color: gray;
+  width: 100%;
+  height: 100%;
+  padding-bottom: 10px;
+  transition: color .15s;
 }
 
-
-
 .img {
-    display: inline-block;
-    width: 210px;
-    height: 200px;
-    border-radius: 8px;
-    margin: 0 15px 0 10px;
-    
+  display: inline-block;
+  width: 210px;
+  height: auto;
+  border-radius: 8px;
 }
 
 .title {
-    font-family: "Apple_Gothic_Neo_Mid";
-    width: 170px;
-    display: flex;
-    justify-content: left;
-    margin: 0 15px 0 15px;
-    text-align: left;
-    font-size: 13.5px;
+  font-family: "Apple_Gothic_Neo_Mid";
+  text-align: left;
+  font-size: 13.5px;
 }
 
 .price {
-    width: 130px;
-    display: flex;
-    justify-content: left;
-    margin: 0 15px 0 15px;
-    font-family: "Apple_Gothic_Neo_Bold";
+  font-family: "Apple_Gothic_Neo_Bold";
+  display: flex;
+  justify-content: left;
+  margin-top: 5px;
 }
 

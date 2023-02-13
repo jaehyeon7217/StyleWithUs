@@ -103,7 +103,7 @@ const MyPage = () =>{
                 <div className={classes.MyInformLetterTwo}>
                   {/* <p className={classes.MyInformID}>{userData.userId}</p> */}
                   <p className={classes.MyInformEmail}>{userData.userEmail}</p>
-                  <button className={classes.MyInformBtntwo} onClick={MyProfile}>프로필 정보</button>
+                  <button className={classes.MyInformBtn} onClick={MyProfile}>프로필 정보</button>
                   <button className={classes.MyInformBtn} onClick={SetNewPassword}>비밀번호 수정</button>
                 </div>
                 <div className={classes.userTypeBox}>
