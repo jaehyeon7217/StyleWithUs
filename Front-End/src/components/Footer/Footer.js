@@ -6,7 +6,7 @@ import FooterTop from './FooterTop';
 import footerImge from "../../assets/footerman.png";
 import footerImgetwo from "../../assets/footermantwo.png";
 import tmpImg from "../../assets/tempImg.png";
-import footerwoan from "../../assets/footerwoman.png"
+import footerwoman from "../../assets/footerwoman.png"
 
 const Footer = () => {
     const navigate = useNavigate();
@@ -42,7 +42,7 @@ const Footer = () => {
                     <div>
 
                         <img src={footerImgetwo} alt="유저" className={classes.footerImgatwo} />
-                        <img src={footerwoan} alt="" className={classes.footerwoman} />
+                        <img src={footerwoman} alt="" className={classes.footerwoman} />
                     </div>
                 </div>
                 <div className={classes.fotterToptwo}>
@@ -68,16 +68,16 @@ const Footer = () => {
                     <div>
                         <h3 className={classes.StylewithUsName}>(주) 스타일 윗 어스</h3>
                         <p className={classes.ContentOne}>
-                            <p className={classes.ContentOneTitle}>대표 </p>
-                            <p className={classes.ContentOneContent}>박재현 박성환 이병수 이동엽 김현진 양서정</p>
+                            <div className={classes.ContentOneTitle}>대표 </div>
+                            <div className={classes.ContentOneContent}>박재현 박성환 이병수 이동엽 김현진 양서정</div>
                         </p>
                         <p className={classes.ContentOne}>
-                            <p className={classes.ContentOneTitle}>사업 분류 </p>
-                            <p className={classes.ContentOneContent}>화상회의 기반 스타일 추천 웹사이트</p>
+                            <div className={classes.ContentOneTitle}>사업 분류 </div>
+                            <div className={classes.ContentOneContent}>화상회의 기반 스타일 추천 웹사이트</div>
                         </p>
                         <p className={classes.ContentOne}>
-                            <p className={classes.ContentOneTitle}>사업장 위치 </p>
-                            <p className={classes.ContentOneContent}>삼성전자 구미 2사업장 후문 3층 D105</p>
+                            <div className={classes.ContentOneTitle}>사업장 위치 </div>
+                            <div className={classes.ContentOneContent}>삼성전자 구미 2사업장 후문 3층 D105</div>
                         </p>
                     </div>
                 </div>
@@ -85,16 +85,16 @@ const Footer = () => {
                     <div>
                         <h3 className={classes.servicecentername}>고객센터 02-3429-5100</h3>
                         <p className={classes.ContentOne}>
-                            <p className={classes.ContentOneTitle}>이메일 문의 </p>
-                            <p className={classes.ContentOneContent}>ssafy@ssafy.com</p>
+                            <div className={classes.ContentOneTitle}>이메일 문의 </div>
+                            <div className={classes.ContentOneContent}>ssafy@ssafy.com</div>
                         </p>
                         <p className={classes.ContentOne}>
-                            <p className={classes.ContentOneTitle}>운영시간 </p>
-                            <p className={classes.ContentOneContent}>AM 10:00 - PM 18:00</p>
+                            <div className={classes.ContentOneTitle}>운영시간 </div>
+                            <div className={classes.ContentOneContent}>AM 10:00 - PM 18:00</div>
                         </p>
                         <p className={classes.ContentOne}>
-                            <p className={classes.ContentOneTitle}>점심시간 </p>
-                            <p className={classes.ContentOneContent}>AM 11:30 - AM 12:30</p>
+                            <div className={classes.ContentOneTitle}>점심시간 </div>
+                            <div className={classes.ContentOneContent}>AM 11:30 - AM 12:30</div>
                         </p>
                         <button onClick={RecommendPage} className={classes.QuestionBtn}>자주 묻는 질문</button>
                     </div>
