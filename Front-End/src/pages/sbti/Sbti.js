@@ -7,6 +7,7 @@ import { authActions } from "../../store/auth";
 import man from "../../assets/mainPage/컨설턴트.png"
 import woman from "../../assets/mainPage/패션캐릭터4.png"
 import left1 from "../../assets/left.png"
+import left2 from "../../assets/leftT.png"
 import right1 from "../../assets/right.png"
 
 import classes from "./Sbti.module.css";
@@ -147,12 +148,21 @@ const Sbti = () => {
 
   const secondFirstQuestion = () =>{
     setSecond(0)
+    document.getElementById("shoulder").style.opacity = 1;
+    document.getElementById("chest").style.opacity = 0.3;
+    document.getElementById("sleeve").style.opacity = 0.3;
   };
   const secondSecondQuestion = () =>{
     setSecond(1)
+    document.getElementById("shoulder").style.opacity = 0.3;
+    document.getElementById("chest").style.opacity = 1;
+    document.getElementById("sleeve").style.opacity = 0.3;
   }
   const secondThirdQuestion = () =>{
     setSecond(2)
+    document.getElementById("shoulder").style.opacity = 0.3;
+    document.getElementById("chest").style.opacity = 0.3;
+    document.getElementById("sleeve").style.opacity = 1;
   }
   useEffect(() => {
     sSlideRef.current.style.transition = "all 0.5s ease-in-out";
@@ -226,14 +236,14 @@ const Sbti = () => {
         </div>
         {/* 두번째 슬라이드 */}
         <div className={classes.carouselItem}>
-        <img src={left1} alt="left1" className={classes.directionImg} onClick={prevSlide}/>
+        <img src={left2} alt="left1" className={classes.directionImg} onClick={prevSlide}/>
           <div className={classes.surveyBox}>
             <div className={classes.yChangeBox}>
             <div className={classes.answerBox} ref={sSlideRef}>
             <div className={classes.answer}>
               <p className={classes.question}>SBTI #2</p>
             </div>
-              <div className={classes.answer}>
+              <div className={classes.answer} id="shoulder">
                 <form 
                   onChange={(event) => {
                     secondSecondQuestion(event); 
@@ -258,7 +268,7 @@ const Sbti = () => {
                   </div>
                 </form>
               </div>
-              <div className={classes.answer}>
+              <div className={classes.answer} id="chest">
                 <form 
                   onChange={(event) => {
                     secondThirdQuestion(event);
@@ -283,7 +293,7 @@ const Sbti = () => {
                   </div>           
                 </form>
               </div>
-              <div className={classes.answer}>
+              <div className={classes.answer} id="sleeve">
                 <form 
                   onChange={(event) => {setSleeve(event.target.value)}}
                   onClick={secondThirdQuestion}

@@ -18,3 +18,7 @@
 .inputLabel input[type=radio]:checked {
   border: 0.7em solid rgb(241, 72, 72);
 }
+
+.inputLabel input[type=radio]:hover {
+  border: 1em solid gray;
+}
