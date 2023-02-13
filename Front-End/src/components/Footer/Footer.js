@@ -1,11 +1,91 @@
-import classes from './Footer.module.css'
+import classes from './Footer.module.css';
+import { useNavigate } from "react-router-dom";
+import FooterTop from './FooterTop';
+
+//이미지
+import footerImge from "../../assets/footerman.png";
+import footerImgetwo from "../../assets/footermantwo.png";
+import tmpImg from "../../assets/tempImg.png";
+import footerwoan from "../../assets/footerwoman.png"
 
 const Footer = () => {
-    return(
-        <footer className={classes.footer}>
-            <div className={classes.fotterBoxtwo}>
+    const navigate = useNavigate();
 
+    // 고객센터 페이지로 이동
+    const RecommendPage = (event) => {
+        event.preventDefault()
+        navigate('/servicecentercopy')
+    }
+
+    // 개발팀 페이지 이동
+    const toDeveloperpage = (event) => {
+        event.preventDefault();
+        navigate("/developerpage")
+    }
+
+    return(
+        <footer >
+            {/* <div className={classes.footerTop}>
+                <div className={classes.footerTopOne}>
+
+                </div>
+                <div className={classes.footerTopTwo}>
+                    <div>
+                        <p className={classes.fottername}>DEVELOPER GUIDE</p>
+                        <p className={classes.fottercontent}>개발팀 소개는 처음이지?</p>
+                        <p className={classes.fottercontent}>STYLE WITH US의 개발 일기를 확인해보세요.</p>
+                        <button className={classes.fotterBtntwo} onClick={toDeveloperpage}>개발팀</button>
+                    </div>
+                    <div>
+                    </div>
+                    <img src={footerImge} alt="개발팀" className={classes.footerImge} />
+                    <img src={tmpImg} alt="" className={classes.tmpImg} />
+                </div>
+            </div> */}
+            <div className={classes.footer}>
+                <div className={classes.footerBoxone}>
+                    <div className={classes.footerBoxOneTitle}>
+                        <p className={classes.oneBoxP}>서비스 안내</p>
+                        <p className={classes.oneBoxP}>서비스 사용방법</p>
+                        <p className={classes.oneBoxP}>개발팀 소개</p>
+                    </div>
+                    <div>
+                        <h3 className={classes.StylewithUsName}>(주) 스타일 윗 어스</h3>
+                        <p className={classes.ContentOne}>
+                            <p className={classes.ContentOneTitle}>대표 </p>
+                            <p className={classes.ContentOneContent}>박재현 박성환 이병수 이동엽 김현진 양서정</p>
+                        </p>
+                        <p className={classes.ContentOne}>
+                            <p className={classes.ContentOneTitle}>사업 분류 </p>
+                            <p className={classes.ContentOneContent}>화상회의 기반 스타일 추천 웹사이트</p>
+                        </p>
+                        <p className={classes.ContentOne}>
+                            <p className={classes.ContentOneTitle}>사업장 위치 </p>
+                            <p className={classes.ContentOneContent}>삼성전자 구미 2사업장 후문 3층 D105</p>
+                        </p>
+                    </div>
+                </div>
+                <div className={classes.footerBoxtwo}>
+                    <div>
+
+                        <h3 className={classes.servicecentername}>고객센터 02-3429-5100</h3>
+                        <p className={classes.ContentOne}>
+                            <p className={classes.ContentOneTitle}>이메일 문의 </p>
+                            <p className={classes.ContentOneContent}>ssafy@ssafy.com</p>
+                        </p>
+                        <p className={classes.ContentOne}>
+                            <p className={classes.ContentOneTitle}>운영시간 </p>
+                            <p className={classes.ContentOneContent}>AM 10:00 - PM 18:00</p>
+                        </p>
+                        <p className={classes.ContentOne}>
+                            <p className={classes.ContentOneTitle}>점심시간 </p>
+                            <p className={classes.ContentOneContent}>AM 11:30 - AM 12:30</p>
+                        </p>
+                        <button onClick={RecommendPage} className={classes.QuestionBtn}>자주 묻는 질문</button>
+                    </div>
+                </div>
             </div>
+                
         </footer>
     )
 }
