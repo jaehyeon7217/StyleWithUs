@@ -2,73 +2,76 @@ import Spring from "../../../assets/spring_warm.png";
 import Summer from "../../../assets/summer_cool.png";
 import Fall from "../../../assets/fall_warm.png";
 import Winter from "../../../assets/winter_cool.png";
-import classes from './PersonalColorPicker.module.css';
+import classes from "./PersonalColorPicker.module.css";
 
 import { useState } from "react";
 
 const PersonalColorPicker = (props) => {
-  const [hoverSpring, setHoverSpring] = useState(false);
-  const [hoverSummer, setHoverSummer] = useState(false);
-  const [hoverFall, setHoverFall] = useState(false);
-  const [hoverWinter, setHoverWinter] = useState(false);
+  const [showSpring, setShowSpring] = useState(false);
+  const [showSummer, setShowSummer] = useState(false);
+  const [showFall, setShowFall] = useState(false);
+  const [showWinter, setShowWinter] = useState(false);
 
-  const springMouseEnterHandler = () => {
-    setHoverSpring(true);
+  const showSpringHandler = () => {
+    if (!showSpring) {
+      setShowSummer(false);
+      setShowFall(false);
+      setShowWinter(false);
+    }
+    setShowSpring(!showSpring);
   };
-  const springMouseLeaveHandler = () => {
-    setHoverSpring(false);
+  const showSummerHandler = () => {
+    if (!showSummer) {
+      setShowSpring(false);
+      setShowFall(false);
+      setShowWinter(false);
+    }
+    setShowSummer(!showSummer);
   };
-  const summerMouseEnterHandler = () => {
-    setHoverSummer(true);
+  const showFallHandler = () => {
+    if (!showFall) {
+      setShowSpring(false);
+      setShowSummer(false);
+      setShowWinter(false);
+    }
+    setShowFall(!showFall);
   };
-  const summerMouseLeaveHandler = () => {
-    setHoverSummer(false);
+  const showWinterHandler = () => {
+    if (!showWinter) {
+      setShowSpring(false);
+      setShowSummer(false);
+      setShowFall(false);
+    }
+    setShowWinter(!showWinter);
   };
-  const fallMouseEnterHandler = () => {
-    setHoverFall(true);
-  };
-  const fallMouseLeaveHandler = () => {
-    setHoverFall(false);
-  };
-  const winterMouseEnterHandler = () => {
-    setHoverWinter(true);
-  };
-  const winterMouseLeaveHandler = () => {
-    setHoverWinter(false);
-  };
+
+  console.log(showSpring);
+  console.log(showSummer);
+  console.log(showFall);
+  console.log(showWinter);
 
   return (
-    <div className={classes.seasons} onMouseEnter={props.mouseEnter}>
-      {/* <div> */}
-        <div
-          onMouseEnter={springMouseEnterHandler}
-          onMouseLeave={springMouseLeaveHandler}
-        >
-          <div>봄</div>
-          {hoverSpring && <img src={Spring} alt="spring_warm" />}
+    <div className={classes.separation}>
+      <div className={classes.seasons}>
+        <div className={classes.spring} onClick={showSpringHandler}>
+          봄
         </div>
-        <div
-          onMouseEnter={summerMouseEnterHandler}
-          onMouseLeave={summerMouseLeaveHandler}
-        >
-          <div>여름</div>
-          {hoverSummer && <img src={Summer} alt="summer_cool" />}
+        <div className={classes.summer} onClick={showSummerHandler}>
+          여름
         </div>
-        <div
-          onMouseEnter={fallMouseEnterHandler}
-          onMouseLeave={fallMouseLeaveHandler}
-        >
-          <div>가을</div>
-          {hoverFall && <img src={Fall} alt="fall_warm" />}
+        <div className={classes.fall} onClick={showFallHandler}>
+          가을
         </div>
-        <div
-          onMouseEnter={winterMouseEnterHandler}
-          onMouseLeave={winterMouseLeaveHandler}
-        >
-          <div>겨울</div>
-          {hoverWinter && <img src={Winter} alt="winter_warm" />}
+        <div className={classes.winter} onClick={showWinterHandler}>
+          겨울
         </div>
-      {/* </div> */}
+      </div>
+      <div className={classes["img-section"]}>
+        {showSpring && <img src={Spring} alt="spring_warm" />}
+        {showSummer && <img src={Summer} alt="summer_cool" />}
+        {showFall && <img src={Fall} alt="fall_warm" />}
+        {showWinter && <img src={Winter} alt="winter_warm" />}
+      </div>
     </div>
   );
 };
