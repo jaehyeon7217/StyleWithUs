@@ -157,21 +157,23 @@ const Consultant = (props) => {
       });
 
       newSession.on("signal:cart", async (event) => {
-        // if (JSON.parse(event.from.data).clientData !== con)
-        // await axios
-        // .get(`https://i8d105.p.ssafy.io/be/user/gender/${userId}`, {
-        //   headers: {
-        //     Authorization: userToken,
-        //   },
-        // })
-        // .then((response) => {
-        //   userId = response.data.userId;
-        // })
-        // .catch((error) => {
-        //   console.log(error);
-        // });
+        let id = null;
+        if (JSON.parse(event.from.data).clientData !== consultantNickname) {
+          await axios
+          .get(`https://i8d105.p.ssafy.io/be/user/gender/${JSON.parse(event.from.data).clientData}`, {
+            headers: {
+              Authorization: userToken,
+            },
+          })
+          .then((response) => {
+            id = response.data.userId;
+          })
+          .catch((error) => {
+            console.log(error);
+          });
+        }
 
-        axios.get(`https://i8d105.p.ssafy.io/be/item/show/${props.userId}`, {
+        axios.get(`https://i8d105.p.ssafy.io/be/item/show/${id}`, {
         headers: {
           Authorization: userToken,
         },
