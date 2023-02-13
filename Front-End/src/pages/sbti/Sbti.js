@@ -226,7 +226,7 @@ const Sbti = () => {
               <div className={classes.answer}>
                 <form onSubmit={(event) => {event.preventDefault()}}>
                   <label >
-                    <p>당신의 키는 몇 cm입니까?</p>
+                    <p>키를 cm단위로 입력해주세요</p>
                     <input type="number" className={classes.answerInput} value={height} onChange={(event)=> setHeight(event.target.value)}/>  
                   </label>              
                 </form>
@@ -268,6 +268,7 @@ const Sbti = () => {
                         value={shoulderSize[idx]}
                         defaultChecked={shoulderSize[idx]===shoulder}
                         name='shoulder'
+                        num={idx}
                       >
                       </Radio>
                       )
