@@ -45,11 +45,6 @@ const PersonalColorPicker = (props) => {
     setShowWinter(!showWinter);
   };
 
-  console.log(showSpring);
-  console.log(showSummer);
-  console.log(showFall);
-  console.log(showWinter);
-
   return (
     <div className={classes.separation}>
       <div className={classes.seasons}>

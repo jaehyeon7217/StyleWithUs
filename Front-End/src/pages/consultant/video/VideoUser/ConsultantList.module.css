@@ -13,6 +13,8 @@
     display: flex;
     padding: 2px;
     border-bottom: 1px solid gray;
+    padding-bottom: 5px;
+    margin-bottom: 5px;
     justify-content: space-around;
 }
 
@@ -36,6 +38,7 @@
     background-color: white;
     /* border: 1px solid black; */
     border: none;
+    box-shadow: 1px 1px;
     box-sizing: border-box;
     font-family: "Apple_Gothic_Neo_Light";
     font-size: 16px;
