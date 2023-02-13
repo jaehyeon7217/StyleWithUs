@@ -48,6 +48,8 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/servicecenter" element={<ServiceCenter />} />
         <Route path="/developerpage" element={<DeveloperPage />} />
+        <Route path="/servicecentercopy" element={<ServiceCenterCopy />}/>
+        <Route path="/usestylewithus" element={<UseStyleWithUs/>}></Route>
         <Route element={<PublicRoute/>}>
           <Route path="/auth/*" element={<Auth />} />
         </Route>
@@ -63,9 +65,7 @@ function App() {
           <Route path='/manageconsultant' element={<ManageConsultant/>}/>
           <Route path="/consultantmyprofile" element={<ConsultantMyProfile/>}></Route>
           <Route path="/consultantservicecenter" element={<ConsultantServiceCenter />}/>
-          <Route path="/servicecentercopy" element={<ServiceCenterCopy />}/>
           <Route path="/passwordchange" element={<PasswordChange/>}/>
-          <Route path="/usestylewithus" element={<UseStyleWithUs/>}></Route>
         </Route>
         <Route path="/*" element={<NotFound/>} />
       </Routes>
