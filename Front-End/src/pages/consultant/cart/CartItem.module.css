@@ -37,7 +37,7 @@
   justify-content: space-between;
   text-decoration: none;
   color: gray;
-  width: 88%;
+  width: 85%;
   height: 50px;
   margin-top: 11px;
   padding-bottom: 10px;
@@ -52,14 +52,14 @@
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  width: 83%;
+  width: 80%;
 }
 
 .a div > span {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  width: 88%;
+  width: 80%;
 }
 
 .a > span {
