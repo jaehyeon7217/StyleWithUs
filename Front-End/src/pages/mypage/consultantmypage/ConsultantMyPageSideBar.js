@@ -34,7 +34,7 @@ const ConsultantMyPageSideBar = () => {
         <div className={classes.SideBar}>
             <h1 className={classes.PageName} onClick={MyPage}>마이 페이지</h1>
             <h3 className={classes.SideBarName}>내 정보</h3>
-            <h1 className={classes.SidBarNameSmall} onClick={ProfilePage}>프로필 정보</h1>
+            <h3 className={classes.SidBarNameSmall} onClick={ProfilePage}>프로필 정보</h3>
             <h3 className={classes.SidBarNameSmall} onClick={ReviewPage}>나의 리뷰</h3>
             <h1 className={classes.SideBarName}>고객 센터</h1>
             <h3 className={classes.SidBarNameSmall} onClick={Toservicecenter}>자주 묻는 질문</h3>
