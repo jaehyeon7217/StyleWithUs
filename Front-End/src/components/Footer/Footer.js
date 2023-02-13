@@ -25,7 +25,7 @@ const Footer = () => {
     // 메인페이지 이동
     const toMainPage = (event) => {
         event.preventDefault();
-        navigate("/mainpage")
+        navigate("/usestylewithus")
     }
 
     return(
