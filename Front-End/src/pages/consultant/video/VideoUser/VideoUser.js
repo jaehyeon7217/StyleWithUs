@@ -295,7 +295,6 @@ const Consultant = (props) => {
         Authorization: userToken,
       },
     });
-    console.log(response.data.data);
     setSessionLists(response.data.data);
   };
 
@@ -322,7 +321,7 @@ const Consultant = (props) => {
   const [getConsultantId, setGetConsultantId] = useState(undefined);
 
   useEffect(() => {
-    console.log(getConsultantId);
+    // console.log(getConsultantId);
   }, [getConsultantId]);
 
   useEffect(() => {
