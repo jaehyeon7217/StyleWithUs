@@ -1,7 +1,30 @@
+.separation{
+    /* display: flex;
+    flex-direction: row; */
+    position: relative;
+}
+
 .seasons{
-    /* position: absolute; */
     display: flex;
-    margin-top: 500%;
-    width: 300px;
-    background-color: aqua;
+    flex-direction: column;
+    padding-top: 10%;
+    width: 20%;
+    height: 40%;
+}
+
+.image-spring{
+    width: 80%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    flex-grow: 1;
+}
+
+.hide-img{
+    visibility: hidden;
+}
+
+.separation img {
+    margin-left: 30%;
+    margin-top: -70px;
 }
