@@ -101,7 +101,6 @@ const Consultant = (props) => {
   }
 
   useEffect(() => {
-    console.log(sessionUserNickname);
     if (sessionUserNickname !== null) {
       axios
         .get(`https://i8d105.p.ssafy.io/be/user/gender/${sessionUserNickname}`, {
