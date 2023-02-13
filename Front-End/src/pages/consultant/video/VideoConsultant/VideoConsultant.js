@@ -116,10 +116,10 @@ const Consultant = (props) => {
           event.stream,
           JSON.parse(event.stream.connection.data).clientData
         );
-        // console.log(JSON.parse(event.stream.connection.data).clientData);
 
-        console.log(subscribers);
-        props.getUserNickname(JSON.parse(event.stream.connection.data).clientData);
+        if (JSON.parse(event.stream.connection.data).clientData !== consultantId) {
+          props.getUserNickname(JSON.parse(event.stream.connection.data).clientData);
+        }
 
         const newSubscribers = subscribers;
         newSubscribers.push(newSubscriber);
@@ -156,21 +156,20 @@ const Consultant = (props) => {
       });
 
       newSession.on("signal:cart", async (event) => {
-        let userId = null;
-        await axios
-        .get(`https://i8d105.p.ssafy.io/be/user/gender/${JSON.parse(event.from.data).clientData}`, {
-          headers: {
-            Authorization: user.token,
-          },
-        })
-        .then((response) => {
-          userId = response.data.userId;
-        })
-        .catch((error) => {
-          console.log(error);
-        });
+        // await axios
+        // .get(`https://i8d105.p.ssafy.io/be/user/gender/${userId}`, {
+        //   headers: {
+        //     Authorization: userToken,
+        //   },
+        // })
+        // .then((response) => {
+        //   userId = response.data.userId;
+        // })
+        // .catch((error) => {
+        //   console.log(error);
+        // });
 
-        axios.get(`https://i8d105.p.ssafy.io/be/item/show/${userId}`, {
+        axios.get(`https://i8d105.p.ssafy.io/be/item/show/${props.userId}`, {
         headers: {
           Authorization: userToken,
         },
