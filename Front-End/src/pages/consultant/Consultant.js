@@ -95,7 +95,7 @@ const Consultant = (props) => {
 
   // 만약 컨설턴트일 경우 
   const getSessionUserNickname = (nickname) => {
-    if (nickname !== user.userData.consultantNickname) {
+    if (nickname !== user.userData.consultantNickname && nickname !== null && nickname !== undefined) {
       setSessionUserNickname(nickname);
     }
   }
