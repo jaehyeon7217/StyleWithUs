@@ -367,22 +367,26 @@ const Consultant = (props) => {
                 onClick={getSession}
               />
             </h3>
-            {sessionLists.map((list, idx) => {
-              return (
-                <ConsultantList
-                  setGetSessionStatus={setGetSessionStatus}
-                  setGetConsultantId={setGetConsultantId}
-                  onAddSessionId={addSessionIdHandler}
-                  key={idx}
-                  consultantId={list.consultantId.consultantId}
-                  consultantNickname={list.consultantId.consultantNickname}
-                  consultantGender={list.consultantId.consultantGender}
-                  consultantResume={list.consultantId.consultantResume}
-                  numberOfPeople={!(list.numberOfPeople - 1)}
-                  sessionId={list.sessionId}
-                />
-              );
-            })}
+            <ul className={classes.ul}>
+              {sessionLists.map((list, idx) => {
+                return (
+                  <li key={idx}>
+                    <ConsultantList
+                      setGetSessionStatus={setGetSessionStatus}
+                      setGetConsultantId={setGetConsultantId}
+                      onAddSessionId={addSessionIdHandler}
+                      key={idx}
+                      consultantId={list.consultantId.consultantId}
+                      consultantNickname={list.consultantId.consultantNickname}
+                      consultantGender={list.consultantId.consultantGender}
+                      consultantResume={list.consultantId.consultantResume}
+                      numberOfPeople={!(list.numberOfPeople - 1)}
+                      sessionId={list.sessionId}
+                    />
+                  </li>
+                );
+              })}
+            </ul>
           </div>
         ) : null}
 

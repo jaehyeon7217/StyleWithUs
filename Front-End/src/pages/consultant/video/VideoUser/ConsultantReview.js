@@ -97,11 +97,12 @@ const ConsultantReview = (props) => {
         onSubmit={onSubmitHandler}
       >
         <div className={classes["review"]}>컨설턴트 리뷰</div>
-        <div className={classes["star-rating"]}>
-          <StarRating onReviewScore={onReviewScoreHandler} />
-        </div>
+        <div className={classes.wall}></div>
         <div className={classes["review-section"]}>
           <div className={classes["review-title"]}>후기</div>
+          <div className={classes["star-rating"]}>
+            <StarRating onReviewScore={onReviewScoreHandler} />
+          </div>
           <textarea
             className={classes["review-content"]}
             name="review"
@@ -114,7 +115,11 @@ const ConsultantReview = (props) => {
           ></textarea>
         </div>
         <div className={classes.button}>
-          <input type="submit" className={classes["review-button"]} value="리뷰 작성하기" />
+          <input
+            type="submit"
+            className={classes["review-button"]}
+            value="리뷰 작성하기"
+          />
         </div>
       </form>
     </div>
