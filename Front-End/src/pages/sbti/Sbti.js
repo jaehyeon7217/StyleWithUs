@@ -6,9 +6,8 @@ import { authActions } from "../../store/auth";
 
 import man from "../../assets/mainPage/컨설턴트.png"
 import woman from "../../assets/mainPage/패션캐릭터4.png"
-import left1 from "../../assets/left.png"
-import left2 from "../../assets/leftT.png"
-import right1 from "../../assets/right.png"
+import left2 from "../../assets/왼쪽.png"
+import right2 from "../../assets/오른쪽.png"
 
 import classes from "./Sbti.module.css";
 
@@ -127,20 +126,6 @@ const Sbti = () => {
   };
 
   // 첫번째
-  const fSlideRef = useRef(null);
-  const [firstQuestion, setFirst] = useState(0);
-  
-  const firstfirstQuestion = () =>{
-    setFirst(0)
-  }
-  const firstSecondQuestion = () =>{
-    setFirst(1)
-  };
-
-  useEffect(() => {
-    fSlideRef.current.style.transition = "all 0.5s ease-in-out";
-    fSlideRef.current.style.transform = `translateY(-${firstQuestion * 130}px)`;
-  }, [firstQuestion]);
 
   // 두번째
   const sSlideRef = useRef(null);
@@ -160,13 +145,18 @@ const Sbti = () => {
   }
   const secondThirdQuestion = () =>{
     setSecond(2)
-    document.getElementById("shoulder").style.opacity = 0.3;
+    document.getElementById("shoulder").style.opacity = 0;
     document.getElementById("chest").style.opacity = 0.3;
     document.getElementById("sleeve").style.opacity = 1;
   }
   useEffect(() => {
+    if(secondQuestion===0){
+      document.getElementById("shoulder").style.opacity = 1;
+      document.getElementById("chest").style.opacity = 0.3;
+      document.getElementById("sleeve").style.opacity = 0.3;
+    }
     sSlideRef.current.style.transition = "all 0.5s ease-in-out";
-    sSlideRef.current.style.transform = `translateY(-${secondQuestion * 130}px)`;
+    sSlideRef.current.style.transform = `translateY(-${secondQuestion * 70}px)`;
   }, [secondQuestion]);
 
   // 세번째
@@ -176,19 +166,41 @@ const Sbti = () => {
 
   const thirdFirstQuestion = () =>{
     setThird(0)
+    document.getElementById("waist").style.opacity = 1;
+    document.getElementById("hip").style.opacity = 0.3;
+    document.getElementById("thigh").style.opacity = 0.3;
+    document.getElementById("hem").style.opacity = 0.3;
   };
   const thirdSecondQuestion = () =>{
     setThird(1)
+    document.getElementById("waist").style.opacity = 0.3;
+    document.getElementById("hip").style.opacity = 1;
+    document.getElementById("thigh").style.opacity = 0.3;
+    document.getElementById("hem").style.opacity = 0.3;
   }
   const thirdThirdQuestion = () =>{
     setThird(2)
+    document.getElementById("waist").style.opacity = 0;
+    document.getElementById("hip").style.opacity = 0.3;
+    document.getElementById("thigh").style.opacity = 1;
+    document.getElementById("hem").style.opacity = 0.3;
   }
   const thirdForthQuestion = () =>{
     setThird(3)
+    document.getElementById("waist").style.opacity = 0;
+    document.getElementById("hip").style.opacity = 0;
+    document.getElementById("thigh").style.opacity = 0.3;
+    document.getElementById("hem").style.opacity = 1;
   }
   useEffect(() => {
+    if(thirdQuestion===0){
+      document.getElementById("waist").style.opacity = 1;
+      document.getElementById("hip").style.opacity = 0.3;
+      document.getElementById("thigh").style.opacity = 0.3;
+      document.getElementById("hem").style.opacity = 0.3;
+    }
     tSlideRef.current.style.transition = "all 0.5s ease-in-out";
-    tSlideRef.current.style.transform = `translateY(-${thirdQuestion * 130}px)`;
+    tSlideRef.current.style.transform = `translateY(-${thirdQuestion * 70}px)`;
   }, [thirdQuestion]);
 
   return (
@@ -206,18 +218,16 @@ const Sbti = () => {
         </div>
         {/* 첫번째 슬라이드 */}
         <div className={classes.carouselItem}>
-          <img src={left1} alt="left1" className={classes.directionImg} onClick={prevSlide}/>
+          <img src={left2} alt="left1" className={classes.directionImg} onClick={prevSlide}/>
           <div className={classes.surveyBox}>
-            <div className={classes.yChangeBox}>
-            <div className={classes.answerBox} ref={fSlideRef}>
-            <div className={classes.answer}>
               <p className={classes.question}>SBTI #1</p>
-            </div>
+            <div className={classes.yChangeBox}>
+            <div className={classes.answerBox}>
               <div className={classes.answer}>
-                <form onSubmit={(event) => {event.preventDefault(); firstSecondQuestion(event);}}>
+                <form onSubmit={(event) => {event.preventDefault()}}>
                   <label >
                     <p>당신의 키는 몇 cm입니까?</p>
-                    <input type="number" className={classes.answerInput} value={height} onChange={(event)=> setHeight(event.target.value)} onFocus={firstfirstQuestion}/>  
+                    <input type="number" className={classes.answerInput} value={height} onChange={(event)=> setHeight(event.target.value)}/>  
                   </label>              
                 </form>
               </div>
@@ -225,24 +235,22 @@ const Sbti = () => {
                 <form onSubmit={(event) => {event.preventDefault()}}>
                   <label>
                     <p>평소 신으시는 신발 사이즈를 mm 단위로 입력해주세요</p>
-                    <input type="number" className={classes.answerInput} value={foot}onChange={(event)=> setFoot(event.target.value)}  onFocus={firstSecondQuestion}/>  
+                    <input type="number" className={classes.answerInput} value={foot}onChange={(event)=> setFoot(event.target.value)}/>  
                   </label>              
                 </form>
               </div>
             </div>
             </div>
           </div>
-          <img src={right1} alt="right" className={classes.directionImg} onClick={nextSlide}/>
+          <img src={right2} alt="right" className={classes.directionImg} onClick={nextSlide}/>
         </div>
         {/* 두번째 슬라이드 */}
         <div className={classes.carouselItem}>
         <img src={left2} alt="left1" className={classes.directionImg} onClick={prevSlide}/>
           <div className={classes.surveyBox}>
+              <p className={classes.question}>SBTI #2</p>
             <div className={classes.yChangeBox}>
             <div className={classes.answerBox} ref={sSlideRef}>
-            <div className={classes.answer}>
-              <p className={classes.question}>SBTI #2</p>
-            </div>
               <div className={classes.answer} id="shoulder">
                 <form 
                   onChange={(event) => {
@@ -319,18 +327,16 @@ const Sbti = () => {
             </div>
             </div>
           </div>
-          <img src={right1} alt="right" className={classes.directionImg} onClick={nextSlide}/>
+          <img src={right2} alt="right" className={classes.directionImg} onClick={nextSlide}/>
         </div>
         {/* 세번째 슬라이드 */}
         <div className={classes.carouselItem}>
-        <img src={left1} alt="left1" className={classes.directionImg} onClick={prevSlide}/>
+        <img src={left2} alt="left1" className={classes.directionImg} onClick={prevSlide}/>
           <div className={classes.surveyBox}>
+          <p className={classes.question}>SBTI #3</p>
             <div className={classes.yChangeBox}>
             <div className={classes.answerBox} ref={tSlideRef}>
-              <div className={classes.answer}>
-                <p className={classes.question}>SBTI #3</p>
-              </div>
-              <div className={classes.answer}>
+              <div className={classes.answer} id="waist">
                 <form 
                   onChange={(event) => {
                     thirdSecondQuestion(event); 
@@ -355,7 +361,7 @@ const Sbti = () => {
                   </div>             
                 </form>
               </div>
-              <div className={classes.answer}>
+              <div className={classes.answer} id="hip">
                 <form 
                   onChange={(event) => {
                     thirdThirdQuestion(event);
@@ -380,7 +386,7 @@ const Sbti = () => {
                   </div>            
                 </form>
               </div>
-              <div className={classes.answer}>
+              <div className={classes.answer} id="thigh">
                 <form 
                   onChange={(event) => {
                     thirdForthQuestion(event);
@@ -405,7 +411,7 @@ const Sbti = () => {
                   </div>          
                 </form>
               </div>
-              <div className={classes.answer}>
+              <div className={classes.answer} id="hem">
                 <form 
                   onChange={(event) => {
                     setHem(event.target.value)}}
@@ -432,7 +438,7 @@ const Sbti = () => {
             </div>
             </div>
           </div>
-          <img src={right1} alt="right" className={classes.directionImg} onClick={nextSlide}/>
+          <img src={right2} alt="right" className={classes.directionImg} onClick={nextSlide}/>
         </div>
         {/* 제출 슬라이드 */}
         <div className={classes.carouselItem1}>

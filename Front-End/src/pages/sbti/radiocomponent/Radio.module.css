@@ -21,4 +21,5 @@
 
 .inputLabel input[type=radio]:hover {
   border: 1em solid gray;
+  cursor: pointer;
 }
