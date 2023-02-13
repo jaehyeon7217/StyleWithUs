@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { Fragment, useState } from "react";
 
 import colorCircle from "../../../assets/colorcircle.png";
 import classes from "./PersonalColor.module.css";
@@ -12,30 +12,31 @@ const PersonalColor = () => {
   };
   const personalColorPickerMouseEnterHandler = () => {
     setPickerStatus(true);
+    // console.log(pickerStatus);
   };
   const personalColorPickerMouseOutHandler = () => {
     setPickerStatus(false);
+    // console.log(pickerStatus);
   };
 
   return (
-    <div className={classes["color-picker-container"]}>
+    <Fragment>
       <div
         onMouseEnter={personalColorPickerMouseEnterHandler}
         onMouseLeave={personalColorPickerMouseOutHandler}
+        className={classes["color-picker"]}
       >
         <img
-          className={classes["color-picker"]}
+          className={classes["image-color-picker"]}
           src={colorCircle}
           alt="colorCircle"
           onClick={personalColorPickerClickHandler}
         />
-      </div>
       {pickerStatus && (
-        <PersonalColorPicker
-          mouseEnter={personalColorPickerMouseEnterHandler}
-        />
+        <PersonalColorPicker />
       )}
-    </div>
+      </div>
+    </Fragment>
   );
 };
 

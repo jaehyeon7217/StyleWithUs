@@ -27,6 +27,9 @@
 
 .review-content{
     width: 150px;
+    word-break: break-all;
+    overflow-wrap: break-word;
+    margin-left: 5px;
 }
 
 .button{

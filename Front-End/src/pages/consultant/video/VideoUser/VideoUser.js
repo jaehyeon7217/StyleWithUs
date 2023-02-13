@@ -168,12 +168,11 @@ const Consultant = (props) => {
             dispatch(cartActions.getCart(response.data.data));
           })
           .catch((error) => {
-            console.log(error);
+            // console.log(error);
           });
       });
 
       newSession.on("signal:my-chat", (event) => {
-        // {"clientData":"bingbang"}
         const userName = JSON.parse(event.from.data).clientData;
 
         if (event.data.trim() !== "") {
@@ -205,6 +204,8 @@ const Consultant = (props) => {
   const leaveSession = () => {
     // --- 7) Leave the session by calling 'disconnect' method over the Session object ---
     const mySession = session;
+    // console.log(maintainSessionId);
+    // console.log(mySessionId);
     if (maintainSessionId) {
       sendLeave(maintainSessionId);
       if (mySession) {
@@ -230,12 +231,18 @@ const Consultant = (props) => {
     const url =
       APPLICATION_SERVER_URL + "api/sessions/" + sessionId + "/disconnections";
     const data = {};
-    const response = await axios.post(url, data, {
-      headers: {
-        Authorization: userToken,
-      },
-    });
-    return response.data;
+    const response = await axios
+      .post(url, data, {
+        headers: {
+          Authorization: userToken,
+        },
+      })
+      .then((response) => {
+        // console.log(response);
+      })
+      .catch((error) => {
+        // console.log(error);
+      });
   };
 
   const getToken = async () => {
@@ -277,7 +284,7 @@ const Consultant = (props) => {
 
       return;
     } else {
-      console.log(response.data.token);
+      // console.log(response.data.token);
       return response.data.token; // The token
     }
   };

@@ -1,10 +1,8 @@
-.color-picker-container{
-  margin-top: 5px;
+.color-picker{
+  height: 12%;
 }
 
-.color-picker{
-  width: 50px;
+.image-color-picker{
   height: 50px;
-  background-color: transparent;
   cursor: pointer;
 }
