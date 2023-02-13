@@ -5,12 +5,39 @@ import LengthType from "./LengthType";
 import classes from "./Recommend.module.css";
 import RecommendItemBox from "./RecommendItemBox";
 import { useEffect } from "react";
+import Swal from "sweetalert2";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 // import TopLengthImage from "../../assets/clothes/상의.png";
 
 const Recommend = () => {
   const user = useSelector(state => state.auth);
   let [clothesData, setClothesData] = useState([]);
+  
+  const navigate = useNavigate();
+  const userData = useSelector((state)=> state.auth.userData);
+  const isData = userData.userHeight;
+
+  const nonData = () => {
+    if(!!isData===false){
+      Swal.fire({
+        title:
+          '<div style="font-size:24px;font-family:Apple_Gothic_Neo_Bold;font-weight:bold;">SBTI 데이터가 없습니다<div>',
+        html: '<div style="font-size:16px;font-family:Apple_Gothic_Neo_Mid;">SBTI 검사를 하고 추천페이지를 이용해주세요</div>',
+        icon: "error",
+        width: 330,
+        confirmButtonColor: "#9A9A9A",
+        confirmButtonText:
+          '<div style="font-size:16px;font-family:Apple_Gothic_Neo_Mid;">확인</div>',
+      }).then((result) => {
+        if (result.isConfirmed){
+          navigate('/sbti')
+        }else{
+          navigate('/')
+        }
+      })
+    }
+  }
 
   const url = "https://i8d105.p.ssafy.io/be/data/recommend";
 
