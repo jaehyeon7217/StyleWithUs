@@ -17,12 +17,15 @@ import Sbti from "./pages/sbti/Sbti";
 import Loading from "./pages/consultant/Loading";
 import ConsultantMyProfile from './pages/mypage/consultantmypage/ConsultantMyProfile';
 import ConsultantServiceCenter from './pages/mypage/consultantmypage/ConsultantServiceCenter';
+import ServiceCenterCopy from './pages/servicecenter/ServiceCenterCopy';
 
 import NotFound from "./pages/notfound/NotFound"
 
 
 import PrivateRoute from "./components/PrivateRoute";
 import PublicRoute from "./components/PublicRoute";
+
+import Footer from './components/Footer/Footer';
 
 function App() {
   // 파라미터 값을 가져온다.
@@ -58,10 +61,11 @@ function App() {
           <Route path='/manageconsultant' element={<ManageConsultant/>}/>
           <Route path="/consultantmyprofile" element={<ConsultantMyProfile/>}></Route>
           <Route path="/consultantservicecenter" element={<ConsultantServiceCenter />}></Route>
+          <Route path="/servicecentercopy" element={<ServiceCenterCopy />}></Route>
         </Route>
         <Route path="/*" element={<NotFound/>} />
       </Routes>
-      <div>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Minus, in harum! Porro, animi? Perspiciatis doloremque deserunt autem expedita accusamus consequatur officia veritatis ut molestiae. Inventore nihil autem accusantium deleniti molestias.</div>
+      <Footer/>
     </div>
   );
 }
