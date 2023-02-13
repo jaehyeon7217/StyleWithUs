@@ -18,49 +18,47 @@
     text-decoration: none;
     color: black;
     /* border-bottom: 1px solid rgb(211, 211, 211); */
-    height: 95px;
-    margin-top: 11px;
-    padding-bottom: 10px;
     transition: color .15s;
     transition: all .15s;
-    font-size: 17.5px;
+    font-size: 17px;
+    margin: 10px 0;
+    color: gray;
 }
 
 .a:hover {
-    font-weight: 600;
     color: black;
 }
 
 .a div {
+  width: 70%;
     display: flex;
     align-items: center;
 }
 
-.a>span {
+.a div span {
+  width: 80%;
+}
+
+.a > span {
     color: black;
-    font-weight: 600;
+    font-weight: 600;  
 }
 
 .img {
     display: inline-block;
     width: 90px;
-    height: 85px;
+    height: auto;
     border-radius: 8px;
     margin: 0 15px 0 10px;
-}
-
-.hr{
-    border: 1px solid rgb(228, 226, 226);
-    margin-left: 5px;
 }
 
 .DelBtn{
     float: right;
     margin-top: -35px;
-    color: black;
+    color: gray;
     transition: all .15s;
     border: none;
-    /* background-color: skyblue; */
+    background-color: transparent;
     font-size: 13px;
     font-family: "Apple_Gothic_Neo_SBold";
     padding-top: 5px;
@@ -71,6 +69,7 @@
 
 .DelBtn:hover {
     text-decoration: underline;
+    color: black;
     /* color: white;
     background-color: black; */
 }
