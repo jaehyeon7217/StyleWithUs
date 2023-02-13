@@ -78,7 +78,7 @@ const ConsultantMyPage = () => {
   
   const toPasswordChange = (event) => {
     event.preventDefault();
-    navigate("/auth/passwordchange")
+    navigate("/passwordchange")
   }
   
 
