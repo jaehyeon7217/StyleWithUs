@@ -126,15 +126,14 @@
 /* footer 바닥 */
 
 .footerBottom{
-background-color: rgb(250, 250, 250);
-display: flex;
-justify-content: space-evenly;
+  background-color: rgb(250, 250, 250);
+  display: flex;
+  justify-content: space-between;
 }
 
   
 .footerBoxone{
-  margin-right: 220px;
-  
+  margin-left: 50px;
 }
 
 .footerBoxOneTitle{
@@ -158,6 +157,7 @@ justify-content: space-evenly;
   font-family: "Apple_Gothic_Neo_Bold";
   font-size: 17px;
   margin-top: -30px;
+  margin-bottom: 13px;
 }
 
 .ContentOneContent{
@@ -171,6 +171,7 @@ justify-content: space-evenly;
 .footerBoxtwo{
   margin-left: 60px;
   display: flex;
+  margin-right: 60px;
 }
 
 
@@ -179,6 +180,7 @@ justify-content: space-evenly;
   font-size: 17px;
   margin-top: 40px;
   margin-right: 40px;
+  cursor: pointer;
 }
 
 .servicecentername{
@@ -197,6 +199,7 @@ justify-content: space-evenly;
   padding-top: 5px;
   padding-bottom: 5px;
   margin-top: -20px;
+  cursor: pointer;
 
 }
 
