@@ -169,7 +169,7 @@
   position: relative;
 }
 
-.section1 .left:after {
+/* .section1 .left:after {
   position: absolute;
   display: block;
   content: "";
@@ -189,11 +189,11 @@
     inset 0 0 40px #888888,
     inset 0 0 40px #757575,
     inset 0 0 40px #505050;
-}
+} */
 
 .section1 .left video {
   width: 100%;
-  border-radius: 30px;
+  /* border-radius: 30px; */
 }
 
 .section1 h1,
