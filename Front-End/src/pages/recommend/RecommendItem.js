@@ -6,9 +6,12 @@ import Swal from "sweetalert2";
 
 import { cartActions } from "../../store/cart";
 import classes from "./RecommendItem.module.css";
+import { useNavigate } from "react-router-dom";
+import { authActions } from "../../store/auth";
 
 const RecommendItem = (props) => {
   const clothesData = props.data;
+  const navigate = useNavigate();
   const dispatch = useDispatch();
   const userId = useSelector((state) => state.auth.userId);
   const token = useSelector((state) => state.auth.token);
@@ -47,7 +50,19 @@ const RecommendItem = (props) => {
         })
       })
       .catch((error) => {
-        console.log(error);
+        if(error.response.status===401){
+          Swal.fire({
+            title: '<div style="font-size:24px;font-family:Apple_Gothic_Neo_Bold;font-weight:bold;">토큰 만료<div>', 
+            html: '<div style="font-size:16px;font-family:Apple_Gothic_Neo_Mid;">다시 로그인 해주세요!</div>', 
+            width : 330,
+            icon: 'error',
+            confirmButtonText:'<div style="font-size:16px;font-family:Apple_Gothic_Neo_Mid;">확인</div>',
+            confirmButtonColor: '#9A9A9A',
+          }).then(()=>{
+            navigate('/')
+            dispatch(authActions.logout(""))
+          })
+        }
       });
 
     axios
@@ -60,7 +75,19 @@ const RecommendItem = (props) => {
         dispatch(cartActions.getCart(response.data.data));
       })
       .catch((error) => {
-        console.log(error);
+        if(error.response.status===401){
+          Swal.fire({
+            title: '<div style="font-size:24px;font-family:Apple_Gothic_Neo_Bold;font-weight:bold;">토큰 만료<div>', 
+            html: '<div style="font-size:16px;font-family:Apple_Gothic_Neo_Mid;">다시 로그인 해주세요!</div>', 
+            width : 330,
+            icon: 'error',
+            confirmButtonText:'<div style="font-size:16px;font-family:Apple_Gothic_Neo_Mid;">확인</div>',
+            confirmButtonColor: '#9A9A9A',
+          }).then(()=>{
+            navigate('/')
+            dispatch(authActions.logout(""))
+          })
+        }
       });
   };
 

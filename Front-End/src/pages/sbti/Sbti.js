@@ -3,6 +3,7 @@ import { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useLocation, useNavigate } from "react-router-dom";
 import { authActions } from "../../store/auth";
+import Swal from "sweetalert2";
 
 import man from "../../assets/mainPage/컨설턴트.png"
 import woman from "../../assets/mainPage/패션캐릭터4.png"
@@ -53,13 +54,16 @@ const Sbti = () => {
   const location = useLocation();
   const [isSBTI, setIsSBTI] = useState(false);
 
-
-  useEffect(()=>{
+  const startSBTI = () => {
     if(location.pathname==='/sbti'){
       setIsSBTI(true)
     }else{
       setIsSBTI(false)
     }
+  }
+
+  useEffect(()=>{
+    startSBTI();
   })
 
 
@@ -123,7 +127,19 @@ const Sbti = () => {
         navigate("/");
       })
       .catch((error) => {
-        console.log(error);
+        if(error.response.status===401){
+          Swal.fire({
+            title: '<div style="font-size:24px;font-family:Apple_Gothic_Neo_Bold;font-weight:bold;">토큰 만료<div>', 
+            html: '<div style="font-size:16px;font-family:Apple_Gothic_Neo_Mid;">다시 로그인 해주세요!</div>', 
+            width : 330,
+            icon: 'error',
+            confirmButtonText:'<div style="font-size:16px;font-family:Apple_Gothic_Neo_Mid;">확인</div>',
+            confirmButtonColor: '#9A9A9A',
+          }).then(()=>{
+            navigate('/')
+            dispatch(authActions.logout(""))
+          })
+        }
       });
   };
 

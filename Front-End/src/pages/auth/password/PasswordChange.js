@@ -74,17 +74,31 @@ const PasswordChange = () => {
           });
         }
       })
-      .catch(() => {
-        Swal.fire({
-          title:
-            '<div style="font-size:24px;font-family:Apple_Gothic_Neo_Bold;font-weight:bold;">변경 실패<div>',
-          html: '<div style="font-size:16px;font-family:Apple_Gothic_Neo_Mid;">비밀번호를 다시 확인해주세요</div>',
-          width: 330,
-          icon: "error",
-          confirmButtonColor: "#9A9A9A",
-          confirmButtonText:
-            '<div style="font-size:16px;font-family:Apple_Gothic_Neo_Mid;">확인</div>',
-        });
+      .catch((error) => {
+        if(error.response.status===401){
+          Swal.fire({
+            title: '<div style="font-size:24px;font-family:Apple_Gothic_Neo_Bold;font-weight:bold;">토큰 만료<div>', 
+            html: '<div style="font-size:16px;font-family:Apple_Gothic_Neo_Mid;">다시 로그인 해주세요!</div>', 
+            width : 330,
+            icon: 'error',
+            confirmButtonText:'<div style="font-size:16px;font-family:Apple_Gothic_Neo_Mid;">확인</div>',
+            confirmButtonColor: '#9A9A9A',
+          }).then(()=>{
+            navigate('/')
+            dispatch(authActions.logout(""))
+          })
+        }else{
+          Swal.fire({
+            title:
+              '<div style="font-size:24px;font-family:Apple_Gothic_Neo_Bold;font-weight:bold;">변경 실패<div>',
+            html: '<div style="font-size:16px;font-family:Apple_Gothic_Neo_Mid;">비밀번호를 다시 확인해주세요</div>',
+            width: 330,
+            icon: "error",
+            confirmButtonColor: "#9A9A9A",
+            confirmButtonText:
+              '<div style="font-size:16px;font-family:Apple_Gothic_Neo_Mid;">확인</div>',
+          });
+        }
       });
   };
 

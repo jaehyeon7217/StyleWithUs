@@ -1,6 +1,6 @@
 import React, { Fragment, useState, useEffect } from "react";
 import classes from "./Consultant.module.css";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import history from "./video/history";
 
 import VideoConsultant from "./video/VideoConsultant/VideoConsultant";
@@ -11,8 +11,13 @@ import ChatContent from "./chat/ChatContent";
 import ChatForm from "./chat/ChatForm";
 import chatImage from "../../assets/chat.png";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
+import { authActions } from "../../store/auth";
 
 const Consultant = (props) => {
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
   const [toggleChatToCart, setToggleChatToCart] = useState(false);
 
   // 세션
@@ -117,7 +122,19 @@ const Consultant = (props) => {
           setSessionUserId(response.data.userId);
         })
         .catch((error) => {
-          console.log(error);
+          if(error.response.status===401){
+            Swal.fire({
+              title: '<div style="font-size:24px;font-family:Apple_Gothic_Neo_Bold;font-weight:bold;">토큰 만료<div>', 
+              html: '<div style="font-size:16px;font-family:Apple_Gothic_Neo_Mid;">다시 로그인 해주세요!</div>', 
+              width : 330,
+              icon: 'error',
+              confirmButtonText:'<div style="font-size:16px;font-family:Apple_Gothic_Neo_Mid;">확인</div>',
+              confirmButtonColor: '#9A9A9A',
+            }).then(()=>{
+              navigate('/')
+              dispatch(authActions.logout(""))
+            })
+          }
         });
     } else {
       setSessionUserId(null);

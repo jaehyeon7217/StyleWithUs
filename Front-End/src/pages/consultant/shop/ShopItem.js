@@ -1,5 +1,7 @@
 import { Fragment } from "react";
 import { useSelector, useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { authActions } from "../../../store/auth";
 import axios from "axios";
 import Swal from "sweetalert2";
 
@@ -10,7 +12,8 @@ import classes from "./ShopItem.module.css";
 const ShopItem = (props) => {
   // item : no, imgLink, maker, link, title, afterPrice;
   const item = props.item;
-
+  
+  const navigate = useNavigate();
   const user = useSelector(state => state.auth);
   const userType = useSelector(state => state.auth.userType);
   let userId = useSelector(state => state.auth.userId);
@@ -51,7 +54,19 @@ const ShopItem = (props) => {
         })
       })
       .catch((error) => {
-        console.log(error);
+        if(error.response.status===401){
+          Swal.fire({
+            title: '<div style="font-size:24px;font-family:Apple_Gothic_Neo_Bold;font-weight:bold;">토큰 만료<div>', 
+            html: '<div style="font-size:16px;font-family:Apple_Gothic_Neo_Mid;">다시 로그인 해주세요!</div>', 
+            width : 330,
+            icon: 'error',
+            confirmButtonText:'<div style="font-size:16px;font-family:Apple_Gothic_Neo_Mid;">확인</div>',
+            confirmButtonColor: '#9A9A9A',
+          }).then(()=>{
+            navigate('/')
+            dispatch(authActions.logout(""))
+          })
+        }
       });
     
     if (props.session !== undefined) {
@@ -77,7 +92,19 @@ const ShopItem = (props) => {
         dispatch(cartActions.getCart(response.data.data));
       })
       .catch((error) => {
-        console.log(error);
+        if(error.response.status===401){
+          Swal.fire({
+            title: '<div style="font-size:24px;font-family:Apple_Gothic_Neo_Bold;font-weight:bold;">토큰 만료<div>', 
+            html: '<div style="font-size:16px;font-family:Apple_Gothic_Neo_Mid;">다시 로그인 해주세요!</div>', 
+            width : 330,
+            icon: 'error',
+            confirmButtonText:'<div style="font-size:16px;font-family:Apple_Gothic_Neo_Mid;">확인</div>',
+            confirmButtonColor: '#9A9A9A',
+          }).then(()=>{
+            navigate('/')
+            dispatch(authActions.logout(""))
+          })
+        }
       });
   };
 
