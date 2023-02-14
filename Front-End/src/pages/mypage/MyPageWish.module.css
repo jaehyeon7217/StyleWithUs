@@ -21,9 +21,10 @@
 }
 
 .WrapMyPage {
-    margin-top: 100px;
+    margin: 100px auto;
     display: flex;
     justify-content: center;
+    width: 1440px;
 }
 
 .WishPageName{
@@ -34,7 +35,7 @@
 }
 
 .WishBox{
-    width: 900px;
+    width: 904px;
 }
 
 .hr{
