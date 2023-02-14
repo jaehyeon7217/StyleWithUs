@@ -232,8 +232,8 @@ const Sbti = () => {
       <div className={classes.sliderContainer} ref={slideRef}>
         {/* 검사 시작하기 */}
         <div className={classes.carouselItem1}>
-          <p className={!isSBTI ? `${classes["PageName"]}` : `${classes["PageName"]} ${classes.on}`}>STYLE WITH US</p>
-          <p className={!isSBTI ? `${classes["SubPageName"]}` : `${classes["SubPageName"]} ${classes.on}`}>스타일 혁신의 가장 확실한 방법</p>
+          <h1 className={!isSBTI ? `${classes["PageName"]}` : `${classes["PageName"]} ${classes.on}`}>S<span>tyle</span>B<span>ody</span>T<span>ype</span>I<span>ndicator</span></h1>
+          <p className={!isSBTI ? `${classes["SubPageName"]}` : `${classes["SubPageName"]} ${classes.on}`}>당신의 바디 스타일 타입은?</p>
           <img src={man} alt="man" className={!isSBTI ? `${classes["manImg"]}` : `${classes["manImg"]} ${classes.on}`}/><br />
           <button onClick={nextSlide} className={!isSBTI ? `${classes["carouselbutton1"]}` : `${classes["carouselbutton1"]} ${classes.on}`}>
             검사 시작하기
@@ -473,8 +473,8 @@ const Sbti = () => {
         {/* 제출 슬라이드 */}
         <div className={classes.carouselItem1}>
         <div className={classes.carouselItem1}>
-          <p className={!isSBTI ? `${classes["PageName"]}` : `${classes["PageName"]} ${classes.on}`}>STYLE WITH US</p>
-          <p className={!isSBTI ? `${classes["SubPageName"]}` : `${classes["SubPageName"]} ${classes.on}`}>스타일 혁신의 가장 확실한 방법</p>
+          <h1 className={!isSBTI ? `${classes["PageName"]}` : `${classes["PageName"]} ${classes.on}`}>S<span>tyle</span>B<span>ody</span>T<span>ype</span>I<span>ndicator</span></h1>
+          <p className={!isSBTI ? `${classes["SubPageName"]}` : `${classes["SubPageName"]} ${classes.on}`}>스타일 측정 완료!</p>
           <img src={woman} alt="man" className={!isSBTI ? `${classes["manImg"]}` : `${classes["manImg"]} ${classes.on}`}/><br />
           <button onClick={submitSbti} className={!isSBTI ? `${classes["carouselbutton1"]}` : `${classes["carouselbutton1"]} ${classes.on}`}>
             검사 제출하기

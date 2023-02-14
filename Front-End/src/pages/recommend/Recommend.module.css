@@ -51,8 +51,9 @@
 
 .background h1 {
   color: black;
+  margin-top: 80px;
   font-family: "Apple_Gothic_Neo_Middle";
-  font-size: 45px;
+  font-size: 55px;
   text-align: center;
 }
 
