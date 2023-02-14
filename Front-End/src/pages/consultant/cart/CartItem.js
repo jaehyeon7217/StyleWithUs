@@ -59,7 +59,6 @@ const CartItem = (props) => {
       },
     })
       .then((response) => {
-        console.log(response.data);
         dispatch(cartActions.getCart(response.data.data));
       })
       .catch((error) => {

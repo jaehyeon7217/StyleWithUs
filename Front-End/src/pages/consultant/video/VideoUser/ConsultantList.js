@@ -36,7 +36,7 @@ const ConsultantList = (props) => {
         <div>
           {consultantNickname}({consultantGenderType[0]}) 님과 함께
         </div>
-        <div>스타일을 변경해보시겠습니까?</div>
+        <div>스타일을 변경하시겠습니까?</div>
       </div>
       <div className={classes["button-display"]}>
         <input

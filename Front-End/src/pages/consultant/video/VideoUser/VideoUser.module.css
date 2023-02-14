@@ -40,6 +40,7 @@
   margin-bottom: 0;;
   position: relative;
   font-family: "Apple_Gothic_Neo_Light";
+  border-bottom: 1px solid rgb(211, 211, 211);
 }
 
 .reload {
@@ -52,12 +53,31 @@
 }
 
 .ul {
-  height: 90%;
+  height: 80%;
   list-style: none;
   padding-left: 0px;
   font-family: "Apple_Gothic_Neo_Light";
   margin: 0;
   overflow-y: auto;
+}
+
+.ul::-webkit-scrollbar{
+  width: 5px;
+  border-radius: 10px;
+  /*스크롤바의 너비*/
+}
+
+
+.ul::-webkit-scrollbar-thumb {
+  background-color: lightgrey;
+  border-radius: 20px;
+  /*스크롤바의 색상*/
+}
+
+.ul::-webkit-scrollbar-track {
+  /* background-color: grey; */
+  border-radius: 10px;
+  /*스크롤바 트랙 색상*/
 }
 
 /* session !== undefined */
@@ -77,26 +97,27 @@
 }
 
 .back-button {
-  /* width: 20%;
-  height: 10%; */
   position: absolute;
+  right: 0;
   z-index: 1;
-  padding: 3% 5%;
-  /* margin-top: 30px;
-  margin-bottom: 3px; */
-  border-radius: 15px;
-  background-color: rgba(255, 255, 255, 0.3);
+  padding: 10px 20px;
+  border-radius: 15px 18px 15px 15px;
+  background-color: rgba(211, 211, 211, 0.3);
   border: none;
   box-sizing: border-box;
   font-family: "Apple_Gothic_Neo_Bold";
   font-size: 18px;
   transition: all 0.15s;
+  margin-right: 9.5%;
 }
 
 .back-button:hover {
   cursor: pointer;
-  background-color: rgb(202, 202, 202);
+  background-color: rgb(253, 82, 82);
   opacity: 0.8;
-  border: 1.5px solid rgb(202, 202, 202);
   color: white;
+}
+
+.video {
+  height: 100%;
 }
