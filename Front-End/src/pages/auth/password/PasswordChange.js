@@ -129,7 +129,7 @@ const PasswordChange = () => {
           label="새로운 비밀번호"
           type="password"
           value={newPassword}
-          placeholder="비밀번호를 입력해주세요"
+          placeholder="9자 이상 16자 이하의 비밀번호를 입력해주세요"
           onChange={setNewPassword}
           errorMessage={
             newPasswordError

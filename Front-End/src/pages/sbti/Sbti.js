@@ -124,7 +124,7 @@ const Sbti = () => {
       )
       .then((response) => {
         dispatch(authActions.newSBTi(response.data))
-        navigate("/");
+        navigate("/recommend");
       })
       .catch((error) => {
         if(error.response.status===401){

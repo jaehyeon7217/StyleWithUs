@@ -20,9 +20,9 @@ const UserSignup = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const [id, setId, idEffectError] = DataInput(/^[a-zA-z0-9]{5,20}$/);
-  const [name, setName, nameError] = DataInput(/[ㄱ-ㅎ|ㅏ-ㅣ|가-힣]{2,10}/);
+  const [name, setName, nameError] = DataInput(/^[가-힣]{2,10}$/);
   const [nickName, setNickName, nickNameEffectError] =
-    DataInput(/^[a-zA-z0-9]{3,20}$/);
+    DataInput(/^[a-zA-z0-9가-힣]{3,20}$/);
   const [email, setEmail, emailEffectError] = DataInput(
     /^([0-9a-zA-Z_-]+)@([0-9a-zA-Z_-]+)(\.[0-9a-zA-Z_-]+){1,2}$/
   );
@@ -192,7 +192,7 @@ const UserSignup = () => {
           label="닉네임"
           type="text"
           value={nickName}
-          placeholder="닉네임을 입력해주세요"
+          placeholder="세글자 이상의 닉네임을 입력해주세요"
           onChange={setNickName}
           onBlur={checkNickname}
           errorMessage={
@@ -200,7 +200,7 @@ const UserSignup = () => {
               ? nickNameValidError
                 ? ""
                 : "이미 있는 닉네임입니다."
-              : "영어와 숫자로만 입력해주세요."
+              : "영어, 한글, 숫자로만 입력해주세요."
           }
         />
         <InputShortLabel
@@ -235,7 +235,7 @@ const UserSignup = () => {
           label="비밀번호"
           type="password"
           value={password}
-          placeholder="비밀번호를 입력해주세요"
+          placeholder="9자 이상 16자 이하의 비밀번호를 입력해주세요"
           onChange={setPassword}
           errorMessage={
             passwordError ? "" : "영어와 숫자 그리고 특수문자로만 입력해주세요."
