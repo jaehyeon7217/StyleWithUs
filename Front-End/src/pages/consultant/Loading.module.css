@@ -21,21 +21,22 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 17%;
+  height: auto;
   top: 45%;
 }
 
 .loading-pic img{
-  width: 200px;
+  width: 80%;
   height: auto;
   margin: 5%;
 }
 
 .loading-pic img.loading-rotating-pic{
-  width: 120px;
+  width: 80px;
   height: auto;
-  margin: 5%;
-  /* transition: transform 10s;
-  transform: rotate(740deg); */
+  /* margin: 5%; */
+  margin: 80px;
   animation: rotate_image 10s linear infinite;
 }
 
@@ -43,6 +44,10 @@
   100%{
     transform: rotate(360deg)
   }
+}
+
+.consultant{
+  transform: scaleX(-1);
 }
 
 .loading-text h1{
