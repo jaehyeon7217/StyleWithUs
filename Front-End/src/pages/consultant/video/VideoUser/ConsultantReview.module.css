@@ -67,8 +67,9 @@
 
 .review-content{
     font-family: "Apple_Gothic_Neo_Light";
+    font-size: 18px;
     overflow-y: auto;
-    margin: 12px;
+    margin: 20px;
     padding: 12px;
     border-radius: 10px;
     resize: none;
