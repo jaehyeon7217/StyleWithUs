@@ -400,21 +400,21 @@ const Consultant = (props) => {
                 Back
               </button>
             </div>
-            {mainStreamManager !== undefined ? (
+            {/* {mainStreamManager !== undefined ? (
               <div id="main-video" className="col-md-6">
                 <Video streamManager={mainStreamManager} />
               </div>
-            ) : null}
+            ) : null} */}
             <div id="video-container" className="col-md-6">
               {publisher !== undefined ? (
                 <div className="stream-container col-md-6 col-xs-6">
-                  <Video streamManager={publisher} />
+                  <Video streamManager={publisher} status={"user"} />
                 </div>
               ) : null}
               {subscribers.map((sub, i) => (
                 <div key={i} className="stream-container col-md-6 col-xs-6">
                   <span>{sub.id}</span>
-                  <Video streamManager={sub} />
+                  <Video streamManager={sub} status={"consultant"} />
                 </div>
               ))}
             </div>
