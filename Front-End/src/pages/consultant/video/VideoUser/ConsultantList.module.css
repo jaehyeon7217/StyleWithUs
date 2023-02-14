@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Blinker:wght@100;200;300;400;600;700;800;900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Blinker:wght@100;200;300;400;600;700;800;900&display=swap");
 @font-face {
   font-family: "Apple_Gothic_Neo_Bold";
   src: url("../../../../fonts/AppleSDGothicNeoB.ttf");
@@ -9,46 +9,46 @@
   src: url("../../../../fonts/AppleSDGothicNeoL.ttf");
 }
 
-.consultant-list{
-    display: flex;
-    padding: 2px;
-    border-bottom: 1px solid gray;
-    padding: 20px;
-    padding-bottom: 5px;
-    margin-bottom: 5px;
-    justify-content: space-between;
+@font-face {
+  font-family: "Apple_Gothic_Neo_Middle";
+  src: url("../../../../fonts/AppleSDGothicNeoM.ttf");
 }
 
-.consultant{
-    font-family: "Apple_Gothic_Neo_Light";
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+.consultant-list {
+  display: flex;
+  border-bottom: 1px solid rgb(211, 211, 211);
+  padding: 0 0px 10px 20px;
+  margin-top: 20px;
+  justify-content: space-between;
 }
 
-.button-display{
-    display: flex;
-    flex-direction: column;
+.consultant {
+  font-family: "Apple_Gothic_Neo_Middle";
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
-.button, .button-unable{
-    width: 100%;
-    height: 50%;
-    margin: 2%;
-    border-radius: 8px;
-    background-color: white;
-    /* border: 1px solid black; */
-    border: none;
-    box-shadow: 1px 1px;
-    box-sizing: border-box;
-    font-family: "Apple_Gothic_Neo_Light";
-    font-size: 16px;
-    transition: all 0.15s;
+.button-display {
+  display: flex;
+  align-items: flex-end;
+  margin-right: 5px;
+}
+
+.button,
+.button-unable {
+  border-radius: 5px;
+  background-color: white;
+  border: none; 
+  padding-top: 3px;
+  box-sizing: border-box;
+  font-family: "Apple_Gothic_Neo_Light";
+  font-size: 16px;
+  transition: all 0.15s;
 }
 
 .button:hover {
-    cursor: pointer;
-    background-color: rgb(202, 202, 202);
-    /* border: 1px solid rgb(202, 202, 202); */
-    color: white;
-  }
+  cursor: pointer;
+  background-color: rgb(202, 202, 202);
+  color: white;
+}

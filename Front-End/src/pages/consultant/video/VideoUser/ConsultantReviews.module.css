@@ -9,15 +9,22 @@
   src: url("../../../../fonts/AppleSDGothicNeoL.ttf");
 }
 
+@font-face {
+  font-family: "Apple_Gothic_Neo_Middle";
+  src: url("../../../../fonts/AppleSDGothicNeoM.ttf");
+}
+
 .reviews-title{
-    font-family: "Apple_Gothic_Neo_Bold";
-    font-size: 22px;
-    border-bottom: 1px solid gray;
-    margin: 10px;
-    margin-top: 20px;
+  font-family: "Apple_Gothic_Neo_Bold";
+  font-size: 22px;
+  border-bottom: 1px solid rgb(211, 211, 211);
+  padding-bottom: 15px;
+  margin: 25px 10px 20px;
 }
 
 .reviews-avg-score{
-    font-family: "Apple_Gothic_Neo_Light";
-    margin: 12px;
+  font-family: "Apple_Gothic_Neo_Middle";
+  font-size: 18px;
+  margin: 12px; 
+  padding-bottom: 12px;
 }

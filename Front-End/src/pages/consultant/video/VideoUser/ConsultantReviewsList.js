@@ -35,19 +35,20 @@ const ConsultantReviewsList = (props) => {
   return (
     <div className={classes.review}>
       <div className={classes["review-content-box"]}>
-        <div className={classes["review-writer"]}>{reviewUserId}</div>
+        <div className={classes["review-writer"]}>
+          {reviewUserId}
+          {deleteAllowed && (
+          <input
+            type="button"
+            value="삭제"
+            className={classes.button}
+            onClick={deleteReviewHandler}
+          />
+          )}  
+        </div>
         <GetStarRating reviewScore={reviewScore} />
         <div className={classes["review-content"]}>{reviewContent}</div>
       </div>
-      {deleteAllowed && (
-        <input
-          type="button"
-          value="삭제"
-          className={classes.button}
-          onClick={deleteReviewHandler}
-        />
-      )}
-      <br />
     </div>
   );
 };

@@ -353,7 +353,7 @@ const Consultant = (props) => {
 
   return (
     <Fragment>
-      <div>
+      <div className={classes.video}>
         {session === undefined ? (
           <div className={classes.user}>
             <h2 className={classes.h2}>상담</h2>
