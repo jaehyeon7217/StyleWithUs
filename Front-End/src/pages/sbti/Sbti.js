@@ -48,6 +48,8 @@ const Sbti = () => {
   const thighSize = userGender ? [31, 33, 34, 35] : [33, 34, 36, 37]
   const hemSize = userGender ? [22, 23, 24, 25] : [25, 26, 27, 28]
 
+  const classList = ['first', 'second', 'third', 'fourth']
+
   const location = useLocation();
   const [isSBTI, setIsSBTI] = useState(false);
 
@@ -169,14 +171,14 @@ const Sbti = () => {
     document.getElementById("waist").style.opacity = 1;
     document.getElementById("hip").style.opacity = 0.3;
     document.getElementById("thigh").style.opacity = 0.3;
-    document.getElementById("hem").style.opacity = 0.3;
+    document.getElementById("hem").style.opacity = 0;
   };
   const thirdSecondQuestion = () =>{
     setThird(1)
     document.getElementById("waist").style.opacity = 0.3;
     document.getElementById("hip").style.opacity = 1;
     document.getElementById("thigh").style.opacity = 0.3;
-    document.getElementById("hem").style.opacity = 0.3;
+    document.getElementById("hem").style.opacity = 0;
   }
   const thirdThirdQuestion = () =>{
     setThird(2)
@@ -197,7 +199,7 @@ const Sbti = () => {
       document.getElementById("waist").style.opacity = 1;
       document.getElementById("hip").style.opacity = 0.3;
       document.getElementById("thigh").style.opacity = 0.3;
-      document.getElementById("hem").style.opacity = 0.3;
+      document.getElementById("hem").style.opacity = 0;
     }
     tSlideRef.current.style.transition = "all 0.5s ease-in-out";
     tSlideRef.current.style.transform = `translateY(-${thirdQuestion * 70}px)`;
@@ -221,12 +223,12 @@ const Sbti = () => {
           <img src={left2} alt="left1" className={classes.directionImg} onClick={prevSlide}/>
           <div className={classes.surveyBox}>
               <p className={classes.question}>SBTI #1</p>
-            <div className={classes.yChangeBox}>
+            <div className={classes.firstQuestion}>
             <div className={classes.answerBox}>
               <div className={classes.answer}>
                 <form onSubmit={(event) => {event.preventDefault()}}>
                   <label >
-                    <p>키를 cm단위로 입력해주세요</p>
+                    <p className={classes.sbtiQuestion}>키를 cm단위로 입력해주세요</p>
                     <input type="number" className={classes.answerInput} value={height} onChange={(event)=> setHeight(event.target.value)}/>  
                   </label>              
                 </form>
@@ -234,7 +236,7 @@ const Sbti = () => {
               <div className={classes.answer}>
                 <form onSubmit={(event) => {event.preventDefault()}}>
                   <label>
-                    <p>평소 신으시는 신발 사이즈를 mm 단위로 입력해주세요</p>
+                    <p className={classes.sbtiQuestion}>평소 신으시는 신발 사이즈를 mm 단위로 입력해주세요</p>
                     <input type="number" className={classes.answerInput} value={foot}onChange={(event)=> setFoot(event.target.value)}/>  
                   </label>              
                 </form>
@@ -258,9 +260,9 @@ const Sbti = () => {
                     setShoulder(event.target.value);}}
                   onClick={secondFirstQuestion}
                 >
-                  <p>키보드에 비해서 당신의 어깨 넓이는 어느정도 인가요?</p>
+                  <p className={classes.sbtiQuestion}>키보드에 비해서 당신의 어깨 넓이는 어느정도 인가요?</p>
                   <div className={classes.radioBox}>
-                    <p>매우 작음</p>
+                    <p className={classes.sbtiAnswer}>매우 작음</p>
                     {shoulderSize.map((item, idx) => {
                     return(
                       <Radio 
@@ -268,12 +270,12 @@ const Sbti = () => {
                         value={shoulderSize[idx]}
                         defaultChecked={shoulderSize[idx]===shoulder}
                         name='shoulder'
-                        num={idx}
+                        num={classList[idx]}
                       >
                       </Radio>
                       )
                     })}
-                    <p>매우 큼</p>
+                    <p className={classes.sbtiAnswer}>매우 큼</p>
                   </div>
                 </form>
               </div>
@@ -284,9 +286,9 @@ const Sbti = () => {
                     setChest(event.target.value)}}
                   onClick={secondSecondQuestion}
                 >
-                  <p>가슴 둘레가 큰 편인가요?</p>
+                  <p className={classes.sbtiQuestion}>가슴 둘레가 큰 편인가요?</p>
                   <div className={classes.radioBox}>
-                    <p>매우 작음</p>
+                    <p className={classes.sbtiAnswer}>매우 작음</p>
                     {chesteSize.map((item, idx) => {
                     return(
                       <Radio 
@@ -294,11 +296,12 @@ const Sbti = () => {
                         value={chesteSize[idx]}
                         defaultChecked={chesteSize[idx]===chest}
                         name='chest'
+                        num={classList[idx]}
                       >
                       </Radio>
                       )
                     })}
-                    <p>매우 큼</p>
+                    <p className={classes.sbtiAnswer}>매우 큼</p>
                   </div>           
                 </form>
               </div>
@@ -307,9 +310,9 @@ const Sbti = () => {
                   onChange={(event) => {setSleeve(event.target.value)}}
                   onClick={secondThirdQuestion}
                 >
-                  <p>팔이 긴 편인가요?</p>
+                  <p className={classes.sbtiQuestion}>팔이 긴 편인가요?</p>
                   <div className={classes.radioBox}>
-                    <p>매우 작음</p>
+                    <p className={classes.sbtiAnswer}>매우 작음</p>
                     { sleeveSize.map((item, idx) => {
                     return(
                       <Radio 
@@ -317,11 +320,12 @@ const Sbti = () => {
                         value={ sleeveSize[idx] }
                         defaultChecked={sleeveSize[idx]===sleeve}
                         name='sleeve'
+                        num={classList[idx]}
                       >
                       </Radio>
                       )
                     })}
-                    <p>매우 큼</p>
+                    <p className={classes.sbtiAnswer}>매우 큼</p>
                   </div>            
                 </form>
               </div>
@@ -344,9 +348,9 @@ const Sbti = () => {
                     setWaist(event.target.value);}}
                   onClick={thirdFirstQuestion}
                 >
-                  <p>개미허리 인가요?</p>
+                  <p className={classes.sbtiQuestion}>당신의 허리는 개미허리 인가요?</p>
                   <div className={classes.radioBox}>
-                    <p>매우 맞음</p>
+                    <p className={classes.sbtiAnswer}>매우 맞음</p>
                     {waistSize.map((item, idx) => {
                     return(
                       <Radio 
@@ -354,11 +358,12 @@ const Sbti = () => {
                         value={waistSize[idx]}
                         defaultChecked={waistSize[idx]===waist}
                         name='waist'
+                        num={classList[idx]}
                       >
                       </Radio>
                       )
                     })}
-                    <p>매우 아님</p>
+                    <p className={classes.sbtiAnswer}>매우 큼</p>
                   </div>             
                 </form>
               </div>
@@ -369,9 +374,9 @@ const Sbti = () => {
                     setHip(event.target.value)}}
                   onClick={thirdSecondQuestion}
                 >
-                  <p>오리 궁둥이 인가요?</p>
+                  <p className={classes.sbtiQuestion}>엉덩이가 큰편인가요?</p>
                   <div className={classes.radioBox}>
-                    <p>매우 작음</p>
+                    <p className={classes.sbtiAnswer}>매우 작음</p>
                     {hipSize.map((item, idx) => {
                     return(
                       <Radio 
@@ -379,11 +384,12 @@ const Sbti = () => {
                         value={hipSize[idx]}
                         defaultChecked={hipSize[idx]===hip}
                         name='hip'
+                        num={classList[idx]}
                       >
                       </Radio>
                       )
                     })}
-                    <p>매우 큼</p>
+                    <p className={classes.sbtiAnswer}>매우 큼</p>
                   </div>            
                 </form>
               </div>
@@ -394,9 +400,9 @@ const Sbti = () => {
                     setThigh(event.target.value)}}
                   onClick={thirdThirdQuestion}
                 >
-                  <p>허벅지가 굵은 편인가요?</p>
+                  <p className={classes.sbtiQuestion}>허벅지가 굵은 편인가요?</p>
                   <div className={classes.radioBox}>
-                    <p>매우 작음</p>
+                    <p className={classes.sbtiAnswer}>매우 작음</p>
                     {thighSize.map((item, idx) => {
                     return(
                       <Radio 
@@ -404,11 +410,12 @@ const Sbti = () => {
                         value={thighSize[idx]}
                         defaultChecked={thighSize[idx]===thigh}
                         name='thigh'
+                        num={classList[idx]}
                       >
                       </Radio>
                       )
                     })}
-                    <p>매우 큼</p>
+                    <p className={classes.sbtiAnswer}>매우 큼</p>
                   </div>          
                 </form>
               </div>
@@ -418,9 +425,9 @@ const Sbti = () => {
                     setHem(event.target.value)}}
                   onClick={thirdForthQuestion}
                 >
-                  <p>평소에 바지 통을 크게 입으시나요?</p>
+                  <p className={classes.sbtiQuestion}>평소에 바지 통을 크게 입으시나요?</p>
                   <div className={classes.radioBox}>
-                    <p>대체로 작음</p>
+                    <p className={classes.sbtiAnswer}>대체로 작음</p>
                     {hemSize.map((item, idx) => {
                     return(
                       <Radio 
@@ -428,11 +435,12 @@ const Sbti = () => {
                         value={hemSize[idx]}
                         defaultChecked={hemSize[idx]===hem}
                         name='hem'
+                        num={classList[idx]}
                       >
                       </Radio>
                       )
                     })}
-                    <p>대체로 큼</p>
+                    <p className={classes.sbtiAnswer}>대체로 큼</p>
                   </div>             
                 </form>
               </div>
