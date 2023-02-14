@@ -1,48 +1,3 @@
-@keyframes bg {
-  0% { background: linear-gradient(90deg, rgba(190,187,240,1) 0%, rgba(255,191,244,1) 38%, rgba(245,210,200,1) 100%);}
-  2.5% { background: linear-gradient(95deg, rgba(190,187,240,1) 0%, rgba(255,191,244,1) 38%, rgba(245,210,200,1) 100%);}
-  5% { background: linear-gradient(100deg, rgba(190,187,240,1) 0%, rgba(255,191,244,1) 38%, rgba(245,210,200,1) 100%);}
-  7.5% { background: linear-gradient(105deg, rgba(190,187,240,1) 0%, rgba(255,191,244,1) 38%, rgba(245,210,200,1) 100%);}
-  10% { background: linear-gradient(110deg, rgba(190,187,240,1) 0%, rgba(255,191,244,1) 38%, rgba(245,210,200,1) 100%);}
-  13% { background: linear-gradient(115deg, rgba(190,187,240,1) 0%, rgba(255,191,244,1) 38%, rgba(245,210,200,1) 100%);}
-  15% { background: linear-gradient(120deg, rgba(190,187,240,1) 0%, rgba(255,191,244,1) 38%, rgba(245,210,200,1) 100%);}
-  17% { background: linear-gradient(125deg, rgba(190,187,240,1) 0%, rgba(255,191,244,1) 38%, rgba(245,210,200,1) 100%);}
-  20% { background: linear-gradient(130deg, rgba(190,187,240,1) 0%, rgba(255,191,244,1) 38%, rgba(245,210,200,1) 100%);}
-  22% { background: linear-gradient(135deg, rgba(190,187,240,1) 0%, rgba(255,191,244,1) 38%, rgba(245,210,200,1) 100%);}
-  25% { background: linear-gradient(140deg, rgba(190,187,240,1) 0%, rgba(255,191,244,1) 38%, rgba(245,210,200,1) 100%);}
-  28% { background: linear-gradient(145deg, rgba(190,187,240,1) 0%, rgba(255,191,244,1) 38%, rgba(245,210,200,1) 100%);}
-  30% { background: linear-gradient(150deg, rgba(190,187,240,1) 0%, rgba(255,191,244,1) 38%, rgba(245,210,200,1) 100%);}
-  33% { background: linear-gradient(155deg, rgba(190,187,240,1) 0%, rgba(255,191,244,1) 38%, rgba(245,210,200,1) 100%);}
-  35% { background: linear-gradient(160deg, rgba(190,187,240,1) 0%, rgba(255,191,244,1) 38%, rgba(245,210,200,1) 100%);}
-  36% { background: linear-gradient(163deg, rgba(190,187,240,1) 0%, rgba(255,191,244,1) 38%, rgba(245,210,200,1) 100%);}
-  37% { background: linear-gradient(167deg, rgba(190,187,240,1) 0%, rgba(255,191,244,1) 38%, rgba(245,210,200,1) 100%);}
-  38% { background: linear-gradient(172deg, rgba(190,187,240,1) 0%, rgba(255,191,244,1) 38%, rgba(245,210,200,1) 100%);}
-  39% { background: linear-gradient(176deg, rgba(190,187,240,1) 0%, rgba(255,191,244,1) 38%, rgba(245,210,200,1) 100%);}
-  40% { background: linear-gradient(180deg, rgba(190,187,240,1) 0%, rgba(255,191,244,1) 38%, rgba(245,210,200,1) 100%);}
-  41% { background: linear-gradient(185deg, rgba(190,187,240,1) 0%, rgba(255,191,244,1) 38%, rgba(245,210,200,1) 100%);}
-  42% { background: linear-gradient(189deg, rgba(190,187,240,1) 0%, rgba(255,191,244,1) 38%, rgba(245,210,200,1) 100%);}
-  43% { background: linear-gradient(193deg, rgba(190,187,240,1) 0%, rgba(255,191,244,1) 38%, rgba(245,210,200,1) 100%);}
-  44% { background: linear-gradient(197deg, rgba(190,187,240,1) 0%, rgba(255,191,244,1) 38%, rgba(245,210,200,1) 100%);}
-  45% { background: linear-gradient(200deg, rgba(190,187,240,1) 0%, rgba(255,191,244,1) 38%, rgba(245,210,200,1) 100%);}
-  46% { background: linear-gradient(205deg, rgba(190,187,240,1) 0%, rgba(255,191,244,1) 38%, rgba(245,210,200,1) 100%);}
-  47% { background: linear-gradient(210deg, rgba(190,187,240,1) 0%, rgba(255,191,244,1) 38%, rgba(245,210,200,1) 100%);}
-  48% { background: linear-gradient(212deg, rgba(190,187,240,1) 0%, rgba(255,191,244,1) 38%, rgba(245,210,200,1) 100%);}
-  49% { background: linear-gradient(216deg, rgba(190,187,240,1) 0%, rgba(255,191,244,1) 38%, rgba(245,210,200,1) 100%);}
-  50% { background: linear-gradient(220deg, rgba(190,187,240,1) 0%, rgba(255,191,244,1) 38%, rgba(245,210,200,1) 100%);}
-  52% { background: linear-gradient(228deg, rgba(190,187,240,1) 0%, rgba(255,191,244,1) 38%, rgba(245,210,200,1) 100%);}
-  54% { background: linear-gradient(234deg, rgba(190,187,240,1) 0%, rgba(255,191,244,1) 38%, rgba(245,210,200,1) 100%);}
-  55% { background: linear-gradient(240deg, rgba(190,187,240,1) 0%, rgba(255,191,244,1) 38%, rgba(245,210,200,1) 100%);}
-  60% { background: linear-gradient(245deg, rgba(190,187,240,1) 0%, rgba(255,191,244,1) 38%, rgba(245,210,200,1) 100%);}
-  65% { background: linear-gradient(250deg, rgba(190,187,240,1) 0%, rgba(255,191,244,1) 38%, rgba(245,210,200,1) 100%);}
-  70% { background: linear-gradient(254deg, rgba(190,187,240,1) 0%, rgba(255,191,244,1) 38%, rgba(245,210,200,1) 100%);}
-  75% { background: linear-gradient(258deg, rgba(190,187,240,1) 0%, rgba(255,191,244,1) 38%, rgba(245,210,200,1) 100%);}
-  80% { background: linear-gradient(263deg, rgba(190,187,240,1) 0%, rgba(255,191,244,1) 38%, rgba(245,210,200,1) 100%);}
-  85% { background: linear-gradient(270deg, rgba(190,187,240,1) 0%, rgba(255,191,244,1) 38%, rgba(245,210,200,1) 100%);}
-  90% { background: linear-gradient(273deg, rgba(190,187,240,1) 0%, rgba(255,191,244,1) 38%, rgba(245,210,200,1) 100%);}
-  95% { background: linear-gradient(279deg, rgba(190,187,240,1) 0%, rgba(255,191,244,1) 38%, rgba(245,210,200,1) 100%);}
-  100% { background: linear-gradient(285deg, rgba(190,187,240,1) 0%, rgba(255,191,244,1) 38%, rgba(245,210,200,1) 100%);}
-}
-
 @font-face {
   font-family: "Apple_Gothic_Neo_Hard";
   src: url("../../fonts/AppleSDGothicNeoH.ttf");
@@ -68,24 +23,40 @@
   height: 92vh;
   background: rgb(255,206,206);
   background: linear-gradient(90deg, rgba(190,187,240,1) 0%, rgba(255,191,244,1) 38%, rgba(245,210,200,1) 100%);
-  transition: all 10s;
+  transition: all .5s;
   border-bottom: 1px solid rgb(211, 211, 211);
-  animation-name: bg;
-  animation-duration: 5s;
-  animation-iteration-count: infinite;
-  animation-direction: alternate;
+  padding-top: 150px;
+  position: relative;
+  box-sizing: border-box;
+  opacity: 1;
+  transition: opacity 0.25s ease-in-out 0s;
+  transition: background .5s ease;
+}
+
+.background.off {
+  opacity: 0;
 }
 
 .words {
+  position: absolute;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   padding-top: 50px;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 1;
+  transition: all .5s;
+}
+
+.words.off {
+  opacity: 0;
 }
 
 .h1 {
-  font-family: "Apple_Gothic_Neo_Middle";
+  font-family: "Apple_Gothic_Neo_Mid";
   font-size: 50px;
   margin-bottom: 0;
   color: white;
@@ -97,33 +68,156 @@
   color: white;
 }
 
-.img-box {
+.container {
+  width: 50%;
+  height: 100%;
+  display: flex;
+  align-items: flex-start;
+  overflow: hidden;
+  margin: 0 auto;
+}
+
+.box {
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  margin-right: -100%;
+  transition: all .5s;
 }
 
-.img-box img {
-  width: 25%;
+.box.off {
+  margin-right: 0;
+  margin-left: -100%;
+}
+
+.box.on {
+  margin-right: 0;
+}
+
+.box img {
+  width: 50%;
   margin-right: 10px;
 }
 
-.img-box button {
-  margin-top: 20px;
+.box button {
+  margin-top: 12px;
   border: 2px solid rgb(97, 97, 97);
   color: rgb(97, 97, 97);
-  padding: 12px 20px;
+  padding: 0.53em 2em 0.48em;
   border-radius: 12px;
   background-color: transparent;
-  font-size: 18px;
-  font-family: "Apple_Gothic_Neo_Mid";
+  font-size: 16px;
+  font-family: "Apple_Gothic_Neo_Light";
+  font-weight: 700;
   transition: all .15s;
 }
 
-.img-box button:hover {
+.box button:hover {
   cursor: pointer;
   border: 2px solid black;
   color: black;
+}
+
+.container div:nth-of-type(2) .p {
+  margin-bottom: 10px;
+}
+
+.container div:nth-of-type(2) .subP {
+  margin: 3px;
+  color: white;
+  font-family: "Apple_Gothic_Neo_Middle";
+  font-size: 20px;
+  width: 40%;
+  margin-left: 11%;
+}
+
+.container div:nth-of-type(2) .image-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 300px;
+  height: 300px;
+  margin-top: 20px;
+}
+
+.container div:nth-of-type(2) .image-container img {
+  width: auto;
+  height: 100%;
+  margin: 0;
+  border-radius: 15px;
+}
+
+.container div:nth-of-type(2) input {
+  display: none;
+}
+
+.btn-upload {
+  margin-top: 20px;
+  border: 2px solid rgb(97, 97, 97);
+  color: rgb(97, 97, 97);
+  padding: 10px 15px 9px;
+  border-radius: 10px;
+  background-color: transparent;
+  font-size: 16px;
+  font-family: "Apple_Gothic_Neo_Middle";
+  transition: all .15s;
+}
+
+.btn-upload:hover {
+  cursor: pointer;
+  border: 2px solid black;
+  color: black;
+}
+
+.checkStart {
+  font-family: "Apple_Gothic_Neo_Bold";
+  font-size: 20px;
+  margin-top: 50px;
+}
+
+.checkStart:hover {
+  cursor: pointer;
+}
+
+.container div:nth-of-type(3) {
+  margin-top: 10%;
+}
+
+.container div:nth-of-type(3) img {
+  width: 250px;
+  height: auto;
+  padding: 5px;
+  background-color: white;
+  border-radius: 50px;
+}
+
+.btn-box {
+  margin-top: 10%;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  box-sizing: border-box;
+}
+
+.btn-box button {
+  background-color: white;
+}
+
+.container div:nth-of-type(4) {
+  height: 100%;
+}
+
+.container div:nth-of-type(4) .h1 {
+  margin-top: -150px;
+  font-size: 65px;
+}
+
+.container div:nth-of-type(4) .p {
+  color: rgb(32, 32, 32);
+}
+
+.container div:nth-of-type(4) .p:hover {
+  cursor: pointer;
 }
