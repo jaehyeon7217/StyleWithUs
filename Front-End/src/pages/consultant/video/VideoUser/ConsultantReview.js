@@ -111,6 +111,7 @@ const ConsultantReview = (props) => {
             rows="10"
             placeholder="리뷰를 작성해주세요"
             value={review}
+            maxLength="100"
             onInput={onInputHandler}
           ></textarea>
         </div>
