@@ -137,15 +137,15 @@ const UseStyleWithUs = () => {
                             <h2 className={classes.gifTitle}>스타일 윗 어스 시작하기</h2>
                                 <div className={classes.gifp} onClick={toMainPage}>
                                     <img src={colorcircle} alt="" className={classes.colorcircle} />
-                                    <p>메인 페이지 즐기기</p>
+                                    <p className={classes.giftext}>메인 페이지 즐기기</p>
                                 </div>
                                 <div className={classes.gifp} onClick={toSignup}>
                                     <img src={signupimg} alt="" className={classes.colorcircle} />
-                                    <p>회원가입하러 가기</p>
+                                <p className={classes.giftext}>회원가입하러 가기</p>
                                 </div>
                                 <div className={classes.gifp} onClick={toLogin}>
                                     <img src={loginimg} alt="" className={classes.loginimg} />
-                                    <p>로그인하러 가기</p>
+                                <p className={classes.giftext}>로그인하러 가기</p>
                                 </div>
                             
                         </div>

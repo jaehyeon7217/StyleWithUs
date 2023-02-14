@@ -206,18 +206,21 @@
     font-family: "Apple_Gothic_Neo_SBold";
     margin-left:50px;
     font-size: 22px;
-    color: grey;
     border-bottom: 2px solid rgb(232, 232, 232);
     cursor: pointer;
     display: flex;
-   
     
 }
 
-.gifp:hover{
-    color: black;
+
+.giftext {
+    color: gray;
+    transition: color .15s;
 }
 
+.giftext:hover {
+    color: black;
+}
 
 
 .colorcircle{
