@@ -5,9 +5,12 @@ import { Fragment } from "react";
 import classes from "./MyWishItem.module.css";
 import { cartActions } from '../../store/cart';
 import { useDispatch, useSelector } from 'react-redux';
+import { authActions } from "../../store/auth";
+import { useNavigate } from "react-router-dom";
 
 const MyWishItem = (props) => {
     const dispatch = useDispatch();
+    const navigate = useNavigate();
     const userId = useSelector((state)=>state.auth.userId)
     const token = useSelector((state)=>state.auth.token)
     const itemNo = props.index
@@ -23,6 +26,20 @@ const MyWishItem = (props) => {
             }
         ).then((response) => {
             dispatch(cartActions.getCart(response.data.data))
+        }).catch((error) => {
+            if(error.response.status===401){
+                Swal.fire({
+                  title: '<div style="font-size:24px;font-family:Apple_Gothic_Neo_Bold;font-weight:bold;">토큰 만료<div>', 
+                  html: '<div style="font-size:16px;font-family:Apple_Gothic_Neo_Mid;">다시 로그인 해주세요!</div>', 
+                  width : 330,
+                  icon: 'error',
+                  confirmButtonText:'<div style="font-size:16px;font-family:Apple_Gothic_Neo_Mid;">확인</div>',
+                  confirmButtonColor: '#9A9A9A',
+                }).then(()=>{
+                  navigate('/')
+                  dispatch(authActions.logout(""))
+                })
+              }
         })
     }
 
@@ -51,7 +68,19 @@ const MyWishItem = (props) => {
           getMyWish();
         }
         ).catch(error => {
-            console.log(error);
+            if(error.response.status===401){
+                Swal.fire({
+                  title: '<div style="font-size:24px;font-family:Apple_Gothic_Neo_Bold;font-weight:bold;">토큰 만료<div>', 
+                  html: '<div style="font-size:16px;font-family:Apple_Gothic_Neo_Mid;">다시 로그인 해주세요!</div>', 
+                  width : 330,
+                  icon: 'error',
+                  confirmButtonText:'<div style="font-size:16px;font-family:Apple_Gothic_Neo_Mid;">확인</div>',
+                  confirmButtonColor: '#9A9A9A',
+                }).then(()=>{
+                  navigate('/')
+                  dispatch(authActions.logout(""))
+                })
+              }
         })
     }
 
