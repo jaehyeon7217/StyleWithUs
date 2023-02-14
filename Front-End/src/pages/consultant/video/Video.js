@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Fragment } from "react";
 import OpenViduVideoComponent from "./OvVideo";
 import { useSelector } from "react-redux";
 import PersonalColor from "./PersonalColor";
@@ -8,10 +8,12 @@ const Video = (props) => {
   // 유저 타입 받아오기
   const userType = useSelector((state) => state.auth.userType);
 
+  // 유저 상태 확인해서 user에만 personal color 뜨도록
+  const status = props.status;
+
   return (
-    <div>
-      {!userType ? (
-        // 유저의 경우 퍼스널컬러 추가
+    <Fragment>
+      {status === "user" ? (
         <div className={classes.video}>
           <div className={classes.streamcomponent}>
             <OpenViduVideoComponent
@@ -22,18 +24,16 @@ const Video = (props) => {
           </div>
         </div>
       ) : (
-        // 컨설턴트의 경우 퍼스널컬러 없게
         <div className={classes.video}>
           <div className={classes.streamcomponent}>
             <OpenViduVideoComponent
               streamManager={props.streamManager}
               sendUserType={userType}
             />
-            <PersonalColor />
           </div>
         </div>
       )}
-    </div>
+    </Fragment>
   );
 };
 
