@@ -7,7 +7,7 @@ import classes from "./VideoConsultant.module.css";
 import Video from "../Video";
 import { chatActions } from "../../../../store/chat";
 import { authActions } from "../../../../store/auth";
-import { cartActions } from "../../../../store/cart";
+import cart, { cartActions } from "../../../../store/cart";
 
 const APPLICATION_SERVER_URL =
   process.env.NODE_ENV === "production"
@@ -132,7 +132,8 @@ const Consultant = (props) => {
         if (event.stream.typeOfVideo === "CUSTOM") {
           deleteSubscriber(event.stream.streamManager);
         }
-        props.getUserNickname(null);
+        props.leaveUserNickname();
+        dispatch(cartActions.resetCart());
       });
 
       newSession.on("signal:my-chat", (event) => {
