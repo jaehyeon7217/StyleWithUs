@@ -170,7 +170,7 @@ const Login = () => {
           disabled={!submitError}
           className={classes.LoginBtn}
         >
-          로그인
+          {isUser ? '유저 로그인' : '컨설턴트 로그인'}
         </button>
       </form>
       <br />
