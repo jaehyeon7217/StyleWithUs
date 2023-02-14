@@ -10,7 +10,7 @@ import GetStarRating from '../../consultant/video/VideoUser/reviewinput/GetStarR
 import { useNavigate } from "react-router-dom";
 import boyface from '../../../assets/boyface.png';
 import girlface from '../../../assets/girlface.png';
-
+import Swal from "sweetalert2";
 
 const ConsultantMyPage = () => {
   const dispatch = useDispatch();
@@ -35,7 +35,19 @@ const ConsultantMyPage = () => {
         dispatch(authActions.getMyData(response.data.data))
       }
     }).catch(error =>{
-      console.log(error);
+      if(error.response.status===401){
+        Swal.fire({
+          title: '<div style="font-size:24px;font-family:Apple_Gothic_Neo_Bold;font-weight:bold;">토큰 만료<div>', 
+          html: '<div style="font-size:16px;font-family:Apple_Gothic_Neo_Mid;">다시 로그인 해주세요!</div>', 
+          width : 330,
+          icon: 'error',
+          confirmButtonText:'<div style="font-size:16px;font-family:Apple_Gothic_Neo_Mid;">확인</div>',
+          confirmButtonColor: '#9A9A9A',
+        }).then(()=>{
+          navigate('/')
+          dispatch(authActions.logout(""))
+        })
+      }
     })    
   };
 
@@ -53,7 +65,19 @@ const ConsultantMyPage = () => {
         dispatch(authActions.myReviewList(response.data))
       }
     }).catch((error) => {
-      console.log(error);
+      if(error.response.status===401){
+        Swal.fire({
+          title: '<div style="font-size:24px;font-family:Apple_Gothic_Neo_Bold;font-weight:bold;">토큰 만료<div>', 
+          html: '<div style="font-size:16px;font-family:Apple_Gothic_Neo_Mid;">다시 로그인 해주세요!</div>', 
+          width : 330,
+          icon: 'error',
+          confirmButtonText:'<div style="font-size:16px;font-family:Apple_Gothic_Neo_Mid;">확인</div>',
+          confirmButtonColor: '#9A9A9A',
+        }).then(()=>{
+          navigate('/')
+          dispatch(authActions.logout(""))
+        })
+      }
     })
   };
 

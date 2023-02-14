@@ -50,7 +50,19 @@ const Login = () => {
               dispatch(cartActions.getCart(response.data.data));
             })
             .catch((error) => {
-              console.log(error);
+              if(error.response.status===401){
+                Swal.fire({
+                  title: '<div style="font-size:24px;font-family:Apple_Gothic_Neo_Bold;font-weight:bold;">토큰 만료<div>', 
+                  html: '<div style="font-size:16px;font-family:Apple_Gothic_Neo_Mid;">다시 로그인 해주세요!</div>', 
+                  width : 330,
+                  icon: 'error',
+                  confirmButtonText:'<div style="font-size:16px;font-family:Apple_Gothic_Neo_Mid;">확인</div>',
+                  confirmButtonColor: '#9A9A9A',
+                }).then(()=>{
+                  navigate('/')
+                  dispatch(authActions.logout(""))
+                })
+              }
             });
             navigate("/");
           } else {
@@ -66,7 +78,19 @@ const Login = () => {
                 ).then((response2)=>{
                   dispatch(authActions.getMyReview(response2.data))
                 }).catch((error)=>{
-                  console.log(error);
+                  if(error.response.status===401){
+                    Swal.fire({
+                      title: '<div style="font-size:24px;font-family:Apple_Gothic_Neo_Bold;font-weight:bold;">토큰 만료<div>', 
+                      html: '<div style="font-size:16px;font-family:Apple_Gothic_Neo_Mid;">다시 로그인 해주세요!</div>', 
+                      width : 330,
+                      icon: 'error',
+                      confirmButtonText:'<div style="font-size:16px;font-family:Apple_Gothic_Neo_Mid;">확인</div>',
+                      confirmButtonColor: '#9A9A9A',
+                    }).then(()=>{
+                      navigate('/')
+                      dispatch(authActions.logout(""))
+                    })
+                  }
                 })
               navigate("/");
             }
@@ -113,18 +137,6 @@ const Login = () => {
     event.preventDefault();
     navigate("/auth/findpassword", { state : { isUser: isUser, } });
   };
-
-  // 메인페이지 이동
-  const toMainPage = (event) => {
-    event.preventDefault();
-    navigate("/")
-  }
-
-  // 개발팀 페이지 이동
-  const toDeveloperpage = (event) => {
-    event.preventDefault();
-    navigate("/developerpage")
-  }
 
   // sumbit 활성화 & 비활성화
   const nullError = !!id && !!password;

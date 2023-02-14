@@ -3,14 +3,13 @@ import { useDispatch, useSelector } from 'react-redux';
 import { authActions } from '../../store/auth';
 import axios from 'axios';
 import { useNavigate } from "react-router-dom";
-import MyPageWish from './MyPageWish';
 import MyPageSideBar from './MyPageSideBar';
 import MyWishItemBig from './MyWishItemBig';
-import userImg from "../../assets/userimg.png";
 import { useEffect } from 'react';
 import userMan from '../../assets/footermantwo.png';
 import userWoman from '../../assets/mypageuserwoman.png';
 import { cartActions } from '../../store/cart';
+import Swal from 'sweetalert2';
 
 
 const MyPage = () =>{
@@ -38,7 +37,19 @@ const MyPage = () =>{
         window.alert("회원정보가 없습니다.")
       }
     }).catch(error =>{
-      console.log(error);
+      if(error.response.status===401){
+        Swal.fire({
+          title: '<div style="font-size:24px;font-family:Apple_Gothic_Neo_Bold;font-weight:bold;">토큰 만료<div>', 
+          html: '<div style="font-size:16px;font-family:Apple_Gothic_Neo_Mid;">다시 로그인 해주세요!</div>', 
+          width : 330,
+          icon: 'error',
+          confirmButtonText:'<div style="font-size:16px;font-family:Apple_Gothic_Neo_Mid;">확인</div>',
+          confirmButtonColor: '#9A9A9A',
+        }).then(()=>{
+          navigate('/')
+          dispatch(authActions.logout(""))
+        })
+      }
     })    
   }
   const getMyWish = () =>{
@@ -52,6 +63,20 @@ const MyPage = () =>{
       }
     ).then((response) => {
       dispatch(cartActions.getCart(response.data.data))
+    }).catch((error) => {
+      if(error.response.status===401){
+        Swal.fire({
+          title: '<div style="font-size:24px;font-family:Apple_Gothic_Neo_Bold;font-weight:bold;">토큰 만료<div>', 
+          html: '<div style="font-size:16px;font-family:Apple_Gothic_Neo_Mid;">다시 로그인 해주세요!</div>', 
+          width : 330,
+          icon: 'error',
+          confirmButtonText:'<div style="font-size:16px;font-family:Apple_Gothic_Neo_Mid;">확인</div>',
+          confirmButtonColor: '#9A9A9A',
+        }).then(()=>{
+          navigate('/')
+          dispatch(authActions.logout(""))
+        })
+      }
     })
   }
   useEffect(()=>{
