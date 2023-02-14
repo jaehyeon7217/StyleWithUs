@@ -48,6 +48,8 @@ const ConsultantMyProfile = () => {
       width: 800,
       inputAttributes: {
         "aria-label": "Type your message here",
+        maxlength : 500,
+        placeholder: "500글자 내로 작성해주세요"
       },
       showCancelButton: true,
       confirmButtonText: '<div style="font-size:16px;font-family:Apple_Gothic_Neo_Mid;">변경</div>',
