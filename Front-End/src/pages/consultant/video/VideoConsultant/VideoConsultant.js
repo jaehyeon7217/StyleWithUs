@@ -262,12 +262,12 @@ const Consultant = (props) => {
         {subscribers.map((sub, i) => (
           <div key={i} className="stream-container col-md-6 col-xs-6">
             <span>{sub.id}</span>
-            <Video streamManager={sub} />
+            <Video streamManager={sub} status={"user"} />
           </div>
         ))}
         {publisher !== undefined ? (
           <div className="stream-container col-md-6 col-xs-6">
-            <Video streamManager={publisher} />
+            <Video streamManager={publisher} status={"consultant"} />
           </div>
         ) : null}
       </Fragment>
@@ -279,13 +279,13 @@ const Consultant = (props) => {
       <Fragment>
         {publisher !== undefined ? (
           <div className="stream-container col-md-6 col-xs-6">
-            <Video streamManager={publisher} />
+            <Video streamManager={publisher} status={"user"} />
           </div>
         ) : null}
         {subscribers.map((sub, i) => (
           <div key={i} className="stream-container col-md-6 col-xs-6">
             <span>{sub.id}</span>
-            <Video streamManager={sub} />
+            <Video streamManager={sub} status={"consultant"} />
           </div>
         ))}
       </Fragment>
