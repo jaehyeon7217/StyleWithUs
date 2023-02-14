@@ -9,7 +9,7 @@ const Radio = ({value, name, defaultChecked, disabled, num, children }) =>{
         name={name}
         defaultChecked={defaultChecked}
         disabled={disabled}
-        className={classes.input+`${num}`}
+        className={`${classes["input"]} ${classes[num]}`}
       />
     </label>
   )
