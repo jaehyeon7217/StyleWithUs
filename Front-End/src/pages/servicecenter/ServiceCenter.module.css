@@ -27,7 +27,7 @@
 .WrapPage {
   display: flex;
   justify-content: center;
-  max-width: 1440px;
+  width: 1440px;
   margin: 0 auto;
 }
 
@@ -39,7 +39,7 @@
 
 
 .ServiceCenterBox{
-    width: 900px;
+    width: 904px;
 }
 
 .QuestionName {
