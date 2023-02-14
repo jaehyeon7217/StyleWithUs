@@ -52,8 +52,6 @@ const Footer = () => {
                         <p className={classes.fottercontent}>STYLE WITH US의 개발 일기를 확인해보세요.</p>
                         <button className={classes.fotterBtntwo} onClick={toDeveloperpage}>개발팀</button>
                     </div>
-                    <div>
-                    </div>
                     <img src={footerImge} alt="개발팀" className={classes.footerImge} />
                     <img src={developimg} alt="" className={classes.developimg} />
                 </div>
@@ -65,37 +63,37 @@ const Footer = () => {
                         <p className={classes.oneBoxP}>서비스 사용방법</p>
                         <p className={classes.oneBoxP}>개발팀 소개</p>
                     </div>
-                    <div>
+                    <div className={classes.ContentBox}>
                         <h3 className={classes.StylewithUsName}>(주) 스타일 윗 어스</h3>
-                        <p className={classes.ContentOne}>
-                            <div className={classes.ContentOneTitle}>대표 </div>
-                            <div className={classes.ContentOneContent}>박재현 박성환 이병수 이동엽 김현진 양서정</div>
-                        </p>
-                        <p className={classes.ContentOne}>
-                            <div className={classes.ContentOneTitle}>사업 분류 </div>
-                            <div className={classes.ContentOneContent}>화상회의 기반 스타일 추천 웹사이트</div>
-                        </p>
-                        <p className={classes.ContentOne}>
-                            <div className={classes.ContentOneTitle}>사업장 위치 </div>
-                            <div className={classes.ContentOneContent}>삼성전자 구미 2사업장 후문 3층 D105</div>
-                        </p>
+                        <div>
+                          <div className={classes.ContentOneTitle}>대표 </div>
+                          <div className={classes.ContentOneContent}>박재현 박성환 이병수 이동엽 김현진 양서정</div>
+                        </div>
+                        <div>
+                          <div className={classes.ContentOneTitle}>사업 분류 </div>
+                          <div className={classes.ContentOneContent}>화상회의 기반 스타일 추천 웹사이트</div>
+                        </div>
+                        <div>
+                          <div className={classes.ContentOneTitle}>사업장 위치 </div>
+                          <div className={classes.ContentOneContent}>삼성전자 구미 2사업장 후문 3층 D105</div>
+                        </div>
                     </div>
                 </div>
                 <div className={classes.footerBoxtwo}>
                     <div>
                         <h3 className={classes.servicecentername}>고객센터 02-3429-5100</h3>
-                        <p className={classes.ContentOne}>
+                        <div className={classes.ContentOne}>
                             <div className={classes.ContentOneTitle}>이메일 문의 </div>
                             <div className={classes.ContentOneContent}>ssafy@ssafy.com</div>
-                        </p>
-                        <p className={classes.ContentOne}>
+                        </div>
+                        <div className={classes.ContentOne}>
                             <div className={classes.ContentOneTitle}>운영시간 </div>
                             <div className={classes.ContentOneContent}>AM 10:00 - PM 18:00</div>
-                        </p>
-                        <p className={classes.ContentOne}>
+                        </div>
+                        <div className={classes.ContentOne}>
                             <div className={classes.ContentOneTitle}>점심시간 </div>
                             <div className={classes.ContentOneContent}>AM 11:30 - AM 12:30</div>
-                        </p>
+                        </div>
                         <button onClick={RecommendPage} className={classes.QuestionBtn}>자주 묻는 질문</button>
                     </div>
                 </div>
