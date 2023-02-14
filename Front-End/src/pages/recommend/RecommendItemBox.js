@@ -2,6 +2,7 @@ import { useState, Fragment } from "react";
 import classes from "./RecommendItemBox.module.css";
 
 import RecommendItem from "./RecommendItem";
+import RecommendNull from "./RecommendNull";
 
 const RecommendItemBox = (props) => {
   const [showBtn, setShowBtn] = useState(1);
@@ -20,9 +21,9 @@ const RecommendItemBox = (props) => {
       <div className={classes.box}>
         <h3 className={classes.h3}>{props.type}</h3>
         <div className={classes['clothes-items']}>
-          {clothesData.map((data, idx) => {
+          {clothesData !== null ? clothesData.map((data, idx) => {
             return idx < showBtn * 4 ? <RecommendItem key={`${data.title}-${idx}`} data={data}/> : "";
-          })}
+          }) : <RecommendNull />}
         </div>
         <div className={classes['button-box']}>
           <button onClick={onClickHandler}>더보기</button>

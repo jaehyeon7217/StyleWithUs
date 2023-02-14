@@ -1,0 +1,9 @@
+@font-face {
+  font-family: "Apple_Gothic_Neo_Middle";
+  src: url("../../fonts/AppleSDGothicNeoM.ttf");
+}
+
+.p-null {
+  font-family: "Apple_Gothic_Neo_Middle";
+  font-size: 18px;
+}
