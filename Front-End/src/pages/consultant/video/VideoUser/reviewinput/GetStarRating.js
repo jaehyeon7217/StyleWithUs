@@ -19,7 +19,7 @@ const GetStarRating = (props) => {
               />
               <img
                 className={`${
-                  ratingValue <= reviewScore
+                  ratingValue <= reviewScore  
                     ? classes["star-yellow"]
                     : classes["star-gray"]
                 }`}

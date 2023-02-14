@@ -42,7 +42,7 @@ const ConsultantReviews = (props) => {
   return (
     <div>
       <div className={classes["reviews-title"]}>ConsultantReviews</div>
-      <div className={classes["reviews-avg-score"]}>평균 평점: {avgScore}<GetStarRating reviewScore={Math.round(avgScore)}/></div>
+      <div className={classes["reviews-avg-score"]}>평균 평점: {avgScore}</div>
       {reviewLists.map((list, idx) => {
         return (
           <ConsultantReviewsList
