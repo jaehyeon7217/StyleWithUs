@@ -34,7 +34,7 @@
 
 .footerTopOne {
   width: 50%;
-  height: 130px;
+  height: 150px;
   background-color: #565656;
   /* background-color: rgb(13, 152, 207); */
   display: flex;
@@ -59,7 +59,7 @@
 
 .fotterToptwo {
   width: 50%;
-  height: 130px;
+  height: 150px;
   background-color: #3B3A3C;
   display: flex;
   justify-content: space-between;
@@ -89,14 +89,14 @@
   color: rgb(231, 230, 230);
   margin-top: -16px;
   margin-left: 25px;
-
+  margin-bottom: 19px;
 
 }
 
 .fotterBtn {
   font-family: "Apple_Gothic_Neo_Mid";
   border-radius: 4px;
-  font-size: 12px;
+  font-size: 13px;
   border-color: white;
   float: left;
   margin-left: 25px;
@@ -104,22 +104,24 @@
   color: white;
   background-color: #565656;
   /* background-color: rgb(13, 152, 207); */
-  padding-top: 4.5px;
+  padding: 5.5px 10px 4.5px;
   cursor: pointer;
+  border: 2px solid white;
 }
 
 .fotterBtntwo {
   font-family: "Apple_Gothic_Neo_Mid";
   border-radius: 4px;
-  font-size: 12px;
+  font-size: 13px;
   border-color: white;
   float: left;
   margin-left: 25px;
   margin-top: -8px;
   color: white;
   background-color: #3B3A3C;
-  padding-top: 4.5px;
+  padding: 6.5px 12px 5.5px;
   cursor: pointer;
+  border: 2px solid white;
 }
 
 
@@ -139,50 +141,63 @@
 .footerBottom{
   background-color: rgb(250, 250, 250);
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
+  height: 250px;
 }
 
   
 .footerBoxone{
+  display: flex;
+  flex-direction: column;
   margin-left: 50px;
+  width: 30%;
+  height: 100%;
 }
 
 .footerBoxOneTitle{
   display: flex;
-  margin-top: -20px;
 }
 
 .StylewithUsName{
   font-family: "Apple_Gothic_Neo_SBold";
   font-size: 23px;
-  margin-top: 0px;
-  margin-bottom: 50px;
+  margin-top: 5px;
+  margin-bottom: 15px;
 }
   
-.ContentOne{
-  display: flex;
+.ContentBox {
+  height: 100%;
+}
 
+.ContentBox > div {
+  margin-bottom: 5px;
+}
+
+.ContentOne{
+  display: block;
 }
 
 .ContentOneTitle{
+  display: inline-block;
   font-family: "Apple_Gothic_Neo_Bold";
   font-size: 17px;
-  margin-top: -30px;
-  margin-bottom: 13px;
 }
 
 .ContentOneContent{
+  display: inline-block;
   font-family: "Apple_Gothic_Neo_Mid";
   font-size: 17px;
   margin-left: 10px;
   margin-top: -30px;
-
 }
 
 .footerBoxtwo{
   margin-left: 60px;
   display: flex;
+  justify-content: center;
   margin-right: 60px;
+  width: 25%;
+  height: 100%;
 }
 
 
@@ -197,7 +212,8 @@
 .servicecentername{
   font-family: "Apple_Gothic_Neo_Bold";
   font-size: 23px;
-  margin-bottom: 50px;
+  margin-bottom: 30px;
+  margin-top: 40px;
 }
 
 .QuestionBtn{
@@ -211,6 +227,13 @@
   padding-bottom: 5px;
   margin-top: -20px;
   cursor: pointer;
-
 }
 
+.footerBoxtwo > div > .ContentOne {
+  margin-bottom: 5px;
+}
+
+
+.footerBoxtwo > div > div:nth-of-type(3) {
+  margin-bottom: 15px;
+}
