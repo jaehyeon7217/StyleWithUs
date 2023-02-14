@@ -41,6 +41,7 @@
 .bigNamd{
     font-family: "Apple_Gothic_Neo_Mid";
     text-align: center;
+    margin-right: 13px;
 }
 
 .contetnbox{
@@ -91,6 +92,7 @@
 .dateboxone{
     display: flex;
     margin-top: 120px;
+    margin-left: -30px;
 }
 
 .dash{
@@ -110,14 +112,16 @@
     font-family: "Apple_Gothic_Neo_Bold";
     font-size: 20px;
     margin-top: -20px;
-    margin-left: 25px;
+    margin-left: -5px;
+
 }
 
 .datacontent{
     font-family: "Apple_Gothic_Neo_Light";
     font-size: 15px;
-    margin-left: 25px;
+    margin-left: -5px;
     margin-top: -15px;
+    margin-right: 40px;
 }
 
 .diaryboxtwo{
@@ -154,6 +158,7 @@
     height: 1800px;
     margin-top: 30px;
     margin-left: -60px;
+    margin-right: -15px;
 }
 
 .marginbox{
