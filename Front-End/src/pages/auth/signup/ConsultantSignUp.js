@@ -21,9 +21,9 @@ const ConsultantSignUp = () => {
   const dispatch = useDispatch();
 
   const [id, setId, idEffectError] = DataInput(/^[a-zA-z0-9]{5,20}$/);
-  const [name, setName, nameError] = DataInput(/[ㄱ-ㅎ|ㅏ-ㅣ|가-힣]{2,10}/);
+  const [name, setName, nameError] = DataInput(/^[ㄱ-ㅎ|ㅏ-ㅣ|가-힣]{2,10}$/);
   const [nickName, setNickName, nickNameEffectError] =
-    DataInput(/^[a-zA-z0-9]{3,20}$/);
+    DataInput(/^[a-zA-z0-9가-힣]{3,20}$/);
   const [email, setEmail, emailEffectError] = DataInput(
     /^([0-9a-zA-Z_-]+)@([0-9a-zA-Z_-]+)(\.[0-9a-zA-Z_-]+){1,2}$/
   );
@@ -150,6 +150,8 @@ const ConsultantSignUp = () => {
       width: 500,
       inputAttributes: {
         "aria-label": "Type your message here",
+        maxlength : 500,
+        placeholder: "500글자 내로 작성해주세요"
       },
       showCancelButton: true,
       confirmButtonText: '<div style="font-size:16px;font-family:Apple_Gothic_Neo_Mid;">확인</div>',
@@ -223,7 +225,7 @@ const ConsultantSignUp = () => {
               ? nickNameValidError
                 ? ""
                 : "이미 있는 닉네임입니다."
-              : "영어와 숫자로만 입력해주세요."
+              : "영어, 한글, 숫자로만 입력해주세요."
           }
         />
         <InputShortLabel
@@ -259,7 +261,7 @@ const ConsultantSignUp = () => {
           label="비밀번호"
           type="password"
           value={password}
-          placeholder="비밀번호를 입력해주세요"
+          placeholder="9자 이상 16자 이하의 비밀번호를 입력해주세요"
           onChange={setPassword}
           errorMessage={
             passwordError ? "" : "영어와 숫자 그리고 특수문자로만 입력해주세요."
