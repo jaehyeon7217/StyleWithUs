@@ -20,6 +20,8 @@ import ConsultantServiceCenter from './pages/mypage/consultantmypage/ConsultantS
 import ServiceCenterCopy from './pages/servicecenter/ServiceCenterCopy';
 import PasswordChange from "./pages/auth/password/PasswordChange";
 import UseStyleWithUs from "./pages/usestylewithus/UseStyleWithUs";
+import MyPersonalColor from "./pages/personal/MyPersonalColor";
+import MyPersonalColorSpring from "./pages/personal/MyPersonalColorSpring";
 
 import NotFound from "./pages/notfound/NotFound"
 
@@ -61,6 +63,8 @@ function App() {
           <Route path="/myprofile" element={<MyProfile/>}/>
           <Route path="/recommend" element={<Recommend/>}/>
           <Route path="/sbti" element={<Sbti/>}/>
+          <Route path="/mypersonal-color" element={<MyPersonalColor/>}/>
+          <Route path="/mypersonal-color/spring" element={<MyPersonalColorSpring/>}/>
           <Route path="/consultant" element={<Loading />}/>
           <Route path='/manageconsultant' element={<ManageConsultant/>}/>
           <Route path="/consultantmyprofile" element={<ConsultantMyProfile/>}></Route>
