@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import classes from "./NotFound.module.css"
 
@@ -8,6 +9,10 @@ const NotFound = () =>{
     event.preventDefault();
     navigate('/')
   }
+
+  useEffect(() => {
+    document.querySelector(`#App`).scrollIntoView({behavior: "smooth", block: "start"});
+  }, []);
 
   return(
     <div className={classes["section1"]}>

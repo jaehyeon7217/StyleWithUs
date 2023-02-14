@@ -142,6 +142,10 @@ const Consultant = (props) => {
     }
   }, [sessionUserNickname]);
 
+  useEffect(() => {
+    document.querySelector(`#App`).scrollIntoView({behavior: "smooth", block: "start"});
+  }, []);
+
   return (
     <Fragment>
       <main className={classes.main}>

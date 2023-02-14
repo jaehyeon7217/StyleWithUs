@@ -49,6 +49,10 @@ const MyPageWish = () => {
     getMyWish();
   }, []);
 
+  useEffect(() => {
+    document.querySelector(`#App`).scrollIntoView({behavior: "smooth", block: "start"});
+  }, []);
+  
   return (
     <div>
       <div className={classes.WrapMyPage}>

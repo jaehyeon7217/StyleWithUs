@@ -108,6 +108,9 @@ const MyPage = () =>{
     navigate('/myprofile')
   }
 
+  useEffect(() => {
+    document.querySelector(`#App`).scrollIntoView({behavior: "smooth", block: "start"});
+  }, []);
 
   return(
     <div className={classes.MarginBox}>

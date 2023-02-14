@@ -105,8 +105,9 @@ const ConsultantMyPage = () => {
     navigate("/passwordchange")
   }
   
-
-
+  useEffect(() => {
+    document.querySelector(`#App`).scrollIntoView({behavior: "smooth", block: "start"});
+  }, []);
 
   return(
     <div>

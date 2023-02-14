@@ -13,10 +13,8 @@ import { authActions } from '../../../store/auth';
 const ConsultantMyProfile = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const consultantId = useSelector((state) => state.auth.userId);
   const token = useSelector((state) => state.auth.token);
   const data = useSelector((state) => state.auth.userData);
-  const review = useSelector((state) => state.auth.myReviewList);
   const reviewAvg = useSelector((state) => state.auth.reviewAvg);
     
 
@@ -33,7 +31,7 @@ const ConsultantMyProfile = () => {
       setMsg("분발해야 하는 컨설턴트")
     } else if (reviewAvg >=1){
       setMsg("해고 위기 컨설턴트")
-    } else if (reviewAvg ==0){
+    } else if (reviewAvg === 0){
       setMsg("성장하는 신입 컨설턴트")
     }
   }

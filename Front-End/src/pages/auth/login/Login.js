@@ -5,6 +5,7 @@ import { useDispatch } from "react-redux";
 import { authActions } from "../../../store/auth";
 import { cartActions } from "../../../store/cart";
 import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
 // component 분리
 import InputLabel from "../component/InputLabel";
 import { DataInput } from "../component/Effectiveness";
@@ -142,6 +143,10 @@ const Login = () => {
   const nullError = !!id && !!password;
   const effectivnessError = idError && passwordError;
   const submitError = nullError && effectivnessError;
+
+  useEffect(() => {
+    document.querySelector(`#App`).scrollIntoView({behavior: "smooth", block: "start"});
+  }, []);
 
   return (
     <div>
