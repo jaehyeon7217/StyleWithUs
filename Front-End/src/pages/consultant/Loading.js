@@ -11,6 +11,10 @@ const Loading = () => {
     setTimeout(() => setLoading(false), 2000);
   }, []);
 
+  useEffect(() => {
+    document.querySelector(`#App`).scrollIntoView({behavior: "smooth", block: "start"});
+  }, []);
+
   return loading ? (
     <div className={classes["loading-container"]}>
       <div className={classes["loading-pic"]}>

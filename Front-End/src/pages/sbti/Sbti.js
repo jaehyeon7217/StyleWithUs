@@ -221,6 +221,11 @@ const Sbti = () => {
     tSlideRef.current.style.transform = `translateY(-${thirdQuestion * 70}px)`;
   }, [thirdQuestion]);
 
+
+  useEffect(() => {
+    document.querySelector(`#App`).scrollIntoView({behavior: "smooth", block: "start"});
+  }, []);
+
   return (
     <div className={classes.container}>
       

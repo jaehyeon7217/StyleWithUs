@@ -1,3 +1,4 @@
+import { useEffect } from "react"
 import { Route, Routes } from "react-router-dom"
 import Login from "./login/Login"
 import UserSignup from "./signup/UserSignup"
@@ -11,6 +12,10 @@ import AdminLogin from "../admin/AdminLogin"
 import NotFound from "../notfound/NotFound"
 
 const Auth = () => {
+  
+  useEffect(() => {
+    document.querySelector(`#App`).scrollIntoView({behavior: "smooth", block: "start"});
+  }, []);
 
   return(
     <div className={classes.AuthBox}>

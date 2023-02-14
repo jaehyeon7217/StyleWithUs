@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import classes from "./MyProfile.module.css";
 import MyPageSideBar from "./MyPageSideBar";
 import { useSelector } from "react-redux";
@@ -7,6 +8,10 @@ import userWoman from "../../assets/mypageuserwoman.png";
 
 const MyProfile = () => {
   const userData = useSelector((state) => state.auth.userData);
+  
+  useEffect(() => {
+    document.querySelector(`#App`).scrollIntoView({behavior: "smooth", block: "start"});
+  }, []);
 
   return (
     <div className={classes.MarginBox}>
