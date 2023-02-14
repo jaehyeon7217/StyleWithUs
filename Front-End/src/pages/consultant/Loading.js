@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
-import userIamge from "../../assets/user.png";
+import userIamge from "../../assets/loadinguser.png";
 import rotatingIamge from "../../assets/rotating.png";
-import consultantIamge from "../../assets/consultant.png";
+import consultantIamge from "../../assets/loadingconsultant.png";
 import classes from "./Loading.module.css";
 import Consultant from './Consultant';
 
@@ -14,13 +14,13 @@ const Loading = () => {
   return loading ? (
     <div className={classes["loading-container"]}>
       <div className={classes["loading-pic"]}>
-        <img src={userIamge} alt="userIamge" />
+        <img className={classes.user} src={userIamge} alt="userIamge" />
         <img
           className={classes["loading-rotating-pic"]}
           src={rotatingIamge}
           alt="rotatingIamge"
         />
-        <img src={consultantIamge} alt="consultantIamge" />
+        <img className={classes.consultant} src={consultantIamge} alt="consultantIamge" />
       </div>
       <div className={classes["loading-text"]}>
         <h1 className={classes['h1-1']}>스타일 변신하기 준비 중</h1>
