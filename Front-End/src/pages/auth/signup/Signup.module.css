@@ -43,19 +43,22 @@
   justify-content: space-between;
   width: auto;
   margin-bottom: 50px;
+  font-family: "Apple_Gothic_Neo_Light";
+  font-size: 18px;
 }
 
 .imgbox img{
   width: 130px;
   margin: 10px;
   padding: 5px;
+  border: 2px solid white;
+  transition: all .15s;
 }
 
 .imgbox img:hover{
-  border: solid 1px rgb(172, 172, 172);
+  border: 2px solid rgb(172, 172, 172);
   border-radius: 10%;
-  margin: 9px;
-  padding: 5px;
+  cursor: pointer;
 }
 
 .ToLoginLink{
