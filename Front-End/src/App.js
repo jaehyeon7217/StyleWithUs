@@ -22,6 +22,8 @@ import PasswordChange from "./pages/auth/password/PasswordChange";
 import UseStyleWithUs from "./pages/usestylewithus/UseStyleWithUs";
 import MyPersonalColor from "./pages/personal/MyPersonalColor";
 import MyPersonalColorSpring from "./pages/personal/MyPersonalColorSpring";
+import MyPersonalColorSummer from "./pages/personal/MyPersonalColorSummer";
+import MyPersonalColorFall from "./pages/personal/MyPersonalColorFall";
 
 import NotFound from "./pages/notfound/NotFound"
 
@@ -30,6 +32,7 @@ import PrivateRoute from "./components/PrivateRoute";
 import PublicRoute from "./components/PublicRoute";
 
 import Footer from './components/Footer/Footer';
+import MyPersonalColorWinter from "./pages/personal/MyPersonalColorWinter";
 
 function App() {
   // 파라미터 값을 가져온다.
@@ -65,6 +68,9 @@ function App() {
           <Route path="/sbti" element={<Sbti/>}/>
           <Route path="/mypersonal-color" element={<MyPersonalColor/>}/>
           <Route path="/mypersonal-color/spring" element={<MyPersonalColorSpring/>}/>
+          <Route path="/mypersonal-color/summer" element={<MyPersonalColorSummer/>}/>
+          <Route path="/mypersonal-color/fall" element={<MyPersonalColorFall/>}/>
+          <Route path="/mypersonal-color/winter" element={<MyPersonalColorWinter/>}/>
           <Route path="/consultant" element={<Loading />}/>
           <Route path='/manageconsultant' element={<ManageConsultant/>}/>
           <Route path="/consultantmyprofile" element={<ConsultantMyProfile/>}></Route>

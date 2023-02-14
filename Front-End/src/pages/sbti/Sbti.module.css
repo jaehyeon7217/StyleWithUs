@@ -19,20 +19,25 @@
   font-family: "Apple_Gothic_Neo_Light";
   src: url("../../fonts/AppleSDGothicNeoL.ttf");
 }
+
+@font-face {
+  font-family: "Apple_Gothic_Neo_Middle";
+  src: url("../../fonts/AppleSDGothicNeoM.ttf");
+}
 .container {
   top: 50%;
   left: 50%;
   width: 70%;
   max-width: 1440px;
   overflow: hidden;
-  margin: 24px auto -69px;
+  margin: 24px auto 180px;
 }
 
 .sliderContainer {
   width: 100%;
+  height: 75vh;
   display: flex; 
   align-items: center;
-  
 }
 /* 1번 컴포넌트 start */
 .carouselItem1 {
@@ -46,22 +51,30 @@
   justify-content: center;
 }
 .manImg{
-  height: 340px;
+  height: 69.17%;
+  margin-right: 10px;
   opacity: 0;
   transition: all 0.2s 0.2s;
 }
 
 .manImg.on{
-  height: 340px;
+  height: 69.17%;
+  margin-right: 10px;
   opacity: 1;
 }
 
 .PageName {
-  font-family: "Apple_Gothic_Neo_Hard";
-  font-size: 54px;
-  margin-top: 0px;
+  font-family: "Apple_Gothic_Neo_Middle";
+  font-size: 65px;
+  margin-top: 38px;
+  margin-bottom: 0px;
   opacity: 0;
   transition: all 0.2s 0.2s;
+}
+
+.PageName span {
+  font-family: "Apple_Gothic_Neo_Middle";
+  font-size: 15px;
 }
 
 .PageName.on{
@@ -70,8 +83,8 @@
 
 
 .SubPageName {
-  font-family: "Apple_Gothic_Neo_Bold";
-  margin-top: -50px;
+  font-family: "Apple_Gothic_Neo_Middle";
+  margin: 13px 0 25px;
   font-size : 24px;
   opacity: 0;
   transition: all 0.2s 0.2s;
@@ -86,18 +99,18 @@
 .carouselbutton1 {
   all: unset;
   border: 2px solid #206cde;
-  padding: 0.5em 2em;
+  padding: 0.53em 2em 0.48em;
   color: #1758BA;
-  border-radius: 10px;
-  width: 150px;
+  border-radius: 12px;
   height: 30px;
   font-family: "Apple_Gothic_Neo_Light";
   font-weight: 700;
   opacity: 0;
-  transition: all 0.2s 0.2s;
+  transition: all 0.25s;
 }
 .carouselbutton1.on{
   opacity: 1;
+  cursor: pointer;
 }
 .carouselbutton1:hover {
   transition: all 0.2s ease-in-out;
@@ -133,7 +146,7 @@
   font-family: "Apple_Gothic_Neo_Bold";
   font-size: 54px;
   font-weight: 600;
-  margin: 55px 0 0;
+  margin: 60px 0 0;
 }
 
 .radioBox{
@@ -191,14 +204,16 @@
 }
 
 .directionImg{
-  width: 30px;
+  width: 20px;
   opacity: 0.2;
+  padding: 10px;
 }
 
 .directionImg:hover{
   transition: all 0.2s ease-in-out;
   /* background-color: #333333; */
   opacity: 1;
+  cursor: pointer;
 }
 
 /* 2번 컴포넌트 끝 */
