@@ -25,19 +25,19 @@
   width: 70%;
   max-width: 1440px;
   overflow: hidden;
-  margin: 20px auto;
-  height: auto;
+  margin: 24px auto -69px;
 }
 
 .sliderContainer {
   width: 100%;
-  display: flex;
+  display: flex; 
+  align-items: center;
   
 }
 /* 1번 컴포넌트 start */
 .carouselItem1 {
   width: 100%;
-  height: calc(100vh - 140px);
+  height: calc(80vh - 140px);
   flex-shrink: 0;
   display: flex;
   flex-direction: column;
@@ -59,7 +59,6 @@
 .PageName {
   font-family: "Apple_Gothic_Neo_Hard";
   font-size: 54px;
-  font-style: italic;
   margin-top: 0px;
   opacity: 0;
   transition: all 0.2s 0.2s;
@@ -72,7 +71,6 @@
 
 .SubPageName {
   font-family: "Apple_Gothic_Neo_Bold";
-  font-style: italic;
   margin-top: -50px;
   font-size : 24px;
   opacity: 0;
@@ -82,7 +80,9 @@
 .SubPageName.on{
   opacity: 1;
 }
-
+.firstQuestion{
+  margin-top: 80px;
+}
 .carouselbutton1 {
   all: unset;
   border: 2px solid #206cde;
@@ -133,7 +133,7 @@
   font-family: "Apple_Gothic_Neo_Bold";
   font-size: 54px;
   font-weight: 600;
-  margin: 100px 0 0;
+  margin: 55px 0 0;
 }
 
 .radioBox{
@@ -160,13 +160,22 @@
   align-items: center;
   justify-content: center;
   transition: opacity 0.5s;
+  margin-bottom: 10px;
 }
 .answer form{
   width: 100%;
 }
-.answer p{
+
+.sbtiAnswer{
+  font-family: "Apple_Gothic_Neo_Mid";
+  font-size: 18px;
+  color : #576071;
+}
+
+.sbtiQuestion{
   font-family: "Apple_Gothic_Neo_Mid";
   font-size: 24px;
+  color : #576071;
 }
 
 .answerInput{
