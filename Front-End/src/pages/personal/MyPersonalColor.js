@@ -147,7 +147,7 @@ const MyPersonalColor = () => {
               <button onClick={upScore}><img src={GoodImage}/></button>
             </div>
           </div>
-          <div className={classes.box} >
+          <div className={`${classes.box} ${pageNumber === 4 ? classes['on4'] : ""}`} >
             <h1 className={classes.h1}>퍼스널 컬러 진단 완료</h1>
             <p className={classes.p} onClick={pageChange}>당신의 퍼스널 컬러 확인하러 가기!</p>
             {pageNumber === 4 ? <img src={firecracker1} /> : ""}

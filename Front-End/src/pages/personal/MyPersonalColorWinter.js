@@ -47,7 +47,7 @@ const MyPersonalColorWinter = () => {
     <Fragment>
       <div className={classes.background}>
         <div className={classes.words}>
-          <h1 className={classes.h1}>당신의 퍼스널 컬러는 겨울 웜톤</h1>
+          <h1 className={classes.h1}>당신의 퍼스널 컬러는 겨울 쿨톤</h1>
           <p className={classes.p}>당신에게 어울리는 컬러와 스타일을 추천드려요</p>
         </div>
         <main>

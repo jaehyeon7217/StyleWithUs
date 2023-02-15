@@ -252,6 +252,12 @@
 
 .container div:nth-of-type(4) {
   height: 100%;
+  opacity: 0;
+  transition: opacity 1s;
+}
+
+.container div:nth-of-type(4).on4 {
+  opacity: 1;
 }
 
 .container div:nth-of-type(4) .h1 {
