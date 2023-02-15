@@ -106,3 +106,12 @@
 			COPY target/style-0.0.1-SNAPSHOT.jar stylewithus-server.jar
 			EXPOSE 8082
 			CMD ["java", "-jar", "stylewithus-server.jar"]
+- Docker에서 MariaDB 설치
+    1. MariaDB 이미지로 컨테이너 실행
+        docker run --name mariadb -d -p 3306:3306 --restart=always -e MYSQL_ROOT_PASSWORD=qorhvmwh12 mariadb
+    2. 권한 설정
+        // AWS 서버 주소 권한 추가
+        CREATE USER 'root'@'43.201.72.251' IDENTIFIED BY 'root';
+        GRANT ALL PRIVILEGES ON *.* TO 'root'@'43.201.72.251' WITH GRANT OPTION;
+
+​
