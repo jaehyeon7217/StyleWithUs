@@ -87,7 +87,7 @@ const ConsultantReviewPage = () => {
                             </div>
                             <div className={classes.reviewContent}>
                                 <p>{review[idx].reviewContent}</p>
-                                <p >{(data.userGender ? <img src={boyface} className={classes.boyface} /> : <img src={girlface} className={classes.girlface} />)}</p>
+                                {/* <p >{(data.userGender ? <img src={boyface} className={classes.boyface} /> : <img src={girlface} className={classes.girlface} />)}</p> */}
                             </div >
                             {/* <div className={classes.borderbottom}></div> */}
 

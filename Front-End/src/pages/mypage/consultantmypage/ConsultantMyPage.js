@@ -158,11 +158,11 @@ const ConsultantMyPage = () => {
                       <GetStarRating reviewScore={review[idx].reviewScore} className={classes.star} />
                       <p className={classes.reviewScore}>{review[idx].reviewScore}</p>
                       <p className={classes.userId}>{review[idx].userId}</p>
-                      <p className={classes.userDate}>{review[idx].reviewRegisterTime}</p>
+                      <p className={classes.userDate}>{review[idx].reviewRegisterTime[0]}.{review[idx].reviewRegisterTime[1]}.{review[idx].reviewRegisterTime[2]}</p>
                     </div>
                     <div className={classes.reviewContent}>
                       <p>{review[idx].reviewContent}</p>
-                      <p >{(data.userGender ? <img src={boyface} className={classes.boyface} /> : <img src={girlface} className={classes.girlface} />)}</p>
+                      {/* <p >{(data.userGender ? <img src={boyface} className={classes.boyface} /> : <img src={girlface} className={classes.girlface} />)}</p> */}
                     </div >
                   </div>
                 )
