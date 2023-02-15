@@ -2,6 +2,9 @@ import { useState, useEffect } from "react";
 import ConsultantResume from "./ConsultantResume";
 import classes from "./ConsultantList.module.css";
 import { useDispatch } from "react-redux";
+import consultantmanface from "../../../../assets/consultantmanface.png";
+import consultantwomanface from "../../../../assets/consultantwomanface.png";
+
 import { authActions } from "../../../../store/auth";
 
 const ConsultantList = (props) => {
@@ -10,7 +13,8 @@ const ConsultantList = (props) => {
   const consultantId = props.consultantId;
   const consultantNickname = props.consultantNickname;
   const consultantGender = props.consultantGender;
-  const consultantGenderType = consultantGender === 1 ? "남자" : "여자";
+  const consultantImage =
+    consultantGender === 1 ? consultantmanface : consultantwomanface;
   const consultantResume = props.consultantResume;
   const numberOfPeople = props.numberOfPeople;
   const consultantSessionId = props.sessionId;
@@ -33,10 +37,11 @@ const ConsultantList = (props) => {
   return (
     <div className={classes["consultant-list"]}>
       <div className={classes.consultant}>
-        <div>
-          {consultantNickname}({consultantGenderType[0]}) 님과 함께
+        <img src={consultantImage} />
+        <div className={classes.text}>
+          {consultantNickname}님과 함께
+          <div>스타일을 변경하시겠습니까?</div>
         </div>
-        <div>스타일을 변경하시겠습니까?</div>
       </div>
       <div className={classes["button-display"]}>
         <input

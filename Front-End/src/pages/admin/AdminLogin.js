@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom"
 import { authActions } from "../../store/auth"
 import Swal from "sweetalert2"
 import classes from './AdminLogin.module.css'
+import { useEffect } from "react"
 
 const AdminLogin = () =>{
   const dispatch = useDispatch();
@@ -59,6 +60,11 @@ const AdminLogin = () =>{
   const nullError = !!id && !!password;
   const effectivnessError = idError && passwordError;
   const submitError = nullError && effectivnessError;
+
+  const styleChange = document.querySelector(`#AuthBox`)
+  useEffect(()=>{
+    styleChange.style.height="calc(100vh - 445px)"
+  }, [])
 
   return(
     <div>

@@ -29,6 +29,13 @@ const Footer = () => {
         navigate("/usestylewithus")
     }
 
+    // 서비스 안내 이동
+    const toService = (event) => {
+        event.preventDefault();
+        navigate("/usestylewithus")
+    }
+
+
     return(
         <footer className={classes.footer}>
             <div className={classes.footerTop}>
@@ -59,9 +66,9 @@ const Footer = () => {
             <div className={classes.footerBottom}>
                 <div className={classes.footerBoxone}>
                     <div className={classes.footerBoxOneTitle}>
-                        <p className={classes.oneBoxP}>서비스 안내</p>
-                        <p className={classes.oneBoxP}>서비스 사용방법</p>
-                        <p className={classes.oneBoxP}>개발팀 소개</p>
+                        <p className={classes.oneBoxP} onClick={toService}>서비스 안내</p>
+                        <p className={classes.oneBoxP} onClick={toDeveloperpage}>개발팀 소개</p>
+                        <p className={classes.oneBoxP} onClick={RecommendPage}>고객 센터</p>
                     </div>
                     <div className={classes.ContentBox}>
                         <h3 className={classes.StylewithUsName}>(주) 스타일 윗 어스</h3>

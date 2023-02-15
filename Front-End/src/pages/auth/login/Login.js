@@ -146,7 +146,9 @@ const Login = () => {
 
   useEffect(() => {
     document.querySelector(`#App`).scrollIntoView({behavior: "smooth", block: "start"});
+    document.querySelector(`#AuthBox`).style.height="calc(100vh - 445px)"
   }, []);
+
 
   return (
     <div>

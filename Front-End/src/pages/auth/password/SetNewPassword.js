@@ -2,6 +2,7 @@ import axios from "axios";
 import Swal from "sweetalert2";
 import InputLabel from "../component/InputLabel";
 import classes from "./SetNewPassword.module.css";
+import { useEffect } from "react";
 import { DataInput, CheckPassword } from "../component/Effectiveness";
 import { useNavigate, useLocation } from "react-router-dom";
 import { useSelector } from "react-redux";
@@ -66,6 +67,12 @@ const SetNewPassword = (props) => {
         });
       });
   };
+
+  useEffect(() => {
+    document.querySelector(`#App`).scrollIntoView({behavior: "smooth", block: "start"});
+    document.querySelector(`#AuthBox`).style.height="calc(100vh - 445px)"
+  }, []);
+
   return (
     <div>
       <h1 className={classes.PageName}>새로운 비밀번호</h1>

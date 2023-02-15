@@ -28,7 +28,7 @@
 .PageName{
   font-family: "Apple_Gothic_Neo_SBold";
   font-size: 37px;
-  margin-top: 130px;
+  margin-top: 115px;
   margin-bottom: 50px;
 }
 
@@ -90,8 +90,7 @@
   font-weight: bold;
 }
 
-.loginicon{
+.loginimg{
   height: 17px;
-  margin-top: 0.5px;
+  margin-top: 0.8px;
 }
-

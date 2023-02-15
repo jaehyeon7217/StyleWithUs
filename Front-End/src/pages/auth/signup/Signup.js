@@ -25,14 +25,14 @@ const SignUp = () => {
     navigate("/auth/login");
   };
   
+  useEffect(() => {
+    document.querySelector(`#App`).scrollIntoView({behavior: "smooth", block: "start"});
+    document.querySelector(`#AuthBox`).style.height="calc(100vh - 445px)"
+  }, []);
+
   return(
     <div>
       <h1 className={classes.PageName}>회원 가입</h1>
-      <br />
-      <div className={classes.textbox}>
-        <p>가입 유형</p>
-        <p>정보 입력</p>
-      </div>
       <div className={classes.imgbox}>
         <div className={classes.userbox}>
           <img src={userwoman} alt="img" onClick={toUserSignup} className={classes.userwoman}/>

@@ -73,15 +73,23 @@
   margin-bottom: 0px;
   opacity: 0;
   transition: all 0.5s 0.2s;
+  margin-top: 20px;
 }
 
 .PageName span {
   font-family: "Apple_Gothic_Neo_Middle";
   font-size: 15px;
+  color: white;
 }
 
 .PageName.on{
   opacity: 1;
+}
+
+.pagesubname{
+  font-family: "Apple_Gothic_Neo_Middle";
+  font-size: 15px;
+  margin-top: -10px;
 }
 
 
@@ -110,6 +118,8 @@
   font-weight: 700;
   opacity: 0;
   transition: all 0.25s;
+  padding-top: 12px;
+  padding-bottom: 12px;
 }
 .carouselbutton1.on{
   opacity: 1;

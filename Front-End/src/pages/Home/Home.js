@@ -58,6 +58,7 @@ const Home = () => {
   const lastPageNumber = 11;
 
   useEffect(() =>{
+    document.querySelector(`#App`).scrollIntoView({behavior: "smooth", block: "start"});
     dispatch(authActions.endConsulting(false))
   }, [])
 

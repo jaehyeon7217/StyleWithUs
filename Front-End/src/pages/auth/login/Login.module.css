@@ -23,7 +23,7 @@
   font-family: "Apple_Gothic_Neo_Hard";
   font-size: 40px;
   /* font-style: italic; */
-  margin-top: 70px;
+  margin-top: 115px;
 }
 
 .SubPageName {
@@ -92,7 +92,6 @@
 .BottomLabelBox {
   display: flex;
   justify-content: center;
-  margin-bottom: 200px;
 }
 
 .Vline {
@@ -123,107 +122,3 @@
   margin-left: 10px;
   cursor: pointer;
 }
-
-/* footer관련 */
-
-.footer{
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  display: flex;
-
-}
-
-
-.fotterBoxone{
-  width: 50%;
-  height: 130px;
-  /* background-color: #565656; */
-  background-color: rgb(13, 152, 207);
-  display: flex;
-  justify-content: space-between;
- 
-}
-
-.footerImgatwo{
-  margin-top: 10px;
-  margin-right: 20px;
-  width: 110px;
-  
-}
-
-.footerwoman{
-  margin-top: 20px;
-  transform: scaleX(-1);
-  width: 70px;
-  margin-right: 60px;
-}
-
-
-.fotterBoxtwo{
-  width: 50%;
-  height: 130px;
-  background-color: #3B3A3C;
-  display: flex;
-  justify-content: space-between;
-
-}
-
-.footerImge{
-  margin-top: 10px;
-  /* margin-left: 60px; */
-
-}
-
-
-.fottername{
-  font-family: "Apple_Gothic_Neo_Bold";
-  text-align: left;
-  font-size: 18px;
-  color: rgb(214, 213, 213);
-  margin-bottom: 30px;
-  margin-left: 25px;
-}
-
-.fottercontent{
-  font-family: "Apple_Gothic_Neo_Mid";
-  font-size: 13.5px;
-  text-align: left;
-  color: rgb(231, 230, 230);
-  margin-top: -16px;
-  margin-left: 25px;
-  
-
-}
-
-.fotterBtn{
-  font-family: "Apple_Gothic_Neo_Mid";
-  border-radius: 4px;
-  font-size: 12px;
-  border-color: white;
-  float: left;
-  margin-left: 25px;
-  margin-top: -8px;
-  color: white;
-  /* background-color: #565656; */
-  background-color: rgb(13, 152, 207);
-  padding-top: 4.5px;
-  cursor: pointer;
-}
-
-.fotterBtntwo{
-  font-family: "Apple_Gothic_Neo_Mid";
-  border-radius: 4px;
-  font-size: 12px;
-  border-color: white;
-  float: left;
-  margin-left: 25px;
-  margin-top: -8px;
-  color: white;
-  background-color: #3B3A3C;
-  padding-top: 4.5px;
-  cursor: pointer;
-  }
-
-
