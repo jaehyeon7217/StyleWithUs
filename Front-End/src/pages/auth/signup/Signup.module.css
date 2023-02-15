@@ -74,6 +74,8 @@
 .ToLoginLink{
   font-family: "Apple_Gothic_Neo_Mid";
   cursor: pointer;
+  display: flex;
+  justify-content: center;
 }
 
 .userwoman{
@@ -86,5 +88,10 @@
 
 .ToLoginLink:hover{
   font-weight: bold;
+}
+
+.loginicon{
+  height: 17px;
+  margin-top: 0.5px;
 }
 

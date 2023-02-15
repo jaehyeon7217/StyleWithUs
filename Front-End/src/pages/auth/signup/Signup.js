@@ -1,10 +1,9 @@
 import { useNavigate } from "react-router-dom"
 import { useDispatch, useSelector } from "react-redux"
-import consultantIcon from "../../../assets/consultant.png"
-import userIcon from "../../../assets/user.png"
 import classes from "./Signup.module.css"
 import consultantwoman from '../../../assets/consultantwomantwo.png'
 import userwoman from '../../../assets/mypageuserwoman.png'
+import loginicon from '../../../assets/mainPage/로그인아이콘.png'
 
 
 
@@ -48,6 +47,7 @@ const SignUp = () => {
       <br />
       <label onClick={toLogin} className={classes.ToLoginLink}>
         로그인 하러 가기
+        <img src={loginicon} alt="" className={classes.loginicon} />
       </label>
     </div>
   )
