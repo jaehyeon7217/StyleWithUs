@@ -3,6 +3,9 @@ import { useDispatch, useSelector } from "react-redux"
 import consultantIcon from "../../../assets/consultant.png"
 import userIcon from "../../../assets/user.png"
 import classes from "./Signup.module.css"
+import consultantwoman from '../../../assets/consultantwomantwo.png'
+import userwoman from '../../../assets/mypageuserwoman.png'
+
 
 
 const SignUp = () => {                             
@@ -32,12 +35,13 @@ const SignUp = () => {
         <p>정보 입력</p>
       </div>
       <div className={classes.imgbox}>
-        <div>
-          <img src={userIcon} alt="img" onClick={toUserSignup}/>
+        <div className={classes.userbox}>
+          <img src={userwoman} alt="img" onClick={toUserSignup} className={classes.userwoman}/>
           <p>일반 유저</p>
         </div>
-        <div>
-          <img src={consultantIcon} alt="img" onClick={toConsultantSignup}/>
+        <div className={classes.marginbox}></div>
+        <div className={classes.c}>
+          <img src={consultantwoman} alt="img" onClick={toConsultantSignup} className={classes.consultantwoman}/>
           <p>컨설턴트</p>
         </div>
       </div>

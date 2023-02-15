@@ -28,6 +28,8 @@
 .PageName{
   font-family: "Apple_Gothic_Neo_SBold";
   font-size: 37px;
+  margin-top: 130px;
+  margin-bottom: 50px;
 }
 
 .textbox{
@@ -42,9 +44,11 @@
   display: flex;
   justify-content: space-between;
   width: auto;
-  margin-bottom: 50px;
+  margin-bottom: 30px;
   font-family: "Apple_Gothic_Neo_Light";
   font-size: 18px;
+  cursor: pointer;
+  
 }
 
 .imgbox img{
@@ -56,12 +60,31 @@
 }
 
 .imgbox img:hover{
-  border: 2px solid rgb(172, 172, 172);
+  border: 2px solid rgb(194, 194, 194);
   border-radius: 10%;
   cursor: pointer;
+}
+
+
+
+.imgbox p{
+  font-family: "Apple_Gothic_Neo_Mid";
 }
 
 .ToLoginLink{
   font-family: "Apple_Gothic_Neo_Mid";
   cursor: pointer;
 }
+
+.userwoman{
+  transform: scaleX(-1);
+}
+
+.consultantwoman{
+  transform: scaleX(-1);
+}
+
+.ToLoginLink:hover{
+  font-weight: bold;
+}
+
