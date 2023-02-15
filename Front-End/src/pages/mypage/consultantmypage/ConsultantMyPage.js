@@ -62,7 +62,7 @@ const ConsultantMyPage = () => {
       }
     ).then(response=>{
       if (response.status === 200){
-        dispatch(authActions.myReviewList(response.data))
+        dispatch(authActions.getMyReview(response.data))
       }
     }).catch((error) => {
       if(error.response.status===401){
@@ -80,8 +80,6 @@ const ConsultantMyPage = () => {
       }
     })
   };
-
-
 
   useEffect(() => {
     getMyData();
