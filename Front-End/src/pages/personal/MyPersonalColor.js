@@ -9,6 +9,7 @@ import GoodImage from "../../assets/personal/good2.png"
 import SosoImage from "../../assets/personal/soso.png"
 import firecracker1 from "../../assets/personal/firecracker1.gif"
 import firecracker2 from "../../assets/personal/firecracker2.gif"
+import colorcircle from '../../assets/colorcircle.png'
 
 
 
@@ -127,17 +128,17 @@ const MyPersonalColor = () => {
           </div>
           <div className={`${classes['box']} ${pageNumber < 2 ? "" : pageNumber === 2? classes.on : classes.off}`}>
             <p className={classes.p}>정확한 진단을 위해 아래와 같은 얼굴 사진을 첨부해 주세요</p>
-            <p className={classes.subP}>실제 얼굴과 가장 가까운 사진</p>
-            <p className={classes.subP}>바른 자세의 목 위 얼굴 사진</p>
-            <p className={classes.subP}>잔잔한 미소를 띈 사진</p>
             <div id="image_container" className={classes["image-container"]}>
               <img src={ConsultantImage} alt="faceImg" />
             </div>
+            <p className={classes.subP}>실제 얼굴과 가장 가까운 사진</p>
+            <p className={classes.subP}>바른 자세의 목 위 얼굴 사진</p>
+            <p className={classes.subP}>잔잔한 미소의 무표정 사진</p>
             <label htmlFor="file">
               <div className={classes['btn-upload']}>이미지 첨부하기</div>
             </label>
             <input type="file" id="file" name="file" accept="image/*" onChange={setThumbnail}/>
-            <p onClick={AddPageNumber} className={classes.checkStart}>준비가 되셨으면 클릭!</p>
+              <p onClick={AddPageNumber} className={classes.checkStart}>검사하러 가기</p>
           </div>
           <div className={`${classes['box']} ${pageNumber < 3 ? "" : pageNumber === 3? classes.on : classes.off}`}>
             <img src={imageSrc} alt="img" />
@@ -149,7 +150,7 @@ const MyPersonalColor = () => {
           </div>
           <div className={`${classes.box} ${pageNumber === 4 ? classes['on4'] : ""}`} >
             <h1 className={classes.h1}>퍼스널 컬러 진단 완료</h1>
-            <p className={classes.p} onClick={pageChange}>당신의 퍼스널 컬러 확인하러 가기!</p>
+            <p className={classes.p} onClick={pageChange}>당신의퍼스널 컬러 확인하러 가기</p>
             {pageNumber === 4 ? <img src={firecracker1} /> : ""}
             {pageNumber === 4 ? <img src={firecracker2} /> : ""}
             {pageNumber === 4 ? <img src={firecracker1} /> : ""}
