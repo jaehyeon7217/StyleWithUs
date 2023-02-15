@@ -43,7 +43,7 @@ const Footer = () => {
                     <div>
                         <p className={classes.fottername}>SERVICE GUIDE</p>
                         <p className={classes.fottercontent}>STYLE WITH US는 처음이지?</p>
-                        <p className={classes.fottercontent}>서비스 소개를 확인해보세요.</p>
+                        <p className={classes.fottercontent}>서비스 안내를 확인해보세요.</p>
                         <button className={classes.fotterBtn} onClick={toMainPage}>서비스 안내</button>
                     </div>
                     <div>
@@ -56,7 +56,7 @@ const Footer = () => {
                     <div>
                         <p className={classes.fottername}>DEVELOPER GUIDE</p>
                         <p className={classes.fottercontent}>개발팀 소개는 처음이지?</p>
-                        <p className={classes.fottercontent}>STYLE WITH US의 개발 일기를 확인해보세요.</p>
+                        <p className={classes.fottercontent}>STYLE WITH US의 개발팀을 확인해보세요.</p>
                         <button className={classes.fotterBtntwo} onClick={toDeveloperpage}>개발팀</button>
                     </div>
                     <img src={footerImge} alt="개발팀" className={classes.footerImge} />
