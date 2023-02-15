@@ -2,8 +2,7 @@ import {useSelector } from "react-redux";
 import classes from './ConsultantReviewPage.module.css';
 import GetStarRating from '../../consultant/video/VideoUser/reviewinput/GetStarRating';
 import ConsultantMyPageSideBar from './ConsultantMyPageSideBar';
-import { useState } from "react";
-import { useEffect } from "react";
+import { useState, useEffect } from "react";
 import consultantWoman from '../../../assets/consultantwoman.png';
 import consultantman from '../../../assets/consultantman.png'
 import boyface from '../../../assets/boyface.png';
@@ -11,8 +10,6 @@ import girlface from '../../../assets/girlface.png';
 
 
 const ConsultantReviewPage = () => {
-    const consultantId = useSelector((state) => state.auth.userId);
-    const token = useSelector((state) => state.auth.token);
     const data = useSelector((state) => state.auth.userData);
     const review = useSelector((state) => state.auth.myReviewList);
     const reviewAvg = useSelector((state) => state.auth.reviewAvg);
@@ -55,11 +52,9 @@ const ConsultantReviewPage = () => {
     
     useEffect(()=>{
       reviewMsg();
-    },[])
-
-    useEffect(()=>{
-        reviewMsgTwo();
-    }, [])
+      reviewMsgTwo();
+      document.querySelector(`#App`).scrollIntoView({behavior: "smooth", block: "start"});
+    }, []);
 
     return(
         <div className={classes.ReviewPage}>
