@@ -1,10 +1,16 @@
 import { Fragment, useEffect, useState } from "react";
-import { Navigate, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 import classes from "./MyPersonalColor.module.css";
 
 import Image from "../../assets/personal/personalcolorman.png"
 import ConsultantImage from "../../assets/girlface.png"
+import GoodImage from "../../assets/personal/good2.png"
+import SosoImage from "../../assets/personal/soso.png"
+import firecracker1 from "../../assets/personal/firecracker1.gif"
+import firecracker2 from "../../assets/personal/firecracker2.gif"
+
+
 
 const MyPersonalColor = () => {
   const [pageOn, setPageOn] = useState(false);
@@ -136,14 +142,17 @@ const MyPersonalColor = () => {
           <div className={`${classes['box']} ${pageNumber < 3 ? "" : pageNumber === 3? classes.on : classes.off}`}>
             <img src={imageSrc} alt="img" />
             <div className={classes['btn-box']}>
-              <button onClick={downScore}>안 어울려요</button>
-              <button onClick={normalScore}>보통이에요</button>
-              <button onClick={upScore}>잘 어울려요</button>
+              <button onClick={downScore}><img src={GoodImage}/></button>
+              <button onClick={normalScore}><img src={SosoImage}/></button>
+              <button onClick={upScore}><img src={GoodImage}/></button>
             </div>
           </div>
-          <div className={classes.box}>
+          <div className={classes.box} >
             <h1 className={classes.h1}>퍼스널 컬러 진단 완료</h1>
             <p className={classes.p} onClick={pageChange}>당신의 퍼스널 컬러 확인하러 가기!</p>
+            {pageNumber === 4 ? <img src={firecracker1} /> : ""}
+            {pageNumber === 4 ? <img src={firecracker2} /> : ""}
+            {pageNumber === 4 ? <img src={firecracker1} /> : ""}
           </div>
         </div>
       </div>
