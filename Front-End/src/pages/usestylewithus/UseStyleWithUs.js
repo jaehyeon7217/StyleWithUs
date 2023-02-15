@@ -13,6 +13,7 @@ import { useNavigate } from "react-router-dom";
 import colorcircle from '../../assets/colorcircle.png'
 import signupimg from '../../assets/mainPage/회원가입아이콘.png'
 import loginimg from '../../assets/mainPage/로그인아이콘.png'
+import personalcolor from '../../assets/usePage/personalcolor.png'
 
 const UseStyleWithUs = () => {
 
@@ -61,9 +62,10 @@ const UseStyleWithUs = () => {
                                         <p className={classes.datetwo}>STEP4</p>
                                         <p className={classes.dash}>-</p>
                                     </div>
-                                    <p className={classes.datenametwo}>컨설턴트 상담 진행</p>
+                                    <p className={classes.datenametwo}>컨설턴트 화상 상담 진행</p>
                                     <p className={classes.datacontenttwo}>패션 전문 컨설턴트와 실시간 화상 채팅으로 </p>
-                                    <p className={classes.datacontenttwo}>체형/퍼스널 컬러 진단 받고 스타일 추천 받기 </p>
+                                    <p className={classes.datacontenttwo}>체형/퍼스널컬러/스타일 진단 받고</p>
+                                    <p className={classes.datacontenttwo}>나에게 적합한 스타일 추천 받기 </p>
                                 </div>
                                 <img src={sbti} alt="" className={classes.sbti}/>
                                 <div className={classes.diaryboxtwo}>
@@ -73,7 +75,8 @@ const UseStyleWithUs = () => {
                                     </div>
                                     <p className={classes.datenametwo}>스타일 추천 받기</p>
                                     <p className={classes.datacontenttwo}>SBTI 진단 내용을 바탕으로 </p>
-                                    <p className={classes.datacontenttwo}>스타일 추천 받고 고르기 </p>
+                                    <p className={classes.datacontenttwo}>나에게 적합한 스타일 추천 받고</p>
+                                    <p className={classes.datacontenttwo}>마음에 드는 옷 장바구니에 담기</p>
                                 </div>
                             <img src={wish} alt="" className={classes.wish} />
                                 <div className={classes.diaryboxtwo}>
@@ -81,10 +84,12 @@ const UseStyleWithUs = () => {
                                         <p className={classes.datetwo}>STEP8</p>
                                         <p className={classes.dash}>-</p>
                                     </div>
-                                    <p className={classes.datenametwo}>마이페이지 활용하기</p>
-                                    <p className={classes.datacontenttwo}>쇼핑 정보/내 정보/자주 묻는 질문 등이 </p>
-                                    <p className={classes.datacontenttwo}>나의 정보가 모아져있는 마이페이지 활용하기 </p>
+                                    <p className={classes.datenametwo}>퍼스널컬러 진단받기</p>
+                                    <p className={classes.datacontenttwo}>자신의 얼굴 사진을 등록해</p>
+                                     <p className={classes.datacontenttwo}>봄/가을 웜톤 여름/겨울 쿨톤 진단받고</p>
+                                    <p className={classes.datacontenttwo}>어울리는 컬러/립스틱/헤어/스타일 추천 받기</p>
                                 </div>
+                            <img src={mypage} alt="" className={classes.realmypage} />
                         </div>
                         <div className={classes.vLine}></div>
                             <div>
@@ -114,10 +119,10 @@ const UseStyleWithUs = () => {
                                     <p className={classes.dateone}>STEP5</p>
                                     </div>
                                     <p className={classes.datenameone}>SBTI 진단 받기</p>
-                                    <p className={classes.datacontent}>키/어깨/팔길이 등 체형 입력 하고  </p>
-                                    <p className={classes.datacontent}>어울리는 스타일 진단받기 </p>
+                                    <p className={classes.datacontent}>키/어깨/팔길이 등 자신의 체형을 입력 하고</p>
+                                    <p className={classes.datacontent}>나에게 적합한 스타일 추천받기</p>
                                 </div>
-                            <img src={recommend} alt="" className={classes.recommend} />
++                            <img src={recommend} alt="" className={classes.recommend} />
                                 <div className={classes.diaryboxone}>
                                     <div className={classes.dateboxone}>
                                         <p className={classes.dash}>-</p>
@@ -127,7 +132,16 @@ const UseStyleWithUs = () => {
                                     <p className={classes.datacontent}>스타일 윗 어스를 이용하며 관심 상품에 담은 </p>
                                     <p className={classes.datacontent}>의류 스타일을 구매/삭제하러 가기 </p>
                                 </div>
-                            <img src={mypage} alt="" className={classes.mypage} />
+                            <img src={personalcolor} alt="" className={classes.mypage} />
+                            <div className={classes.diaryboxone}>
+                                <div className={classes.dateboxone}>
+                                    <p className={classes.dash}>-</p>
+                                    <p className={classes.dateone}>STEP9</p>
+                                </div>
+                                <p className={classes.datenameone}>마이페이지 활용하기</p>
+                                <p className={classes.datacontent}>쇼핑 정보/내 정보/자주 묻는 질문 등이</p>
+                                <p className={classes.datacontent}>나의 정보가 모아져있는 마이페이지 활용하기</p>
+                            </div>
                             </div>
                     </div>
                     <div className={classes.marginbox}></div>

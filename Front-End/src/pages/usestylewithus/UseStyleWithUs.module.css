@@ -54,7 +54,7 @@
 .main1{
     height: 190px;
     margin-top: 50px;
-    margin-left: 15px;
+    margin-right: 20px;
     
 }
 
@@ -79,18 +79,21 @@
 .sbti{
     height: 190px;
     margin-top: 90px;
+    margin-left: 120px;
 }
 
 .recommend{
     height: 190px;
-    margin-top: 150px;
+    margin-top: 180px;
     margin-left: 30px;
+    margin-bottom: 50px;
 }
 
 .wish{
     height: 190px;
     margin-top: 150px;
     margin-left: 130px;
+    margin-bottom: 80px;
 
 }
 
@@ -98,13 +101,21 @@
     height: 190px;
     margin-top: 200px;
     margin-left: 30px;
+    margin-bottom: 50px;
     
+}
+
+.realmypage{
+    height: 210px;
+    margin-top: 120px;
+    margin-left:20px;
+    margin-bottom: 50px;
 }
 
 
 .diaryboxone{
     margin-left: 30px;
-    margin-top: -20px;
+    margin-top: -10px;
 }
 
 .dateboxone{
@@ -172,9 +183,8 @@
 .vLine{
     border: 1px solid lightgrey;
     width: 0.1px;
-    height: 2400px;
+    height: 2720px;
     margin-top: 30px;
-    margin-left: -40px;
 }
 
 .marginbox{
