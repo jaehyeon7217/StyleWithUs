@@ -8,8 +8,7 @@
   justify-content: center;
   flex-direction: column;
   padding-left: 200px;
-  height: calc(100vh - 80px);
-  height: calc(var(--vh, 1vh) * 100 - 80px);
+  height: calc(100vh - 180px);
 }
 
 .section1 h1,
