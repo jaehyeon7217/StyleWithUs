@@ -9,6 +9,7 @@
   flex-direction: column;
   padding-left: 200px;
   height: calc(100vh - 80px);
+  height: calc(var(--vh, 1vh) * 100 - 80px);
 }
 
 .section1 h1,

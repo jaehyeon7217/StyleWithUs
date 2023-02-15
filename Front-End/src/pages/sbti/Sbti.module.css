@@ -36,6 +36,7 @@
 .sliderContainer {
   width: 100%;
   height: 80vh;
+  height: calc(var(--vh, 1vh) * 80);
   display: flex; 
   align-items: center;
 }
@@ -51,14 +52,16 @@
   justify-content: center;
 }
 .manImg{
-  height: 69.17%;
+  width: 35.7%;
+  height: auto;
   margin-right: 10px;
   opacity: 0;
   transition: all 0.2s 0.2s;
 }
 
 .manImg.on{
-  height: 69.17%;
+  width: 35.7%;
+  height: auto;
   margin-right: 10px;
   opacity: 1;
 }
@@ -124,6 +127,7 @@
 .carouselItem {
   width: 100%;
   height: 70vh;
+  height: calc(var(--vh, 1vh) * 70);
   flex-shrink: 0;
   text-align: center;
   display: flex;

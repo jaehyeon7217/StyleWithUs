@@ -5,6 +5,7 @@
 
 .main {
   height: 80vh;
+  height: calc(var(--vh, 1vh) * 80);
   display: flex;
   justify-content: space-around;
   align-items: center;

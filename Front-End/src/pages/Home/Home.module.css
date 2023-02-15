@@ -118,6 +118,7 @@
 .section11,
 .section12 {
   height: 100vh;
+  height: calc(var(--vh, 1vh) * 100);
 }
 
 .top {
@@ -153,6 +154,7 @@
   align-items: center;
   padding-left: 200px;
   height: calc(100vh - 80px);
+  height: calc(var(--vh, 1vh) * 100 - 80px);
 }
 
 .section1 .right {
@@ -273,6 +275,7 @@
 
 
 .section2 {
+  height: calc(var(--vh, 1vh) * 100 + 80px);
   display: flex;
   justify-content: center;
   align-items: center;
