@@ -60,3 +60,49 @@
 
     npm install
     npm start
+
+- docker에서 jenkins 설치 및 배포
+	1. jenkins 이미지 확보
+	 docker pull jenkins/jenkins:lts
+	2. jenkins 컨테이너 실행
+	 docker run --name jenkins -d -p 8080:8080 -v /home/jenkins:/var/jenkins_home -u root jenkins/jenkins:lts
+	3. 젠킨스 실행
+	 외부 ip를 이용하여 젠킨스 포트번호로 접근 (예 : http://i8d105.p.ssafy.io:8080)
+	4. 젠킨스 설정
+	 - administrator password : docker logs jenkins
+	 - plugin 설치
+		Amazon EC2, Authentication Tokens API, gitlab, Config File Provider, docker, docker commons, docker pipeline, dockerAPI, Deploy to container, Infrastructure plugin for Publish Over X, Javadoc, JavaScript GUI Lib: ACE Editor bundle, Maven Integration, NodeJS, Publish Over SSH
+	 - 시스템 설정
+		Jenkins URL
+	 - Global Tool Configration
+		Maven, nodeJS 버전 설정
+	5. 프리스타일 아이템 생성
+	 - 깃 연결 (http주소, git 계정 등록, 빌드 브런치 설정)
+	 - build when a change is pushed to gitlab 체크
+	 - 빌드 스템 추가
+		Invoke top-level Maven targets (메이븐 버전 설정, goals : clean package)
+		Execute shell
+			- docker build -t stylewithus-server ./Back-End
+			  docker rm -f stylewithus-server || true
+			  docker run -d -p 8082:8082 --name stylewithus-server stylewithus-server
+		Execute NodeJS script (nodeJS 설정)
+		Execute shell
+			- cd /var/jenkins_home/workspace/D105/Front-End
+			  npm install
+			  cd ..
+			  docker build -t stylewithus-front-server ./Front-End
+			  docker rm -f stylewithus-front-server || true
+			  docker run -d -p 8081:3000 --name stylewithus-front-server stylewithus-front-server
+	6. 도커파일 추가
+		front
+			FROM node:12.2.0-alpine
+			WORKDIR /usr/app
+			COPY . .
+			EXPOSE 8081
+			CMD ["npm", "start"]
+		back
+			FROM adoptopenjdk/openjdk11
+			WORKDIR /usr/app
+			COPY target/style-0.0.1-SNAPSHOT.jar stylewithus-server.jar
+			EXPOSE 8082
+			CMD ["java", "-jar", "stylewithus-server.jar"]
