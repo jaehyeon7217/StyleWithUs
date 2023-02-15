@@ -80,13 +80,22 @@
   font-family: "Apple_Gothic_Neo_Mid";
   font-size: 50px;
   margin-bottom: 0;
-  color: white;
+  color: rgb(51, 51, 51);
 }
 
 .p {
-  font-family: "Apple_Gothic_Neo_Mid";
+  font-family: "Apple_Gothic_Neo_light";
   font-size: 27px;
-  color: white;
+  font-weight: 400;
+  color: rgb(51, 51, 51);
+  margin-top: 8px;
+  transition: font-weight 0.3s linear;
+}
+
+.p:hover{
+  font-weight:700;
+  
+  
 }
 
 .container {
@@ -97,6 +106,8 @@
   overflow: hidden;
   margin: 0 auto;
 }
+
+
 
 .box {
   width: 100%;
@@ -123,7 +134,7 @@
 }
 
 .box button {
-  margin-top: 12px;
+  margin-top: 18px;
   border: 2px solid rgb(97, 97, 97);
   color: rgb(97, 97, 97);
   padding: 0.53em 2em 0.48em;
@@ -133,6 +144,9 @@
   font-family: "Apple_Gothic_Neo_Light";
   font-weight: 700;
   transition: all .15s;
+  background-color: white;
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 
 .box button:hover {
@@ -148,8 +162,8 @@
 .container div:nth-of-type(2) .subP {
   display: inline-block;
   margin: 3px;
-  color: white;
-  font-family: "Apple_Gothic_Neo_Middle";
+  color: rgb(63, 63, 63);
+  font-family: "Apple_Gothic_Neo_Bold";
   font-size: 20px;
 }
 
@@ -165,7 +179,8 @@
   width: calc(var(--vh, 1vh) * 22);
   height: 22vh;
   height: calc(var(--vh, 1vh) * 22);
-  margin-top: 20px;
+  margin-top: 40px;
+  margin-bottom: 50px;
 }
 
 .container div:nth-of-type(2) .image-container img {
@@ -180,15 +195,16 @@
 }
 
 .btn-upload {
-  margin-top: 20px;
+  margin-top: 10px;
   border: 2px solid rgb(97, 97, 97);
-  color: rgb(97, 97, 97);
-  padding: 10px 15px 9px;
+  color: rgb(44, 44, 44);
+  padding: 11px 15px 8px;
   border-radius: 10px;
   background-color: transparent;
   font-size: 16px;
-  font-family: "Apple_Gothic_Neo_Middle";
+  font-family: "Apple_Gothic_Neo_Bold";
   transition: all .15s;
+  background-color: white;
 }
 
 .btn-upload:hover {
@@ -196,6 +212,12 @@
   border: 2px solid black;
   color: black;
 }
+
+.readybox{
+  display: flex;
+}
+
+
 
 .checkStart {
   font-family: "Apple_Gothic_Neo_Bold";
@@ -296,3 +318,4 @@
   right: 10%;
   width: 400px;
 }
+
