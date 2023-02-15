@@ -21,8 +21,8 @@ const DeveloperPage = () => {
       <div className={classes.pagebox}>
         <div className={classes.page}>
           <div>
-            <p className={classes.smallName}>STYLE WITH US DIARY</p>
-            <h1 className={classes.bigNamd}>개발 일기</h1>
+            <p className={classes.smallName}>STYLE WITH US DEVELOPER</p>
+            <h1 className={classes.bigNamd}>개발 팀</h1>
           </div>
           <div className={classes.contetnbox}>
             <div>
@@ -33,7 +33,7 @@ const DeveloperPage = () => {
                     <p className={classes.dash}>-</p>
                   </div>
                   <p className={classes.datenametwo}>박재현</p>
-                  <p className={classes.datacontenttwo}>유관 부서 혹은 기관과 </p>
+                  <p className={classes.datacontenttwo}>유관 부서 및 기관과 </p>
                   <p className={classes.datacontenttwo}>탄력적 비즈니스 관계 유지</p>
                 </div>
                 <img src={man3} alt="" className={classes.man3} />
@@ -65,8 +65,8 @@ const DeveloperPage = () => {
                   <p className={classes.dateone}>총괄 사업 본부장</p>
                 </div>
                 <p className={classes.datenameone}>이병수</p>
-                <p className={classes.datacontent}>사업 전략을 수립하고 </p>
-                <p className={classes.datacontent}>총괄 검토하는 업무를 수행 </p>
+                <p className={classes.datacontent}>사업 전략 수립 및 </p>
+                <p className={classes.datacontent}>총괄 검토 업무 수행 </p>
               </div>
               <img src={man2} alt="" className={classes.man2} />
               <div className={classes.diaryboxone}>
@@ -85,8 +85,8 @@ const DeveloperPage = () => {
                   <p className={classes.dateone}>S/W 품질관리팀장</p>
                 </div>
                 <p className={classes.datenameone}>김현진</p>
-                <p className={classes.datacontent}>소프트웨어 품질 특성을 파악하여 </p>
-                <p className={classes.datacontent}>기능 테스트 및 성능 향상 </p>
+                <p className={classes.datacontent}>S/W 품질 특성을 파악하여 </p>
+                <p className={classes.datacontent}>기능 테스트 및 성능 향상 스행</p>
               </div>
               <img src={woman2} alt="" className={classes.woman2} />
             </div>
