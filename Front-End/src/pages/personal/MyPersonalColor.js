@@ -121,9 +121,9 @@ const MyPersonalColor = () => {
           </div>
           <div className={`${classes['box']} ${pageNumber < 2 ? "" : pageNumber === 2? classes.on : classes.off}`}>
             <p className={classes.p}>정확한 진단을 위해 아래와 같은 얼굴 사진을 첨부해 주세요</p>
-            <p className={classes.subP}>· 실제 얼굴과 가장 가까운 사진</p>
-            <p className={classes.subP}>· 바른 자세의 목 위 얼굴 사진</p>
-            <p className={classes.subP}>· 잔잔한 미소를 띈 사진</p>
+            <p className={classes.subP}>실제 얼굴과 가장 가까운 사진</p>
+            <p className={classes.subP}>바른 자세의 목 위 얼굴 사진</p>
+            <p className={classes.subP}>잔잔한 미소를 띈 사진</p>
             <div id="image_container" className={classes["image-container"]}>
               <img src={ConsultantImage} alt="faceImg" />
             </div>
