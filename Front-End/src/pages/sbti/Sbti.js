@@ -7,6 +7,7 @@ import Swal from "sweetalert2";
 
 import man from "../../assets/mainPage/컨설턴트.png"
 import woman from "../../assets/mainPage/패션캐릭터4.png"
+import man2 from '../../assets/mainPage/변신남.png'
 import left2 from "../../assets/왼쪽.png"
 import right2 from "../../assets/오른쪽.png"
 
@@ -234,7 +235,7 @@ const Sbti = () => {
         <div className={classes.carouselItem1}>
           <h1 className={!isSBTI ? `${classes["PageName"]}` : `${classes["PageName"]} ${classes.on}`}>S<span>-</span>B<span>-</span>T<span>-</span>I</h1>
           <h3 className={classes.pagesubname}>Style Body Type Indicator</h3>
-          <p className={!isSBTI ? `${classes["SubPageName"]}` : `${classes["SubPageName"]} ${classes.on}`}>당신의 바디 스타일 타입은?</p>
+          <p className={!isSBTI ? `${classes["SubPageName"]}` : `${classes["SubPageName"]} ${classes.on}`}>나의 바디 스타일 타입은 뭘까?</p>
           <img src={man} alt="man" className={!isSBTI ? `${classes["manImg"]}` : `${classes["manImg"]} ${classes.on}`}/><br />
           <button onClick={nextSlide} className={!isSBTI ? `${classes["carouselbutton1"]}` : `${classes["carouselbutton1"]} ${classes.on}`}>
             검사 시작하기
@@ -474,9 +475,10 @@ const Sbti = () => {
         {/* 제출 슬라이드 */}
         <div className={classes.carouselItem1}>
         <div className={classes.carouselItem1}>
-          <h1 className={!isSBTI ? `${classes["PageName"]}` : `${classes["PageName"]} ${classes.on}`}>S<span>tyle</span>B<span>ody</span>T<span>ype</span>I<span>ndicator</span></h1>
+          <h1 className={!isSBTI ? `${classes["PageName"]}` : `${classes["PageName"]} ${classes.on}`}>S<span>-</span>B<span>-</span>T<span>-</span>I<span>-</span></h1>
+            <h3 className={classes.pagesubname}>Style Body Type Indicator</h3>
           <p className={!isSBTI ? `${classes["SubPageName"]}` : `${classes["SubPageName"]} ${classes.on}`}>스타일 측정 완료!</p>
-          <img src={woman} alt="man" className={!isSBTI ? `${classes["manImg"]}` : `${classes["manImg"]} ${classes.on}`}/><br />
+            <img src={man2} alt="man" className={!isSBTI ? `${classes["manImg"]}` : `${classes["manImg"]} ${classes.on}`}/><br />
           <button onClick={submitSbti} className={!isSBTI ? `${classes["carouselbutton1"]}` : `${classes["carouselbutton1"]} ${classes.on}`}>
             검사 제출하기
           </button>
