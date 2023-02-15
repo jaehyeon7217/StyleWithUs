@@ -18,7 +18,7 @@ const Auth = () => {
 
   return(
     <div className={classes.AuthBox} id="AuthBox">
-      <div className={classes.AuthBody}>
+      <div className={classes.AuthBody} id="AuthBody">
         <Routes>
           <Route path="login" element={<Login/>}></Route>
           <Route path="usersignup" element={<UserSignup/>}></Route>

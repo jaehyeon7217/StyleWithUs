@@ -61,9 +61,8 @@ const AdminLogin = () =>{
   const effectivnessError = idError && passwordError;
   const submitError = nullError && effectivnessError;
 
-  const styleChange = document.querySelector(`#AuthBox`)
   useEffect(()=>{
-    styleChange.style.height="calc(100vh - 445px)"
+    document.querySelector(`#AuthBox`).style.height="calc(100vh - 445px)"
   }, [])
 
   return(
