@@ -75,7 +75,18 @@
 
 
 .ToLoginLink{
-   font-family: "Apple_Gothic_Neo_Mid";
-   margin-left: 20px;
-   cursor: pointer;
+  font-family: "Apple_Gothic_Neo_Mid";
+  display: flex;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.ToLoginLink:hover{
+  font-weight: bold;
+}
+
+
+.loginicon{
+  height: 17px;
+  margin-top: 0.8px;
 }

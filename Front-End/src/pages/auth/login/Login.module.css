@@ -110,6 +110,10 @@
   cursor: pointer;
 }
 
+.BottomLabel:hover{
+  font-weight: 600;
+}
+
 .LoginBtn {
   font-family: "Apple_Gothic_Neo_Bold";
   font-size: 15px;

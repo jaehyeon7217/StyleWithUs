@@ -16,7 +16,7 @@ const FindPassword = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const [id, setId, idError] = DataInput(/^[a-zA-z0-9]{5,20}$/);
-  const [email, setEmail, emailError] = DataInput(
+  const [email, setEmail, emailEffectError] = DataInput(
     /^([0-9a-zA-Z_-]+)@([0-9a-zA-Z_-]+)(\.[0-9a-zA-Z_-]+){1,2}$/
   );
   const [code, setCode] = useState("");
@@ -116,7 +116,7 @@ const FindPassword = () => {
     document.querySelector(`#AuthBox`).style.height="calc(100vh - 445px)"
   }, []);
 
-
+  const emailError = emailEffectError && !!email
   return (
     <div>
       <h1 className={classes.PageName}>비밀번호 찾기</h1>
@@ -140,7 +140,7 @@ const FindPassword = () => {
           onChange={setEmail}
           disabled={!emailError}
           onClick={FindPasswordChangeSubmit}
-          errorMessage={emailError ? "" : "이메일 양식을 지켜주세요."}
+          errorMessage={emailEffectError ? "" : "이메일 양식을 지켜주세요."}
         />
         <InputShortLabel
           label="이메일 인증번호"

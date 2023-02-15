@@ -13,6 +13,7 @@ import {
   ConsultantValidCheck,
 } from "../component/Effectiveness";
 import { GenderCheckbox } from "../component/GenderCheckbox";
+import loginicon from '../../../assets/mainPage/로그인아이콘.png'
 // classess 호출
 import classes from "./ConsultantSignUp.module.css";
 
@@ -171,7 +172,7 @@ const ConsultantSignUp = () => {
   };
   const idError = idEffectError && idValidError;
   const nickNameError = nickNameEffectError && nickNameValidError;
-  const emailError = emailEffectError && emailValidError;
+  const emailError = emailEffectError && emailValidError && !!email;
 
   // sumbit 활성화 & 비활성화
   const nullError =
@@ -310,6 +311,7 @@ const ConsultantSignUp = () => {
       <br />
       <label onClick={toLogin} className={classes.ToLoginLink}>
         로그인 하러 가기
+        <img src={loginicon} alt="" className={classes.loginicon} />
       </label>
     </div>
   );

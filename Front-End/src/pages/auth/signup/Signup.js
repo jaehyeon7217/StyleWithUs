@@ -1,11 +1,9 @@
 import { useNavigate } from "react-router-dom"
-import { useDispatch, useSelector } from "react-redux"
 import classes from "./Signup.module.css"
 import consultantwoman from '../../../assets/consultantwomantwo.png'
 import userwoman from '../../../assets/mypageuserwoman.png'
 import loginicon from '../../../assets/mainPage/로그인아이콘.png'
-
-
+import { useEffect } from "react"
 
 const SignUp = () => {                             
   
