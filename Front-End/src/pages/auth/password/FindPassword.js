@@ -8,7 +8,7 @@ import classes from "./FindPassword.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import { authActions } from "../../../store/auth";
 import InputShortLabel from "../component/InputShortLabel";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const FindPassword = () => {
   const location = useLocation();
@@ -110,6 +110,12 @@ const FindPassword = () => {
       });
     }
   };
+
+  useEffect(() => {
+    document.querySelector(`#App`).scrollIntoView({behavior: "smooth", block: "start"});
+    document.querySelector(`#AuthBox`).style.height="calc(100vh - 445px)"
+  }, []);
+
 
   return (
     <div>

@@ -1,6 +1,6 @@
 import axios from "axios";
 import Swal from "sweetalert2";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { authActions } from "../../../store/auth";
@@ -184,6 +184,11 @@ const ConsultantSignUp = () => {
     passwordError &&
     confirmPasswordError;
   const submitError = nullError && effectivnessError && emailOk;
+
+  useEffect(() => {
+    document.querySelector(`#App`).scrollIntoView({behavior: "smooth", block: "start"});
+    document.querySelector(`#AuthBox`).style.height="auto"
+  }, []);
 
   return (
     <div>

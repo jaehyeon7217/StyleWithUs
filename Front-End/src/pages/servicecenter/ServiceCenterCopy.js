@@ -1,10 +1,15 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import classes from './ServiceCenterCopy.module.css';
 import ServiceCenterSideBar from './ServiceCenterSideBar';
 import Question from './Question';
 
 const ServiceCenterCopy = () => {
     const [visible, setVisible] = useState(false);
+
+    useEffect(() => {
+        document.querySelector(`#App`).scrollIntoView({behavior: "smooth", block: "start"});
+      }, []);
+    
 
     return (
         <div className={classes.MarginBox}>

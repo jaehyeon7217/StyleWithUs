@@ -12,13 +12,12 @@ import AdminLogin from "../admin/AdminLogin"
 import NotFound from "../notfound/NotFound"
 
 const Auth = () => {
-  
   useEffect(() => {
     document.querySelector(`#App`).scrollIntoView({behavior: "smooth", block: "start"});
   }, []);
 
   return(
-    <div className={classes.AuthBox}>
+    <div className={classes.AuthBox} id="AuthBox">
       <div className={classes.AuthBody}>
         <Routes>
           <Route path="login" element={<Login/>}></Route>
