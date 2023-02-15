@@ -116,6 +116,7 @@
 .background {
   width: 100%;
   height: 92vh;
+  height: calc(var(--vh, 1vh) * 92);
   background: rgb(220, 234, 253);
   background: linear-gradient(90deg, rgba(220,235,255,1) 0%, rgba(213,249,249,1) 38%, rgba(148,255,168,1) 100%);
   transition: all 10s;
