@@ -124,12 +124,15 @@
 }
 
 .container div:nth-of-type(2) .subP {
+  display: inline-block;
   margin: 3px;
   color: white;
   font-family: "Apple_Gothic_Neo_Middle";
   font-size: 20px;
-  width: 40%;
-  margin-left: 11%;
+}
+
+.container div:nth-of-type(2) p:nth-of-type(4) {
+  margin-bottom: 30px;
 }
 
 .container div:nth-of-type(2) .image-container {
@@ -189,9 +192,7 @@
 .container div:nth-of-type(3) img {
   width: 250px;
   height: auto;
-  padding: 5px;
-  background-color: white;
-  border-radius: 50px;
+  border-radius: 40px;
 }
 
 .btn-box {
