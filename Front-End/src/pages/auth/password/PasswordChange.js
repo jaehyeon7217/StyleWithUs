@@ -1,5 +1,6 @@
 import axios from "axios";
 import Swal from "sweetalert2";
+import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 // redux 호출
 import { useDispatch, useSelector } from "react-redux";
@@ -107,6 +108,10 @@ const PasswordChange = () => {
   const effectivnessError =
     passwordError && newPasswordError && confirmNewPasswordError;
   const submitError = nullError && effectivnessError;
+
+  useEffect(() => {
+    document.querySelector(`#App`).scrollIntoView({behavior: "smooth", block: "start"});
+  }, []);
 
   return (
     <div className={classes.AuthBox}>

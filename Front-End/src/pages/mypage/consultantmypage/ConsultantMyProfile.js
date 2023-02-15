@@ -97,6 +97,10 @@ const ConsultantMyProfile = () => {
       reviewMsg();
     },[])
 
+  useEffect(() => {
+    document.querySelector(`#App`).scrollIntoView({behavior: "smooth", block: "start"});
+  }, []);
+
   return(
     <div className={classes.ProfilePage}>
         <ConsultantMyPageSideBar />
