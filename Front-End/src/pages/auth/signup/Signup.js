@@ -1,9 +1,10 @@
-import { useNavigate } from "react-router-dom";
-import { useEffect } from "react";
-import classes from "./Signup.module.css";
-import consultantwoman from '../../../assets/consultantwomantwo.png';
-import userwoman from '../../../assets/mypageuserwoman.png';
-import loginimg from '../../../assets/mainPage/로그인아이콘.png';
+import { useNavigate } from "react-router-dom"
+import { useDispatch, useSelector } from "react-redux"
+import classes from "./Signup.module.css"
+import consultantwoman from '../../../assets/consultantwomantwo.png'
+import userwoman from '../../../assets/mypageuserwoman.png'
+import loginicon from '../../../assets/mainPage/로그인아이콘.png'
+
 
 
 const SignUp = () => {                             
@@ -46,7 +47,7 @@ const SignUp = () => {
       <br />
       <label onClick={toLogin} className={classes.ToLoginLink}>
         로그인 하러 가기
-        <img src={loginimg} alt="" className={classes.loginimg} />
+        <img src={loginicon} alt="" className={classes.loginicon} />
       </label>
     </div>
   )
