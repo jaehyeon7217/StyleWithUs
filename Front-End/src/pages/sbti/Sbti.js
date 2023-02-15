@@ -232,7 +232,8 @@ const Sbti = () => {
       <div className={classes.sliderContainer} ref={slideRef}>
         {/* 검사 시작하기 */}
         <div className={classes.carouselItem1}>
-          <h1 className={!isSBTI ? `${classes["PageName"]}` : `${classes["PageName"]} ${classes.on}`}>S<span>tyle</span>B<span>ody</span>T<span>ype</span>I<span>ndicator</span></h1>
+          <h1 className={!isSBTI ? `${classes["PageName"]}` : `${classes["PageName"]} ${classes.on}`}>S<span>-</span>B<span>-</span>T<span>-</span>I</h1>
+          <h3 className={classes.pagesubname}>Style Body Type Indicator</h3>
           <p className={!isSBTI ? `${classes["SubPageName"]}` : `${classes["SubPageName"]} ${classes.on}`}>당신의 바디 스타일 타입은?</p>
           <img src={man} alt="man" className={!isSBTI ? `${classes["manImg"]}` : `${classes["manImg"]} ${classes.on}`}/><br />
           <button onClick={nextSlide} className={!isSBTI ? `${classes["carouselbutton1"]}` : `${classes["carouselbutton1"]} ${classes.on}`}>
