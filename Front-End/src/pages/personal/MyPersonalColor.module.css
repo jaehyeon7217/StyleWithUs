@@ -24,19 +24,29 @@
   }
 
   25% {
-    transform: translateY(-30px);
+    transform: translateY(-20px);
   }
 
   50% {
-    transform: translateY(0px);
+    transform: translateY(10px);
   }
 
   75% {
-    transform: translateY(-30px);
+    transform: translateY(-20px);
   }
 
   100% {
     transform: translateY(0px);
+  }
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0);
+  }
+
+  to {
+    transform: rotate(360deg);
   }
 }
 
@@ -92,12 +102,6 @@
   transition: font-weight 0.3s linear;
 }
 
-.p:hover{
-  font-weight:700;
-  
-  
-}
-
 .container {
   width: 50%;
   height: 100%;
@@ -134,19 +138,16 @@
 }
 
 .box button {
-  margin-top: 18px;
+  all: unset;
   border: 2px solid rgb(97, 97, 97);
+  padding: 7px 20px 5px;
+  margin-top: 38px;
   color: rgb(97, 97, 97);
-  padding: 0.53em 2em 0.48em;
   border-radius: 12px;
-  background-color: transparent;
-  font-size: 16px;
+  height: 30px;
   font-family: "Apple_Gothic_Neo_Light";
   font-weight: 700;
-  transition: all .15s;
-  background-color: white;
-  padding-top: 10px;
-  padding-bottom: 10px;
+  transition: all 0.25s;
 }
 
 .box button:hover {
@@ -217,16 +218,28 @@
   display: flex;
 }
 
-
-
 .checkStart {
   font-family: "Apple_Gothic_Neo_Bold";
   font-size: 20px;
   margin-top: 5vh;
+  position: relative;
+  margin-left: -5%;
 }
 
 .checkStart:hover {
   cursor: pointer;
+}
+
+.checkStart img {
+  margin: 0;
+  position: absolute;
+  top: -43%;
+  right: -55%;
+  width: 50px;
+  height: 50px;
+  animation-name: spin;
+  animation-duration: 15s;
+  animation-iteration-count: infinite;
 }
 
 .container div:nth-of-type(3) {
@@ -252,12 +265,13 @@
   width: 23%;
 }
 
-.btn-box button > img {
+.btn-box button img {
   width: 50%;
+  margin: 0;
 }
 
 .btn-box button:nth-of-type(1) > img {
-  margin-bottom: -53px;
+  margin-bottom: -25%;
   transform: rotate(180deg);
 }
 
@@ -270,6 +284,45 @@
   animation-name: bounce;
   animation-duration: 1s;
   animation-timing-function: ease-in-out;
+}
+
+.span-box {
+  margin-top: 2%;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.span-box div {
+  display: flex;
+  justify-content: center;
+  font-family: "Apple_Gothic_Neo_Light";
+  font-size: 18px;
+  opacity: 0;
+  transition: opacity .25s;
+}
+
+.container .span-box div:nth-of-type(3) {
+  margin: 0;
+}
+
+.span-box div span {
+  display: inline-block;
+  padding: 7px 10px 5px;
+  border-radius: 7px;
+  background-color: rgba(245,245,245,.3);
+}
+
+.span-box div:nth-of-type(1) {
+  width: 23%;
+}
+
+.span-box div:nth-of-type(2) {
+  width: 23%;
+}
+
+.span-box div:nth-of-type(3) {
+  width: 23%;
 }
 
 .container div:nth-of-type(4) {
@@ -288,11 +341,22 @@
 }
 
 .container div:nth-of-type(4) .p {
+  position: relative;
   color: rgb(32, 32, 32);
+  transition: all .25s;
+}
+
+.container div:nth-of-type(4) > .p > img {
+  position: absolute;
+  bottom: -40%;
+  right: -14%;
+  width: 40px;
+  height: auto;
 }
 
 .container div:nth-of-type(4) .p:hover {
   cursor: pointer;
+  text-shadow: 0px 0px 2px black;
 }
 
 .container div:nth-of-type(4) img {
@@ -300,7 +364,7 @@
   z-index: 0;
 }
 
-.container div:nth-of-type(4) img:nth-of-type(1) {
+.container div:nth-of-type(4) > img:nth-of-type(1) {
   top: 0;
   left: 10%;
   width: 400px;
