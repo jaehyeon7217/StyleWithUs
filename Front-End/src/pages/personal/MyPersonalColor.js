@@ -10,6 +10,7 @@ import SosoImage from "../../assets/personal/soso.png"
 import firecracker1 from "../../assets/personal/firecracker1.gif"
 import firecracker2 from "../../assets/personal/firecracker2.gif"
 import colorcircle from '../../assets/colorcircle.png'
+import tap from '../../assets/tap.png';
 
 
 
@@ -114,6 +115,30 @@ const MyPersonalColor = () => {
     }
   };
 
+  const spanOn1 = () => {
+    document.querySelector("#span-box > div:nth-of-type(1)").style.opacity = "1";
+  }
+
+  const spanOut1 = () => {
+    document.querySelector("#span-box > div:nth-of-type(1)").style.opacity = "0";
+  } 
+
+  const spanOn2 = () => {
+    document.querySelector("#span-box > div:nth-of-type(2)").style.opacity = "1";
+  }
+
+  const spanOut2 = () => {
+    document.querySelector("#span-box > div:nth-of-type(2)").style.opacity = "0";
+  } 
+
+  const spanOn3 = () => {
+    document.querySelector("#span-box > div:nth-of-type(3)").style.opacity = "1";
+  }
+
+  const spanOut3 = () => {
+    document.querySelector("#span-box > div:nth-of-type(3)").style.opacity = "0";
+  } 
+
   return (
     <Fragment>
       <div className={`${classes.background} ${!pageOn ? classes.off : ""}`} id="background">
@@ -138,19 +163,27 @@ const MyPersonalColor = () => {
               <div className={classes['btn-upload']}>이미지 첨부하기</div>
             </label>
             <input type="file" id="file" name="file" accept="image/*" onChange={setThumbnail}/>
-              <p onClick={AddPageNumber} className={classes.checkStart}>검사하러 가기</p>
+            <p onClick={AddPageNumber} className={classes.checkStart}>
+              검사하러 가기
+              <img src={colorcircle} alt="colorcircle" />
+            </p>
           </div>
           <div className={`${classes['box']} ${pageNumber < 3 ? "" : pageNumber === 3? classes.on : classes.off}`}>
             <img src={imageSrc} alt="img" />
             <div className={classes['btn-box']}>
-              <button onClick={downScore}><img src={GoodImage}/></button>
-              <button onClick={normalScore}><img src={SosoImage}/></button>
-              <button onClick={upScore}><img src={GoodImage}/></button>
+              <button onClick={downScore} onMouseOver={spanOn1} onMouseOut={spanOut1}><img src={GoodImage}/></button>
+              <button onClick={normalScore} onMouseOver={spanOn2} onMouseOut={spanOut2}><img src={SosoImage}/></button>
+              <button onClick={upScore} onMouseOver={spanOn3} onMouseOut={spanOut3}><img src={GoodImage}/></button>
+            </div>
+            <div className={classes['span-box']} id="span-box">
+              <div><span>안어울려요</span></div>
+              <div><span>보통이에요</span></div>
+              <div><span>어울려요</span></div>
             </div>
           </div>
           <div className={`${classes.box} ${pageNumber === 4 ? classes['on4'] : ""}`} >
             <h1 className={classes.h1}>퍼스널 컬러 진단 완료</h1>
-            <p className={classes.p} onClick={pageChange}>당신의퍼스널 컬러 확인하러 가기</p>
+            <p className={classes.p} onClick={pageChange}>당신의퍼스널 컬러 확인하러 가기<img src={tap} alt={tap} /></p>
             {pageNumber === 4 ? <img src={firecracker1} /> : ""}
             {pageNumber === 4 ? <img src={firecracker2} /> : ""}
             {pageNumber === 4 ? <img src={firecracker1} /> : ""}
