@@ -91,7 +91,6 @@ const authSlice = createSlice({
       state.userId = action.payload
       state.isLogined = false;
       state.confirmEmail = action.payload
-      state.resetCode = {}
       state.userData = action.payload
       state.consultantList = action.payload
       state.isConsulting = false
