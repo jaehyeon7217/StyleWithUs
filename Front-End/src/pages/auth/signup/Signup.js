@@ -25,7 +25,7 @@ const SignUp = () => {
   
   useEffect(() => {
     document.querySelector(`#App`).scrollIntoView({behavior: "smooth", block: "start"});
-    document.querySelector(`#AuthBox`).style.height="calc(100vh - 445px)"
+    document.querySelector(`#AuthBox`).style.height="calc(var(--vh, 1vh) * 100 - 445px)"
   }, []);
 
   return(
