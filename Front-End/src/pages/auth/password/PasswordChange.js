@@ -111,7 +111,6 @@ const PasswordChange = () => {
 
   useEffect(() => {
     document.querySelector(`#App`).scrollIntoView({behavior: "smooth", block: "start"});
-    document.querySelector(`#AuthBox`).style.height="calc(var(--vh, 1vh) * 100 - 445px)"
   }, []);
 
   return (
