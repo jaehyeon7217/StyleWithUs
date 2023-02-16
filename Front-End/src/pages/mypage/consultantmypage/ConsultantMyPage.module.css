@@ -68,6 +68,7 @@
 
 .HelloText{
     display: flex;
+    width: 300px;
 }
 
 .consultantNickname{
@@ -119,7 +120,7 @@
 .userType{
     font-family: "Apple_Gothic_Neo_Bold";
     font-size: 20px;
-    margin-left: 360px;
+    margin-left: 300px;
     margin-top: 55px;
 }
 

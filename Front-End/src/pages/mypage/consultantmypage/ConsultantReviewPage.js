@@ -13,7 +13,8 @@ const ConsultantReviewPage = () => {
     const data = useSelector((state) => state.auth.userData);
     const review = useSelector((state) => state.auth.myReviewList);
     const reviewAvg = useSelector((state) => state.auth.reviewAvg);
-
+    
+    const [reviewSort, setReviewSort] = useState([]);
     const [msg, setMsg] = useState("");
     const [msgTwo, setmsgTwo] = useState("");
 
@@ -49,13 +50,20 @@ const ConsultantReviewPage = () => {
           }
     }
 
+    useEffect(() => {  
+      for (let i = review.length - 1; i >= 0; i--) {
+        setReviewSort(prevState => {
+          return [...prevState, review[i]];
+        });
+      }
+    }, [review]);
     
     useEffect(()=>{
       reviewMsg();
       reviewMsgTwo();
       document.querySelector(`#App`).scrollIntoView({behavior: "smooth", block: "start"});
     }, []);
-
+  
     return(
         <div className={classes.ReviewPage}>
             <ConsultantMyPageSideBar />
@@ -71,24 +79,26 @@ const ConsultantReviewPage = () => {
                     </div>
                 </div>
                 <hr className={classes.hrgrey} />
-                {review.map((item, idx) => {
-                    return (
-                        <div key={idx} className={classes.ReviewBox}>
-                            <div className={classes.ReviewOne}>
-                                <GetStarRating reviewScore={review[idx].reviewScore} className={classes.star} />
-                                <p className={classes.reviewScore}>{review[idx].reviewScore}</p>
-                                <p className={classes.userId}>{review[idx].userId}</p>
-                                <p className={classes.userDate}>{review[idx].reviewRegisterTime[0]}.{review[idx].reviewRegisterTime[1]}.{review[idx].reviewRegisterTime[2]}</p>
-                            </div>
-                            <div className={classes.reviewContent}>
-                                <p>{review[idx].reviewContent}</p>
-                                {/* <p >{(data.userGender ? <img src={boyface} className={classes.boyface} /> : <img src={girlface} className={classes.girlface} />)}</p> */}
-                            </div >
-                            {/* <div className={classes.borderbottom}></div> */}
+                <ul className={classes.ul}>
+                  {reviewSort.map((item, idx) => {
+                      return (
+                          <li key={idx} className={classes.ReviewBox}>
+                              <div className={classes.ReviewOne}>
+                                  <GetStarRating reviewScore={item.reviewScore} className={classes.star} />
+                                  <p className={classes.reviewScore}>{item.reviewScore}</p>
+                                  <p className={classes.userId}>{item.userId}</p>
+                                  <p className={classes.userDate}>{item.reviewRegisterTime[0]}.{item.reviewRegisterTime[1]}.{item.reviewRegisterTime[2]}</p>
+                              </div>
+                              <div className={classes.reviewContent}>
+                                  <p>{item.reviewContent}</p>
+                                  {/* <p >{(data.userGender ? <img src={boyface} className={classes.boyface} /> : <img src={girlface} className={classes.girlface} />)}</p> */}
+                              </div >
+                              {/* <div className={classes.borderbottom}></div> */}
 
-                        </div>
-                    )
-                })}
+                          </li>
+                      )
+                  })}
+                </ul>
             </div>
         </div>
     )
