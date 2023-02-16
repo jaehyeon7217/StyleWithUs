@@ -42,11 +42,7 @@ const NavTop = () =>{
     navigate('/mypagewish')
   }
 
-
-  const toLogout = (event) =>{
-    event.preventDefault();
-    navigate('/')
-    dispatch(authActions.logout(''))
+  const test = () =>{
     Swal.fire({
       title: '<div style="font-size:24px;font-family:Apple_Gothic_Neo_Bold;font-weight:bold;">로그아웃 되었습니다<div>', 
       html: '<div style="font-size:16px;font-family:Apple_Gothic_Neo_Mid;">Style With Us</div>', 
@@ -54,6 +50,12 @@ const NavTop = () =>{
       icon: 'success',
       confirmButtonText:'<div style="font-size:16px;font-family:Apple_Gothic_Neo_Mid;">확인</div>',
     })
+  }
+
+  const toLogout = () =>{
+    navigate('/')
+    dispatch(authActions.logout(''))
+    setTimeout(test, 800);
   }
   useEffect(()=>{
     if(location.pathname==='/auth/login'){
