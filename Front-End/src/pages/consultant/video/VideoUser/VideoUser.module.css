@@ -34,6 +34,7 @@
 .font {
   display:flex;
   justify-content: space-between;
+  align-items: center;
   font-size: 22px;
   padding-bottom: 20px;
   padding-left: 10px;
@@ -44,8 +45,8 @@
 }
 
 .reload {
-  width: 7%;
-  height: 7%;
+  width: 5.4%;
+  height: 5.4%;
 }
 
 .reload:hover {

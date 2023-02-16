@@ -175,7 +175,7 @@ const Home = () => {
           <p className={pageNumber !== 3? classes["section3-p1"] : `${classes["section3-p1"]} ${classes.on}`}>스타일 고민은 이제 그만!</p>
           <p className={pageNumber !== 3? classes["section3-p2"] : `${classes["section3-p2"]} ${classes.on}`}>실시간 화상 컨설턴트 상담으로</p>
           <p className={pageNumber !== 3? classes["section3-p3"] : `${classes["section3-p3"]} ${classes.on}`}>맞춤 스타일 추천 서비스</p>
-          <p className={pageNumber !== 3? classes["section3-p4"] : `${classes["section3-p4"]} ${classes.on}`}>더 이상 스타일 때문에 소개팅 실패를 걱정할 필요가 없고,<br/>매일 같은 옷을 입는다고 놀림받을 걱정할 필요 없습니다.<br/>STYLE WITH US가  패션 전문가를 통해 맞춤 스타일을 제공합니다.</p>
+          <p className={pageNumber !== 3? classes["section3-p4"] : `${classes["section3-p4"]} ${classes.on}`}>더 이상 스타일 때문에 소개팅 실패를 걱정할 필요가 없고,<br/>매일 같은 옷을 입는다고 놀림받을 일이 없습니다.<br/>STYLE WITH US가  패션 전문가를 통해 맞춤 스타일을 제공합니다.</p>
         </div>
         <div className={pageNumber !== 3? classes["left"] : `${classes["left"]} ${classes.on}`}>
           <img src={section3Image1} alt="소개팅남" />
@@ -230,7 +230,7 @@ const Home = () => {
           <h2 className={pageNumber !== 7? classes["section7-h2"] : `${classes["section7-h2"]} ${classes.on}`}>03</h2>
           <p className={pageNumber !== 7? classes["section7-p1"] : `${classes["section7-p1"]} ${classes.on}`}>다양한 체형 검사를 통한</p>
           <p className={pageNumber !== 7? classes["section7-p2"] : `${classes["section7-p2"]} ${classes.on}`}>의류 추천 서비스</p>
-          <p className={pageNumber !== 7? classes["section7-p3"] : `${classes["section7-p3"]} ${classes.on}`}>사용자의 나이, 성별, 체형, 발 사이즈 등<br/>간단하지만 다양한 검사를 통해<br/>사용자에게 적합한 의류 추천 서비스를 제공</p>
+          <p className={pageNumber !== 7? classes["section7-p3"] : `${classes["section7-p3"]} ${classes.on}`}>사용자의 성별, 체형, 발 사이즈 등<br/>간단하지만 다양한 검사를 통해<br/>사용자에게 적합한 의류 추천 서비스를 제공</p>
         </div>
         <div className={pageNumber !== 7? classes["left"] : `${classes["left"]} ${classes.on}`}>
           <img src={section7Image1} alt="모자"/>
@@ -240,7 +240,7 @@ const Home = () => {
         </div>
       </div>
       <div className={pageNumber !== 8? classes["section8"] : `${classes["section8"]} ${classes.on}`}>
-        <p className={pageNumber !== 8? classes["section8-p1"] : `${classes["section8-p1"]} ${classes.on}`}>진단 시간까지 단 5분!</p>
+        <p className={pageNumber !== 8? classes["section8-p1"] : `${classes["section8-p1"]} ${classes.on}`}>진단 시간까지 단 1분!</p>
         <p className={pageNumber !== 8? classes["section8-p2"] : `${classes["section8-p2"]} ${classes.on}`}>당신의 스타일을 추천해 드려요</p>
         <p className={pageNumber !== 8? classes["section8-p3"] : `${classes["section8-p3"]} ${classes.on}`}>나이와 성별 체형만 입력하면 스타일 고민은 끝</p>
         <div className={classes.bottom}>
