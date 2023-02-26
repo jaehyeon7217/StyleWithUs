@@ -4,7 +4,7 @@ import classes from "./LengthType.module.css";
 
 const LengthType = (props) => {
   const data = props.data;
-  const [count, setCount] = useState(0); 
+  const [count, setCount] = useState(0);
 
   useEffect(() => {
     let timer = null;
@@ -21,7 +21,9 @@ const LengthType = (props) => {
   }, [count]);
 
   return (
-    <div>{props.type}&nbsp;<span id={`${props.type}`}>{count}</span></div>
+    <div>
+      {props.type}&nbsp;<span id={`${props.type}`}>{count}</span>
+    </div>
   );
 };
 

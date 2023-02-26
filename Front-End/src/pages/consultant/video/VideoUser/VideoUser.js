@@ -1,5 +1,4 @@
 import React, { Fragment, useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { OpenVidu } from "openvidu-browser";
 import { chatActions } from "../../../../store/chat";
@@ -24,7 +23,6 @@ const APPLICATION_SERVER_URL =
     : "https://i8d105.p.ssafy.io/be/openvidu/";
 
 const Consultant = (props) => {
-  const navigate = useNavigate();
   const dispatch = useDispatch();
 
   // token
@@ -55,14 +53,6 @@ const Consultant = (props) => {
   };
 
   // openvidu 함수
-  const handleChangeSessionId = (event) => {
-    setMySessionId(event.target.value);
-  };
-
-  const handleChangeUserName = (event) => {
-    setMyUserName(event.target.value);
-  };
-
   const deleteSubscriber = (streamManager) => {
     const prevSubscribers = subscribers;
     let index = prevSubscribers.indexOf(streamManager, 0);
@@ -242,6 +232,7 @@ const Consultant = (props) => {
       .catch((error) => {
         // console.log(error);
       });
+    return response;
   };
 
   const getToken = async () => {

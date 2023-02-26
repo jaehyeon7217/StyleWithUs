@@ -1,13 +1,12 @@
-import { Fragment } from "react";
+import { Fragment, useRef } from "react";
+import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { useRef } from "react";
+import { authActions } from "../../store/auth";
+import { cartActions } from "../../store/cart";
 import axios from "axios";
 import Swal from "sweetalert2";
-
-import { cartActions } from "../../store/cart";
+// css style
 import classes from "./RecommendItem.module.css";
-import { useNavigate } from "react-router-dom";
-import { authActions } from "../../store/auth";
 
 const RecommendItem = (props) => {
   const clothesData = props.data;
@@ -39,29 +38,31 @@ const RecommendItem = (props) => {
       )
       .then((response) => {
         Swal.fire({
-          position: 'bottom-end',
+          position: "bottom-end",
           html: '<div style="font-size:15px;font-family:Apple_Gothic_Neo_SB; display:flex;justify-content:center;align-items:center;line-height:18px; color: white;">장바구니에 담겼습니다</div>',
           width: 180,
           showConfirmButton: false,
           timer: 1000,
-          backdrop: 'transparent',
-          background: '#4CAAFF',
-          padding: 10
-        })
+          backdrop: "transparent",
+          background: "#4CAAFF",
+          padding: 10,
+        });
       })
       .catch((error) => {
-        if(error.response.status===401){
+        if (error.response.status === 401) {
           Swal.fire({
-            title: '<div style="font-size:24px;font-family:Apple_Gothic_Neo_Bold;font-weight:bold;">토큰 만료<div>', 
-            html: '<div style="font-size:16px;font-family:Apple_Gothic_Neo_Mid;">다시 로그인 해주세요!</div>', 
-            width : 330,
-            icon: 'error',
-            confirmButtonText:'<div style="font-size:16px;font-family:Apple_Gothic_Neo_Mid;">확인</div>',
-            confirmButtonColor: '#9A9A9A',
-          }).then(()=>{
-            navigate('/')
-            dispatch(authActions.logout(""))
-          })
+            title:
+              '<div style="font-size:24px;font-family:Apple_Gothic_Neo_Bold;font-weight:bold;">토큰 만료<div>',
+            html: '<div style="font-size:16px;font-family:Apple_Gothic_Neo_Mid;">다시 로그인 해주세요!</div>',
+            width: 330,
+            icon: "error",
+            confirmButtonText:
+              '<div style="font-size:16px;font-family:Apple_Gothic_Neo_Mid;">확인</div>',
+            confirmButtonColor: "#9A9A9A",
+          }).then(() => {
+            navigate("/");
+            dispatch(authActions.logout(""));
+          });
         }
       });
 
@@ -75,24 +76,26 @@ const RecommendItem = (props) => {
         dispatch(cartActions.getCart(response.data.data));
       })
       .catch((error) => {
-        if(error.response.status===401){
+        if (error.response.status === 401) {
           Swal.fire({
-            title: '<div style="font-size:24px;font-family:Apple_Gothic_Neo_Bold;font-weight:bold;">토큰 만료<div>', 
-            html: '<div style="font-size:16px;font-family:Apple_Gothic_Neo_Mid;">다시 로그인 해주세요!</div>', 
-            width : 330,
-            icon: 'error',
-            confirmButtonText:'<div style="font-size:16px;font-family:Apple_Gothic_Neo_Mid;">확인</div>',
-            confirmButtonColor: '#9A9A9A',
-          }).then(()=>{
-            navigate('/')
-            dispatch(authActions.logout(""))
-          })
+            title:
+              '<div style="font-size:24px;font-family:Apple_Gothic_Neo_Bold;font-weight:bold;">토큰 만료<div>',
+            html: '<div style="font-size:16px;font-family:Apple_Gothic_Neo_Mid;">다시 로그인 해주세요!</div>',
+            width: 330,
+            icon: "error",
+            confirmButtonText:
+              '<div style="font-size:16px;font-family:Apple_Gothic_Neo_Mid;">확인</div>',
+            confirmButtonColor: "#9A9A9A",
+          }).then(() => {
+            navigate("/");
+            dispatch(authActions.logout(""));
+          });
         }
       });
   };
 
-  const imgLink = clothesData.imgLink.slice(0, -7) + '500.jpg';
-  const errorImgLink = clothesData.imgLink.slice(0, -7) + '500.png';
+  const imgLink = clothesData.imgLink.slice(0, -7) + "500.jpg";
+  const errorImgLink = clothesData.imgLink.slice(0, -7) + "500.png";
 
   const onErrorHandler = () => {
     img.current.src = errorImgLink;
@@ -102,7 +105,12 @@ const RecommendItem = (props) => {
     <Fragment>
       <div className={classes.div}>
         <a href={clothesData.link} className={classes.clothes} target="_blank">
-          <img src={imgLink} alt="clothes_img" onError={onErrorHandler} ref={img}/>
+          <img
+            src={imgLink}
+            alt="clothes_img"
+            onError={onErrorHandler}
+            ref={img}
+          />
           <div className={classes.title}>{clothesData.title}</div>
           <div className={classes.maker}>{clothesData.maker}</div>
           <div className={classes.price}>{clothesData.afterPrice}</div>

@@ -1,3 +1,4 @@
+// css style
 import classes from "./Pagination.module.css";
 
 const Pagination = (props) => {
@@ -6,7 +7,12 @@ const Pagination = (props) => {
   };
 
   return (
-    <span className={`${classes.pageNumber} ${props.pageOn ? classes.on : ''}`} onClick={onClickHandler}>{props.pageNumber}</span>
+    <span
+      className={`${classes.pageNumber} ${props.pageOn ? classes.on : ""}`}
+      onClick={onClickHandler}
+    >
+      {props.pageNumber}
+    </span>
   );
 };
 

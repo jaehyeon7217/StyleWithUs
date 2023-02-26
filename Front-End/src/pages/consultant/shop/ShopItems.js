@@ -2,11 +2,12 @@ import { Fragment, useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { shopActions } from "../../../store/shop";
 import axios from "axios";
-
+// component
 import ShopItem from "./ShopItem";
 import Pagination from "../component/Pagination";
-import classes from "./ShopItems.module.css";
 import codeNumber from "./CodeNumber";
+// css style
+import classes from "./ShopItems.module.css";
 
 const ShopItems = (props) => {
   const [pagination, setPagination] = useState(1);
@@ -95,7 +96,11 @@ const ShopItems = (props) => {
           return clothesCount * (pagination - 1) <= idx &&
             clothesCount * (pagination - 1) + clothesCount > idx ? (
             <li key={idx} className={classes.li}>
-              <ShopItem item={item} userId={props.userId} session={props.session}/>
+              <ShopItem
+                item={item}
+                userId={props.userId}
+                session={props.session}
+              />
             </li>
           ) : (
             ""
