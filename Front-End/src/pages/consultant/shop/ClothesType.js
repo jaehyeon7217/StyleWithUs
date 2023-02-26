@@ -1,11 +1,11 @@
 import { Fragment } from "react";
 import { useSelector } from "react-redux";
-
-import classes from "./ClothesType.module.css";
+// component
 import ClothesDetail from "./ClothesDetail";
+// css style
+import classes from "./ClothesType.module.css";
 
 // Slide Toggle 이벤트
-
 const ClothesType = (props) => {
   // 타입, 카테고리, 디테일 항목들을 리덕스에서 가져온다.
   const gender = props.gender;
@@ -16,19 +16,19 @@ const ClothesType = (props) => {
 
   // 카테고리 옆에 추가할 내용들
   const typeEnglish = {
-    'men': {
+    men: {
       상의: "Top",
       아우터: "Outer",
       바지: "Pants",
       신발: "Shoes",
     },
-    'women': {
+    women: {
       상의: "Top",
       하의: "Pants",
       신발: "Shoes",
       가방: "Bag",
       액세서리: "Accessory",
-    }
+    },
   };
 
   // props한 토글 상태를 저장한다.

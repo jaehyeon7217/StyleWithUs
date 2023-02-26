@@ -1,3 +1,4 @@
+// css style
 import classes from "./ClothesDetail.module.css";
 
 const ClothesItems = (props) => {

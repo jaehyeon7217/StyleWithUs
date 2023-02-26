@@ -29,7 +29,6 @@ const ConsultantReviewsList = (props) => {
         Authorization: token,
       },
     });
-    // console.log(response.data);
     props.setIsDeleted(!props.isDeleted);
     return response.data;
   };

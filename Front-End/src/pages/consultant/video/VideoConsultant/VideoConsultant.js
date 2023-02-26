@@ -1,11 +1,11 @@
 import React, { Fragment, useState, useEffect } from "react";
-import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { authActions } from "../../../../store/auth";
 import { chatActions } from "../../../../store/chat";
-import cart, { cartActions } from "../../../../store/cart";
+import { cartActions } from "../../../../store/cart";
 import { OpenVidu } from "openvidu-browser";
+import axios from "axios";
 import Swal from "sweetalert2";
 // component
 import Video from "../Video";
@@ -44,8 +44,6 @@ const Consultant = (props) => {
   // 돌아가기 버튼 함수
   const pageBackHandler = () => {
     leaveSession();
-    // const newLoadingStatus = true;
-    // props.onChangeLoading(newLoadingStatus);
     navigate("../", { replace: true });
   };
 
@@ -145,7 +143,6 @@ const Consultant = (props) => {
       });
 
       newSession.on("signal:my-chat", (event) => {
-        // {"clientData":"bingbang"}
         const userName = JSON.parse(event.from.data).clientData;
 
         if (event.data.trim() !== "") {
@@ -272,7 +269,6 @@ const Consultant = (props) => {
         Authorization: userToken,
       },
     });
-    // console.log(response.data);
     return response.data;
   };
 
@@ -292,7 +288,6 @@ const Consultant = (props) => {
         },
       }
     );
-    // console.log(response.data.sessionId);
     setMySessionId(response.data.sessionId);
     dispatch(authActions.startConsulting(true));
     dispatch(authActions.getMySessionId(response.data.sessionId));
@@ -360,7 +355,6 @@ const Consultant = (props) => {
 
   // 새로고침 시 axios 보내기
   const beforeUnLoad = (e) => {
-    // e.preventDefault();
     e.stopPropagation();
     e.returnValue = "";
   };

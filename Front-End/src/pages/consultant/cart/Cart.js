@@ -1,13 +1,14 @@
-import { useState, useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import axios from "axios";
-
-import classes from "./Cart.module.css";
-import CartItem from "./CartItem";
-import { cartActions } from "../../../store/cart";
-import Swal from "sweetalert2";
+import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
 import { authActions } from "../../../store/auth";
+import { cartActions } from "../../../store/cart";
+import axios from "axios";
+import Swal from "sweetalert2";
+// component
+import CartItem from "./CartItem";
+// css style
+import classes from "./Cart.module.css";
 
 const Cart = (props) => {
   const navigate = useNavigate();
@@ -19,29 +20,32 @@ const Cart = (props) => {
 
   useEffect(() => {
     if (userType === 1 && props.userId !== null) {
-      axios.get(`https://i8d105.p.ssafy.io/be/item/show/${props.userId}`, {
-        headers: {
-          Authorization: token,
-        },
-      })
-      .then((response) => {
-        dispatch(cartActions.getCart(response.data.data));
-      })
-      .catch((error) => {
-        if(error.response.status===401){
-          Swal.fire({
-            title: '<div style="font-size:24px;font-family:Apple_Gothic_Neo_Bold;font-weight:bold;">토큰 만료<div>', 
-            html: '<div style="font-size:16px;font-family:Apple_Gothic_Neo_Mid;">다시 로그인 해주세요!</div>', 
-            width : 330,
-            icon: 'error',
-            confirmButtonText:'<div style="font-size:16px;font-family:Apple_Gothic_Neo_Mid;">확인</div>',
-            confirmButtonColor: '#9A9A9A',
-          }).then(()=>{
-            navigate('/')
-            dispatch(authActions.logout(""))
-          })
-        }
-      });
+      axios
+        .get(`https://i8d105.p.ssafy.io/be/item/show/${props.userId}`, {
+          headers: {
+            Authorization: token,
+          },
+        })
+        .then((response) => {
+          dispatch(cartActions.getCart(response.data.data));
+        })
+        .catch((error) => {
+          if (error.response.status === 401) {
+            Swal.fire({
+              title:
+                '<div style="font-size:24px;font-family:Apple_Gothic_Neo_Bold;font-weight:bold;">토큰 만료<div>',
+              html: '<div style="font-size:16px;font-family:Apple_Gothic_Neo_Mid;">다시 로그인 해주세요!</div>',
+              width: 330,
+              icon: "error",
+              confirmButtonText:
+                '<div style="font-size:16px;font-family:Apple_Gothic_Neo_Mid;">확인</div>',
+              confirmButtonColor: "#9A9A9A",
+            }).then(() => {
+              navigate("/");
+              dispatch(authActions.logout(""));
+            });
+          }
+        });
     } else if (userType === 1 && props.userId === null) {
       dispatch(cartActions.resetCart());
     }

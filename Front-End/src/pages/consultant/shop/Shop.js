@@ -1,9 +1,10 @@
-import classes from "./Shop.module.css";
 import { useState } from "react";
 import { useSelector } from "react-redux";
-
+// component
 import ClothesType from "./ClothesType";
 import ShopItems from "./ShopItems";
+// css style
+import classes from "./Shop.module.css";
 
 const Shop = (props) => {
   const [toggleOn, setToggleOn] = useState("");
@@ -66,7 +67,15 @@ const Shop = (props) => {
           })}
         </ul>
       )}
-      {shopOn && gender !== null && <ShopItems detailPage={detailPage} detailShopOff={detailShopOff} gender={gender} userId={props.userId} session={props.session}/>}
+      {shopOn && gender !== null && (
+        <ShopItems
+          detailPage={detailPage}
+          detailShopOff={detailShopOff}
+          gender={gender}
+          userId={props.userId}
+          session={props.session}
+        />
+      )}
     </div>
   );
 };
