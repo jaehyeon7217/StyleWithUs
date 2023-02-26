@@ -1,9 +1,10 @@
 import { Fragment, useState } from "react";
-
-import colorCircle from "../../../assets/colorcircle.png";
-import classes from "./PersonalColor.module.css";
-
+// component
 import PersonalColorPicker from "./PersonalColorPicker";
+// img
+import colorCircle from "../../../assets/colorcircle.png";
+// css style
+import classes from "./PersonalColor.module.css";
 
 const PersonalColor = () => {
   const [pickerStatus, setPickerStatus] = useState(false);
@@ -20,9 +21,7 @@ const PersonalColor = () => {
           alt="colorCircle"
           onClick={personalColorPickerClickHandler}
         />
-      {pickerStatus && (
-        <PersonalColorPicker />
-      )}
+        {pickerStatus && <PersonalColorPicker />}
       </div>
     </Fragment>
   );

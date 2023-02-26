@@ -1,19 +1,22 @@
 import React, { Fragment, useState, useEffect } from "react";
-import classes from "./Consultant.module.css";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
+import { authActions } from "../../store/auth";
+import Swal from "sweetalert2";
+// custom hook
 import history from "./video/history";
-
+// component
 import VideoConsultant from "./video/VideoConsultant/VideoConsultant";
 import VideoUser from "./video/VideoUser/VideoUser";
 import Shop from "./shop/Shop";
 import Cart from "./cart/Cart";
 import ChatContent from "./chat/ChatContent";
 import ChatForm from "./chat/ChatForm";
+// img
 import chatImage from "../../assets/chat.png";
-import axios from "axios";
-import { useNavigate } from "react-router-dom";
-import Swal from "sweetalert2";
-import { authActions } from "../../store/auth";
+// css style
+import classes from "./Consultant.module.css";
 
 const Consultant = (props) => {
   const navigate = useNavigate();
@@ -96,44 +99,53 @@ const Consultant = (props) => {
 
   const sessionSend = (session) => {
     setSession(session);
-  }
+  };
 
-  // 만약 컨설턴트일 경우 
+  // 만약 컨설턴트일 경우
   const getSessionUserNickname = (nickname) => {
-    if (nickname !== user.userData.consultantNickname && nickname !== null && nickname !== undefined) {
+    if (
+      nickname !== user.userData.consultantNickname &&
+      nickname !== null &&
+      nickname !== undefined
+    ) {
       setSessionUserNickname(nickname);
     }
-  }
+  };
 
   const leaveSessionNickname = () => {
     setSessionUserNickname();
-  }
+  };
 
   useEffect(() => {
     if (sessionUserNickname !== null) {
       axios
-        .get(`https://i8d105.p.ssafy.io/be/user/gender/${sessionUserNickname}`, {
-          headers: {
-            Authorization: user.token,
-          },
-        })
+        .get(
+          `https://i8d105.p.ssafy.io/be/user/gender/${sessionUserNickname}`,
+          {
+            headers: {
+              Authorization: user.token,
+            },
+          }
+        )
         .then((response) => {
           setSessionUserGender(response.data.userGender);
           setSessionUserId(response.data.userId);
         })
         .catch((error) => {
-          if(error.response.status===401){
+          if (error.response.status === 401) {
             Swal.fire({
-              title: '<div style="font-size:24px;font-family:Apple_Gothic_Neo_Bold;font-weight:bold;">토큰 만료<div>', 
-              html: '<div style="font-size:16px;font-family:Apple_Gothic_Neo_Mid;">다시 로그인 해주세요!</div>', 
-              width : 330,
-              icon: 'error',
-              confirmButtonText:'<div style="font-size:16px;font-family:Apple_Gothic_Neo_Mid;">확인</div>',
-              confirmButtonColor: '#9A9A9A',
-            }).then(()=>{
-              navigate('/')
-              dispatch(authActions.logout(""))
-            })
+              title:
+                '<div style="font-size:24px;font-family:Apple_Gothic_Neo_Bold;font-weight:bold;">토큰 만료<div>',
+              html: '<div style="font-size:16px;font-family:Apple_Gothic_Neo_Mid;">다시 로그인 해주세요!</div>',
+              width: 330,
+              icon: "error",
+              confirmButtonText:
+                '<div style="font-size:16px;font-family:Apple_Gothic_Neo_Mid;">확인</div>',
+              confirmButtonColor: "#9A9A9A",
+            }).then(() => {
+              navigate("/");
+              dispatch(authActions.logout(""));
+            });
           }
         });
     } else {
@@ -143,15 +155,40 @@ const Consultant = (props) => {
   }, [sessionUserNickname]);
 
   useEffect(() => {
-    document.querySelector(`#App`).scrollIntoView({behavior: "smooth", block: "start"});
+    document
+      .querySelector(`#App`)
+      .scrollIntoView({ behavior: "smooth", block: "start" });
   }, []);
 
   return (
     <Fragment>
       <main className={classes.main}>
-        <section>{!userType ? <VideoUser sessionSend={sessionSend} /> : <VideoConsultant sessionSend={sessionSend} getUserNickname={getSessionUserNickname} leaveUserNickname={leaveSessionNickname} userId={sessionUserId} />}</section>
+        <section>
+          {!userType ? (
+            <VideoUser sessionSend={sessionSend} />
+          ) : (
+            <VideoConsultant
+              sessionSend={sessionSend}
+              getUserNickname={getSessionUserNickname}
+              leaveUserNickname={leaveSessionNickname}
+              userId={sessionUserId}
+            />
+          )}
+        </section>
         <section className={classes.section}>
-          {userType === 0 ? <Shop userGender={user.userData.userGender} userId={user.userId} session={session}/> : <Shop userGender={sessionUserGender} userId={sessionUserId} session={session}/>}
+          {userType === 0 ? (
+            <Shop
+              userGender={user.userData.userGender}
+              userId={user.userId}
+              session={session}
+            />
+          ) : (
+            <Shop
+              userGender={sessionUserGender}
+              userId={sessionUserId}
+              session={session}
+            />
+          )}
         </section>
         <section className={classes.section}>
           <div className={classes["show-cart-chat"]}>
@@ -160,7 +197,7 @@ const Consultant = (props) => {
                 !toggleChatToCart
                   ? classes["toggle-animation-on"]
                   : classes["toggle-animation-off"]
-                }
+              }
               userId={sessionUserId}
               session={session}
             />

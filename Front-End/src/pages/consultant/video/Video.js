@@ -1,7 +1,9 @@
 import React, { Fragment } from "react";
-import OpenViduVideoComponent from "./OvVideo";
 import { useSelector } from "react-redux";
+// component
+import OpenViduVideoComponent from "./OvVideo";
 import PersonalColor from "./PersonalColor";
+// css style
 import classes from "./Video.module.css";
 
 const Video = (props) => {
