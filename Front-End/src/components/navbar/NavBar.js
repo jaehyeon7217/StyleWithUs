@@ -1,44 +1,52 @@
-import classes from "./NavBar.module.css";
+import { useEffect } from "react";
+import { useNavigate, useLocation } from "react-router-dom";
+import { useSelector } from "react-redux";
+// component
 import NavTop from "./NavTop";
 import NavBottom from "./NavBottom";
+// img
 import logo from "../../assets/logo.png";
-import { useNavigate, useLocation } from "react-router-dom";
-import { useEffect } from "react";
-import { useSelector } from "react-redux";
-
+// css style
+import classes from "./NavBar.module.css";
 
 const NavBar = () => {
   const navigate = useNavigate();
   const location = useLocation();
 
-  const isConsulting = useSelector((state) => state.auth.isConsulting)
+  const isConsulting = useSelector((state) => state.auth.isConsulting);
 
-  const nonAction = () =>{
-    
-  }
+  const nonAction = () => {};
 
   useEffect(() => {
     if (location.pathname === "/") {
-      document.getElementsByClassName(`${classes.header}`)[0].style.position = "relative";
+      document.getElementsByClassName(`${classes.header}`)[0].style.position =
+        "relative";
     } else {
-      document.getElementsByClassName(`${classes.header}`)[0].style.position = "sticky";
+      document.getElementsByClassName(`${classes.header}`)[0].style.position =
+        "sticky";
     }
-  }, [location])
+  }, [location]);
 
-   const onClickHandler = () => {
-    navigate('/');
-    document.querySelector(`#App`).scrollIntoView({behavior: "smooth", block: "start"});
+  const onClickHandler = () => {
+    navigate("/");
+    document
+      .querySelector(`#App`)
+      .scrollIntoView({ behavior: "smooth", block: "start" });
   };
 
-  return(
+  return (
     <div className={classes.header}>
-      <img src={logo} alt="img" onClick={isConsulting ? nonAction : onClickHandler} />
+      <img
+        src={logo}
+        alt="img"
+        onClick={isConsulting ? nonAction : onClickHandler}
+      />
       <div className={classes.box}>
-        <NavTop/>
-        <NavBottom/>
+        <NavTop />
+        <NavBottom />
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default NavBar
+export default NavBar;

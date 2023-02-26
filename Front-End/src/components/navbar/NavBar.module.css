@@ -3,9 +3,10 @@
   src: url("../../fonts/SF-Pro-Display-Regular.otf");
 }
 
-.main{
+.main {
   font-family: "SF";
 }
+
 .header {
   position: sticky;
   top: 0;
@@ -21,15 +22,16 @@
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
   z-index: 10;
 }
-.header img{
+
+.header img {
   width: 100px;
 }
 
 .header img:hover {
   cursor: pointer;
-} 
+}
 
-.header .box{
+.header .box {
   display: block;
   height: 100%;
 }

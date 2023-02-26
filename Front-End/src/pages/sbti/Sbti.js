@@ -17,9 +17,11 @@ import classes from "./Sbti.module.css";
 const totalSlide = 4;
 const Sbti = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const location = useLocation();
   const userData = useSelector((state) => state.auth.userData);
   const token = useSelector((state) => state.auth.token);
-  const navigate = useNavigate();
+  const userGender = useSelector((state) => state.auth.userData.userGender);
 
   const [height, setHeight] = useState(userData.userHeight);
   const [foot, setFoot] = useState(userData.userFoot);
@@ -27,70 +29,24 @@ const Sbti = () => {
   const [shoulder, setShoulder] = useState(userData.userShoulder);
   const [chest, setChest] = useState(userData.userChest);
   const [sleeve, setSleeve] = useState(userData.userSleeve);
+  const shoulderSize = userGender ? [52, 55, 56, 58] : [55, 58, 61, 63];
+  const chesteSize = userGender ? [56, 59, 61, 63] : [59, 62, 65, 68];
+  const sleeveSize = userGender ? [56, 58, 60, 61] : [57, 59, 60, 62];
   // 하체 정보
   const [waist, setWaist] = useState(userData.userWaist);
   const [hip, setHip] = useState(userData.userHip);
   const [thigh, setThigh] = useState(userData.userThigh);
   const [hem, setHem] = useState(userData.userHem);
-
-  const [currentSlide, setCurrentSlide] = useState(0);
-  const slideRef = useRef(null);
-
-  const userGender = useSelector((state) => state.auth.userData.userGender);
-
-  const shoulderSize = userGender ? [52, 55, 56, 58] : [55, 58, 61, 63];
-  const chesteSize = userGender ? [56, 59, 61, 63] : [59, 62, 65, 68];
-  const sleeveSize = userGender ? [56, 58, 60, 61] : [57, 59, 60, 62];
-
   const waistSize = userGender ? [33, 34, 36, 39] : [35, 37, 39, 41];
   const hipSize = userGender ? [57, 59, 61, 63] : [55, 57, 59, 62];
   const thighSize = userGender ? [31, 33, 34, 35] : [33, 34, 36, 37];
   const hemSize = userGender ? [22, 23, 24, 25] : [25, 26, 27, 28];
 
-  const classList = ["first", "second", "third", "fourth"];
-
-  const location = useLocation();
-  const [isSBTI, setIsSBTI] = useState(false);
-
-  const startSBTI = () => {
-    if (location.pathname === "/sbti") {
-      setIsSBTI(true);
-    } else {
-      setIsSBTI(false);
-    }
-  };
-
-  useEffect(() => {
-    startSBTI();
-  });
-
-  const nextSlide = () => {
-    if (currentSlide >= totalSlide) {
-      // 더 이상 넘어갈 슬라이드가 없으면 스탑.
-      setCurrentSlide(currentSlide);
-    } else {
-      setCurrentSlide(currentSlide + 1);
-    }
-  };
-  const prevSlide = () => {
-    if (currentSlide === 0) {
-      // 더 이상 뒤로 갈 슬라이드가 없으면 스탑
-      setCurrentSlide(0);
-    } else {
-      setCurrentSlide(currentSlide - 1);
-    }
-  };
-  useEffect(() => {
-    slideRef.current.style.transition = "all 0.5s ease-in-out";
-    slideRef.current.style.transform = `translateX(-${currentSlide}00%)`;
-    // 백틱을 사용하여 슬라이드로 이동하는 애니메이션 구현.
-  }, [currentSlide]);
-
   const stringToInt = (data) => {
     const ans = parseInt(data, 10);
     return ans;
   };
-
+  // 검사 제출
   const submitSbti = (event) => {
     event.preventDefault();
     const url = "https://i8d105.p.ssafy.io/be/user/update";
@@ -142,6 +98,49 @@ const Sbti = () => {
       });
   };
 
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const slideRef = useRef(null);
+
+  const classList = ["first", "second", "third", "fourth"];
+
+  const [isSBTI, setIsSBTI] = useState(false);
+
+  // slide 넘기기
+  const startSBTI = () => {
+    if (location.pathname === "/sbti") {
+      setIsSBTI(true);
+    } else {
+      setIsSBTI(false);
+    }
+  };
+
+  useEffect(() => {
+    startSBTI();
+  });
+
+  const nextSlide = () => {
+    if (currentSlide >= totalSlide) {
+      // 더 이상 넘어갈 슬라이드가 없으면 스탑.
+      setCurrentSlide(currentSlide);
+    } else {
+      setCurrentSlide(currentSlide + 1);
+    }
+  };
+  const prevSlide = () => {
+    if (currentSlide === 0) {
+      // 더 이상 뒤로 갈 슬라이드가 없으면 스탑
+      setCurrentSlide(0);
+    } else {
+      setCurrentSlide(currentSlide - 1);
+    }
+  };
+  useEffect(() => {
+    slideRef.current.style.transition = "all 0.5s ease-in-out";
+    slideRef.current.style.transform = `translateX(-${currentSlide}00%)`;
+    // 백틱을 사용하여 슬라이드로 이동하는 애니메이션 구현.
+  }, [currentSlide]);
+
+  // 두번째 슬라이드
   const sSlideRef = useRef(null);
   const [secondQuestion, setSecond] = useState(0);
 
@@ -173,6 +172,7 @@ const Sbti = () => {
     sSlideRef.current.style.transform = `translateY(-${secondQuestion * 70}px)`;
   }, [secondQuestion]);
 
+  //세번째 슬라이드
   const tSlideRef = useRef(null);
   const [thirdQuestion, setThird] = useState(0);
 
@@ -204,6 +204,7 @@ const Sbti = () => {
     document.getElementById("thigh").style.opacity = 0.3;
     document.getElementById("hem").style.opacity = 1;
   };
+
   useEffect(() => {
     if (thirdQuestion === 0) {
       document.getElementById("waist").style.opacity = 1;
@@ -215,6 +216,7 @@ const Sbti = () => {
     tSlideRef.current.style.transform = `translateY(-${thirdQuestion * 70}px)`;
   }, [thirdQuestion]);
 
+  // 컴포넌트 이동시 최상단
   useEffect(() => {
     document
       .querySelector(`#App`)
@@ -224,7 +226,6 @@ const Sbti = () => {
   return (
     <div className={classes.container}>
       <div className={classes.sliderContainer} ref={slideRef}>
-        {/* 검사 시작하기 */}
         <div className={classes.carouselItem1}>
           <h1
             className={
@@ -274,7 +275,6 @@ const Sbti = () => {
             검사 시작하기
           </button>
         </div>
-        {/* 첫번째 슬라이드 */}
         <div className={classes.carouselItem}>
           <img
             src={left2}
@@ -334,7 +334,6 @@ const Sbti = () => {
             onClick={nextSlide}
           />
         </div>
-        {/* 두번째 슬라이드 */}
         <div className={classes.carouselItem}>
           <img
             src={left2}
@@ -437,7 +436,6 @@ const Sbti = () => {
             onClick={nextSlide}
           />
         </div>
-        {/* 세번째 슬라이드 */}
         <div className={classes.carouselItem}>
           <img
             src={left2}
@@ -568,7 +566,6 @@ const Sbti = () => {
             onClick={nextSlide}
           />
         </div>
-        {/* 제출 슬라이드 */}
         <div className={classes.carouselItem1}>
           <div className={classes.carouselItem1}>
             <h1

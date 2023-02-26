@@ -1,7 +1,7 @@
 import { useEffect } from "react";
-import axios from "axios";
 import { useNavigate, useLocation } from "react-router-dom";
 import { useSelector } from "react-redux";
+import axios from "axios";
 import Swal from "sweetalert2";
 // custom hook
 import { DataInput, CheckPassword } from "../component/Effectiveness";
@@ -11,9 +11,9 @@ import InputLabel from "../component/InputLabel";
 import classes from "./SetNewPassword.module.css";
 
 const SetNewPassword = (props) => {
+  const navigate = useNavigate();
   const location = useLocation();
   const isUser = location.state.isUser;
-  const navigate = useNavigate();
   const id = useSelector((state) => state.auth.resetCode.id);
   const [newPassword, setNewPassword, newPasswordError] = DataInput(
     /^(?=.*[a-zA-Z])(?=.*[!@#$%^*+=-])(?=.*[0-9]).{9,16}$/

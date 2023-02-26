@@ -1,9 +1,9 @@
 import { useEffect } from "react";
-import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { authActions } from "../../store/auth";
 import { cartActions } from "../../store/cart";
+import axios from "axios";
 import Swal from "sweetalert2";
 // component
 import MyPageSideBar from "./MyPageSideBar";
@@ -85,28 +85,24 @@ const MyPage = () => {
         }
       });
   };
-  useEffect(() => {
-    getMyData();
-    getMyWish();
-  }, []);
   // 비밀번호 변경 페이지 이동
   const SetNewPassword = (event) => {
     event.preventDefault();
     navigate("/passwordchange");
   };
-
+  
   // 추천 페이지로 이동
   const SBTIPage = (event) => {
     event.preventDefault();
     navigate("/sbti");
   };
-
+  
   // 관심 상품 페이지로 이동
   const MyPagewish = (event) => {
     event.preventDefault();
     navigate("/mypagewish");
   };
-
+  
   // 프로필 정보 페이지로 이동
   const MyProfile = (event) => {
     event.preventDefault();
@@ -114,8 +110,13 @@ const MyPage = () => {
   };
 
   useEffect(() => {
+    getMyData();
+    getMyWish();
+  });
+  
+  useEffect(() => {
     document
-      .querySelector(`#App`)
+    .querySelector(`#App`)
       .scrollIntoView({ behavior: "smooth", block: "start" });
   }, []);
 
@@ -130,12 +131,11 @@ const MyPage = () => {
               <div className={classes.MyInformUserCircle}>
                 <p>
                   {userData.userGender ? (
-                    <img src={userMan} className={classes.userImgetwo} />
+                    <img src={userMan} className={classes.userImgetwo} alt="userMan" />
                   ) : (
-                    <img src={userWoman} className={classes.userImge} />
+                    <img src={userWoman} className={classes.userImge} alt="userWoman"/>
                   )}
                 </p>
-                {/* <img src={userImg} alt="" className={classes.userImg}/> */}
               </div>
               <div className={classes.MyInformLetter}>
                 <p className={classes.MyInformNickName}>

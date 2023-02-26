@@ -1,26 +1,22 @@
-import { NavLink, useLocation } from "react-router-dom";
-import { useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
-
-import Swal from "sweetalert2";
-
-import classes from "./NavBottom.module.css";
 import { useEffect } from "react";
+import { useNavigate , useLocation } from "react-router-dom";
+import { useSelector } from "react-redux";
+import Swal from "sweetalert2";
+// css style
+import classes from "./NavBottom.module.css";
 
-const NavBottom = () =>{
+const NavBottom = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const isLogined = useSelector((state) => state.auth.isLogined);
   const userType = useSelector((state) => state.auth.userType);
   const isConsulting = useSelector((state) => state.auth.isConsulting);
 
-  const nonAction = () =>{
-    
-  }
+  const nonAction = () => {};
 
-  const toRecommend = (event) =>{
+  const toRecommend = (event) => {
     event.preventDefault();
-    if (isLogined===false){
+    if (isLogined === false) {
       Swal.fire({
         title:
           '<div style="font-size:24px;font-family:Apple_Gothic_Neo_Bold;font-weight:bold;">로그인이 필요합니다<div>',
@@ -32,20 +28,21 @@ const NavBottom = () =>{
         confirmButtonText:
           '<div style="font-size:16px;font-family:Apple_Gothic_Neo_Mid;">로그인 하러 가기</div>',
         cancelButtonColor: "#F77E7E",
-        cancelButtonText: '<div style="font-size:16px;font-family:Apple_Gothic_Neo_Mid;">취소</div>',
+        cancelButtonText:
+          '<div style="font-size:16px;font-family:Apple_Gothic_Neo_Mid;">취소</div>',
       }).then((result) => {
-        if(result.isConfirmed){
+        if (result.isConfirmed) {
           navigate("/auth/login");
         }
       });
-    }else{
+    } else {
       nonData();
     }
-  }
+  };
 
-  const toSBTI = (event) =>{
+  const toSBTI = (event) => {
     event.preventDefault();
-    if (isLogined===false){
+    if (isLogined === false) {
       Swal.fire({
         title:
           '<div style="font-size:24px;font-family:Apple_Gothic_Neo_Bold;font-weight:bold;">로그인이 필요합니다<div>',
@@ -57,20 +54,21 @@ const NavBottom = () =>{
         confirmButtonText:
           '<div style="font-size:16px;font-family:Apple_Gothic_Neo_Mid;">로그인 하러 가기</div>',
         cancelButtonColor: "#F77E7E",
-        cancelButtonText: '<div style="font-size:16px;font-family:Apple_Gothic_Neo_Mid;">취소</div>',
+        cancelButtonText:
+          '<div style="font-size:16px;font-family:Apple_Gothic_Neo_Mid;">취소</div>',
       }).then((result) => {
-        if(result.isConfirmed){
+        if (result.isConfirmed) {
           navigate("/auth/login");
         }
       });
-    }else{
-      navigate('/sbti')
+    } else {
+      navigate("/sbti");
     }
-  }
+  };
 
-  const toMyColor = (event) =>{
+  const toMyColor = (event) => {
     event.preventDefault();
-    if (isLogined===false){
+    if (isLogined === false) {
       Swal.fire({
         title:
           '<div style="font-size:24px;font-family:Apple_Gothic_Neo_Bold;font-weight:bold;">로그인이 필요합니다<div>',
@@ -82,20 +80,21 @@ const NavBottom = () =>{
         confirmButtonText:
           '<div style="font-size:16px;font-family:Apple_Gothic_Neo_Mid;">로그인 하러 가기</div>',
         cancelButtonColor: "#F77E7E",
-        cancelButtonText: '<div style="font-size:16px;font-family:Apple_Gothic_Neo_Mid;">취소</div>',
+        cancelButtonText:
+          '<div style="font-size:16px;font-family:Apple_Gothic_Neo_Mid;">취소</div>',
       }).then((result) => {
-        if(result.isConfirmed){
+        if (result.isConfirmed) {
           navigate("/auth/login");
         }
       });
-    }else{
-      navigate('/mypersonal-color')
+    } else {
+      navigate("/mypersonal-color");
     }
-  }
+  };
 
-  const toConsultant = (event) =>{
+  const toConsultant = (event) => {
     event.preventDefault();
-    if (isLogined===false){
+    if (isLogined === false) {
       Swal.fire({
         title:
           '<div style="font-size:24px;font-family:Apple_Gothic_Neo_Bold;font-weight:bold;">로그인이 필요합니다<div>',
@@ -107,22 +106,23 @@ const NavBottom = () =>{
         confirmButtonText:
           '<div style="font-size:16px;font-family:Apple_Gothic_Neo_Mid;">로그인 하러 가기</div>',
         cancelButtonColor: "#F77E7E",
-        cancelButtonText: '<div style="font-size:16px;font-family:Apple_Gothic_Neo_Mid;">취소</div>',
+        cancelButtonText:
+          '<div style="font-size:16px;font-family:Apple_Gothic_Neo_Mid;">취소</div>',
       }).then((result) => {
-        if(result.isConfirmed){
+        if (result.isConfirmed) {
           navigate("/auth/login");
         }
       });
-    }else{
-      navigate('/consultant')
+    } else {
+      navigate("/consultant");
     }
-  }
+  };
 
-  const userData = useSelector((state)=> state.auth.userData);
+  const userData = useSelector((state) => state.auth.userData);
   const isData = userData.userHeight;
 
   const nonData = () => {
-    if(!!isData===false){
+    if (!!isData === false) {
       Swal.fire({
         title:
           '<div style="font-size:24px;font-family:Apple_Gothic_Neo_Bold;font-weight:bold;">SBTI 데이터가 없습니다<div>',
@@ -133,76 +133,154 @@ const NavBottom = () =>{
         confirmButtonText:
           '<div style="font-size:16px;font-family:Apple_Gothic_Neo_Mid;">확인</div>',
       }).then((result) => {
-        if (result.isConfirmed){
-          navigate('/sbti')
-        }else{
-          navigate('/')
+        if (result.isConfirmed) {
+          navigate("/sbti");
+        } else {
+          navigate("/");
         }
-      })
-    }else{
-      navigate('/recommend')
+      });
+    } else {
+      navigate("/recommend");
     }
-  }
+  };
 
+  useEffect(() => {
+    if (location.pathname === "/recommend") {
+      document.getElementsByClassName(
+        `${classes.LinkBottom}`
+      )[0].style.fontWeight = "600";
+      document.getElementsByClassName(
+        `${classes.LinkBottom}`
+      )[1].style.fontWeight = "300";
+      document.getElementsByClassName(
+        `${classes.LinkBottom}`
+      )[2].style.fontWeight = "300";
+      document.getElementsByClassName(
+        `${classes.LinkBottom}`
+      )[3].style.fontWeight = "300";
+    } else if (location.pathname === "/sbti") {
+      document.getElementsByClassName(
+        `${classes.LinkBottom}`
+      )[0].style.fontWeight = "300";
+      document.getElementsByClassName(
+        `${classes.LinkBottom}`
+      )[1].style.fontWeight = "600";
+      document.getElementsByClassName(
+        `${classes.LinkBottom}`
+      )[2].style.fontWeight = "300";
+      document.getElementsByClassName(
+        `${classes.LinkBottom}`
+      )[3].style.fontWeight = "300";
+    } else if (location.pathname === "/mypersonal-color") {
+      document.getElementsByClassName(
+        `${classes.LinkBottom}`
+      )[0].style.fontWeight = "300";
+      document.getElementsByClassName(
+        `${classes.LinkBottom}`
+      )[1].style.fontWeight = "300";
+      document.getElementsByClassName(
+        `${classes.LinkBottom}`
+      )[2].style.fontWeight = "600";
+      document.getElementsByClassName(
+        `${classes.LinkBottom}`
+      )[3].style.fontWeight = "300";
+    } else if (location.pathname === "/consultant") {
+      document.getElementsByClassName(
+        `${classes.LinkBottom}`
+      )[0].style.fontWeight = "300";
+      document.getElementsByClassName(
+        `${classes.LinkBottom}`
+      )[1].style.fontWeight = "300";
+      document.getElementsByClassName(
+        `${classes.LinkBottom}`
+      )[2].style.fontWeight = "300";
+      document.getElementsByClassName(
+        `${classes.LinkBottom}`
+      )[3].style.fontWeight = "600";
+    } else {
+      document.getElementsByClassName(
+        `${classes.LinkBottom}`
+      )[0].style.fontWeight = "300";
+      document.getElementsByClassName(
+        `${classes.LinkBottom}`
+      )[1].style.fontWeight = "300";
+      document.getElementsByClassName(
+        `${classes.LinkBottom}`
+      )[2].style.fontWeight = "300";
+      document.getElementsByClassName(
+        `${classes.LinkBottom}`
+      )[3].style.fontWeight = "300";
+    }
+    if (userType === 1) {
+      document.getElementsByClassName(
+        `${classes.LinkBottom}`
+      )[0].style.visibility = "hidden";
+      document.getElementsByClassName(
+        `${classes.LinkBottom}`
+      )[1].style.visibility = "hidden";
+      document.getElementsByClassName(
+        `${classes.LinkBottom}`
+      )[2].style.visibility = "hidden";
+      document.getElementsByClassName(
+        `${classes.LinkBottom}`
+      )[3].style.visibility = "visible";
+    } else if (userType === 2) {
+      document.getElementsByClassName(
+        `${classes.LinkBottom}`
+      )[0].style.visibility = "hidden";
+      document.getElementsByClassName(
+        `${classes.LinkBottom}`
+      )[1].style.visibility = "hidden";
+      document.getElementsByClassName(
+        `${classes.LinkBottom}`
+      )[2].style.visibility = "hidden";
+      document.getElementsByClassName(
+        `${classes.LinkBottom}`
+      )[3].style.visibility = "hidden";
+    } else {
+      document.getElementsByClassName(
+        `${classes.LinkBottom}`
+      )[0].style.visibility = "visible";
+      document.getElementsByClassName(
+        `${classes.LinkBottom}`
+      )[1].style.visibility = "visible";
+      document.getElementsByClassName(
+        `${classes.LinkBottom}`
+      )[2].style.visibility = "visible";
+      document.getElementsByClassName(
+        `${classes.LinkBottom}`
+      )[3].style.visibility = "visible";
+    }
+  }, [location]);
 
-  
-  useEffect(()=>{
-    if(location.pathname==='/recommend'){
-      document.getElementsByClassName(`${classes.LinkBottom}`)[0].style.fontWeight = "600";
-      document.getElementsByClassName(`${classes.LinkBottom}`)[1].style.fontWeight = "300";
-      document.getElementsByClassName(`${classes.LinkBottom}`)[2].style.fontWeight = "300";
-      document.getElementsByClassName(`${classes.LinkBottom}`)[3].style.fontWeight = "300";
-    }
-    else if(location.pathname==='/sbti'){
-      document.getElementsByClassName(`${classes.LinkBottom}`)[0].style.fontWeight = "300";
-      document.getElementsByClassName(`${classes.LinkBottom}`)[1].style.fontWeight = "600";
-      document.getElementsByClassName(`${classes.LinkBottom}`)[2].style.fontWeight = "300";
-      document.getElementsByClassName(`${classes.LinkBottom}`)[3].style.fontWeight = "300";
-    }
-    else if(location.pathname==='/mypersonal-color'){
-      document.getElementsByClassName(`${classes.LinkBottom}`)[0].style.fontWeight = "300";
-      document.getElementsByClassName(`${classes.LinkBottom}`)[1].style.fontWeight = "300";
-      document.getElementsByClassName(`${classes.LinkBottom}`)[2].style.fontWeight = "600";
-      document.getElementsByClassName(`${classes.LinkBottom}`)[3].style.fontWeight = "300";
-    }
-    else if(location.pathname==='/consultant'){
-      document.getElementsByClassName(`${classes.LinkBottom}`)[0].style.fontWeight = "300";
-      document.getElementsByClassName(`${classes.LinkBottom}`)[1].style.fontWeight = "300";
-      document.getElementsByClassName(`${classes.LinkBottom}`)[2].style.fontWeight = "300";
-      document.getElementsByClassName(`${classes.LinkBottom}`)[3].style.fontWeight = "600";
-    }else{
-      document.getElementsByClassName(`${classes.LinkBottom}`)[0].style.fontWeight = "300";
-      document.getElementsByClassName(`${classes.LinkBottom}`)[1].style.fontWeight = "300";
-      document.getElementsByClassName(`${classes.LinkBottom}`)[2].style.fontWeight = "300";
-      document.getElementsByClassName(`${classes.LinkBottom}`)[3].style.fontWeight = "300";
-    }
-    if(userType===1){
-      document.getElementsByClassName(`${classes.LinkBottom}`)[0].style.visibility = "hidden";
-      document.getElementsByClassName(`${classes.LinkBottom}`)[1].style.visibility = "hidden";
-      document.getElementsByClassName(`${classes.LinkBottom}`)[2].style.visibility = "hidden";
-      document.getElementsByClassName(`${classes.LinkBottom}`)[3].style.visibility = "visible";
-    }else if(userType===2){
-      document.getElementsByClassName(`${classes.LinkBottom}`)[0].style.visibility = "hidden";
-      document.getElementsByClassName(`${classes.LinkBottom}`)[1].style.visibility = "hidden";
-      document.getElementsByClassName(`${classes.LinkBottom}`)[2].style.visibility = "hidden";
-      document.getElementsByClassName(`${classes.LinkBottom}`)[3].style.visibility = "hidden";
-    }else{
-      document.getElementsByClassName(`${classes.LinkBottom}`)[0].style.visibility = "visible";
-      document.getElementsByClassName(`${classes.LinkBottom}`)[1].style.visibility = "visible";
-      document.getElementsByClassName(`${classes.LinkBottom}`)[2].style.visibility = "visible";
-      document.getElementsByClassName(`${classes.LinkBottom}`)[3].style.visibility = "visible";
-    }
-  },[location])
-
-
-  return(
+  return (
     <div className={classes.bottom}>
-      <p className={classes.LinkBottom} onClick={isConsulting ? nonAction : toRecommend}>추천</p>
-      <p className={classes.LinkBottom} onClick={isConsulting ? nonAction : toSBTI}>SBTI</p>
-      <p className={classes.LinkBottom} onClick={isConsulting ? nonAction : toMyColor}>퍼스널컬러</p>
-      <p className={classes.LinkBottom} onClick={isConsulting ? nonAction : toConsultant}>컨설턴트 상담</p>
+      <p
+        className={classes.LinkBottom}
+        onClick={isConsulting ? nonAction : toRecommend}
+      >
+        추천
+      </p>
+      <p
+        className={classes.LinkBottom}
+        onClick={isConsulting ? nonAction : toSBTI}
+      >
+        SBTI
+      </p>
+      <p
+        className={classes.LinkBottom}
+        onClick={isConsulting ? nonAction : toMyColor}
+      >
+        퍼스널컬러
+      </p>
+      <p
+        className={classes.LinkBottom}
+        onClick={isConsulting ? nonAction : toConsultant}
+      >
+        컨설턴트 상담
+      </p>
     </div>
-  )
-}
+  );
+};
 
-export default NavBottom
+export default NavBottom;

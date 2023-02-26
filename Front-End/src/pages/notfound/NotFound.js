@@ -6,20 +6,24 @@ import classes from "./NotFound.module.css";
 const NotFound = () => {
   const location = useLocation();
   const navigate = useNavigate();
-  console.log(location.pathname.slice(0, 5));
+
   const toHome = (event) => {
     event.preventDefault();
     navigate("/");
   };
 
+  const authNotFound = () =>{
+    if (location.pathname.slice(0, 5) === "/auth") {
+      navigate("/notfound");
+    }
+  }
+
   useEffect(() => {
     document
       .querySelector(`#App`)
       .scrollIntoView({ behavior: "smooth", block: "start" });
-    if (location.pathname.slice(0, 5) === "/auth") {
-      navigate("/notfound");
-    }
-  }, []);
+    authNotFound();
+  },);
 
   return (
     <div className={classes["section1"]}>

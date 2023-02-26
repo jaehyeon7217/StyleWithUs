@@ -1,9 +1,9 @@
-import axios from "axios";
-import Swal from "sweetalert2";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { authActions } from "../../../store/auth";
+import axios from "axios";
+import Swal from "sweetalert2";
 // component 호출
 import InputLabel from "../component/InputLabel";
 import InputShortLabel from "../component/InputShortLabel";
@@ -21,13 +21,14 @@ import classes from "./UserSignUp.module.css";
 const UserSignup = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const emailCode = useSelector((state) => state.auth.confirmEmail);
   const [id, setId, idEffectError] = DataInput(/^[a-zA-z0-9]{5,20}$/);
   const [name, setName, nameError] = DataInput(/^[가-힣]{2,10}$/);
   const [nickName, setNickName, nickNameEffectError] = DataInput(
     /^[a-zA-z0-9가-힣]{3,20}$/
-  );
-  const [email, setEmail, emailEffectError] = DataInput(
-    /^([0-9a-zA-Z_-]+)@([0-9a-zA-Z_-]+)(\.[0-9a-zA-Z_-]+){1,2}$/
+    );
+    const [email, setEmail, emailEffectError] = DataInput(
+      /^([0-9a-zA-Z_-]+)@([0-9a-zA-Z_-]+)(\.[0-9a-zA-Z_-]+){1,2}$/
   );
   const [password, setPassword, passwordError] = DataInput(
     /^(?=.*[a-zA-Z])(?=.*[!@#$%^*+=-])(?=.*[0-9]).{9,16}$/
@@ -113,7 +114,6 @@ const UserSignup = () => {
       });
   };
 
-  const emailCode = useSelector((state) => state.auth.confirmEmail);
   const checkEmailCode = (event) => {
     event.preventDefault();
     if (inputCode === emailCode) {

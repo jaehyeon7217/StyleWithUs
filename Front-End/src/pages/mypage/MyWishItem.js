@@ -1,9 +1,9 @@
 import { Fragment } from "react";
-import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { authActions } from "../../store/auth";
 import { cartActions } from "../../store/cart";
+import axios from "axios";
 import Swal from "sweetalert2";
 // css style
 import classes from "./MyWishItem.module.css";

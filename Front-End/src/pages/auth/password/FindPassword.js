@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
-import axios from "axios";
 import { useNavigate, useLocation } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { authActions } from "../../../store/auth";
+import axios from "axios";
 import Swal from "sweetalert2";
 // custom hook
 import { DataInput } from "../component/Effectiveness";
@@ -13,10 +13,11 @@ import InputShortLabel from "../component/InputShortLabel";
 import classes from "./FindPassword.module.css";
 
 const FindPassword = () => {
-  const location = useLocation();
-  const isUser = location.state.isUser;
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const location = useLocation();
+  const isUser = location.state.isUser;
+  const resetCode = useSelector((state) => state.auth.resetCode.code);
   const [id, setId, idError] = DataInput(/^[a-zA-z0-9]{5,20}$/);
   const [email, setEmail, emailEffectError] = DataInput(
     /^([0-9a-zA-Z_-]+)@([0-9a-zA-Z_-]+)(\.[0-9a-zA-Z_-]+){1,2}$/
@@ -82,7 +83,6 @@ const FindPassword = () => {
         });
       });
   };
-  const resetCode = useSelector((state) => state.auth.resetCode.code);
   const toSetNewPassword = (event) => {
     event.preventDefault();
     if (resetCode === code) {

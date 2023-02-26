@@ -1,8 +1,8 @@
 import { useEffect } from "react";
-import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { authActions } from "../../../store/auth";
+import axios from "axios";
 import Swal from "sweetalert2";
 // cunstom hook
 import { DataInput, CheckPassword } from "../component/Effectiveness";

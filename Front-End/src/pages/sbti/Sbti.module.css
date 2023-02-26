@@ -38,6 +38,7 @@
   display: flex;
   align-items: center;
 }
+
 /* 1번 컴포넌트 start */
 .carouselItem1 {
   width: 100%;

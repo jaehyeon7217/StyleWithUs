@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
-import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { authActions } from "../../../store/auth";
+import axios from "axios";
 import Swal from "sweetalert2";
 // custom hook
 import {
@@ -22,7 +22,8 @@ import classes from "./ConsultantSignUp.module.css";
 const ConsultantSignUp = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-
+  const emailCode = useSelector((state) => state.auth.confirmEmail);
+  
   const [id, setId, idEffectError] = DataInput(/^[a-zA-z0-9]{5,20}$/);
   const [name, setName, nameError] = DataInput(/^[ㄱ-ㅎ|ㅏ-ㅣ|가-힣]{2,10}$/);
   const [nickName, setNickName, nickNameEffectError] = DataInput(
@@ -44,7 +45,7 @@ const ConsultantSignUp = () => {
   const [idValidError, checkId] = ConsultantValidCheck("id");
   const [emailValidError, checkEmail] = ConsultantValidCheck("email");
   const [nickNameValidError, checkNickname] = ConsultantValidCheck("nickname");
-
+  
   // 컨설턴트 회원가입 api 요청
   const consultantSignUpsubmit = (event) => {
     event.preventDefault();
@@ -114,7 +115,6 @@ const ConsultantSignUp = () => {
         console.log(error);
       });
   };
-  const emailCode = useSelector((state) => state.auth.confirmEmail);
   const checkEmailCode = (event) => {
     event.preventDefault();
     if (inputCode === emailCode) {

@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
-import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { authActions } from "../../../store/auth";
+import axios from "axios";
 import Swal from "sweetalert2";
 // component
 import ConsultantMyPageSideBar from "./ConsultantMyPageSideBar";
@@ -104,13 +104,13 @@ const ConsultantMyProfile = () => {
 
   useEffect(() => {
     reviewMsg();
-  }, []);
+  });
 
   useEffect(() => {
     document
       .querySelector(`#App`)
       .scrollIntoView({ behavior: "smooth", block: "start" });
-  }, []);
+  });
 
   return (
     <div className={classes.ProfilePage}>
@@ -121,9 +121,17 @@ const ConsultantMyProfile = () => {
         <div className={classes.ImgTextBox}>
           <p>
             {data.consultantGender ? (
-              <img src={consultantman} className={classes.consultantman} />
+              <img
+                src={consultantman}
+                className={classes.consultantman}
+                alt="consultantman"
+              />
             ) : (
-              <img src={consultantWoman} className={classes.consultantWoman} />
+              <img
+                src={consultantWoman}
+                className={classes.consultantWoman}
+                alt="consultantWoman"
+              />
             )}
           </p>
           <div>

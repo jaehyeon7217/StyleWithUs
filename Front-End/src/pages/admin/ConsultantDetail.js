@@ -1,7 +1,7 @@
-import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { authActions } from "../../store/auth";
+import axios from "axios";
 import Swal from "sweetalert2";
 // css style
 import classes from "./ConsultantDetail.module.css";
@@ -9,9 +9,9 @@ import classes from "./ConsultantDetail.module.css";
 const ConsultantDetail = (props) => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const token = useSelector((state) => state.auth.token);
   const consultantId = props.data.consultantId;
   const consultantResume = props.data.consultantResume;
-  const token = useSelector((state) => state.auth.token);
   const consultantApproval = props.data.consultantApproval;
 
   const approveConsultant = (event) => {
