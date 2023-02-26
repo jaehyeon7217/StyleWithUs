@@ -19,7 +19,6 @@
   src: url("../../fonts/AppleSDGothicNeoB.ttf");
 }
 
-
 .detailBox {
   width: 100%;
   text-align: center;
@@ -51,26 +50,25 @@
 
 .approveButton {
   font-family: "Apple_Gothic_Neo_Mid";
-    width: 90px;
-    height: 37px;
-    border: none;
-    border-radius: 9px;
-    font-size: 12.9px;
-    position: relative;
-    cursor: pointer;
+  width: 90px;
+  height: 37px;
+  border: none;
+  border-radius: 9px;
+  font-size: 12.9px;
+  position: relative;
+  cursor: pointer;
 }
 
-.hrgrey{
+.hrgrey {
   border-bottom: solid 2px #dfdfdf;
   border-top: 0;
   padding: 0;
-  border-radius: 2.5px; 
+  border-radius: 2.5px;
 }
 
-
-.hrblack{
+.hrblack {
   border-bottom: solid 2px #000000;
   border-top: 0;
   padding: 0;
-  border-radius: 2.5px; 
+  border-radius: 2.5px;
 }

@@ -1,193 +1,183 @@
-@import url('https://fonts.googleapis.com/css2?family=Blinker:wght@100;200;300;400;600;700;800;900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Blinker:wght@100;200;300;400;600;700;800;900&display=swap");
 
 @font-face {
-    font-family: "Apple_Gothic_Neo_Hard";
-    src: url("../../../fonts/AppleSDGothicNeoH.ttf");
+  font-family: "Apple_Gothic_Neo_Hard";
+  src: url("../../../fonts/AppleSDGothicNeoH.ttf");
 }
 
 @font-face {
-    font-family: "Apple_Gothic_Neo_Bold";
-    src: url("../../../fonts/AppleSDGothicNeoB.ttf");
+  font-family: "Apple_Gothic_Neo_Bold";
+  src: url("../../../fonts/AppleSDGothicNeoB.ttf");
 }
 
 @font-face {
-    font-family: "Apple_Gothic_Neo_SB";
-    src: url("../../../fonts/AppleSDGothicNeoSB.ttf");
+  font-family: "Apple_Gothic_Neo_SB";
+  src: url("../../../fonts/AppleSDGothicNeoSB.ttf");
 }
 
 @font-face {
-    font-family: "Apple_Gothic_Neo_Light";
-    src: url("../../../fonts/AppleSDGothicNeoL.ttf");
+  font-family: "Apple_Gothic_Neo_Light";
+  src: url("../../../fonts/AppleSDGothicNeoL.ttf");
 }
 
 .ProfilePage {
-    display: flex;
-    justify-content: center;
-    width: 1440px;
-    margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  width: 1440px;
+  margin: 0 auto;
 }
 
 .ProfileMainBox {
-    margin-top: 90px;
-    width: 904px;
+  margin-top: 90px;
+  width: 904px;
 }
 
 .ProfileNameMain {
-    margin: 15px 0;
-    font-family: "Apple_Gothic_Neo_SB";
-    font-size: 27px;
+  margin: 15px 0;
+  font-family: "Apple_Gothic_Neo_SB";
+  font-size: 27px;
 }
 
 .ProfileName {
-    margin-top: 30px;
-    font-family: "Apple_Gothic_Neo_SB";
-    font-size: 22px;
-
+  margin-top: 30px;
+  font-family: "Apple_Gothic_Neo_SB";
+  font-size: 22px;
 }
 
 .hr {
-    border-bottom: solid 5px black;
-    border-top: 0;
-    padding: 0;
-    border-radius: 2.5px;
-    margin-bottom: 30px;
-    width: 900px;
+  border-bottom: solid 5px black;
+  border-top: 0;
+  padding: 0;
+  border-radius: 2.5px;
+  margin-bottom: 30px;
+  width: 900px;
 }
 
 .ImgTextBox {
-    display: flex;
+  display: flex;
 }
 
 .consultantman {
-    width: 70px;
-    margin-left: 30px;
-    margin-top: -30px;
+  width: 70px;
+  margin-left: 30px;
+  margin-top: -30px;
 }
 
 .consultantWoman {
-    width: 75px;
-    margin-left: 30px;
-    margin-top: -30px;
+  width: 75px;
+  margin-left: 30px;
+  margin-top: -30px;
 }
 
-.consultantName{
-    font-family: "Apple_Gothic_Neo_Bold";
-    font-size: 23px;
-    margin-left: 40px;
-    margin-top: 20px;
+.consultantName {
+  font-family: "Apple_Gothic_Neo_Bold";
+  font-size: 23px;
+  margin-left: 40px;
+  margin-top: 20px;
 }
 
-.userType{
-    font-family: "Apple_Gothic_Neo_SBold";
-    font-size: 20px;
-    margin-left: 40px;
-    color: #555555;
-    margin-top: -15px;
-    
+.userType {
+  font-family: "Apple_Gothic_Neo_SBold";
+  font-size: 20px;
+  margin-left: 40px;
+  color: #555555;
+  margin-top: -15px;
 }
 
-.levelbox{
-    display: flex;
-    
+.levelbox {
+  display: flex;
 }
 
-.leveltitle{
-    font-family: "Apple_Gothic_Neo_Bold";
-    font-size: 22px;
-    margin-left: 400px;
-    margin-top: 35px;
+.leveltitle {
+  font-family: "Apple_Gothic_Neo_Bold";
+  font-size: 22px;
+  margin-left: 400px;
+  margin-top: 35px;
 }
 
-.VLine{
-    border: 1px solid rgb(200, 200, 200);
-    height: 110px;
-    margin-left: 20px;
-    margin-right: 20px;
-    margin-top: -5px;
-
+.VLine {
+  border: 1px solid rgb(200, 200, 200);
+  height: 110px;
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-top: -5px;
 }
 
-.msg{
-    font-family: "Apple_Gothic_Neo_Mid";
-    margin-top: 35px;
-    font-size: 19px;
-    margin-top: 38px;
+.msg {
+  font-family: "Apple_Gothic_Neo_Mid";
+  margin-top: 35px;
+  font-size: 19px;
+  margin-top: 38px;
 }
-
 
 .hrgrey {
-    border-bottom: solid 2px lightgrey;
-    border-top: 0;
-    padding: 0;
-    border-radius: 2.5px;
-    margin-bottom: 30px;
-    width: 900px;
-    margin-top: 0px;
+  border-bottom: solid 2px lightgrey;
+  border-top: 0;
+  padding: 0;
+  border-radius: 2.5px;
+  margin-bottom: 30px;
+  width: 900px;
+  margin-top: 0px;
 }
 
-.ResumeBox{
-    /* border: 2px solid rgb(199, 199, 199); */
-    display: flex;
-    background-color: rgb(242, 242, 242);
-    border-radius: 5px;
-    margin-bottom: 15px;
-    
+.ResumeBox {
+  display: flex;
+  background-color: rgb(242, 242, 242);
+  border-radius: 5px;
+  margin-bottom: 15px;
 }
 
-.ResumeName{
-    margin-left: 30px;
-    font-family: "Apple_Gothic_Neo_SBold";
-    font-size: 20px;
-    width: 60px;
+.ResumeName {
+  margin-left: 30px;
+  font-family: "Apple_Gothic_Neo_SBold";
+  font-size: 20px;
+  width: 60px;
 }
 
-.vline{
-    border: 1px solid rgb(160, 160, 160);
-    width: 0.1px;
-    height: 30px;
-    margin-left: 20px;
-    margin-top: 20px;
+.vline {
+  border: 1px solid rgb(160, 160, 160);
+  width: 0.1px;
+  height: 30px;
+  margin-left: 20px;
+  margin-top: 20px;
 }
 
-.consultantResume{
-    margin-left: 40px;
-    font-family: "Apple_Gothic_Neo_Mid";
-    margin-top: 22px;
+.consultantResume {
+  margin-left: 40px;
+  font-family: "Apple_Gothic_Neo_Mid";
+  margin-top: 22px;
 }
 
 .resumebtn {
-    font-family: "Apple_Gothic_Neo_Bold";
-    font-size: 15px;
-    border: none;
-    padding: 8px;
-    border-radius: 7px;
-    margin-top: 10px;
-    background-color: rgb(3, 153, 212);
-    color: rgb(255, 255, 255);
-    padding-right: 13px;
+  font-family: "Apple_Gothic_Neo_Bold";
+  font-size: 15px;
+  border: none;
+  padding: 8px;
+  border-radius: 7px;
+  margin-top: 10px;
+  background-color: rgb(3, 153, 212);
+  color: rgb(255, 255, 255);
+  padding-right: 13px;
 }
 
 .resumebtn:hover {
   cursor: pointer;
 }
 
-
-
-.PersonalSmallLabel{
-    font-family: "Apple_Gothic_Neo_Bold";
-    font-size: 19px;
-    margin-top: 20px;
-    
+.PersonalSmallLabel {
+  font-family: "Apple_Gothic_Neo_Bold";
+  font-size: 19px;
+  margin-top: 20px;
 }
 
-.BottomShort{
+.BottomShort {
   border-bottom: 1px solid rgb(184, 184, 184);
   width: 300px;
   border-radius: 15px;
   margin-top: -6px;
 }
 
-.userData{
+.userData {
   font-family: "Apple_Gothic_Neo_Middle";
   font-size: 17px;
   margin-bottom: 10px;

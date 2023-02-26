@@ -1,177 +1,173 @@
-@import url('https://fonts.googleapis.com/css2?family=Blinker:wght@100;200;300;400;600;700;800;900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Blinker:wght@100;200;300;400;600;700;800;900&display=swap");
 
 @font-face {
-    font-family: "Apple_Gothic_Neo_Hard";
-    src: url("../../fonts/AppleSDGothicNeoH.ttf");
-}
-
-@font-face {
-    font-family: "Apple_Gothic_Neo_Bold";
-    src: url("../../fonts/AppleSDGothicNeoB.ttf");
+  font-family: "Apple_Gothic_Neo_Hard";
+  src: url("../../fonts/AppleSDGothicNeoH.ttf");
 }
 
 @font-face {
-    font-family: "Apple_Gothic_Neo_SB";
-    src: url("../../fonts/AppleSDGothicNeoSB.ttf");
+  font-family: "Apple_Gothic_Neo_Bold";
+  src: url("../../fonts/AppleSDGothicNeoB.ttf");
 }
 
 @font-face {
-    font-family: "Apple_Gothic_Neo_Light";
-    src: url("../../fonts/AppleSDGothicNeoL.ttf");
+  font-family: "Apple_Gothic_Neo_SB";
+  src: url("../../fonts/AppleSDGothicNeoSB.ttf");
 }
 
-.pagebox{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    
+@font-face {
+  font-family: "Apple_Gothic_Neo_Light";
+  src: url("../../fonts/AppleSDGothicNeoL.ttf");
 }
 
-.page{
-    margin-top: 50px;
-    width: 900px;
+.pagebox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.smallName{
-    font-family: "Apple_Gothic_Neo_SB";
-    font-size: 20px;
-    text-align: center;
+.page {
+  margin-top: 50px;
+  width: 900px;
 }
 
-.bigNamd{
-    font-family: "Apple_Gothic_Neo_Mid";
-    text-align: center;
-    margin-right: 13px;
+.smallName {
+  font-family: "Apple_Gothic_Neo_SB";
+  font-size: 20px;
+  text-align: center;
 }
 
-.contetnbox{
-    display: flex;
-    justify-content: space-between;
+.bigNamd {
+  font-family: "Apple_Gothic_Neo_Mid";
+  text-align: center;
+  margin-right: 13px;
 }
 
-.man{
-    height: 200px;
-    margin-top: 100px;
-    margin-left: 150px;
+.contetnbox {
+  display: flex;
+  justify-content: space-between;
 }
 
-.man2{
-    height: 200px;
-    margin-top: 130px;
-    margin-left: -10px;
+.man {
+  height: 200px;
+  margin-top: 100px;
+  margin-left: 150px;
 }
 
-.man3{
-    height: 200px;
-    margin-top: 100px;
-    margin-left: 150px;
+.man2 {
+  height: 200px;
+  margin-top: 130px;
+  margin-left: -10px;
 }
 
-.man4{
-    height: 200px;
-    margin-top: 130px;
-    margin-left: -10px;
+.man3 {
+  height: 200px;
+  margin-top: 100px;
+  margin-left: 150px;
 }
 
-.woman{
-    height: 200px;
-    margin-top: 100px;
-    margin-left: 150px;
+.man4 {
+  height: 200px;
+  margin-top: 130px;
+  margin-left: -10px;
 }
 
-.woman2{
-    height: 200px;
-    margin-top: 130px;
-    margin-left: -10px;
+.woman {
+  height: 200px;
+  margin-top: 100px;
+  margin-left: 150px;
 }
 
-.diaryboxone{
-    margin-right: 50px;
+.woman2 {
+  height: 200px;
+  margin-top: 130px;
+  margin-left: -10px;
 }
 
-.dateboxone{
-    display: flex;
-    margin-top: 120px;
-    margin-left: -30px;
+.diaryboxone {
+  margin-right: 50px;
 }
 
-.dash{
-    font-weight: bold;
-    margin-right: 10px;
-    margin-left: 10px;
-    margin-top: 20px;
-    color: white;
+.dateboxone {
+  display: flex;
+  margin-top: 120px;
+  margin-left: -30px;
 }
 
-.dateone{
-    font-family: "Apple_Gothic_Neo_Light";
-    font-size: 20px;
+.dash {
+  font-weight: bold;
+  margin-right: 10px;
+  margin-left: 10px;
+  margin-top: 20px;
+  color: white;
 }
 
-.datenameone{
-    font-family: "Apple_Gothic_Neo_Bold";
-    font-size: 20px;
-    margin-top: -20px;
-    margin-left: -5px;
-
+.dateone {
+  font-family: "Apple_Gothic_Neo_Light";
+  font-size: 20px;
 }
 
-.datacontent{
-    font-family: "Apple_Gothic_Neo_Light";
-    font-size: 15px;
-    margin-left: -5px;
-    margin-top: -15px;
-    margin-right: 40px;
+.datenameone {
+  font-family: "Apple_Gothic_Neo_Bold";
+  font-size: 20px;
+  margin-top: -20px;
+  margin-left: -5px;
 }
 
-.diaryboxtwo{
-    margin-left: 130px;
-    margin-top: 130px;
+.datacontent {
+  font-family: "Apple_Gothic_Neo_Light";
+  font-size: 15px;
+  margin-left: -5px;
+  margin-top: -15px;
+  margin-right: 40px;
 }
 
-.dateboxtwo{
-    display: flex;
-    
-    
+.diaryboxtwo {
+  margin-left: 130px;
+  margin-top: 130px;
 }
 
-.datenametwo{
-    font-family: "Apple_Gothic_Neo_Bold";
-    font-size: 20px;
-    margin-top: -20px;
+.dateboxtwo {
+  display: flex;
 }
 
-.datacontenttwo{
-    font-family: "Apple_Gothic_Neo_Light";
-    font-size: 15px;
-    margin-top: -15px;
+.datenametwo {
+  font-family: "Apple_Gothic_Neo_Bold";
+  font-size: 20px;
+  margin-top: -20px;
 }
 
-.datetwo{
-    font-family: "Apple_Gothic_Neo_Light";
-        font-size: 20px;
+.datacontenttwo {
+  font-family: "Apple_Gothic_Neo_Light";
+  font-size: 15px;
+  margin-top: -15px;
 }
 
-.vLine{
-    border: 1px solid lightgrey;
-    width: 0.1px;
-    height: 1800px;
-    margin-top: 30px;
-    margin-left: -60px;
-    margin-right: -15px;
+.datetwo {
+  font-family: "Apple_Gothic_Neo_Light";
+  font-size: 20px;
 }
 
-.marginbox{
-    margin-top: 100px;
+.vLine {
+  border: 1px solid lightgrey;
+  width: 0.1px;
+  height: 1800px;
+  margin-top: 30px;
+  margin-left: -60px;
+  margin-right: -15px;
 }
 
-.gif{
-    width: 500px;
-    float: center;
+.marginbox {
+  margin-top: 100px;
 }
 
-.giftwo{
-    width: 500px;
-    border-radius: 15px;
-    float: center;
+.gif {
+  width: 500px;
+  float: center;
+}
+
+.giftwo {
+  width: 500px;
+  border-radius: 15px;
+  float: center;
 }

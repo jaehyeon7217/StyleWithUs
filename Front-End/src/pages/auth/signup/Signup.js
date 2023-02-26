@@ -1,44 +1,58 @@
-import { useNavigate } from "react-router-dom"
-import classes from "./Signup.module.css"
-import consultantwoman from '../../../assets/consultantwomantwo.png'
-import userwoman from '../../../assets/mypageuserwoman.png'
-import loginicon from '../../../assets/mainPage/로그인아이콘.png'
-import { useEffect } from "react"
+import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+// img
+import consultantwoman from "../../../assets/consultantwomantwo.png";
+import userwoman from "../../../assets/mypageuserwoman.png";
+import loginicon from "../../../assets/mainPage/로그인아이콘.png";
+// css style
+import classes from "./Signup.module.css";
 
-const SignUp = () => {                             
-  
+const SignUp = () => {
   const navigate = useNavigate();
-  
-  const toUserSignup = (event) =>{
+
+  const toUserSignup = (event) => {
     event.preventDefault();
-    navigate('/auth/usersignup');
-  }
-  const toConsultantSignup = (event) =>{
+    navigate("/auth/usersignup");
+  };
+  const toConsultantSignup = (event) => {
     event.preventDefault();
-    navigate('/auth/consultantsignup');
-  }
+    navigate("/auth/consultantsignup");
+  };
 
   const toLogin = (event) => {
     event.preventDefault();
     navigate("/auth/login");
   };
-  
+
   useEffect(() => {
-    document.querySelector(`#App`).scrollIntoView({behavior: "smooth", block: "start"});
-    document.querySelector(`#AuthBox`).style.height="calc(var(--vh, 1vh) * 100 - 445px)"
+    document
+      .querySelector(`#App`)
+      .scrollIntoView({ behavior: "smooth", block: "start" });
+    document.querySelector(`#AuthBox`).style.height =
+      "calc(var(--vh, 1vh) * 100 - 445px)";
   }, []);
 
-  return(
+  return (
     <div>
       <h1 className={classes.PageName}>회원 가입</h1>
       <div className={classes.imgbox}>
         <div className={classes.userbox}>
-          <img src={userwoman} alt="img" onClick={toUserSignup} className={classes.userwoman}/>
+          <img
+            src={userwoman}
+            alt="img"
+            onClick={toUserSignup}
+            className={classes.userwoman}
+          />
           <p>일반 유저</p>
         </div>
         <div className={classes.marginbox}></div>
         <div className={classes.c}>
-          <img src={consultantwoman} alt="img" onClick={toConsultantSignup} className={classes.consultantwoman}/>
+          <img
+            src={consultantwoman}
+            alt="img"
+            onClick={toConsultantSignup}
+            className={classes.consultantwoman}
+          />
           <p>컨설턴트</p>
         </div>
       </div>
@@ -48,7 +62,7 @@ const SignUp = () => {
         <img src={loginicon} alt="" className={classes.loginicon} />
       </label>
     </div>
-  )
-}
+  );
+};
 
-export default SignUp
+export default SignUp;

@@ -13,7 +13,8 @@ import {
   UserValidCheck,
 } from "../component/Effectiveness";
 import { GenderCheckbox } from "../component/GenderCheckbox";
-import loginicon from '../../../assets/mainPage/로그인아이콘.png'
+// img
+import loginicon from "../../../assets/mainPage/로그인아이콘.png";
 // classes 호출
 import classes from "./UserSignUp.module.css";
 
@@ -22,8 +23,9 @@ const UserSignup = () => {
   const dispatch = useDispatch();
   const [id, setId, idEffectError] = DataInput(/^[a-zA-z0-9]{5,20}$/);
   const [name, setName, nameError] = DataInput(/^[가-힣]{2,10}$/);
-  const [nickName, setNickName, nickNameEffectError] =
-    DataInput(/^[a-zA-z0-9가-힣]{3,20}$/);
+  const [nickName, setNickName, nickNameEffectError] = DataInput(
+    /^[a-zA-z0-9가-힣]{3,20}$/
+  );
   const [email, setEmail, emailEffectError] = DataInput(
     /^([0-9a-zA-Z_-]+)@([0-9a-zA-Z_-]+)(\.[0-9a-zA-Z_-]+){1,2}$/
   );
@@ -162,10 +164,11 @@ const UserSignup = () => {
   const submitError = nullError && effectivnessError && emailOk;
 
   useEffect(() => {
-    document.querySelector(`#App`).scrollIntoView({behavior: "smooth", block: "start"});
-    document.querySelector(`#AuthBox`).style.height="auto"
+    document
+      .querySelector(`#App`)
+      .scrollIntoView({ behavior: "smooth", block: "start" });
+    document.querySelector(`#AuthBox`).style.height = "auto";
   }, []);
-
 
   return (
     <div className={classes.userSignUp}>

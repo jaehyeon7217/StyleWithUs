@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Blinker:wght@100;200;300;400;600;700;800;900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Blinker:wght@100;200;300;400;600;700;800;900&display=swap");
 
 @font-face {
   font-family: "Apple_Gothic_Neo_Hard";
@@ -20,49 +20,45 @@
   src: url("../../fonts/AppleSDGothicNeoL.ttf");
 }
 
-.MarginBox{
+.MarginBox {
   margin-top: 100px;
   height: 1000px;
-
 }
 
-.WrapMyPage{
+.WrapMyPage {
   display: flex;
   justify-content: center;
   width: 1440px;
   margin: 0 auto;
 }
 
-
-.userImge{
+.userImge {
   width: 75px;
   margin-top: -28px;
   margin-left: 10px;
   transform: scaleX(-1);
 }
 
-.userImgetwo{
+.userImgetwo {
   width: 120px;
   margin-top: -28px;
   margin-left: 7px;
 }
 
 /* 중앙 메인 박스 */
-.MainBox{
-  /* float: left; */
+.MainBox {
   height: 100px;
   margin-top: -10px;
-  
 }
 
-.MainLabel{
+.MainLabel {
   font-family: "Apple_Gothic_Neo_SBold";
   font-size: 25px;
   color: rgb(43, 43, 43);
   margin-top: 25px;
 }
 
-.MyInformBackground{
+.MyInformBackground {
   width: 900px;
   height: 135px;
   border: 2px solid rgb(213, 213, 213);
@@ -75,7 +71,6 @@
   float: left;
   width: 110px;
   height: 110px;
-  /* border: 2px solid lightgrey; */
   border-radius: 100px;
   margin-top: 10px;
   margin-left: 15px;
@@ -83,59 +78,52 @@
   font-size: 30px;
   text-align: center;
   line-height: 110px;
-
 }
 
-.MyInformLetter{
+.MyInformLetter {
   float: left;
   width: 500px;
   margin-top: 5px;
   margin-left: 30px;
-
 }
 
 .MyInformLetterTwo {
   float: left;
   width: 500px;
   margin-left: 30px;
-
 }
 
-.MyInformNickName{
+.MyInformNickName {
   font-family: "Apple_Gothic_Neo_Bold";
   font-size: 19px;
   float: left;
-  
-  
 }
 
-.MyInformNickNameHi{
+.MyInformNickNameHi {
   font-family: "Apple_Gothic_Neo_Light";
   font-size: 18px;
   float: left;
-  
 }
 
-.MyInformID{
+.MyInformID {
   margin-top: 7px;
   font-family: "Apple_Gothic_Neo_Light";
   font-size: 17px;
   margin-top: -14px;
 }
 
-.MyInformEmail{
+.MyInformEmail {
   font-family: "Apple_Gothic_Neo_Light";
   font-size: 17px;
   margin-top: -17px;
   height: 1px;
-  
 }
 
 .MyInformLetterTwo button:nth-of-type(1) {
   margin-left: -2px;
 }
 
-.MyInformBtn{
+.MyInformBtn {
   font-family: "Apple_Gothic_Neo_SBold";
   font-size: 14px;
   margin-top: 18px;
@@ -147,28 +135,27 @@
   border: 1px solid rgb(26, 26, 26);
   color: rgb(56, 56, 56);
   background-color: white;
-  transition: all .2s;
+  transition: all 0.2s;
 }
 
-.MyInformBtn:hover{
+.MyInformBtn:hover {
   cursor: pointer;
   border: 1px solid gray;
   background-color: rgb(240, 240, 240);
 }
 
-.userTypeBox{
+.userTypeBox {
   display: flex;
   justify-content: right;
 }
 
-.userType{
+.userType {
   font-family: "Apple_Gothic_Neo_Bold";
   font-size: 20px;
   margin-top: 55px;
-  
 }
 
-.vline{
+.vline {
   border: 0.5px solid lightgrey;
   width: 0.1px;
   height: 80px;
@@ -177,7 +164,7 @@
   margin-top: 30px;
 }
 
-.userTypeDap{
+.userTypeDap {
   font-size: 19px;
   font-family: "Apple_Gothic_Neo_Mid";
   margin-top: 56.5px;
@@ -185,8 +172,8 @@
   margin-right: 35px;
 }
 
-.MyBodyDataBox{
- padding-top: 10px;
+.MyBodyDataBox {
+  padding-top: 10px;
 }
 
 .StyleCheckBtn {
@@ -198,16 +185,15 @@
   text-align: right;
   margin-right: 15px;
   cursor: pointer;
-  transition: all .2s;
-  
+  transition: all 0.2s;
 }
 
-.StyleCheckBtn:hover{
+.StyleCheckBtn:hover {
   color: black;
-  transition: all .2s;
+  transition: all 0.2s;
 }
 
-.ViewMoreBtn{
+.ViewMoreBtn {
   font-family: "Apple_Gothic_Neo_Mid";
   color: rgb(171, 171, 171);
   width: 50px;
@@ -216,15 +202,15 @@
   text-align: right;
   margin-right: 15px;
   cursor: pointer;
-  transition: all .2s;
+  transition: all 0.2s;
 }
 
-.ViewMoreBtn:hover{
+.ViewMoreBtn:hover {
   color: black;
-  transition: all .2s;
+  transition: all 0.2s;
 }
 
-.MyBodyLabel{
+.MyBodyLabel {
   font-family: "Apple_Gothic_Neo_Bold";
   font-size: 18px;
   margin-top: 35px;
@@ -234,14 +220,13 @@
   width: 900px;
   height: 100px;
   background-color: rgba(227, 227, 227, 0.327);
-  /* background-color: rgb(218, 240, 248); */
   border-radius: 20px;
   margin-bottom: 10px;
   display: flex;
   justify-content: left;
 }
 
-.MyBodyBackgroundtwo{
+.MyBodyBackgroundtwo {
   width: 900px;
   height: 100px;
   background-color: rgba(227, 227, 227, 0.327);
@@ -249,34 +234,30 @@
   margin-bottom: 35px;
   display: flex;
   justify-content: left;
-
 }
 
-.MyBodyItemBox{
+.MyBodyItemBox {
   width: 70px;
   margin-left: 50px;
   text-align: center;
   margin-right: 13px;
   margin-top: 2px;
-  
 }
 
-.MyBodyItemLabel{
+.MyBodyItemLabel {
   font-family: "Apple_Gothic_Neo_SBold";
   font-size: 17px;
   color: rgb(39, 39, 39);
 }
 
-
-
-.MyBodyItemDap{
+.MyBodyItemDap {
   font-family: "Apple_Gothic_Neo_Mid";
   font-size: 17px;
   margin-top: 12px;
   color: rgb(81, 81, 81);
 }
 
-.vLine{
+.vLine {
   border-left: 2px solid lightgrey;
   height: 60px;
   margin-left: 35px;
@@ -284,7 +265,7 @@
 }
 
 .WishItemBox {
-  padding-top: 20px ;
+  padding-top: 20px;
 }
 
 .WarpAllItem {
@@ -296,4 +277,3 @@
 .CartItemDiv {
   width: 24%;
 }
-

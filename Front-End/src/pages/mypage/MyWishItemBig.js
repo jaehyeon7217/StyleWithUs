@@ -1,10 +1,10 @@
 import { Fragment } from "react";
 import { useSelector } from "react-redux";
-
+// css style
 import classes from "./MyWishItemBig.module.css";
 
 const MyWishItemBig = (props) => {
-  const userGender = useSelector(state => state.auth.userData.userGender);
+  const userGender = useSelector((state) => state.auth.userData.userGender);
 
   let imgLink = props.img;
   if (userGender === 1) {
@@ -22,7 +22,10 @@ const MyWishItemBig = (props) => {
           />
         </a>
         <span className={classes.title}>{props.title}</span>
-        <span className={classes.price}>{props.price}{props.price.indexOf("원") === -1 ? "원" : ""}</span>
+        <span className={classes.price}>
+          {props.price}
+          {props.price.indexOf("원") === -1 ? "원" : ""}
+        </span>
       </div>
     </Fragment>
   );

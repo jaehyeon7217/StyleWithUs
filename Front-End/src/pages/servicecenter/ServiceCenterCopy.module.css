@@ -1,171 +1,151 @@
-@import url('https://fonts.googleapis.com/css2?family=Blinker:wght@100;200;300;400;600;700;800;900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Blinker:wght@100;200;300;400;600;700;800;900&display=swap");
 
 @font-face {
-    font-family: "Apple_Gothic_Neo_Hard";
-    src: url("../../fonts/AppleSDGothicNeoH.ttf");
+  font-family: "Apple_Gothic_Neo_Hard";
+  src: url("../../fonts/AppleSDGothicNeoH.ttf");
 }
 
 @font-face {
-    font-family: "Apple_Gothic_Neo_Bold";
-    src: url("../../fonts/AppleSDGothicNeoB.ttf");
+  font-family: "Apple_Gothic_Neo_Bold";
+  src: url("../../fonts/AppleSDGothicNeoB.ttf");
 }
 
 @font-face {
-    font-family: "Apple_Gothic_Neo_SB";
-    src: url("../../fonts/AppleSDGothicNeoSB.ttf");
+  font-family: "Apple_Gothic_Neo_SB";
+  src: url("../../fonts/AppleSDGothicNeoSB.ttf");
 }
 
 @font-face {
-    font-family: "Apple_Gothic_Neo_Light";
-    src: url("../../fonts/AppleSDGothicNeoL.ttf");
+  font-family: "Apple_Gothic_Neo_Light";
+  src: url("../../fonts/AppleSDGothicNeoL.ttf");
 }
 
 .MarginBox {
-    margin-top: 100px;
+  margin-top: 100px;
 }
 
 .WrapPage {
-    display: flex;
-    justify-content: center;
-    max-width: 1440px;
-    margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  max-width: 1440px;
+  margin: 0 auto;
 }
 
 .PageName {
-    font-family: "Apple_Gothic_Neo_Bold";
-    font-size: 35px;
-    margin-bottom: 5px;
+  font-family: "Apple_Gothic_Neo_Bold";
+  font-size: 35px;
+  margin-bottom: 5px;
 }
 
-
 .ServiceCenterBox {
-    width: 904px;
+  width: 904px;
 }
 
 .QuestionName {
-    font-family: "Apple_Gothic_Neo_SBold";
-    font-size: 27px;
-    display: inline-block;
-    margin-top: 15px;
-
+  font-family: "Apple_Gothic_Neo_SBold";
+  font-size: 27px;
+  display: inline-block;
+  margin-top: 15px;
 }
 
 .hr {
-    border-bottom: solid 5px black;
-    border-top: 0;
-    padding: 0;
-    border-radius: 2.5px;
-    margin-top: -10px;
+  border-bottom: solid 5px black;
+  border-top: 0;
+  padding: 0;
+  border-radius: 2.5px;
+  margin-top: -10px;
 }
 
-
 .QItem {
-    display: flex;
-    /* justify-content: space-betwee; */
-    width: 900px;
-    height: 55px;
-
+  display: flex;
+  width: 900px;
+  height: 55px;
 }
 
 .crampsbtn {
-    margin-left: 50px;
+  margin-left: 50px;
 }
 
 .category {
-    font-family: "Apple_Gothic_Neo_SBold";
-    font-size: 21px;
-    margin-top: 12.5px;
-    width: 100px;
-    cursor: pointer;
-
+  font-family: "Apple_Gothic_Neo_SBold";
+  font-size: 21px;
+  margin-top: 12.5px;
+  width: 100px;
+  cursor: pointer;
 }
-
 
 .Title {
-    font-family: "Apple_Gothic_Neo_Light";
-    font-size: 19px;
-    margin-top: 16.5px;
-    text-align: left;
-    width: 720px;
-    cursor: pointer;
+  font-family: "Apple_Gothic_Neo_Light";
+  font-size: 19px;
+  margin-top: 16.5px;
+  text-align: left;
+  width: 720px;
+  cursor: pointer;
 }
 
-
 .checkIcon::after {
-    content: '';
-    width: 12px;
-    /* 사이즈 */
-    height: 12px;
-    /* 사이즈 */
-    border-top: 2px solid #b3b3b3;
-    /* 선 두께 */
-    border-right: 2px solid #b3b3b3;
-    /* 선 두께 */
-    display: inline-block;
-    transform: rotate(135deg);
-    /* 각도 */
-    margin-top: 17px;
-    cursor: pointer;
-    transition: 0.3s;
-
-
-
-
+  content: "";
+  width: 12px;
+  /* 사이즈 */
+  height: 12px;
+  /* 사이즈 */
+  border-top: 2px solid #b3b3b3;
+  /* 선 두께 */
+  border-right: 2px solid #b3b3b3;
+  /* 선 두께 */
+  display: inline-block;
+  transform: rotate(135deg);
+  /* 각도 */
+  margin-top: 17px;
+  cursor: pointer;
+  transition: 0.3s;
 }
 
 .checkIconTwo::after {
-    content: '';
-    width: 12px;
-    /* 사이즈 */
-    height: 12px;
-    /* 사이즈 */
-    border-top: 2px solid #b3b3b3;
-    /* 선 두께 */
-    border-right: 2px solid #b3b3b3;
-    /* 선 두께 */
-    display: inline-block;
-    transform: rotate(315deg);
-    /* 각도 */
-    margin-top: 17px;
-    cursor: pointer;
-    transition: 0.3s;
-
-
+  content: "";
+  width: 12px;
+  /* 사이즈 */
+  height: 12px;
+  /* 사이즈 */
+  border-top: 2px solid #b3b3b3;
+  /* 선 두께 */
+  border-right: 2px solid #b3b3b3;
+  /* 선 두께 */
+  display: inline-block;
+  transform: rotate(315deg);
+  /* 각도 */
+  margin-top: 17px;
+  cursor: pointer;
+  transition: 0.3s;
 }
 
 .hrgrey {
-    border-bottom: solid 2px #dfdfdf;
-    border-top: 0;
-    padding: 0;
-    border-radius: 2.5px;
-
+  border-bottom: solid 2px #dfdfdf;
+  border-top: 0;
+  padding: 0;
+  border-radius: 2.5px;
 }
 
 .Qdap {
-    background-color: #FAFAFA;
-    width: 900px;
-    height: 265px;
-    margin-top: -8px;
-
+  background-color: #fafafa;
+  width: 900px;
+  height: 265px;
+  margin-top: -8px;
 }
 
 .TextBox {
-    width: 830px;
-    margin-left: 35px;
-
+  width: 830px;
+  margin-left: 35px;
 }
 
-
 .QdapHard {
-    font-family: "Apple_Gothic_Neo_Hard";
-    font-size: 22px;
-
+  font-family: "Apple_Gothic_Neo_Hard";
+  font-size: 22px;
 }
 
 .QdapLight {
-    font-family: "Apple_Gothic_Neo_SBold";
-    font-size: 18px;
-    margin-top: 10px;
-    margin-bottom: -5px;
-
+  font-family: "Apple_Gothic_Neo_SBold";
+  font-size: 18px;
+  margin-top: 10px;
+  margin-bottom: -5px;
 }

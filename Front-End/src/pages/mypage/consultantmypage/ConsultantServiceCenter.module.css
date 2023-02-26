@@ -1,6 +1,6 @@
-.servicecenterbox{
-    display: flex;  
-    justify-content: center;
-    width: 1440px;
-    margin: 0 auto;
+.servicecenterbox {
+  display: flex;
+  justify-content: center;
+  width: 1440px;
+  margin: 0 auto;
 }

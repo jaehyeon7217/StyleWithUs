@@ -1,14 +1,17 @@
-import InputLabel from "../auth/component/InputLabel"
-import { DataInput } from "../auth/component/Effectiveness"
-import axios from "axios"
-import { useDispatch } from "react-redux"
-import { useNavigate } from "react-router-dom"
-import { authActions } from "../../store/auth"
-import Swal from "sweetalert2"
-import classes from './AdminLogin.module.css'
-import { useEffect } from "react"
+import { useEffect } from "react";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { authActions } from "../../store/auth";
+import Swal from "sweetalert2";
+// custom hook
+import { DataInput } from "../auth/component/Effectiveness";
+// component
+import InputLabel from "../auth/component/InputLabel";
+// css style
+import classes from "./AdminLogin.module.css";
 
-const AdminLogin = () =>{
+const AdminLogin = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -17,55 +20,59 @@ const AdminLogin = () =>{
     /^(?=.*[a-zA-Z])(?=.*[!@#$%^*+=-])(?=.*[0-9]).{9,16}$/
   );
 
-  const AdminLogin = (event) =>{
+  const AdminLogin = (event) => {
     event.preventDefault();
-    const url = 'https://i8d105.p.ssafy.io/be/admin/login'
-    axios.post(
-      url,
-      {
-        adminId : id,
-        adminPw : password
-      }
-    ).then((response)=>{
-      if (response.status===200){
-        dispatch(authActions.adminLogin(response.data))
-        const token = response.data.auth_token
-        axios.get(
-          'https://i8d105.p.ssafy.io/be/admin/list',
-          {
-            headers:{ Authorization : token }
-          }).then((response)=>{
-            dispatch(authActions.getConsultantList(response.data.data))
-            navigate('/manageconsultant')
-          }).catch((error)=>{
-            console.log(error);
-          })
-      }else{
-        Swal.fire({
-          title: '<div style="font-size:24px;font-family:Apple_Gothic_Neo_Bold;font-weight:bold;">로그인 실패!<div>', 
-          html: '<div style="font-size:16px;font-family:Apple_Gothic_Neo_Mid;">아이디와 비밀번호를 다시 확인해주세요</div>', 
-          width : 330,
-          icon: 'error',
-          confirmButtonText:'<div style="font-size:16px;font-family:Apple_Gothic_Neo_Mid;">확인</div>',
-          confirmButtonColor: '#9A9A9A',
-        })
-        console.log(response);
-      }
-    }).catch((error)=>{
-      console.log(error);
-      window.alert("서버와 연결이 끊겼습니다.");
-    })
-  }
+    const url = "https://i8d105.p.ssafy.io/be/admin/login";
+    axios
+      .post(url, {
+        adminId: id,
+        adminPw: password,
+      })
+      .then((response) => {
+        if (response.status === 200) {
+          dispatch(authActions.adminLogin(response.data));
+          const token = response.data.auth_token;
+          axios
+            .get("https://i8d105.p.ssafy.io/be/admin/list", {
+              headers: { Authorization: token },
+            })
+            .then((response) => {
+              dispatch(authActions.getConsultantList(response.data.data));
+              navigate("/manageconsultant");
+            })
+            .catch((error) => {
+              console.log(error);
+            });
+        } else {
+          Swal.fire({
+            title:
+              '<div style="font-size:24px;font-family:Apple_Gothic_Neo_Bold;font-weight:bold;">로그인 실패!<div>',
+            html: '<div style="font-size:16px;font-family:Apple_Gothic_Neo_Mid;">아이디와 비밀번호를 다시 확인해주세요</div>',
+            width: 330,
+            icon: "error",
+            confirmButtonText:
+              '<div style="font-size:16px;font-family:Apple_Gothic_Neo_Mid;">확인</div>',
+            confirmButtonColor: "#9A9A9A",
+          });
+          console.log(response);
+        }
+      })
+      .catch((error) => {
+        console.log(error);
+        window.alert("서버와 연결이 끊겼습니다.");
+      });
+  };
 
   const nullError = !!id && !!password;
   const effectivnessError = idError && passwordError;
   const submitError = nullError && effectivnessError;
 
-  useEffect(()=>{
-    document.querySelector(`#AuthBox`).style.height="calc(var(--vh, 1vh) * 100 - 445px)"
-  }, [])
+  useEffect(() => {
+    document.querySelector(`#AuthBox`).style.height =
+      "calc(var(--vh, 1vh) * 100 - 445px)";
+  }, []);
 
-  return(
+  return (
     <div>
       <h1 className={classes.PageName}>Admin Login</h1>
       <form onSubmit={AdminLogin}>
@@ -96,7 +103,7 @@ const AdminLogin = () =>{
         </button>
       </form>
     </div>
-  )
-}
+  );
+};
 
 export default AdminLogin;

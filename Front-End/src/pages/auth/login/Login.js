@@ -1,17 +1,16 @@
+import { useState, useEffect } from "react";
 import axios from "axios";
-import Swal from "sweetalert2";
-import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { authActions } from "../../../store/auth";
 import { cartActions } from "../../../store/cart";
-import { useNavigate } from "react-router-dom";
-import { useEffect } from "react";
-// component 분리
-import InputLabel from "../component/InputLabel";
+import Swal from "sweetalert2";
+// custom hook
 import { DataInput } from "../component/Effectiveness";
-// css 클래스
+// component
+import InputLabel from "../component/InputLabel";
+// css style
 import classes from "./Login.module.css";
-
 
 const Login = () => {
   const dispatch = useDispatch();
@@ -42,60 +41,70 @@ const Login = () => {
           if (isUser) {
             dispatch(authActions.userLogin(response.data));
             axios
-            .get(`https://i8d105.p.ssafy.io/be/item/show/${response.data.data.userId}`, {
-              headers: {
-                Authorization: response.data.auth_token,
-              },
-            })
-            .then((response) => {
-              dispatch(cartActions.getCart(response.data.data));
-            })
-            .catch((error) => {
-              if(error.response.status===401){
-                Swal.fire({
-                  title: '<div style="font-size:24px;font-family:Apple_Gothic_Neo_Bold;font-weight:bold;">토큰 만료<div>', 
-                  html: '<div style="font-size:16px;font-family:Apple_Gothic_Neo_Mid;">다시 로그인 해주세요!</div>', 
-                  width : 330,
-                  icon: 'error',
-                  confirmButtonText:'<div style="font-size:16px;font-family:Apple_Gothic_Neo_Mid;">확인</div>',
-                  confirmButtonColor: '#9A9A9A',
-                }).then(()=>{
-                  navigate('/')
-                  dispatch(authActions.logout(""))
-                })
-              }
-            });
+              .get(
+                `https://i8d105.p.ssafy.io/be/item/show/${response.data.data.userId}`,
+                {
+                  headers: {
+                    Authorization: response.data.auth_token,
+                  },
+                }
+              )
+              .then((response) => {
+                dispatch(cartActions.getCart(response.data.data));
+              })
+              .catch((error) => {
+                if (error.response.status === 401) {
+                  Swal.fire({
+                    title:
+                      '<div style="font-size:24px;font-family:Apple_Gothic_Neo_Bold;font-weight:bold;">토큰 만료<div>',
+                    html: '<div style="font-size:16px;font-family:Apple_Gothic_Neo_Mid;">다시 로그인 해주세요!</div>',
+                    width: 330,
+                    icon: "error",
+                    confirmButtonText:
+                      '<div style="font-size:16px;font-family:Apple_Gothic_Neo_Mid;">확인</div>',
+                    confirmButtonColor: "#9A9A9A",
+                  }).then(() => {
+                    navigate("/");
+                    dispatch(authActions.logout(""));
+                  });
+                }
+              });
             navigate("/");
           } else {
             if (response.data.data.consultantApproval === 1) {
               dispatch(authActions.consultantLogin(response.data));
-                axios.get(
-                  "https://i8d105.p.ssafy.io/be/review/show/consultant/" + response.data.data.consultantId,
+              axios
+                .get(
+                  "https://i8d105.p.ssafy.io/be/review/show/consultant/" +
+                    response.data.data.consultantId,
                   {
-                    headers:{
-                      Authorization : response.data.auth_token
-                    }
+                    headers: {
+                      Authorization: response.data.auth_token,
+                    },
                   }
-                ).then((response2)=>{
-                  dispatch(authActions.getMyReview(response2.data))
-                }).catch((error)=>{
-                  if(error.response.status===401){
-                    Swal.fire({
-                      title: '<div style="font-size:24px;font-family:Apple_Gothic_Neo_Bold;font-weight:bold;">토큰 만료<div>', 
-                      html: '<div style="font-size:16px;font-family:Apple_Gothic_Neo_Mid;">다시 로그인 해주세요!</div>', 
-                      width : 330,
-                      icon: 'error',
-                      confirmButtonText:'<div style="font-size:16px;font-family:Apple_Gothic_Neo_Mid;">확인</div>',
-                      confirmButtonColor: '#9A9A9A',
-                    }).then(()=>{
-                      navigate('/')
-                      dispatch(authActions.logout(""))
-                    })
-                  }
+                )
+                .then((response2) => {
+                  dispatch(authActions.getMyReview(response2.data));
                 })
+                .catch((error) => {
+                  if (error.response.status === 401) {
+                    Swal.fire({
+                      title:
+                        '<div style="font-size:24px;font-family:Apple_Gothic_Neo_Bold;font-weight:bold;">토큰 만료<div>',
+                      html: '<div style="font-size:16px;font-family:Apple_Gothic_Neo_Mid;">다시 로그인 해주세요!</div>',
+                      width: 330,
+                      icon: "error",
+                      confirmButtonText:
+                        '<div style="font-size:16px;font-family:Apple_Gothic_Neo_Mid;">확인</div>',
+                      confirmButtonColor: "#9A9A9A",
+                    }).then(() => {
+                      navigate("/");
+                      dispatch(authActions.logout(""));
+                    });
+                  }
+                });
               navigate("/");
-            }
-            else {
+            } else {
               Swal.fire({
                 title:
                   '<div style="font-size:24px;font-family:Apple_Gothic_Neo_Bold;font-weight:bold;">로그인 실패<div>',
@@ -104,19 +113,20 @@ const Login = () => {
                 width: 330,
                 confirmButtonText:
                   '<div style="font-size:16px;font-family:Apple_Gothic_Neo_Mid;">확인</div>',
-              })
+              });
             }
           }
-        }
-        else {
+        } else {
           Swal.fire({
-            title: '<div style="font-size:24px;font-family:Apple_Gothic_Neo_Bold;font-weight:bold;">로그인 실패!<div>',
+            title:
+              '<div style="font-size:24px;font-family:Apple_Gothic_Neo_Bold;font-weight:bold;">로그인 실패!<div>',
             html: '<div style="font-size:16px;font-family:Apple_Gothic_Neo_Mid;">아이디와 비밀번호를 다시 확인해주세요</div>',
             width: 330,
-            icon: 'error',
-            confirmButtonText: '<div style="font-size:16px;font-family:Apple_Gothic_Neo_Mid;">확인</div>',
-            confirmButtonColor: '#9A9A9A',
-          })
+            icon: "error",
+            confirmButtonText:
+              '<div style="font-size:16px;font-family:Apple_Gothic_Neo_Mid;">확인</div>',
+            confirmButtonColor: "#9A9A9A",
+          });
         }
       })
       .catch((error) => {
@@ -136,7 +146,7 @@ const Login = () => {
   // 비밀번호 찾기 페이지 이동
   const FindPassword = (event) => {
     event.preventDefault();
-    navigate("/auth/findpassword", { state : { isUser: isUser, } });
+    navigate("/auth/findpassword", { state: { isUser: isUser } });
   };
 
   // sumbit 활성화 & 비활성화
@@ -145,10 +155,12 @@ const Login = () => {
   const submitError = nullError && effectivnessError;
 
   useEffect(() => {
-    document.querySelector(`#App`).scrollIntoView({behavior: "smooth", block: "start"});
-    document.querySelector(`#AuthBox`).style.height="calc(var(--vh, 1vh) * 100 - 445px)"
+    document
+      .querySelector(`#App`)
+      .scrollIntoView({ behavior: "smooth", block: "start" });
+    document.querySelector(`#AuthBox`).style.height =
+      "calc(var(--vh, 1vh) * 100 - 445px)";
   }, []);
-
 
   return (
     <div>
@@ -189,7 +201,7 @@ const Login = () => {
           disabled={!submitError}
           className={classes.LoginBtn}
         >
-          {isUser ? '유저 로그인' : '컨설턴트 로그인'}
+          {isUser ? "유저 로그인" : "컨설턴트 로그인"}
         </button>
       </form>
       <br />
@@ -202,7 +214,6 @@ const Login = () => {
           비밀번호 찾기
         </p>
       </div>
-
     </div>
   );
 };

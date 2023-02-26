@@ -28,12 +28,11 @@
   overflow-y: auto;
 }
 
-.ul::-webkit-scrollbar{
+.ul::-webkit-scrollbar {
   width: 5px;
   border-radius: 10px;
   /*스크롤바의 너비*/
 }
-
 
 .ul::-webkit-scrollbar-thumb {
   background-color: lightgrey;
@@ -42,7 +41,6 @@
 }
 
 .ul::-webkit-scrollbar-track {
-  /* background-color: grey; */
   border-radius: 10px;
   /*스크롤바 트랙 색상*/
 }
@@ -119,7 +117,6 @@
 .hrgrey {
   border-bottom: solid 3.5px lightgrey;
   border-top: 0;
-  /* padding: 0; */
   border-radius: 2.5px;
   margin-bottom: 30px;
 }
@@ -127,8 +124,6 @@
 .ReviewBox {
   width: 100%;
   padding-right: 10px;
-  /* background-color: rgba(227, 227, 227, 0.327); */
-  /* border-radius: 20px; */
   margin-bottom: 30px;
   box-sizing: border-box;
 }

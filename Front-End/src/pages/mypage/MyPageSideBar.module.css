@@ -1,66 +1,65 @@
-@import url('https://fonts.googleapis.com/css2?family=Blinker:wght@100;200;300;400;600;700;800;900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Blinker:wght@100;200;300;400;600;700;800;900&display=swap");
 
 @font-face {
-    font-family: "Apple_Gothic_Neo_Hard";
-    src: url("../../fonts/AppleSDGothicNeoH.ttf");
+  font-family: "Apple_Gothic_Neo_Hard";
+  src: url("../../fonts/AppleSDGothicNeoH.ttf");
 }
 
 @font-face {
-    font-family: "Apple_Gothic_Neo_Bold";
-    src: url("../../fonts/AppleSDGothicNeoB.ttf");
+  font-family: "Apple_Gothic_Neo_Bold";
+  src: url("../../fonts/AppleSDGothicNeoB.ttf");
 }
 
 @font-face {
-    font-family: "Apple_Gothic_Neo_SB";
-    src: url("../../fonts/AppleSDGothicNeoSB.ttf");
+  font-family: "Apple_Gothic_Neo_SB";
+  src: url("../../fonts/AppleSDGothicNeoSB.ttf");
 }
 
 @font-face {
-    font-family: "Apple_Gothic_Neo_Light";
-    src: url("../../fonts/AppleSDGothicNeoL.ttf");
+  font-family: "Apple_Gothic_Neo_Light";
+  src: url("../../fonts/AppleSDGothicNeoL.ttf");
 }
 
 /* 마이페이지 이름 */
 .PageName {
-    font-family: "Apple_Gothic_Neo_SBold";
-    margin-bottom: 25px;
-    font-size: 30px;
-    cursor: pointer;
-    margin-bottom: 25px;
+  font-family: "Apple_Gothic_Neo_SBold";
+  margin-bottom: 25px;
+  font-size: 30px;
+  cursor: pointer;
+  margin-bottom: 25px;
 }
 
 /* 사이드 메뉴 부분 */
 .SideMenuBox {
-    width: 200px;
-    height: 400px;
-    margin-top: -15px;
-    margin-right: 70px;
+  width: 200px;
+  height: 400px;
+  margin-top: -15px;
+  margin-right: 70px;
 }
 
 /* 사이드 메뉴 */
 .SideMenu {
-    font-family: "Apple_Gothic_Neo_Mid";
-    text-align: left;
-    font-size: 24px;
-    padding-top: 5px;
-    margin: 0;   
-    margin-top: 15px;
+  font-family: "Apple_Gothic_Neo_Mid";
+  text-align: left;
+  font-size: 24px;
+  padding-top: 5px;
+  margin: 0;
+  margin-top: 15px;
 }
-
 
 /* 사이드 메뉴 디테일 */
 .SideMenuDetail {
-    display: inline-block;
-    font-family: "Apple_Gothic_Neo_Light";
-    font-size: 19px;
-    text-align: left;
-    color: rgba(171, 171, 171);
-    cursor: pointer;
-    transition: all .15s;
-    padding-left: 5px;
-    margin: 10px 60px 5px 0;
+  display: inline-block;
+  font-family: "Apple_Gothic_Neo_Light";
+  font-size: 19px;
+  text-align: left;
+  color: rgba(171, 171, 171);
+  cursor: pointer;
+  transition: all 0.15s;
+  padding-left: 5px;
+  margin: 10px 60px 5px 0;
 }
 
 .SideMenuDetail:hover {
-    color: black;
+  color: black;
 }

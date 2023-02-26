@@ -1,4 +1,4 @@
-.inputLabel{
+.inputLabel {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -6,7 +6,7 @@
   width: 60px;
 }
 
-.input.first{
+.input.first {
   appearance: none;
   border: max(2px, 0.1em) solid #ed9363;
   border-radius: 50%;
@@ -21,11 +21,11 @@
   height: 45px;
 }
 
-.input.first:checked{
-  background-color: #ed9363;;
+.input.first:checked {
+  background-color: #ed9363;
 }
 
-.input.second{
+.input.second {
   appearance: none;
   border: max(2px, 0.1em) solid #ed9363;
   border-radius: 50%;
@@ -40,12 +40,11 @@
   height: 35px;
 }
 
-.input.second:checked{
+.input.second:checked {
   background-color: #ed9363;
 }
 
-
-.input.third{
+.input.third {
   appearance: none;
   border: max(2px, 0.1em) solid #a9cbd7;
   border-radius: 50%;
@@ -60,12 +59,11 @@
   height: 35px;
 }
 
-.input.third:checked{
+.input.third:checked {
   background-color: #a9cbd7;
 }
 
-
-.input.fourth{
+.input.fourth {
   appearance: none;
   border: max(2px, 0.1em) solid #a9cbd7;
   border-radius: 50%;
@@ -74,14 +72,12 @@
   height: 40px;
 }
 
-
 .input.fourth:hover {
   cursor: pointer;
   width: 45px;
   height: 45px;
 }
 
-
-.input.fourth:checked{
+.input.fourth:checked {
   background-color: #a9cbd7;
 }

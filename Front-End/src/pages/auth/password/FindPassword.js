@@ -1,14 +1,16 @@
+import { useState, useEffect } from "react";
 import axios from "axios";
-import Swal from "sweetalert2";
-// component 호출
-import InputLabel from "../component/InputLabel";
-import { DataInput } from "../component/Effectiveness";
 import { useNavigate, useLocation } from "react-router-dom";
-import classes from "./FindPassword.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import { authActions } from "../../../store/auth";
+import Swal from "sweetalert2";
+// custom hook
+import { DataInput } from "../component/Effectiveness";
+// component 
+import InputLabel from "../component/InputLabel";
 import InputShortLabel from "../component/InputShortLabel";
-import { useState, useEffect } from "react";
+// css style
+import classes from "./FindPassword.module.css";
 
 const FindPassword = () => {
   const location = useLocation();
@@ -112,11 +114,14 @@ const FindPassword = () => {
   };
 
   useEffect(() => {
-    document.querySelector(`#App`).scrollIntoView({behavior: "smooth", block: "start"});
-    document.querySelector(`#AuthBox`).style.height="calc(var(--vh, 1vh) * 100 - 445px)"
+    document
+      .querySelector(`#App`)
+      .scrollIntoView({ behavior: "smooth", block: "start" });
+    document.querySelector(`#AuthBox`).style.height =
+      "calc(var(--vh, 1vh) * 100 - 445px)";
   }, []);
 
-  const emailError = emailEffectError && !!email
+  const emailError = emailEffectError && !!email;
   return (
     <div>
       <h1 className={classes.PageName}>비밀번호 찾기</h1>

@@ -1,20 +1,22 @@
-import axios from "axios";
-import Swal from "sweetalert2";
 import { useState, useEffect } from "react";
+import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { authActions } from "../../../store/auth";
-// 컴포넌트 호출
-import InputLabel from "../component/InputLabel";
-import InputShortLabel from "../component/InputShortLabel";
+import Swal from "sweetalert2";
+// custom hook
 import {
   DataInput,
   CheckPassword,
   ConsultantValidCheck,
 } from "../component/Effectiveness";
 import { GenderCheckbox } from "../component/GenderCheckbox";
-import loginicon from '../../../assets/mainPage/로그인아이콘.png'
-// classess 호출
+// component
+import InputLabel from "../component/InputLabel";
+import InputShortLabel from "../component/InputShortLabel";
+// img
+import loginicon from "../../../assets/mainPage/로그인아이콘.png";
+// css style
 import classes from "./ConsultantSignUp.module.css";
 
 const ConsultantSignUp = () => {
@@ -23,8 +25,9 @@ const ConsultantSignUp = () => {
 
   const [id, setId, idEffectError] = DataInput(/^[a-zA-z0-9]{5,20}$/);
   const [name, setName, nameError] = DataInput(/^[ㄱ-ㅎ|ㅏ-ㅣ|가-힣]{2,10}$/);
-  const [nickName, setNickName, nickNameEffectError] =
-    DataInput(/^[a-zA-z0-9가-힣]{3,20}$/);
+  const [nickName, setNickName, nickNameEffectError] = DataInput(
+    /^[a-zA-z0-9가-힣]{3,20}$/
+  );
   const [email, setEmail, emailEffectError] = DataInput(
     /^([0-9a-zA-Z_-]+)@([0-9a-zA-Z_-]+)(\.[0-9a-zA-Z_-]+){1,2}$/
   );
@@ -145,20 +148,23 @@ const ConsultantSignUp = () => {
     event.preventDefault();
     Swal.fire({
       input: "textarea",
-      title: '<div style="font-size:24px;font-family:Apple_Gothic_Neo_Bold;font-weight:bold;">경력 기술서<div>',
+      title:
+        '<div style="font-size:24px;font-family:Apple_Gothic_Neo_Bold;font-weight:bold;">경력 기술서<div>',
       inputPlaceholder: "",
       inputValue: resume,
       width: 500,
       inputAttributes: {
         "aria-label": "Type your message here",
-        maxlength : 500,
-        placeholder: "500글자 내로 작성해주세요"
+        maxlength: 500,
+        placeholder: "500글자 내로 작성해주세요",
       },
       showCancelButton: true,
-      confirmButtonText: '<div style="font-size:16px;font-family:Apple_Gothic_Neo_Mid;">확인</div>',
+      confirmButtonText:
+        '<div style="font-size:16px;font-family:Apple_Gothic_Neo_Mid;">확인</div>',
       confirmButtonColor: "#9A9A9A",
       cancelButtonColor: "#F77E7E",
-      cancelButtonText: '<div style="font-size:16px;font-family:Apple_Gothic_Neo_Mid;">취소</div>',
+      cancelButtonText:
+        '<div style="font-size:16px;font-family:Apple_Gothic_Neo_Mid;">취소</div>',
     }).then((result) => {
       if (result.value) {
         setResume(result.value);
@@ -187,8 +193,10 @@ const ConsultantSignUp = () => {
   const submitError = nullError && effectivnessError && emailOk;
 
   useEffect(() => {
-    document.querySelector(`#App`).scrollIntoView({behavior: "smooth", block: "start"});
-    document.querySelector(`#AuthBox`).style.height="auto"
+    document
+      .querySelector(`#App`)
+      .scrollIntoView({ behavior: "smooth", block: "start" });
+    document.querySelector(`#AuthBox`).style.height = "auto";
   }, []);
 
   return (

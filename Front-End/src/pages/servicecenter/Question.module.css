@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Blinker:wght@100;200;300;400;600;700;800;900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Blinker:wght@100;200;300;400;600;700;800;900&display=swap");
 
 @font-face {
   font-family: "Apple_Gothic_Neo_Hard";
@@ -20,29 +20,25 @@
   src: url("../../fonts/AppleSDGothicNeoL.ttf");
 }
 
-.QItem{
-    display: flex;
-    /* justify-content: space-betwee; */
-    width: 900px;
-    height: 55px;
-    
-  }
+.QItem {
+  display: flex;
+  width: 900px;
+  height: 55px;
+}
 
-.crampsbtn{
+.crampsbtn {
   margin-left: 50px;
 }
-  
-.category{
+
+.category {
   font-family: "Apple_Gothic_Neo_SBold";
   font-size: 21px;
   margin-top: 12.5px;
   width: 100px;
   cursor: pointer;
-
 }
-  
-  
-.Title{
+
+.Title {
   font-family: "Apple_Gothic_Neo_Light";
   font-size: 19px;
   margin-top: 16.5px;
@@ -51,9 +47,8 @@
   cursor: pointer;
 }
 
-
-.checkIcon::after{
-  content: '';
+.checkIcon::after {
+  content: "";
   width: 12px; /* 사이즈 */
   height: 12px; /* 사이즈 */
   border-top: 2px solid #b3b3b3; /* 선 두께 */
@@ -63,14 +58,10 @@
   margin-top: 17px;
   cursor: pointer;
   transition: 0.3s;
- 
-
-  
-
 }
 
-.checkIconTwo::after{
-  content: '';
+.checkIconTwo::after {
+  content: "";
   width: 12px; /* 사이즈 */
   height: 12px; /* 사이즈 */
   border-top: 2px solid #b3b3b3; /* 선 두께 */
@@ -80,46 +71,37 @@
   margin-top: 17px;
   cursor: pointer;
   transition: 0.3s;
-  
-
 }
 
-.hrgrey{
+.hrgrey {
   border-bottom: solid 2px #dfdfdf;
   border-top: 0;
   padding: 0;
   border-radius: 2.5px;
-  
 }
 
-.Qdap{
-  background-color: #FAFAFA;
+.Qdap {
+  background-color: #fafafa;
   width: 900px;
   height: 180px;
   margin-top: -8px;
-  
 }
 
-.TextBox{
+.TextBox {
   width: 830px;
   margin-left: 35px;
-  
 }
 
-
-.QdapHard{
+.QdapHard {
   font-family: "Apple_Gothic_Neo_Hard";
   font-size: 22px;
   margin-top: 3px;
   margin-bottom: 15px;
-  
 }
 
-.QdapLight{
+.QdapLight {
   font-family: "Apple_Gothic_Neo_SBold";
   font-size: 18px;
   margin-top: 10px;
   margin-bottom: -5px;
- 
 }
-

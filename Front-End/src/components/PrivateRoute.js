@@ -2,10 +2,9 @@ import { useSelector } from "react-redux";
 import { Outlet, Navigate } from "react-router-dom";
 import Swal from "sweetalert2";
 
-
 // 로그인 유저만 접근 가능
 const PrivateRoute = () => {
-  const isLogined = useSelector((state) => state.auth.isLogined)
+  const isLogined = useSelector((state) => state.auth.isLogined);
 
   if (!isLogined) {
     Swal.fire({
@@ -17,8 +16,7 @@ const PrivateRoute = () => {
       confirmButtonColor: "#9A9A9A",
       confirmButtonText:
         '<div style="font-size:16px;font-family:Apple_Gothic_Neo_Mid;">확인</div>',
-
-    })
+    });
   }
 
   return isLogined ? <Outlet /> : <Navigate to="/auth/login" />;

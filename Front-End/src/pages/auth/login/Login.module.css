@@ -22,22 +22,18 @@
 .PageName {
   font-family: "Apple_Gothic_Neo_Hard";
   font-size: 40px;
-  /* font-style: italic; */
   margin-top: 115px;
 }
 
 .SubPageName {
   font-family: "Apple_Gothic_Neo_Bold";
-  /* font-style: italic; */
   margin-top: -33px;
 }
 
 /* ToggleBtn관련 */
 .ToggleBtn {
   float: right;
-  /* display:inline-block; */
   width: 50px;
-  /* height: 30px; */
   position: relative;
 }
 
@@ -110,7 +106,7 @@
   cursor: pointer;
 }
 
-.BottomLabel:hover{
+.BottomLabel:hover {
   font-weight: 600;
 }
 

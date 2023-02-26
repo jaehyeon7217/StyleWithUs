@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Blinker:wght@100;200;300;400;600;700;800;900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Blinker:wght@100;200;300;400;600;700;800;900&display=swap");
 @font-face {
   font-family: "Apple_Gothic_Neo_Hard";
   src: url("../../../fonts/AppleSDGothicNeoH.ttf");
@@ -20,19 +20,18 @@
 }
 
 @font-face {
-    font-family: "Apple_Gothic_Neo_SBold";
-    src: url("../../../fonts/AppleSDGothicNeoSB.ttf");
+  font-family: "Apple_Gothic_Neo_SBold";
+  src: url("../../../fonts/AppleSDGothicNeoSB.ttf");
 }
 
-
-.PageName{
+.PageName {
   font-family: "Apple_Gothic_Neo_SBold";
   font-size: 37px;
   margin-top: 115px;
   margin-bottom: 50px;
 }
 
-.textbox{
+.textbox {
   font-family: "Apple_Gothic_Neo_SBold";
   font-size: 21px;
   display: flex;
@@ -40,7 +39,7 @@
   margin-top: -30px;
 }
 
-.imgbox{
+.imgbox {
   display: flex;
   justify-content: space-between;
   width: auto;
@@ -48,49 +47,46 @@
   font-family: "Apple_Gothic_Neo_Light";
   font-size: 18px;
   cursor: pointer;
-  
 }
 
-.imgbox img{
+.imgbox img {
   width: 130px;
   margin: 10px;
   padding: 5px;
   border: 2px solid white;
-  transition: all .15s;
+  transition: all 0.15s;
 }
 
-.imgbox img:hover{
+.imgbox img:hover {
   border: 2px solid rgb(194, 194, 194);
   border-radius: 10%;
   cursor: pointer;
 }
 
-
-
-.imgbox p{
+.imgbox p {
   font-family: "Apple_Gothic_Neo_Mid";
 }
 
-.ToLoginLink{
+.ToLoginLink {
   font-family: "Apple_Gothic_Neo_Mid";
   cursor: pointer;
   display: flex;
   justify-content: center;
 }
 
-.userwoman{
+.userwoman {
   transform: scaleX(-1);
 }
 
-.consultantwoman{
+.consultantwoman {
   transform: scaleX(-1);
 }
 
-.ToLoginLink:hover{
+.ToLoginLink:hover {
   font-weight: bold;
 }
 
-.loginicon{
+.loginicon {
   height: 17px;
   margin-top: 0.8px;
 }

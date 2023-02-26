@@ -1,16 +1,20 @@
 import { useEffect } from "react";
-import classes from "./MyProfile.module.css";
-import MyPageSideBar from "./MyPageSideBar";
 import { useSelector } from "react-redux";
-import userImage from "../../assets/mypageuser.png";
+// component
+import MyPageSideBar from "./MyPageSideBar";
+// img
 import userMan from "../../assets/footermantwo.png";
 import userWoman from "../../assets/mypageuserwoman.png";
+// css style
+import classes from "./MyProfile.module.css";
 
 const MyProfile = () => {
   const userData = useSelector((state) => state.auth.userData);
-  
+
   useEffect(() => {
-    document.querySelector(`#App`).scrollIntoView({behavior: "smooth", block: "start"});
+    document
+      .querySelector(`#App`)
+      .scrollIntoView({ behavior: "smooth", block: "start" });
   }, []);
 
   return (

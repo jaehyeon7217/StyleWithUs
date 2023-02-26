@@ -1,13 +1,14 @@
-import axios from "axios";
-import Swal from "sweetalert2";
 import { useEffect } from "react";
+import axios from "axios";
 import { useNavigate } from "react-router-dom";
-// redux 호출
 import { useDispatch, useSelector } from "react-redux";
 import { authActions } from "../../../store/auth";
-// component 불러오기
-import InputLabel from "../component/InputLabel";
+import Swal from "sweetalert2";
+// cunstom hook
 import { DataInput, CheckPassword } from "../component/Effectiveness";
+// component
+import InputLabel from "../component/InputLabel";
+// css style
 import classes from "./PasswordChange.module.css";
 
 const PasswordChange = () => {
@@ -76,19 +77,21 @@ const PasswordChange = () => {
         }
       })
       .catch((error) => {
-        if(error.response.status===401){
+        if (error.response.status === 401) {
           Swal.fire({
-            title: '<div style="font-size:24px;font-family:Apple_Gothic_Neo_Bold;font-weight:bold;">토큰 만료<div>', 
-            html: '<div style="font-size:16px;font-family:Apple_Gothic_Neo_Mid;">다시 로그인 해주세요!</div>', 
-            width : 330,
-            icon: 'error',
-            confirmButtonText:'<div style="font-size:16px;font-family:Apple_Gothic_Neo_Mid;">확인</div>',
-            confirmButtonColor: '#9A9A9A',
-          }).then(()=>{
-            navigate('/')
-            dispatch(authActions.logout(""))
-          })
-        }else{
+            title:
+              '<div style="font-size:24px;font-family:Apple_Gothic_Neo_Bold;font-weight:bold;">토큰 만료<div>',
+            html: '<div style="font-size:16px;font-family:Apple_Gothic_Neo_Mid;">다시 로그인 해주세요!</div>',
+            width: 330,
+            icon: "error",
+            confirmButtonText:
+              '<div style="font-size:16px;font-family:Apple_Gothic_Neo_Mid;">확인</div>',
+            confirmButtonColor: "#9A9A9A",
+          }).then(() => {
+            navigate("/");
+            dispatch(authActions.logout(""));
+          });
+        } else {
           Swal.fire({
             title:
               '<div style="font-size:24px;font-family:Apple_Gothic_Neo_Bold;font-weight:bold;">변경 실패<div>',
@@ -110,58 +113,62 @@ const PasswordChange = () => {
   const submitError = nullError && effectivnessError;
 
   useEffect(() => {
-    document.querySelector(`#App`).scrollIntoView({behavior: "smooth", block: "start"});
+    document
+      .querySelector(`#App`)
+      .scrollIntoView({ behavior: "smooth", block: "start" });
   }, []);
 
   return (
     <div className={classes.AuthBox}>
       <div className={classes.AuthBody}>
-      <h1 className={classes.PageName}>비밀번호 변경</h1>
-      <br />
-      <br />
-      <form onSubmit={PasswordChangeSubmit}>
-        <InputLabel
-          label="기존 비밀번호"
-          type="password"
-          value={password}
-          placeholder="비밀번호를 입력해주세요"
-          onChange={setPassword}
-          errorMessage={
-            passwordError ? "" : "영어와 숫자 그리고 특수문자로만 입력해주세요."
-          }
-        />
-        <InputLabel
-          label="새로운 비밀번호"
-          type="password"
-          value={newPassword}
-          placeholder="9자 이상 16자 이하의 비밀번호를 입력해주세요"
-          onChange={setNewPassword}
-          errorMessage={
-            newPasswordError
-              ? ""
-              : "영어와 숫자 그리고 특수문자로만 입력해주세요."
-          }
-        />
-        <InputLabel
-          label="비밀번호 확인"
-          type="password"
-          value={confirmNewPassword}
-          placeholder="비밀번호를 다시 입력해주세요"
-          onChange={setConfirmNewPassword}
-          errorMessage={
-            confirmNewPasswordError ? "" : "새로운 비밀번호와 다릅니다."
-          }
-        />
-        <button
-          type="submit"
-          disabled={!submitError}
-          className={classes.PasswordChangeBtn}
-        >
-          비밀번호 변경
-        </button>
-      </form>
+        <h1 className={classes.PageName}>비밀번호 변경</h1>
+        <br />
+        <br />
+        <form onSubmit={PasswordChangeSubmit}>
+          <InputLabel
+            label="기존 비밀번호"
+            type="password"
+            value={password}
+            placeholder="비밀번호를 입력해주세요"
+            onChange={setPassword}
+            errorMessage={
+              passwordError
+                ? ""
+                : "영어와 숫자 그리고 특수문자로만 입력해주세요."
+            }
+          />
+          <InputLabel
+            label="새로운 비밀번호"
+            type="password"
+            value={newPassword}
+            placeholder="9자 이상 16자 이하의 비밀번호를 입력해주세요"
+            onChange={setNewPassword}
+            errorMessage={
+              newPasswordError
+                ? ""
+                : "영어와 숫자 그리고 특수문자로만 입력해주세요."
+            }
+          />
+          <InputLabel
+            label="비밀번호 확인"
+            type="password"
+            value={confirmNewPassword}
+            placeholder="비밀번호를 다시 입력해주세요"
+            onChange={setConfirmNewPassword}
+            errorMessage={
+              confirmNewPasswordError ? "" : "새로운 비밀번호와 다릅니다."
+            }
+          />
+          <button
+            type="submit"
+            disabled={!submitError}
+            className={classes.PasswordChangeBtn}
+          >
+            비밀번호 변경
+          </button>
+        </form>
+      </div>
     </div>
-  </div>
   );
 };
 

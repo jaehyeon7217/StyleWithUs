@@ -1,11 +1,14 @@
-import axios from "axios";
-import Swal from "sweetalert2";
-import InputLabel from "../component/InputLabel";
-import classes from "./SetNewPassword.module.css";
 import { useEffect } from "react";
-import { DataInput, CheckPassword } from "../component/Effectiveness";
+import axios from "axios";
 import { useNavigate, useLocation } from "react-router-dom";
 import { useSelector } from "react-redux";
+import Swal from "sweetalert2";
+// custom hook
+import { DataInput, CheckPassword } from "../component/Effectiveness";
+// component
+import InputLabel from "../component/InputLabel";
+// css style
+import classes from "./SetNewPassword.module.css";
 
 const SetNewPassword = (props) => {
   const location = useLocation();
@@ -69,8 +72,11 @@ const SetNewPassword = (props) => {
   };
 
   useEffect(() => {
-    document.querySelector(`#App`).scrollIntoView({behavior: "smooth", block: "start"});
-    document.querySelector(`#AuthBox`).style.height="calc(var(--vh, 1vh) * 100 - 445px)"
+    document
+      .querySelector(`#App`)
+      .scrollIntoView({ behavior: "smooth", block: "start" });
+    document.querySelector(`#AuthBox`).style.height =
+      "calc(var(--vh, 1vh) * 100 - 445px)";
   }, []);
 
   return (
