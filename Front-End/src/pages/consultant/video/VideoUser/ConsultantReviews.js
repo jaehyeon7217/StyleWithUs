@@ -1,9 +1,10 @@
-import axios from "axios";
-import { useSelector } from "react-redux";
 import { useState, useEffect } from "react";
+import { useSelector } from "react-redux";
+import axios from "axios";
+// component
 import ConsultantReviewsList from "./ConsultantReviewsList";
-import GetStarRating from "./reviewinput/GetStarRating";
-import classes from './ConsultantReviews.module.css';
+// css style
+import classes from "./ConsultantReviews.module.css";
 
 const APPLICATION_SERVER_URL =
   process.env.NODE_ENV === "production" ? "" : "https://i8d105.p.ssafy.io/be/";
@@ -22,22 +23,22 @@ const ConsultantReviews = (props) => {
   }, []);
 
   const getReviews = async (consultantId) => {
-    const url = APPLICATION_SERVER_URL + "review/show/consultant/" + consultantId;
+    const url =
+      APPLICATION_SERVER_URL + "review/show/consultant/" + consultantId;
     const response = await axios.get(url, {
       headers: {
         Authorization: token,
       },
     });
-    // console.log(response.data);
     setReviewLists(response.data.data);
     setAvgScore(response.data.avgScore);
   };
 
   // 리뷰 삭제한 경우 처리
-  const [isDeleted, setIsDeleted] = useState(undefined)
+  const [isDeleted, setIsDeleted] = useState(undefined);
   useEffect(() => {
     getReviews(consultantId);
-  }, [isDeleted])
+  }, [isDeleted]);
 
   return (
     <div>
@@ -51,7 +52,7 @@ const ConsultantReviews = (props) => {
             reviewNo={list.reviewNo}
             reviewScore={list.reviewScore}
             reviewContent={list.reviewContent}
-            deleteAllowed={(userId === list.userId) ? true : false}
+            deleteAllowed={userId === list.userId ? true : false}
             isDeleted={isDeleted}
             setIsDeleted={setIsDeleted}
           />

@@ -1,4 +1,6 @@
+// img
 import yellowStar from "../../../../../assets/yellow_star.png";
+// css style
 import classes from "./GetStarRating.module.css";
 
 const GetStarRating = (props) => {
@@ -19,22 +21,15 @@ const GetStarRating = (props) => {
               />
               <img
                 className={`${
-                  ratingValue <= reviewScore  
+                  ratingValue <= reviewScore
                     ? classes["star-yellow"]
                     : classes["star-gray"]
                 }`}
                 src={yellowStar}
                 alt="star"
               />
-              {/* <FaStar
-                className={classes.star}
-                color={ratingValue <= (hover || rating) ? "#ffc107" : "#e4e5e9"}
-                size={25}
-                onMouseEnter={() => setHover(ratingValue)}
-                onMouseLeave={() => setHover(null)}
-              /> */}
             </label>
-          ); ///
+          );
         })}
       </div>
     </div>

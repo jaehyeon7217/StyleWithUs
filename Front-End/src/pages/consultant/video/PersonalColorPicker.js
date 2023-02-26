@@ -1,12 +1,13 @@
+import { useState } from "react";
+// img
 import Spring from "../../../assets/spring_warm.png";
 import Summer from "../../../assets/summer_cool.png";
 import Fall from "../../../assets/fall_warm.png";
 import Winter from "../../../assets/winter_cool.png";
+// css style
 import classes from "./PersonalColorPicker.module.css";
 
-import { useState } from "react";
-
-const PersonalColorPicker = (props) => {
+const PersonalColorPicker = () => {
   const [showSpring, setShowSpring] = useState(false);
   const [showSummer, setShowSummer] = useState(false);
   const [showFall, setShowFall] = useState(false);
