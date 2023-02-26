@@ -123,11 +123,16 @@ const ConsultantMyPage = () => {
           <div className={classes.MyInformBox}>
             <p>
               {data.consultantGender ? (
-                <img src={consultantMan} className={classes.consultantMan} />
+                <img
+                  src={consultantMan}
+                  className={classes.consultantMan}
+                  alt="consultantMan"
+                />
               ) : (
                 <img
                   src={consultantWoman}
                   className={classes.consultantWoman}
+                  alt="consultantWoman"
                 />
               )}
             </p>
@@ -167,9 +172,6 @@ const ConsultantMyPage = () => {
                 더보기
               </p>
             </div>
-            {/* <div>
-              <p className={classes.consultantResume}>{data.consultantResume}</p>
-            </div> */}
             <div className={classes.ResumeBox}>
               <p className={classes.ResumeName}>경력</p>
               <div className={classes.vline}></div>
@@ -207,7 +209,6 @@ const ConsultantMyPage = () => {
                     </div>
                     <div className={classes.reviewContent}>
                       <p>{review[idx].reviewContent}</p>
-                      {/* <p >{(data.userGender ? <img src={boyface} className={classes.boyface} /> : <img src={girlface} className={classes.girlface} />)}</p> */}
                     </div>
                   </div>
                 );

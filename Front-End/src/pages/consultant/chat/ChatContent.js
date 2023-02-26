@@ -1,13 +1,14 @@
 import { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
+// component
+import ChatContentItem from "./ChatContentItem";
+// css style
 import classes from "./ChatContent.module.css";
 
-import ChatContentItem from "./ChatContentItem";
-
 const ChatContent = (props) => {
-  useState()
+  useState();
 
-  const cssClasses = props.className + ' ' + classes['chat-content'] 
+  const cssClasses = props.className + " " + classes["chat-content"];
 
   const chattings = props.chattings;
 
@@ -20,16 +21,16 @@ const ChatContent = (props) => {
     const chatWindow = document.getElementById("chat-window");
     chatWindow.scrollTop = chatWindow.scrollHeight;
     if (chattings.length !== 0) {
-      const chatStatus = getComputedStyle(document.getElementById("chat-outer-window")).zIndex;
+      const chatStatus = getComputedStyle(
+        document.getElementById("chat-outer-window")
+      ).zIndex;
       // 채팅창 상태 : auto(켜져있지 않을 때), 1(켜져있을 때)
-      if (chatStatus === 'auto') {
-        const count = props.alarmCount + 1
+      if (chatStatus === "auto") {
+        const count = props.alarmCount + 1;
         props.alarm(count);
       }
     }
   }, [chattings]);
-
-  //console.log(getComputedStyle(document.getElementById("chat-outer-window")).zIndex);
 
   return (
     <div id="chat-outer-window" className={`${cssClasses} chat-toggle-event`}>
@@ -38,7 +39,14 @@ const ChatContent = (props) => {
       <div id="chat-window" className={`${classes.y} chat-toggle-event`}>
         <ul className={`${classes.ul} chat-toggle-event`}>
           {chattings.map((chatting, idx) => {
-            return <ChatContentItem key={idx} message={chatting.data} isMyself={chatting.user === nickname ? true : false } time={chatting.time}/>
+            return (
+              <ChatContentItem
+                key={idx}
+                message={chatting.data}
+                isMyself={chatting.user === nickname ? true : false}
+                time={chatting.time}
+              />
+            );
           })}
         </ul>
       </div>

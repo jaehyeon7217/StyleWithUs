@@ -22,7 +22,6 @@ const MyPage = () => {
   const navigate = useNavigate();
 
   const cartItems = useSelector((state) => state.cart.cartItems);
-  // console.log(cartItems)
   const getMyData = () => {
     const url = "https://i8d105.p.ssafy.io/be/user/get/" + userId;
     axios
@@ -144,7 +143,6 @@ const MyPage = () => {
                 <p className={classes.MyInformNickNameHi}>님 안녕하세요,</p>
               </div>
               <div className={classes.MyInformLetterTwo}>
-                {/* <p className={classes.MyInformID}>{userData.userId}</p> */}
                 <p className={classes.MyInformEmail}>{userData.userEmail}</p>
                 <button className={classes.MyInformBtn} onClick={MyProfile}>
                   프로필 정보

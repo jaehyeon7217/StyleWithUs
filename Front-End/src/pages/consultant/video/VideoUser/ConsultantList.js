@@ -39,7 +39,7 @@ const ConsultantList = (props) => {
   return (
     <div className={classes["consultant-list"]}>
       <div className={classes.consultant}>
-        <img src={consultantImage} />
+        <img src={consultantImage} alt="consultantImage"/>
         <div className={classes.text}>
           {consultantNickname}님과 함께
           <div>스타일을 변경하시겠습니까?</div>
