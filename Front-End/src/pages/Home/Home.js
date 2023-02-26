@@ -1,51 +1,51 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-
+import { authActions } from "../../store/auth";
+// component
 import ButtonBox from "./ButtonBox";
+// css style
 import classes from "../Home/Home.module.css";
-
+// section1 image
 import section1Video from "../../assets/mainPage/section1.mp4";
-
+// section3 image
 import section3Image1 from "../../assets/mainPage/소개팅남.png";
 import section3Image2 from "../../assets/mainPage/소개팅녀.png";
 import section3Image3 from "../../assets/mainPage/생각말풍선.png";
 import section3Image4 from "../../assets/mainPage/엉킨실타래.gif";
-
+// section4 image
 import section4Image1 from "../../assets/mainPage/패션캐릭터3.png";
 import section4Image2 from "../../assets/mainPage/컨설턴트.png";
-
+// section5 image
 import section5Image1 from "../../assets/mainPage/퍼스널컬러자가진단맨상체.png";
 import section5Image2 from "../../assets/mainPage/colorcircle.png";
 import section5Image3 from "../../assets/mainPage/fall_warm.png";
 import section5Image4 from "../../assets/mainPage/spring_warm.png";
 import section5Image5 from "../../assets/mainPage/summer_cool.png";
 import section5Image6 from "../../assets/mainPage/winter_cool.png";
-
+// section6 image
 import section6Image1 from "../../assets/mainPage/퍼스널컬러자가진단맨2상체.png";
 import section6Image2 from "../../assets/mainPage/fall_warm.png";
 import section6Image3 from "../../assets/mainPage/spring_warm.png";
 import section6Image4 from "../../assets/mainPage/summer_cool.png";
 import section6Image5 from "../../assets/mainPage/winter_cool.png";
-
+// section7 image
 import section7Image1 from "../../assets/mainPage/모자.png";
 import section7Image2 from "../../assets/mainPage/보라치마옷.png";
 import section7Image3 from "../../assets/mainPage/빨간신발.png";
 import section7Image4 from "../../assets/mainPage/핑크상의옷.png";
-
+// section8 image
 import section8Image1 from "../../assets/mainPage/소개팅남.png";
 import section8Image2 from "../../assets/mainPage/변신남1.png";
 import section8Image3 from "../../assets/mainPage/진단서.png";
-
+// section9 image
 import section9Image1 from "../../assets/mainPage/지구.png";
 import section9Image2 from "../../assets/mainPage/산.png";
-
+// section10 image
 import section10Image1 from "../../assets/mainPage/쓰레기더미.png";
 import section10Image2 from "../../assets/mainPage/버려지는옷1.png";
 import section10Image3 from "../../assets/mainPage/버려지는옷2.png";
 import section10Image4 from "../../assets/mainPage/버려지는신발.png";
-
-import { authActions } from "../../store/auth";
 
 const Home = () => {
   const navigate = useNavigate();

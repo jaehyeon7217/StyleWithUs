@@ -1,7 +1,5 @@
 import { useState, useEffect } from "react";
 
-import classes from "./LengthType.module.css";
-
 const LengthType = (props) => {
   const data = props.data;
   const [count, setCount] = useState(0);

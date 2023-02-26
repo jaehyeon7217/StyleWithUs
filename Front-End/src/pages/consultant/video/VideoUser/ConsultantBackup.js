@@ -1,11 +1,12 @@
-import { OpenVidu } from "openvidu-browser";
 import React, { Fragment, useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
-import classes from "./Consultant.module.css";
 import { useSelector } from "react-redux";
+import { OpenVidu } from "openvidu-browser";
+import axios from "axios";
 import history from "./video/history";
-
+// css style
+import classes from "./Consultant.module.css";
+// component
 import Video from "./video/Video";
 import Shop from "./shop/Shop";
 import Cart from "./cart/Cart";
@@ -39,13 +40,13 @@ const Consultant = (props) => {
   const [chatting, setChatting] = useState([]);
 
   // 채팅창 focus blur 이벤트 작동 조건
-  document.querySelector("body").addEventListener("click", function(event) {
+  document.querySelector("body").addEventListener("click", function (event) {
     if (String(event.target.className).includes("chat-toggle-event")) {
       onFucusHandler();
     } else {
       onBlurHandler();
     }
-  })
+  });
 
   // 뒤로가기 버튼을 누를 때 loading 상태 업데이트
   useEffect(() => {
@@ -174,21 +175,25 @@ const Consultant = (props) => {
 
       newSession.on("signal", (event) => {
         // {"clientData":"bingbang"}
-        const userName = event.from.data.slice(15, -2)
+        const userName = event.from.data.slice(15, -2);
 
         if (event.data.trim() !== "") {
-          let today = new Date();   
+          let today = new Date();
 
           let hours = today.getHours(); // 시
-          let ampm = hours >= 0 && hours < 12 ? '오전' : '오후';
+          let ampm = hours >= 0 && hours < 12 ? "오전" : "오후";
           hours = hours > 12 ? hours - 12 : hours;
-          let minutes = today.getMinutes();  // 분
-          minutes = minutes < 10 ? '0' + minutes.toString() : minutes.toString();
+          let minutes = today.getMinutes(); // 분
+          minutes =
+            minutes < 10 ? "0" + minutes.toString() : minutes.toString();
 
           let time = ampm + ` ${hours}:` + minutes;
 
           setChatting((prevState) => {
-            return [...prevState, { user: userName, data: event.data, time: time }];
+            return [
+              ...prevState,
+              { user: userName, data: event.data, time: time },
+            ];
           });
         }
       });
@@ -364,9 +369,7 @@ const Consultant = (props) => {
               chatting={chatting}
             />
           </div>
-          <ChatForm
-            onMessageSend={messageSendHandler}
-          />
+          <ChatForm onMessageSend={messageSendHandler} />
         </section>
       </main>
       <button onClick={pageBackHandler}>Back</button>
