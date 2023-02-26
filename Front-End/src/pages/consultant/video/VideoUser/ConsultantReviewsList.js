@@ -1,6 +1,8 @@
 import { useSelector } from "react-redux";
 import axios from "axios";
+// component
 import GetStarRating from "./reviewinput/GetStarRating";
+// css style
 import classes from "./ConsultantReviewsList.module.css";
 
 const APPLICATION_SERVER_URL =
@@ -38,13 +40,13 @@ const ConsultantReviewsList = (props) => {
         <div className={classes["review-writer"]}>
           {reviewUserId}
           {deleteAllowed && (
-          <input
-            type="button"
-            value="삭제"
-            className={classes.button}
-            onClick={deleteReviewHandler}
-          />
-          )}  
+            <input
+              type="button"
+              value="삭제"
+              className={classes.button}
+              onClick={deleteReviewHandler}
+            />
+          )}
         </div>
         <GetStarRating reviewScore={reviewScore} />
         <div className={classes["review-content"]}>{reviewContent}</div>

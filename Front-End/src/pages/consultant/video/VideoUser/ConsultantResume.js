@@ -1,6 +1,8 @@
 import { useEffect, useRef } from "react";
-import classes from "./ConsultantResume.module.css";
+// component
 import ConsultantReviews from "./ConsultantReviews";
+// css style
+import classes from "./ConsultantResume.module.css";
 
 const ConsultantResume = (props) => {
   const consultantId = props.consultantId;

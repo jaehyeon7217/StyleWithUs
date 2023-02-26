@@ -1,8 +1,10 @@
 import { useState, useEffect, useRef } from "react";
-import classes from "./ConsultantReview.module.css";
-import axios from "axios";
 import { useSelector } from "react-redux";
+import axios from "axios";
+// component
 import StarRating from "./reviewinput/StarRating";
+// css style
+import classes from "./ConsultantReview.module.css";
 
 const APPLICATION_SERVER_URL =
   process.env.NODE_ENV === "production" ? "" : "https://i8d105.p.ssafy.io/be/";
@@ -41,21 +43,18 @@ const ConsultantReview = (props) => {
   const userId = useSelector((state) => state.auth.userId);
 
   const [review, setReview] = useState("");
-  // const [reviewScore, setReviewScore, reviewScoreError] = DataInput(undefined);
   const [reviewScore, setReviewScore] = useState(3);
 
   const onSubmitHandler = async (event) => {
     event.preventDefault();
     props.setBackIsClicked(false);
     props.setGetSessionStatus(false);
-    // console.log(getConsultantId);
 
     // POST 요청 보내기
     await sendReview();
 
     // consultantId 초기화
     props.setGetConsultantId(undefined);
-    // console.log(getConsultantId);
   };
 
   const sendReview = async () => {
@@ -75,7 +74,6 @@ const ConsultantReview = (props) => {
         },
       }
     );
-    // console.log(response.data);
     return response.data;
   };
 

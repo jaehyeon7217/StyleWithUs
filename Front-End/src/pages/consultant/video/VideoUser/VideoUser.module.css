@@ -76,7 +76,6 @@
 }
 
 .ul::-webkit-scrollbar-track {
-  /* background-color: grey; */
   border-radius: 10px;
   /*스크롤바 트랙 색상*/
 }

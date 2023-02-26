@@ -1,18 +1,22 @@
-import { OpenVidu } from "openvidu-browser";
 import React, { Fragment, useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import useInterval from "./useInterval";
+import { OpenVidu } from "openvidu-browser";
+import { chatActions } from "../../../../store/chat";
+import { authActions } from "../../../../store/auth";
+import { cartActions } from "../../../../store/cart";
 import axios from "axios";
-import classes from "./VideoUser.module.css";
+import Swal from "sweetalert2";
+// custom hook
+import useInterval from "./useInterval";
+// component
 import ConsultantList from "./ConsultantList";
 import ConsultantReview from "./ConsultantReview";
 import Video from "../Video";
-import { chatActions } from "../../../../store/chat";
-import Swal from "sweetalert2";
+// img
 import reload from "../../../../assets/reload.png";
-import { authActions } from "../../../../store/auth";
-import { cartActions } from "../../../../store/cart";
+// css style
+import classes from "./VideoUser.module.css";
 
 const APPLICATION_SERVER_URL =
   process.env.NODE_ENV === "production"
@@ -48,9 +52,6 @@ const Consultant = (props) => {
   const pageBackHandler = () => {
     leaveSession();
     setBackIsClicked(true);
-    //     const newLoadingStatus = true;
-    //     props.onChangeLoading(newLoadingStatus);
-    //     navigate(-1);
   };
 
   // openvidu 함수
@@ -204,8 +205,6 @@ const Consultant = (props) => {
   const leaveSession = () => {
     // --- 7) Leave the session by calling 'disconnect' method over the Session object ---
     const mySession = session;
-    // console.log(maintainSessionId);
-    // console.log(mySessionId);
     if (maintainSessionId) {
       sendLeave(maintainSessionId);
       if (mySession) {
@@ -246,7 +245,6 @@ const Consultant = (props) => {
   };
 
   const getToken = async () => {
-    // const sessionId = await createSession(mySessionId);
     return await createToken(mySessionId);
   };
 
@@ -284,7 +282,6 @@ const Consultant = (props) => {
 
       return;
     } else {
-      // console.log(response.data.token);
       return response.data.token; // The token
     }
   };
@@ -327,9 +324,7 @@ const Consultant = (props) => {
   // 리뷰 작성을 위한 consultantId 받아오기
   const [getConsultantId, setGetConsultantId] = useState(undefined);
 
-  useEffect(() => {
-    // console.log(getConsultantId);
-  }, [getConsultantId]);
+  useEffect(() => {}, [getConsultantId]);
 
   useEffect(() => {
     getSession();
@@ -337,7 +332,6 @@ const Consultant = (props) => {
 
   // 새로고침 시 axios 보내기
   const beforeUnLoad = (e) => {
-    // e.preventDefault();
     e.stopPropagation();
     e.returnValue = "";
   };
@@ -400,11 +394,6 @@ const Consultant = (props) => {
                 Back
               </button>
             </div>
-            {/* {mainStreamManager !== undefined ? (
-              <div id="main-video" className="col-md-6">
-                <Video streamManager={mainStreamManager} />
-              </div>
-            ) : null} */}
             <div id="video-container" className="col-md-6">
               {publisher !== undefined ? (
                 <div className="stream-container col-md-6 col-xs-6">

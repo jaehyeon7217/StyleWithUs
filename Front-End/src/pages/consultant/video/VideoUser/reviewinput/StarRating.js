@@ -1,6 +1,8 @@
 import React, { useState } from "react";
-import classes from "./StarRating.module.css";
+// img
 import yellowStar from "../../../../../assets/yellow_star.png";
+// css style
+import classes from "./StarRating.module.css";
 
 const StarRating = (props) => {
   const [rating, setRating] = useState(3);

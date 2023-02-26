@@ -1,14 +1,16 @@
-import { OpenVidu } from "openvidu-browser";
 import React, { Fragment, useState, useEffect } from "react";
+import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import axios from "axios";
-import classes from "./VideoConsultant.module.css";
-import Video from "../Video";
-import { chatActions } from "../../../../store/chat";
 import { authActions } from "../../../../store/auth";
+import { chatActions } from "../../../../store/chat";
 import cart, { cartActions } from "../../../../store/cart";
+import { OpenVidu } from "openvidu-browser";
 import Swal from "sweetalert2";
+// component
+import Video from "../Video";
+// css style
+import classes from "./VideoConsultant.module.css";
 
 const APPLICATION_SERVER_URL =
   process.env.NODE_ENV === "production"
@@ -119,8 +121,13 @@ const Consultant = (props) => {
           JSON.parse(event.stream.connection.data).clientData
         );
 
-        if (JSON.parse(event.stream.connection.data).clientData !== consultantNickname) {
-          props.getUserNickname(JSON.parse(event.stream.connection.data).clientData);
+        if (
+          JSON.parse(event.stream.connection.data).clientData !==
+          consultantNickname
+        ) {
+          props.getUserNickname(
+            JSON.parse(event.stream.connection.data).clientData
+          );
         }
 
         const newSubscribers = subscribers;
@@ -162,53 +169,63 @@ const Consultant = (props) => {
         let id = null;
         if (JSON.parse(event.from.data).clientData !== consultantNickname) {
           await axios
-          .get(`https://i8d105.p.ssafy.io/be/user/gender/${JSON.parse(event.from.data).clientData}`, {
-            headers: {
-              Authorization: userToken,
-            },
-          })
-          .then((response) => {
-            id = response.data.userId;
-          })
-          .catch((error) => {
-            if(error.response.status===401){
-              Swal.fire({
-                title: '<div style="font-size:24px;font-family:Apple_Gothic_Neo_Bold;font-weight:bold;">토큰 만료<div>', 
-                html: '<div style="font-size:16px;font-family:Apple_Gothic_Neo_Mid;">다시 로그인 해주세요!</div>', 
-                width : 330,
-                icon: 'error',
-                confirmButtonText:'<div style="font-size:16px;font-family:Apple_Gothic_Neo_Mid;">확인</div>',
-                confirmButtonColor: '#9A9A9A',
-              }).then(()=>{
-                navigate('/')
-                dispatch(authActions.logout(""))
-              })
-            }
-          });
+            .get(
+              `https://i8d105.p.ssafy.io/be/user/gender/${
+                JSON.parse(event.from.data).clientData
+              }`,
+              {
+                headers: {
+                  Authorization: userToken,
+                },
+              }
+            )
+            .then((response) => {
+              id = response.data.userId;
+            })
+            .catch((error) => {
+              if (error.response.status === 401) {
+                Swal.fire({
+                  title:
+                    '<div style="font-size:24px;font-family:Apple_Gothic_Neo_Bold;font-weight:bold;">토큰 만료<div>',
+                  html: '<div style="font-size:16px;font-family:Apple_Gothic_Neo_Mid;">다시 로그인 해주세요!</div>',
+                  width: 330,
+                  icon: "error",
+                  confirmButtonText:
+                    '<div style="font-size:16px;font-family:Apple_Gothic_Neo_Mid;">확인</div>',
+                  confirmButtonColor: "#9A9A9A",
+                }).then(() => {
+                  navigate("/");
+                  dispatch(authActions.logout(""));
+                });
+              }
+            });
         }
 
         if (id !== null) {
-          await axios.get(`https://i8d105.p.ssafy.io/be/item/show/${id}`, {
-            headers: {
-              Authorization: userToken,
-            },
+          await axios
+            .get(`https://i8d105.p.ssafy.io/be/item/show/${id}`, {
+              headers: {
+                Authorization: userToken,
+              },
             })
             .then((response) => {
               dispatch(cartActions.getCart(response.data.data));
             })
             .catch((error) => {
-              if(error.response.status===401){
+              if (error.response.status === 401) {
                 Swal.fire({
-                  title: '<div style="font-size:24px;font-family:Apple_Gothic_Neo_Bold;font-weight:bold;">토큰 만료<div>', 
-                  html: '<div style="font-size:16px;font-family:Apple_Gothic_Neo_Mid;">다시 로그인 해주세요!</div>', 
-                  width : 330,
-                  icon: 'error',
-                  confirmButtonText:'<div style="font-size:16px;font-family:Apple_Gothic_Neo_Mid;">확인</div>',
-                  confirmButtonColor: '#9A9A9A',
-                }).then(()=>{
-                  navigate('/')
-                  dispatch(authActions.logout(""))
-                })
+                  title:
+                    '<div style="font-size:24px;font-family:Apple_Gothic_Neo_Bold;font-weight:bold;">토큰 만료<div>',
+                  html: '<div style="font-size:16px;font-family:Apple_Gothic_Neo_Mid;">다시 로그인 해주세요!</div>',
+                  width: 330,
+                  icon: "error",
+                  confirmButtonText:
+                    '<div style="font-size:16px;font-family:Apple_Gothic_Neo_Mid;">확인</div>',
+                  confirmButtonColor: "#9A9A9A",
+                }).then(() => {
+                  navigate("/");
+                  dispatch(authActions.logout(""));
+                });
               }
             });
         }

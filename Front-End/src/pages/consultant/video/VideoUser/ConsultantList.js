@@ -1,11 +1,13 @@
-import { useState, useEffect } from "react";
-import ConsultantResume from "./ConsultantResume";
-import classes from "./ConsultantList.module.css";
+import { useState } from "react";
 import { useDispatch } from "react-redux";
+import { authActions } from "../../../../store/auth";
+// component
+import ConsultantResume from "./ConsultantResume";
+// img
 import consultantmanface from "../../../../assets/consultantmanface.png";
 import consultantwomanface from "../../../../assets/consultantwomanface.png";
-
-import { authActions } from "../../../../store/auth";
+// css style
+import classes from "./ConsultantList.module.css";
 
 const ConsultantList = (props) => {
   const dispatch = useDispatch();
