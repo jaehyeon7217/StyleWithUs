@@ -1,0 +1,30 @@
+@import url('https://fonts.googleapis.com/css2?family=Blinker:wght@100;200;300;400;600;700;800;900&display=swap');
+@font-face {
+  font-family: "Apple_Gothic_Neo_Bold";
+  src: url("../../../../fonts/AppleSDGothicNeoB.ttf");
+}
+
+@font-face {
+  font-family: "Apple_Gothic_Neo_Light";
+  src: url("../../../../fonts/AppleSDGothicNeoL.ttf");
+}
+
+@font-face {
+  font-family: "Apple_Gothic_Neo_Middle";
+  src: url("../../../../fonts/AppleSDGothicNeoM.ttf");
+}
+
+.reviews-title{
+  font-family: "Apple_Gothic_Neo_Bold";
+  font-size: 22px;
+  border-bottom: 1px solid rgb(211, 211, 211);
+  padding-bottom: 15px;
+  margin: 25px 10px 20px;
+}
+
+.reviews-avg-score{
+  font-family: "Apple_Gothic_Neo_Middle";
+  font-size: 18px;
+  margin: 12px; 
+  padding-bottom: 12px;
+}

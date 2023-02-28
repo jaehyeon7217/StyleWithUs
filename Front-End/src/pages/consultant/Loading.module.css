@@ -1,0 +1,68 @@
+@import url('https://fonts.googleapis.com/css2?family=Blinker:wght@100;200;300;400;600;700;800;900&display=swap');
+@font-face {
+  font-family: "Apple_Gothic_Neo_Bold";
+  src: url("../../fonts/AppleSDGothicNeoB.ttf");
+}
+
+@font-face {
+  font-family: "Apple_Gothic_Neo_Light";
+  src: url("../../fonts/AppleSDGothicNeoL.ttf");
+}
+
+.loading-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 90vh;
+  height: calc(var(--vh, 1vh) * 90);
+}
+
+.loading-pic{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 17%;
+  height: auto;
+  top: 45%;
+}
+
+.loading-pic img{
+  width: 80%;
+  height: auto;
+  margin: 5%;
+}
+
+.loading-pic img.loading-rotating-pic{
+  width: 80px;
+  height: auto;
+  margin: 80px;
+  animation: rotate_image 10s linear infinite;
+}
+
+@keyframes rotate_image{
+  100%{
+    transform: rotate(360deg)
+  }
+}
+
+.consultant{
+  transform: scaleX(-1);
+}
+
+.loading-text h1{
+  font-family: "Apple_Gothic_Neo_Bold";
+  text-align: center;
+}
+
+.h1-1 {
+  font-size: 40px;
+  margin-bottom: 10px;
+}
+
+.h1-2 {
+  font-family: "Apple_Gothic_Neo_Light";
+  font-size: 19px;
+  font-weight: 300;
+  margin-top: 0px;
+}

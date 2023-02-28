@@ -1,0 +1,141 @@
+- JAVA 11 버전 다운로드 ( https://kjchoi.co.kr/16 )
+    1. OpenJDK 다운로드
+    https://jdk.java.net/java-se-ri/11 방문 후 다운로드
+
+    2. 압축 해제
+
+    3. JDK 폴더 이동
+    원하는 위치에 JDK 폴더 이동
+
+    4. Path 설정
+    키보드의 [윈도우 버튼 + PauseBreak 버튼] 혹은 [시작 - 설정(톱니바퀴모양) - 시스템 - 정보] 메뉴로 들어가 화면 우측 또는 하단의 [고급 시스템 설정] 클릭
+    시스템 속성 창에서 우측 하단의 [환경 변수] 버튼을 클릭
+    아래 있는 [새로 만들기] 버튼을 클릭
+    변수 이름은 JAVA_HOME 입력, 변수 값에는 JDK 경로 입력
+    JAVA_HOME 시스템 변수를 사용하여 Path 설정을 위해 Path 시스템 변수를 선택하고 편집 버튼 클릭
+    [새로 만들기] 버튼 클릭
+    %JAVA_HOME%\bin 입력
+    [확인] 버튼 클릭
+
+    5. Java 버전 확인
+    명령 프롬프트 실행
+    java --version 입력
+    자바 버전 확인
+
+- AWS Ubuntu 환경에서 Docker Desktop 설치 가이드
+    1. Docker의 패키지 저장소를 설정
+    1-1. HTTPS를 통해 리포지토리를 사용할 수 있도록 패키지 인덱스를 업데이트 apt하고 패키지를 설치
+    sudo apt-get update
+    sudo apt-get install \
+        ca-certificates \
+        curl \
+        gnupg \
+        lsb-release
+
+    1-2. Docker의 공식 GPG 키를 추가
+    sudo mkdir -m 0755 -p /etc/apt/keyrings
+    curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
+
+    1-3. 리포지토리 설정
+    echo \
+    "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu \
+    $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+
+    2. 도커 엔진 설치
+    2-1. 패키지 색인 업데이트
+    sudo apt-get update
+
+    2-2. Docker Engine, containerd 및 Docker Compose 설치
+    sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+
+- Openvidu 가이드
+    1. 루트 권한 사용
+    sudo su
+
+    2. OpenVidu를 설치할 폴더
+    cd /opt
+
+    3. 설치 스크립트를 다운로드하고 실행
+    curl https://s3-eu-west-1.amazonaws.com/aws.openvidu.io/install_openvidu_latest.sh | bash
+
+    4. 환경변수 설정(SSL 인증 - Encrypt certificate 방식)
+    cd openvidu
+    nano .env
+
+    DOMAIN_OR_PUBLIC_IP=i8d105.p.ssafy.io
+    OPENVIDU_SECRET=style_with_us
+    CERTIFICATE_TYPE=letsencrypt
+    LETSENCRYPT_EMAIL=cyctjdghks@naver.com
+
+    5. openvidu 실행
+    ./openvidu start
+
+    6. Application server 설정 (java 버전 11 이상, maven)
+    application.properties 파일 경로, SECRET설정
+    OPENVIDU_URL: https://i8d105.p.ssafy.io:443/
+    OPENVIDU_SECRET: style_with_us
+
+    7. client application 설정
+    APP.js 경로 설정
+    const APPLICATION_SERVER_URL =
+    process.env.NODE_ENV === "production"
+        ? ""
+        : "https://i8d105.p.ssafy.io/be/openvidu/";
+
+    npm install
+    npm start
+
+- docker에서 jenkins 설치 및 배포
+    1. jenkins 이미지 확보
+        docker pull jenkins/jenkins:lts
+    2. jenkins 컨테이너 실행
+        docker run --name jenkins -d -p 8080:8080 -v /home/jenkins:/var/jenkins_home -u root jenkins/jenkins:lts
+    3. 젠킨스 실행
+        외부 ip를 이용하여 젠킨스 포트번호로 접근 (예 : http://i8d105.p.ssafy.io:8080)
+    4. 젠킨스 설정
+        administrator password : docker logs jenkins
+        plugin 설치
+            Amazon EC2, Authentication Tokens API, gitlab, Config File Provider, docker, docker commons, docker pipeline, dockerAPI, Deploy to container, Infrastructure plugin for Publish Over X, Javadoc, JavaScript GUI Lib: ACE Editor bundle, Maven Integration, NodeJS, Publish Over SSH
+        시스템 설정
+            Jenkins URL
+        Global Tool Configration
+            Maven, nodeJS 버전 설정
+    5. 프리스타일 아이템 생성
+        깃 연결 (http주소, git 계정 등록, 빌드 브런치 설정)
+        build when a change is pushed to gitlab 체크
+        빌드 스템 추가
+            Invoke top-level Maven targets (메이븐 버전 설정, goals : clean package)
+            Execute shell
+                docker build -t stylewithus-server ./Back-End
+                docker rm -f stylewithus-server || true
+                docker run -d -p 8082:8082 --name stylewithus-server stylewithus-server
+            Execute NodeJS script (nodeJS 설정)
+            Execute shell
+                cd /var/jenkins_home/workspace/D105/Front-End
+                npm install
+                cd ..
+                docker build -t stylewithus-front-server ./Front-End
+                docker rm -f stylewithus-front-server || true
+                docker run -d -p 8081:3000 --name stylewithus-front-server stylewithus-front-server
+    6. 도커파일 추가
+        front
+            FROM node:12.2.0-alpine
+            WORKDIR /usr/app
+            COPY . .
+            EXPOSE 8081
+            CMD ["npm", "start"]
+        back
+            FROM adoptopenjdk/openjdk11
+            WORKDIR /usr/app
+            COPY target/style-0.0.1-SNAPSHOT.jar stylewithus-server.jar
+            EXPOSE 8082
+            CMD ["java", "-jar", "stylewithus-server.jar"]
+- Docker에서 MariaDB 설치
+    1. MariaDB 이미지로 컨테이너 실행
+        docker run --name mariadb -d -p 3306:3306 --restart=always -e MYSQL_ROOT_PASSWORD=qorhvmwh12 mariadb
+    2. 권한 설정
+        // AWS 서버 주소 권한 추가
+        CREATE USER 'root'@'43.201.72.251' IDENTIFIED BY 'root';
+        GRANT ALL PRIVILEGES ON *.* TO 'root'@'43.201.72.251' WITH GRANT OPTION;
+
+​

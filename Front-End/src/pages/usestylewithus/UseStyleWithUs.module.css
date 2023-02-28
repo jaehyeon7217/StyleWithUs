@@ -1,0 +1,233 @@
+@import url("https://fonts.googleapis.com/css2?family=Blinker:wght@100;200;300;400;600;700;800;900&display=swap");
+
+@font-face {
+  font-family: "Apple_Gothic_Neo_Hard";
+  src: url("../../fonts/AppleSDGothicNeoH.ttf");
+}
+
+@font-face {
+  font-family: "Apple_Gothic_Neo_Bold";
+  src: url("../../fonts/AppleSDGothicNeoB.ttf");
+}
+
+@font-face {
+  font-family: "Apple_Gothic_Neo_SB";
+  src: url("../../fonts/AppleSDGothicNeoSB.ttf");
+}
+
+@font-face {
+  font-family: "Apple_Gothic_Neo_Light";
+  src: url("../../fonts/AppleSDGothicNeoL.ttf");
+}
+
+.pagebox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.page {
+  margin-top: 50px;
+  width: 900px;
+}
+
+.smallName {
+  font-family: "Apple_Gothic_Neo_SB";
+  font-size: 20px;
+  text-align: center;
+  margin-left: 20px;
+}
+
+.bigName {
+  font-family: "Apple_Gothic_Neo_Mid";
+  text-align: center;
+  margin-left: 20px;
+}
+
+.contentbox {
+  display: flex;
+  justify-content: space-between;
+}
+
+.main1 {
+  height: 190px;
+  margin-top: 50px;
+  margin-right: 20px;
+}
+
+.main2 {
+  height: 190px;
+  margin-top: 100px;
+  margin-left: 30px;
+}
+
+.login {
+  height: 190px;
+  margin-top: 150px;
+  margin-right: 20px;
+}
+
+.consultant {
+  height: 190px;
+  margin-top: 140px;
+  margin-left: 30px;
+}
+
+.sbti {
+  height: 190px;
+  margin-top: 90px;
+  margin-left: 120px;
+}
+
+.recommend {
+  height: 190px;
+  margin-top: 180px;
+  margin-left: 30px;
+  margin-bottom: 50px;
+}
+
+.wish {
+  height: 190px;
+  margin-top: 150px;
+  margin-left: 130px;
+  margin-bottom: 80px;
+}
+
+.mypage {
+  height: 190px;
+  margin-top: 200px;
+  margin-left: 30px;
+  margin-bottom: 50px;
+}
+
+.realmypage {
+  height: 210px;
+  margin-top: 120px;
+  margin-left: 20px;
+  margin-bottom: 50px;
+}
+
+.diaryboxone {
+  margin-left: 30px;
+  margin-top: -10px;
+}
+
+.dateboxone {
+  display: flex;
+  margin-top: 120px;
+}
+
+.dash {
+  font-weight: bold;
+  margin-right: 10px;
+  margin-left: 10px;
+  margin-top: 20px;
+  color: white;
+}
+
+.dateone {
+  font-family: "Apple_Gothic_Neo_Hard";
+  font-size: 20px;
+}
+
+.datenameone {
+  font-family: "Apple_Gothic_Neo_Bold";
+  font-size: 20px;
+  margin-top: -20px;
+  margin-left: 25px;
+}
+
+.datacontent {
+  font-family: "Apple_Gothic_Neo_Light";
+  font-size: 15px;
+  margin-left: 25px;
+  margin-top: -15px;
+}
+
+.diaryboxtwo {
+  margin-left: 170px;
+  margin-top: 130px;
+}
+
+.dateboxtwo {
+  display: flex;
+}
+
+.datenametwo {
+  font-family: "Apple_Gothic_Neo_Bold";
+  font-size: 20px;
+  margin-top: -20px;
+}
+
+.datacontenttwo {
+  font-family: "Apple_Gothic_Neo_Light";
+  font-size: 15px;
+  margin-top: -15px;
+}
+
+.datetwo {
+  font-family: "Apple_Gothic_Neo_Hard";
+  font-size: 20px;
+}
+
+.vLine {
+  border: 1px solid lightgrey;
+  width: 0.1px;
+  height: 2720px;
+  margin-top: 30px;
+}
+
+.marginbox {
+  margin-top: 100px;
+}
+
+.gif {
+  width: 500px;
+  float: center;
+  border: 2px solid rgb(219, 219, 219);
+  border-radius: 20px;
+  margin-left: -30px;
+}
+
+.gifbox {
+  display: flex;
+}
+
+.gifTitle {
+  font-family: "Apple_Gothic_Neo_Bold";
+  font-size: 27px;
+  margin-left: 50px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+.gifp {
+  font-family: "Apple_Gothic_Neo_SBold";
+  margin-left: 50px;
+  font-size: 22px;
+  border-bottom: 2px solid rgb(232, 232, 232);
+  cursor: pointer;
+  display: flex;
+}
+
+.giftext {
+  color: gray;
+  transition: color 0.15s;
+}
+
+.giftext:hover {
+  color: black;
+}
+
+.colorcircle {
+  height: 30px;
+  margin-top: 20px;
+  margin-right: 10px;
+}
+
+.loginimg {
+  height: 25px;
+  margin-top: 23px;
+  margin-right: 13px;
+  margin-left: -1px;
+}

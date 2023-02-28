@@ -1,0 +1,26 @@
+@font-face {
+  font-family: "Apple_Gothic_Neo_Light";
+  src: url("../../../fonts/AppleSDGothicNeoL.ttf");
+}
+
+.pageNumber {
+  font-family: "Apple_Gothic_Neo_Light";
+  font-size: 20px;
+  color: gray;
+  transition: all .15s;
+  height: 100%;
+  line-height: 100%;
+  padding-top: 3px;
+  padding: 0 6%;
+}
+
+.on {
+  color: black;
+  text-decoration: underline;
+}
+
+.pageNumber:hover {
+  cursor: pointer;
+  color: black;
+  text-decoration: underline;
+}

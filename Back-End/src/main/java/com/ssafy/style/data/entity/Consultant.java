@@ -16,22 +16,22 @@ import java.time.LocalDateTime;
 @Table(name = "consultant")
 public class Consultant implements Serializable {
     @Id
+    @Column(length = 20)
     private String consultantId;
-    @Column(nullable = false)
+    @Column(nullable = false, length = 70)
     private String consultantPw;
-    @Column(nullable = false)
+    @Column(nullable = false, length = 20)
     private String consultantName;
-    @Column(nullable = false, unique = true)
+    @Column(nullable = false, unique = true, length = 20)
     private String consultantNickname;
-    @Column(nullable = false, unique = true)
+    @Column(nullable = false, unique = true, length = 50)
     private String consultantEmail;
     @Column(nullable = false)
     private Integer consultantGender;
-    @Column(nullable = false)
-    private Integer consultantType;
     @CreationTimestamp
     @Column(nullable = false, columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
     private LocalDateTime consultantRegisterTime;
+    @Column(length = 1000)
     private String consultantResume;
     private Integer consultantApproval;
 }

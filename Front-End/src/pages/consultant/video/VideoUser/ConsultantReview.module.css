@@ -1,0 +1,91 @@
+@import url('https://fonts.googleapis.com/css2?family=Blinker:wght@100;200;300;400;600;700;800;900&display=swap');
+@font-face {
+  font-family: "Apple_Gothic_Neo_Bold";
+  src: url("../../../../fonts/AppleSDGothicNeoB.ttf");
+}
+
+@font-face {
+  font-family: "Apple_Gothic_Neo_Light";
+  src: url("../../../../fonts/AppleSDGothicNeoL.ttf");
+}
+
+.container{
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    position: absolute;
+    top: 0;
+    background-color: white;
+    box-sizing: border-box;
+    border-radius: 5px;
+}
+
+.review{
+    font-family: "Apple_Gothic_Neo_Bold";
+    font-size: 26px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    margin: 20px 0 15px;
+}
+
+.wall {
+    width: 100%;
+    height: 5px;
+    background-color: black;
+    border-radius: 2.5px;
+    margin-bottom: 22px;
+  }
+
+.star-rating{
+    margin: 10px;
+}
+
+.review-section{
+    display: flex;
+    flex-direction: column;
+}
+
+.review-title{
+    font-family: "Apple_Gothic_Neo_Bold";
+    width: 60%;
+    font-size: 24px;
+    padding-left: 10px;
+    margin-top: 10px;
+    position: relative;
+}
+
+.review-content{
+    font-family: "Apple_Gothic_Neo_Light";
+    font-size: 18px;
+    overflow-y: auto;
+    margin: 20px;
+    padding: 12px;
+    border-radius: 10px;
+    resize: none;
+}
+
+.button{
+    display:flex;
+    justify-content: flex-end;
+    padding-right: 5%;
+}
+
+.review-button {
+    padding: 2.5% 5% 2%;
+    margin-top: 30px;
+    margin-bottom: 3px;
+    border-radius: 13px;
+    background-color: white;
+    border: 0.5px solid gray;
+    box-sizing: border-box;
+    font-family: "Apple_Gothic_Neo_Bold";
+    font-size: 16px;
+    transition: all 0.15s;
+  }
+  
+.review-button:hover {
+    cursor: pointer;
+    background-color: rgb(202, 202, 202);
+    border: 1.5px solid rgb(202, 202, 202);
+    color: white;
+}

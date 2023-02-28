@@ -1,0 +1,58 @@
+@import url("https://fonts.googleapis.com/css2?family=Blinker:wght@100;200;300;400;600;700;800;900&display=swap");
+
+@font-face {
+  font-family: "Apple_Gothic_Neo_Hard";
+  src: url("../../../fonts/AppleSDGothicNeoH.ttf");
+}
+
+@font-face {
+  font-family: "Apple_Gothic_Neo_Bold";
+  src: url("../../../fonts/AppleSDGothicNeoB.ttf");
+}
+
+@font-face {
+  font-family: "Apple_Gothic_Neo_SB";
+  src: url("../../../fonts/AppleSDGothicNeoSB.ttf");
+}
+
+@font-face {
+  font-family: "Apple_Gothic_Neo_Light";
+  src: url("../../../fonts/AppleSDGothicNeoL.ttf");
+}
+
+.SideBar {
+  width: 200px;
+  height: 400px;
+  margin-top: 85px;
+  margin-right: 70px;
+}
+
+.PageName {
+  font-family: "Apple_Gothic_Neo_SB";
+  font-size: 30px;
+  width: 200px;
+  cursor: pointer;
+}
+
+.SideBarName {
+  font-family: "Apple_Gothic_Neo_Mid";
+  font-size: 24px;
+  padding-top: 5px;
+  margin-top: 15px;
+  margin-bottom: 0;
+}
+
+.SidBarNameSmall {
+  display: inline-block;
+  font-family: "Apple_Gothic_Neo_Light";
+  font-size: 19px;
+  color: rgba(171, 171, 171);
+  cursor: pointer;
+  transition: all 0.15s;
+  margin: 10px 60px 5px 0;
+  padding-left: 5px;
+}
+
+.SidBarNameSmall:hover {
+  color: black;
+}

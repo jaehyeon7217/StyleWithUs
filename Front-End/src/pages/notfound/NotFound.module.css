@@ -1,0 +1,86 @@
+.notfoundBox {
+  text-align: center;
+}
+
+.section1 {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex-direction: column;
+  padding-left: 200px;
+  height: calc(100vh - 180px);
+}
+
+.section1 h1,
+.section1 p {
+  display: inline-block;
+}
+
+.section1 h1 {
+  font-family: "Apple_Gothic_Neo_Bold";
+  font-size: 100px;
+  line-height: 90px;
+  margin-top: 0;
+  margin-bottom: 30px;
+  letter-spacing: 5px;
+}
+
+.section1 p {
+  margin-top: 0;
+}
+
+.section1-p1 {
+  font-family: "Apple_Gothic_Neo_SB";
+  font-size: 30px;
+  font-weight: 600;
+  margin-bottom: 30px;
+}
+
+.section1-p2 {
+  font-family: "Apple_Gothic_Neo_Middle";
+  font-size: 17px;
+  margin-bottom: 30px;
+}
+
+.btn {
+  display: flex;
+  align-items: center;
+}
+
+.btn button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 150px;
+  padding: 13px 20px;
+  margin-right: 30px;
+  border-radius: 15px;
+  background-color: white;
+  border: 1.5px solid black;
+  transition: all 0.15s;
+  box-sizing: border-box;
+}
+
+.btn button:hover {
+  cursor: pointer;
+  background-color: rgb(202, 202, 202);
+  border: 1.5px solid rgb(202, 202, 202);
+}
+
+.btn button:hover a {
+  color: white;
+}
+
+.btn button:hover span {
+  color: white;
+}
+
+.btn button .button-span {
+  text-decoration: none;
+  font-size: 18px;
+  line-height: 18px;
+  font-weight: 600;
+  font-family: "Apple_Gothic_Neo_Middle";
+  color: black;
+  padding-top: 3px;
+}

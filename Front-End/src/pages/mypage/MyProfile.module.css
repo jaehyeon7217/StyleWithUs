@@ -1,0 +1,129 @@
+@import url("https://fonts.googleapis.com/css2?family=Blinker:wght@100;200;300;400;600;700;800;900&display=swap");
+
+@font-face {
+  font-family: "Apple_Gothic_Neo_Hard";
+  src: url("../../fonts/AppleSDGothicNeoH.ttf");
+}
+
+@font-face {
+  font-family: "Apple_Gothic_Neo_Bold";
+  src: url("../../fonts/AppleSDGothicNeoB.ttf");
+}
+
+@font-face {
+  font-family: "Apple_Gothic_Neo_SB";
+  src: url("../../fonts/AppleSDGothicNeoSB.ttf");
+}
+
+@font-face {
+  font-family: "Apple_Gothic_Neo_Light";
+  src: url("../../fonts/AppleSDGothicNeoL.ttf");
+}
+
+@font-face {
+  font-family: "Apple_Gothic_Neo_EBold";
+  src: url("../../fonts/AppleSDGothicNeoEB.ttf");
+}
+
+.MarginBox {
+  margin-top: 100px;
+}
+
+.WrapMyPage {
+  display: flex;
+  justify-content: center;
+  width: 1440px;
+  margin: 0 auto;
+}
+
+.ProfileBox {
+  width: 904px;
+}
+
+.ProfileImgBox {
+  display: flex;
+  justify-content: left;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.ProfileImgLetter {
+  margin-left: 20px;
+  margin-top: 5px;
+}
+
+.ImgName {
+  font-family: "Apple_Gothic_Neo_Bold";
+  font-size: 25px;
+  margin-bottom: 10px;
+}
+
+.ImgUserType {
+  font-family: "Apple_Gothic_Neo_Light";
+  color: rgb(85, 85, 85);
+  font-size: 17px;
+  margin: 0;
+}
+
+.ProfileName {
+  font-family: "Apple_Gothic_Neo_SBold";
+  font-size: 28px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+.userImge {
+  width: 85px;
+  margin-top: -18px;
+  margin-left: 25px;
+  margin-right: 20px;
+  transform: scaleX(-1);
+}
+
+.userImgetwo {
+  width: 120px;
+  margin-top: -18px;
+  margin-left: 15px;
+}
+
+.hrlong {
+  font-family: "Apple_Gothic_Neo_Light";
+  color: lightgrey;
+  border: solid 1px;
+  border-radius: 10px;
+  margin-top: -20px;
+}
+
+.hr {
+  border-bottom: solid 5px black;
+  border-top: 0;
+  padding: 0;
+  border-radius: 2.5px;
+}
+
+.PersonalLabel {
+  margin-top: 30px;
+  font-family: "Apple_Gothic_Neo_SBold";
+  font-size: 22px;
+}
+
+.PersonalSmallLabel {
+  font-family: "Apple_Gothic_Neo_Bold";
+  font-size: 19px;
+  margin-top: 20px;
+}
+
+.BottomShort {
+  border-bottom: 1px solid rgb(184, 184, 184);
+  width: 300px;
+  border-radius: 15px;
+  margin-top: -6px;
+}
+
+.userData {
+  font-family: "Apple_Gothic_Neo_Middle";
+  font-size: 17px;
+  margin-bottom: 10px;
+  margin-left: 3px;
+  color: rgb(85, 85, 85);
+}

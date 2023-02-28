@@ -1,0 +1,77 @@
+@font-face {
+  font-family: "Apple_Gothic_Neo_Bold";
+  src: url("../../../fonts/AppleSDGothicNeoB.ttf");
+}
+
+@font-face {
+  font-family: "Apple_Gothic_Neo_Light";
+  src: url("../../../fonts/AppleSDGothicNeoL.ttf");
+}
+
+.div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: gray;
+  border-bottom: 1px solid rgb(211, 211, 211);
+}
+
+.div button {
+  border: none;
+  background-color: transparent;
+  margin-top: 40px;
+  margin-right: 8px;
+  color: gray;
+  transition: color .15s;
+  font-family: "Apple_Gothic_Neo_Light";
+}
+
+.div button:hover {
+  text-decoration: underline;
+  cursor: pointer;
+  color: black;
+}
+
+.a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  text-decoration: none;
+  color: gray;
+  width: 88%;
+  height: 50px;
+  margin-top: 11px;
+  padding-bottom: 10px;
+  transition: color .15s;
+}
+
+.a:hover {
+  color: black;
+}
+
+.a div {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 80%;
+}
+
+.a div > span {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 80%;
+}
+
+.a > span {
+  color: black;
+  font-weight: 600;
+}
+
+.img {
+  display: inline-block;
+  width: auto;
+  height: 50px;
+  border-radius: 8px;
+  margin: 0 15px 0 10px;
+}

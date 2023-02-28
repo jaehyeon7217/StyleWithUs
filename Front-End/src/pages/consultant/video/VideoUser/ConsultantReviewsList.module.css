@@ -1,0 +1,58 @@
+@import url("https://fonts.googleapis.com/css2?family=Blinker:wght@100;200;300;400;600;700;800;900&display=swap");
+@font-face {
+  font-family: "Apple_Gothic_Neo_Bold";
+  src: url("../../../../fonts/AppleSDGothicNeoB.ttf");
+}
+
+@font-face {
+  font-family: "Apple_Gothic_Neo_Light";
+  src: url("../../../../fonts/AppleSDGothicNeoL.ttf");
+}
+
+@font-face {
+  font-family: "Apple_Gothic_Neo_Middle";
+  src: url("../../../../fonts/AppleSDGothicNeoM.ttf");
+}
+
+.review {
+  width: 100%;
+  font-family: "Apple_Gothic_Neo_Light";
+  border-bottom: 1px solid rgb(211, 211, 211);
+}
+
+.review-content-box {
+  margin: 13px;
+}
+
+.review-writer {
+  display: flex;
+  justify-content: space-between;
+  font-family: "Apple_Gothic_Neo_Middle";
+  font-size: 18px;
+  margin-bottom: 5px;
+  margin-left: 3px;
+}
+
+.review-content {
+  width: 100%;
+  word-break: break-all;
+  overflow-wrap: break-word;
+  margin-top: 15px;
+  margin-left: 3px;
+}
+
+.button {
+  text-align: center;
+  border: none;
+  background-color: white;
+  color: gray;
+  box-sizing: border-box;
+  font-family: "Apple_Gothic_Neo_Light";
+  font-size: 16px;
+  transition: all 0.15s;
+}
+
+.button:hover {
+  cursor: pointer;
+  color: black;
+}

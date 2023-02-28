@@ -1,0 +1,179 @@
+@import url("https://fonts.googleapis.com/css2?family=Blinker:wght@100;200;300;400;600;700;800;900&display=swap");
+
+@font-face {
+  font-family: "Apple_Gothic_Neo_Hard";
+  src: url("../../../fonts/AppleSDGothicNeoH.ttf");
+}
+
+@font-face {
+  font-family: "Apple_Gothic_Neo_Bold";
+  src: url("../../../fonts/AppleSDGothicNeoB.ttf");
+}
+
+@font-face {
+  font-family: "Apple_Gothic_Neo_SB";
+  src: url("../../../fonts/AppleSDGothicNeoSB.ttf");
+}
+
+@font-face {
+  font-family: "Apple_Gothic_Neo_Light";
+  src: url("../../../fonts/AppleSDGothicNeoL.ttf");
+}
+
+.ul {
+  list-style: none;
+  padding: 0;
+  height: 70%;
+  width: 100%;
+  overflow-y: auto;
+}
+
+.ul::-webkit-scrollbar {
+  width: 5px;
+  border-radius: 10px;
+  /*스크롤바의 너비*/
+}
+
+.ul::-webkit-scrollbar-thumb {
+  background-color: lightgrey;
+  border-radius: 20px;
+  /*스크롤바의 색상*/
+}
+
+.ul::-webkit-scrollbar-track {
+  border-radius: 10px;
+  /*스크롤바 트랙 색상*/
+}
+
+.ReviewPage {
+  display: flex;
+  justify-content: center;
+  width: 1440px;
+  margin: 0 auto;
+}
+
+.ReviewMainBox {
+  margin-top: 90px;
+  max-width: 904px;
+  height: 100vh;
+  height: calc(var(--vh, 1vh) * 100);
+}
+
+.MyReviewName {
+  font-family: "Apple_Gothic_Neo_SB";
+  font-size: 27px;
+  margin: 15px 0;
+}
+
+.hr {
+  border-bottom: solid 5px black;
+  border-top: 0;
+  padding: 0;
+  border-radius: 2.5px;
+  margin-bottom: 30px;
+}
+
+.ImgTextBox {
+  display: flex;
+  width: 904px;
+}
+
+.consultantman {
+  width: 90px;
+  margin-left: 30px;
+  margin-top: -35px;
+  margin-bottom: -10px;
+}
+
+.consultantWoman {
+  width: 95px;
+  margin-left: 30px;
+  margin-top: -35px;
+  margin-bottom: -10px;
+}
+
+.reviewAvg {
+  font-family: "Apple_Gothic_Neo_Bold";
+  font-size: 20px;
+  margin-left: 50px;
+  margin-top: 5px;
+}
+
+.msg {
+  font-family: "Apple_Gothic_Neo_Bold";
+  font-size: 27px;
+  margin-left: 50px;
+  margin-top: -10px;
+}
+
+.msgTwo {
+  font-family: "Apple_Gothic_Neo_Mid";
+  margin-left: 52px;
+  font-size: 18px;
+  margin-top: -25px;
+  color: rgb(71, 71, 71);
+}
+
+.hrgrey {
+  border-bottom: solid 3.5px lightgrey;
+  border-top: 0;
+  border-radius: 2.5px;
+  margin-bottom: 30px;
+}
+
+.ReviewBox {
+  width: 100%;
+  padding-right: 10px;
+  margin-bottom: 30px;
+  box-sizing: border-box;
+}
+
+.ReviewOne {
+  display: flex;
+  justify-content: left;
+}
+
+.reviewScore {
+  margin-left: 10px;
+  margin-top: 5px;
+  font-family: "Apple_Gothic_Neo_Light";
+  width: 20px;
+  margin-bottom: 30px;
+}
+
+.userId {
+  font-family: "Apple_Gothic_Neo_SBold";
+  margin-left: 15px;
+  margin-top: 5px;
+  width: 100px;
+}
+
+.userDate {
+  font-family: "Apple_Gothic_Neo_SBold";
+  width: 100px;
+  margin-top: 0px;
+  text-align: right;
+  margin-left: 57%;
+}
+
+.reviewContent {
+  font-family: "Apple_Gothic_Neo_Mid";
+  margin-left: 1px;
+  width: 100%;
+  word-break: break-all;
+  overflow-wrap: break-word;
+  border-bottom: 2px solid lightgray;
+  display: flex;
+  justify-content: space-between;
+}
+
+.girlface {
+  width: 40px;
+  margin-top: -20px;
+  margin-left: 50px;
+}
+
+.boyface {
+  width: 40px;
+  margin-top: -20px;
+}

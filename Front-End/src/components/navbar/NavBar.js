@@ -1,16 +1,52 @@
-import classes from "./NavBar.module.css";
-import logo from "../../assets/logo.png";
+import { useEffect } from "react";
+import { useNavigate, useLocation } from "react-router-dom";
+import { useSelector } from "react-redux";
+// component
 import NavTop from "./NavTop";
 import NavBottom from "./NavBottom";
+// img
+import logo from "../../assets/logo.png";
+// css style
+import classes from "./NavBar.module.css";
 
 const NavBar = () => {
-  return(
-    <div className={classes.header}>
-      <img className="logo" src={logo} alt="img" />
-      <NavTop/>
-      <NavBottom/>
-    </div>
-  )
-}
+  const navigate = useNavigate();
+  const location = useLocation();
 
-export default NavBar
+  const isConsulting = useSelector((state) => state.auth.isConsulting);
+
+  const nonAction = () => {};
+
+  useEffect(() => {
+    if (location.pathname === "/") {
+      document.getElementsByClassName(`${classes.header}`)[0].style.position =
+        "relative";
+    } else {
+      document.getElementsByClassName(`${classes.header}`)[0].style.position =
+        "sticky";
+    }
+  }, [location]);
+
+  const onClickHandler = () => {
+    navigate("/");
+    document
+      .querySelector(`#App`)
+      .scrollIntoView({ behavior: "smooth", block: "start" });
+  };
+
+  return (
+    <div className={classes.header}>
+      <img
+        src={logo}
+        alt="img"
+        onClick={isConsulting ? nonAction : onClickHandler}
+      />
+      <div className={classes.box}>
+        <NavTop />
+        <NavBottom />
+      </div>
+    </div>
+  );
+};
+
+export default NavBar;

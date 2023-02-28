@@ -1,0 +1,66 @@
+@import url("https://fonts.googleapis.com/css2?family=Blinker:wght@100;200;300;400;600;700;800;900&display=swap");
+@font-face {
+  font-family: "Apple_Gothic_Neo_Hard";
+  src: url("../../fonts/AppleSDGothicNeoH.ttf");
+}
+
+@font-face {
+  font-family: "Apple_Gothic_Neo_Mid";
+  src: url("../../fonts/AppleSDGothicNeoM.ttf");
+}
+
+@font-face {
+  font-family: "Apple_Gothic_Neo_Light";
+  src: url("../../fonts/AppleSDGothicNeoL.ttf");
+}
+
+@font-face {
+  font-family: "Apple_Gothic_Neo_Bold";
+  src: url("../../fonts/AppleSDGothicNeoB.ttf");
+}
+
+.PageName {
+  font-family: "Apple_Gothic_Neo_Hard";
+  font-size: 40px;
+  margin-top: 115px;
+}
+
+.SubPageName {
+  font-family: "Apple_Gothic_Neo_Bold";
+  font-style: italic;
+  margin-top: -33px;
+}
+
+.BottomLabelBox {
+  display: flex;
+  justify-content: center;
+}
+
+.Vline {
+  font-family: "Apple_Gothic_Neo_Light";
+  color: rgb(128, 128, 128);
+  margin-left: 35px;
+  float: left;
+}
+
+.BottomLabel {
+  float: left;
+  font-family: "Apple_Gothic_Neo_Light";
+  margin-left: 20px;
+  margin-right: -10px;
+  font-size: 15.5px;
+  cursor: pointer;
+}
+
+.LoginBtn {
+  font-family: "Apple_Gothic_Neo_Bold";
+  font-size: 15px;
+  width: 310px;
+  height: 45px;
+  border: none;
+  border-radius: 1px;
+  background-color: rgba(211, 211, 211, 0.3);
+  border-radius: 5px;
+  margin-left: 10px;
+  cursor: pointer;
+}

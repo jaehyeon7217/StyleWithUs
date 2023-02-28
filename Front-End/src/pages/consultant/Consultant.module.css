@@ -1,0 +1,69 @@
+@font-face {
+  font-family: "Apple_Gothic_Neo_Bold";
+  src: url("../../fonts/AppleSDGothicNeoB.ttf");
+}
+
+.main {
+  height: 80vh;
+  height: calc(var(--vh, 1vh) * 80);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 50px;
+}
+
+section {
+  width: 29%;
+  height: 100%;
+  display: inline-block;
+  position: relative;
+}
+
+.show-cart-chat {
+  width: 100%;
+  height: 80%;
+  position: relative;
+  box-sizing: border-box;
+}
+
+.toggle-animation-on {
+  margin-top: 0;
+  opacity: 1;
+  z-index: 1;
+}
+
+.toggle-animation-off {
+  margin-top: 50px;
+  opacity: 0;
+}
+
+.alarm {
+  position: absolute;
+  right: 10px;
+  bottom: 120px;
+  transform: scale(0.1, 0.1) rotate(180deg);
+  opacity: 0;
+  transition: all .5s;
+}
+
+.alarm-on {
+  opacity: 1;
+  transform: scale(1, 1) rotate(360deg);
+}
+
+.alarm span {
+  position: absolute;
+  display: inline-block;
+  padding: 3px 7px 0;
+  top: -12px;
+  left: -10px;
+  border-radius: 10px;
+  background-color: red;
+  color: white;
+  font-size: 14px;
+  font-family: "Apple_Gothic_Neo_Bold";
+}
+
+.alarm img {
+  width: 40px;
+}

@@ -2,6 +2,7 @@ package com.ssafy.style.interceptor;
 
 
 import com.ssafy.style.jwt.JwtProvider;
+import com.sun.net.httpserver.HttpsConfigurator;
 import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -19,7 +20,7 @@ public class JwtInterceptor implements HandlerInterceptor {
 
 public static final Logger logger = LoggerFactory.getLogger(JwtInterceptor.class);
 	
-	private static final String HEADER_AUTH = "auth_token";
+	private static final String HEADER_AUTH = "Authorization";
 
 	private final JwtProvider jwtService;
 
@@ -41,6 +42,7 @@ public static final Logger logger = LoggerFactory.getLogger(JwtInterceptor.class
 		}
 
 		String token = request.getHeader(HEADER_AUTH);
+
 		log.info("token={}",token);
 
 		try {

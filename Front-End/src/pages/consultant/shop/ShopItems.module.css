@@ -1,0 +1,78 @@
+@import url('https://fonts.googleapis.com/css2?family=Blinker:wght@100;200;300;400;600;700;800;900&display=swap');
+
+@font-face {
+  font-family: "Apple_Gothic_Neo_Middle";
+  src: url("../../../fonts/AppleSDGothicNeoM.ttf");
+}
+
+@font-face {
+  font-family: "Apple_Gothic_Neo_Light";
+  src: url("../../../fonts/AppleSDGothicNeoL.ttf");
+}
+
+.h3 {
+  font-family: "Apple_Gothic_Neo_Middle";
+  border-bottom: 2px solid black;
+  margin: 0;
+  padding: 15px 0 12px 5px;
+  font-size: 17px;
+}
+
+.ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  height: 67%;
+}
+
+.li {
+  font-family: "Apple_Gothic_Neo_Light";
+  src: url("../../../fonts/AppleSDGothicNeoL.ttf");
+  height: 20%;
+  border-bottom: 1px solid rgb(211, 211, 211); 
+  display: flex;
+  justify-content: space-between;
+}
+
+.prev, .next {
+  cursor: pointer;
+}
+
+.eventDefault {
+  color:rgb(173, 171, 171);
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding-top: 25px;
+}
+
+.bindNumber {
+  width: 60%;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.lastPagination {
+  justify-content: flex-start;
+}
+
+.lastPagination span:first-child {
+  padding-left: 7%;
+}
+
+.button {
+  float: right;
+  font-family: "Apple_Gothic_Neo_Light";
+  font-size: 14px;
+  color: gray;
+  transition: all .15s;
+}
+
+.button:hover {
+  cursor: pointer;
+  color: black;
+}

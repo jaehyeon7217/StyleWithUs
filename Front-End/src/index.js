@@ -3,25 +3,33 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import { Provider } from "react-redux";
-import { createStore } from "redux";
+
+// Router셋팅
 import { BrowserRouter } from 'react-router-dom';
-import reducer from "./reducer";
-import { composeWithDevTools } from "redux-devtools-extension";
+
+// redux 셋팅
+import { Provider } from 'react-redux';
+import { PersistGate } from 'redux-persist/integration/react';
+import { persistStore } from 'redux-persist';
+
+// store 불러오기
+import store from './store/index'
+
+export let persistor = persistStore(store)
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
-// store 생성(reducer,devtools 연결)
-const store = createStore(reducer, composeWithDevTools());
 
 root.render(
-  // 스토어 연결, 라우터 연결
-  <Provider store={store}>
-    <React.StrictMode>
-      <BrowserRouter>
+  <BrowserRouter>
+    <Provider store={store}>
+      <PersistGate loading={null} persistor={persistor}>
         <App />
-      </BrowserRouter>
-    </React.StrictMode>
-  </Provider>,
+      </PersistGate>
+    </Provider>
+  </BrowserRouter>
+  
 );
 
 reportWebVitals();
+
+

@@ -1,0 +1,78 @@
+@import url("https://fonts.googleapis.com/css2?family=Blinker:wght@100;200;300;400;600;700;800;900&display=swap");
+@font-face {
+  font-family: "Apple_Gothic_Neo_Hard";
+  src: url("../../../fonts/AppleSDGothicNeoH.ttf");
+}
+
+@font-face {
+  font-family: "Apple_Gothic_Neo_Mid";
+  src: url("../../../fonts/AppleSDGothicNeoM.ttf");
+}
+
+@font-face {
+  font-family: "Apple_Gothic_Neo_Light";
+  src: url("../../../fonts/AppleSDGothicNeoL.ttf");
+}
+
+@font-face {
+  font-family: "Apple_Gothic_Neo_Bold";
+  src: url("../../../fonts/AppleSDGothicNeoB.ttf");
+}
+
+@font-face {
+  font-family: "Apple_Gothic_Neo_SBold";
+  src: url("../../../fonts/AppleSDGothicNeoSB.ttf");
+}
+
+.PageName {
+  font-family: "Apple_Gothic_Neo_SBold";
+  font-size: 37px;
+  margin-top: 115px;
+}
+
+.GenderP {
+  font-family: "Apple_Gothic_Neo_Mid";
+  font-size: 15px;
+  float: left;
+  margin-right: 250px;
+  margin-bottom: 10px;
+  margin-left: 20px;
+}
+
+.Gender {
+  font-family: "Apple_Gothic_Neo_Light";
+  font-size: 14.5px;
+  float: left;
+  margin-right: 10px;
+  margin-top: -5px;
+  margin-left: 22px;
+}
+
+.SignupBtn {
+  font-family: "Apple_Gothic_Neo_Bold";
+  font-size: 15px;
+  width: 310px;
+  height: 45px;
+  border: none;
+  border-radius: 1px;
+  background-color: rgba(211, 211, 211, 0.3);
+  border-radius: 5px;
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+.ToLoginLink {
+  font-family: "Apple_Gothic_Neo_Mid";
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+}
+
+.ToLoginLink:hover {
+  font-weight: bold;
+}
+
+.loginicon {
+  height: 17px;
+  margin-top: 0.8px;
+}

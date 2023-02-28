@@ -1,0 +1,220 @@
+@import url("https://fonts.googleapis.com/css2?family=Blinker:wght@100;200;300;400;600;700;800;900&display=swap");
+
+@font-face {
+  font-family: "Apple_Gothic_Neo_Hard";
+  src: url("../../fonts/AppleSDGothicNeoH.ttf");
+}
+
+@font-face {
+  font-family: "Apple_Gothic_Neo_Bold";
+  src: url("../../fonts/AppleSDGothicNeoB.ttf");
+}
+
+@font-face {
+  font-family: "Apple_Gothic_Neo_SB";
+  src: url("../../fonts/AppleSDGothicNeoSB.ttf");
+}
+
+@font-face {
+  font-family: "Apple_Gothic_Neo_Light";
+  src: url("../../fonts/AppleSDGothicNeoL.ttf");
+}
+
+.footer {
+  margin-top: 100px;
+}
+
+.footerTop {
+  display: flex;
+}
+
+.footerTopOne {
+  width: 50%;
+  height: 150px;
+  background-color: #565656;
+  display: flex;
+  justify-content: space-between;
+}
+
+.footerImgatwo {
+  margin-top: 10px;
+  margin-right: 20px;
+  width: 110px;
+}
+
+.footerwoman {
+  margin-top: 20px;
+  transform: scaleX(-1);
+  width: 70px;
+  margin-right: 60px;
+}
+
+.fotterToptwo {
+  width: 50%;
+  height: 150px;
+  background-color: #3b3a3c;
+  display: flex;
+  justify-content: space-between;
+}
+
+.footerImge {
+  margin-top: 10px;
+}
+
+.fottername {
+  font-family: "Apple_Gothic_Neo_Bold";
+  text-align: left;
+  font-size: 18px;
+  color: rgb(214, 213, 213);
+  margin-bottom: 30px;
+  margin-left: 25px;
+}
+
+.fottercontent {
+  font-family: "Apple_Gothic_Neo_Mid";
+  font-size: 13.5px;
+  text-align: left;
+  color: rgb(231, 230, 230);
+  margin-top: -16px;
+  margin-left: 25px;
+  margin-bottom: 19px;
+}
+
+.fotterBtn {
+  font-family: "Apple_Gothic_Neo_Mid";
+  border-radius: 4px;
+  font-size: 13px;
+  border-color: white;
+  float: left;
+  margin-left: 25px;
+  margin-top: -8px;
+  color: white;
+  background-color: #565656;
+  padding: 6.5px 12px 5.5px;
+  cursor: pointer;
+  border: 2px solid white;
+}
+
+.fotterBtntwo {
+  font-family: "Apple_Gothic_Neo_Mid";
+  border-radius: 4px;
+  font-size: 13px;
+  border-color: white;
+  float: left;
+  margin-left: 25px;
+  margin-top: -8px;
+  color: white;
+  background-color: #3b3a3c;
+  padding: 6.5px 12px 5.5px;
+  cursor: pointer;
+  border: 2px solid white;
+}
+
+.developimg {
+  margin-top: 20px;
+  margin-right: 10px;
+  width: 200px;
+  height: 90px;
+
+  border-radius: 5px;
+  transform: rotate(5deg);
+}
+
+/* footer 바닥 */
+
+.footerBottom {
+  background-color: rgb(250, 250, 250);
+  display: flex;
+  justify-content: center;
+  height: 250px;
+}
+
+.footerBoxone {
+  display: flex;
+  flex-direction: column;
+  margin-left: 50px;
+  width: 30%;
+  height: 100%;
+}
+
+.footerBoxOneTitle {
+  display: flex;
+}
+
+.StylewithUsName {
+  font-family: "Apple_Gothic_Neo_SBold";
+  font-size: 23px;
+  margin-top: 5px;
+  margin-bottom: 15px;
+}
+
+.ContentBox {
+  height: 100%;
+}
+
+.ContentBox > div {
+  margin-bottom: 5px;
+}
+
+.ContentOne {
+  display: block;
+}
+
+.ContentOneTitle {
+  display: inline-block;
+  font-family: "Apple_Gothic_Neo_Bold";
+  font-size: 17px;
+}
+
+.ContentOneContent {
+  display: inline-block;
+  font-family: "Apple_Gothic_Neo_Light";
+  font-size: 15px;
+  margin-left: 10px;
+  margin-top: -30px;
+}
+
+.footerBoxtwo {
+  margin-left: 60px;
+  display: flex;
+  justify-content: center;
+  margin-right: 60px;
+  width: 25%;
+  height: 100%;
+}
+
+.oneBoxP {
+  font-family: "Apple_Gothic_Neo_Bold";
+  font-size: 17px;
+  margin-top: 40px;
+  margin-right: 40px;
+  cursor: pointer;
+}
+
+.servicecentername {
+  font-family: "Apple_Gothic_Neo_Bold";
+  font-size: 23px;
+  margin-bottom: 30px;
+  margin-top: 40px;
+}
+
+.QuestionBtn {
+  font-family: "Apple_Gothic_Neo_SBold";
+  background-color: black;
+  color: white;
+  border-radius: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  margin-top: -20px;
+  cursor: pointer;
+}
+
+.footerBoxtwo > div > .ContentOne {
+  margin-bottom: 5px;
+}
+
+.footerBoxtwo > div > div:nth-of-type(3) {
+  margin-bottom: 15px;
+}

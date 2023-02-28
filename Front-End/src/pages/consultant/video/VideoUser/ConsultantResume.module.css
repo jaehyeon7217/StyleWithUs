@@ -1,0 +1,68 @@
+@import url("https://fonts.googleapis.com/css2?family=Blinker:wght@100;200;300;400;600;700;800;900&display=swap");
+@font-face {
+  font-family: "Apple_Gothic_Neo_Bold";
+  src: url("../../../../fonts/AppleSDGothicNeoB.ttf");
+}
+
+@font-face {
+  font-family: "Apple_Gothic_Neo_Light";
+  src: url("../../../../fonts/AppleSDGothicNeoL.ttf");
+}
+
+.container {
+  box-sizing: border-box;
+  width: 100%;
+  height: 70%;
+  overflow-y: auto;
+  padding: 20px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  border: 1px solid gray;
+  border-radius: 9px;
+}
+
+.container::-webkit-scrollbar {
+  width: 5px;
+  border-radius: 10px;
+}
+
+.container::-webkit-scrollbar-thumb {
+  background-color: lightgrey;
+  border-radius: 20px;
+}
+
+.container::-webkit-scrollbar-track {
+  border-radius: 10px;
+}
+
+.close {
+  position: absolute;
+  right: 25px;
+  top: 23px;
+  border: none;
+  background-color: transparent;
+  font-size: 20px;
+  color: gray;
+  transition: .15s;
+}
+
+.close:hover {
+  color: black;
+  cursor: pointer;
+}
+
+.resume-title {
+  font-family: "Apple_Gothic_Neo_Bold";
+  font-size: 22px;
+  border-bottom: 1px solid rgb(211, 211, 211);
+  padding-bottom: 15px;
+  margin: 15px 10px 20px;
+}
+
+.resume-content {
+  font-family: "Apple_Gothic_Neo_Light";
+  margin: 15px;
+}

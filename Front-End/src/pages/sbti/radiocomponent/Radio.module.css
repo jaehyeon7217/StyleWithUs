@@ -1,0 +1,83 @@
+.inputLabel {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 60px;
+}
+
+.input.first {
+  appearance: none;
+  border: max(2px, 0.1em) solid #ed9363;
+  border-radius: 50%;
+  transition: border 0.2s ease-in-out;
+  width: 40px;
+  height: 40px;
+}
+
+.input.first:hover {
+  cursor: pointer;
+  width: 45px;
+  height: 45px;
+}
+
+.input.first:checked {
+  background-color: #ed9363;
+}
+
+.input.second {
+  appearance: none;
+  border: max(2px, 0.1em) solid #ed9363;
+  border-radius: 50%;
+  transition: border 0.2s ease-in-out;
+  width: 30px;
+  height: 30px;
+}
+
+.input.second:hover {
+  cursor: pointer;
+  width: 35px;
+  height: 35px;
+}
+
+.input.second:checked {
+  background-color: #ed9363;
+}
+
+.input.third {
+  appearance: none;
+  border: max(2px, 0.1em) solid #a9cbd7;
+  border-radius: 50%;
+  transition: border 0.2s ease-in-out;
+  width: 30px;
+  height: 30px;
+}
+
+.input.third:hover {
+  cursor: pointer;
+  width: 35px;
+  height: 35px;
+}
+
+.input.third:checked {
+  background-color: #a9cbd7;
+}
+
+.input.fourth {
+  appearance: none;
+  border: max(2px, 0.1em) solid #a9cbd7;
+  border-radius: 50%;
+  transition: border 0.2s ease-in-out;
+  width: 40px;
+  height: 40px;
+}
+
+.input.fourth:hover {
+  cursor: pointer;
+  width: 45px;
+  height: 45px;
+}
+
+.input.fourth:checked {
+  background-color: #a9cbd7;
+}

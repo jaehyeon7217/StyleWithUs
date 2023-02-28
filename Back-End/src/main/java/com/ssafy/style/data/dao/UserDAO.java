@@ -8,12 +8,10 @@ import java.util.Map;
 public interface UserDAO {
     User insertUser(User user) throws Exception;
     User updateUser(User user)  throws Exception;
-
     boolean validId(String userId);
-
-    boolean validEamil(String userEmail);
-
+    boolean validEmail(String userEmail);
     boolean validNickname(String userNickname);
-
     User getById(String userId);
+    void changePw(User user) throws Exception;
+    User getUserGender(String userNickname) throws Exception;
 }

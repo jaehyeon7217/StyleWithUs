@@ -1,0 +1,251 @@
+@import url("https://fonts.googleapis.com/css2?family=Blinker:wght@100;200;300;400;600;700;800;900&display=swap");
+
+@font-face {
+  font-family: "Apple_Gothic_Neo_Hard";
+  src: url("../../../fonts/AppleSDGothicNeoH.ttf");
+}
+
+@font-face {
+  font-family: "Apple_Gothic_Neo_Bold";
+  src: url("../../../fonts/AppleSDGothicNeoB.ttf");
+}
+
+@font-face {
+  font-family: "Apple_Gothic_Neo_SB";
+  src: url("../../../fonts/AppleSDGothicNeoSB.ttf");
+}
+
+@font-face {
+  font-family: "Apple_Gothic_Neo_Light";
+  src: url("../../../fonts/AppleSDGothicNeoL.ttf");
+}
+
+.MyPage {
+  display: flex;
+  justify-content: center;
+  width: 1440px;
+  margin: 0 auto;
+}
+
+.mainBox {
+  margin-top: 90px;
+}
+
+.MainTitle {
+  font-family: "Apple_Gothic_Neo_SB";
+  font-size: 25px;
+  color: #2b2b2b;
+}
+
+.MyInformBox {
+  width: 900px;
+  height: 135px;
+  border: 2px solid rgb(213, 213, 213);
+  border-radius: 20px;
+  margin-top: -10px;
+  margin-bottom: 50px;
+}
+
+.consultantMan {
+  width: 60px;
+  margin-left: 30px;
+  margin-top: 0px;
+}
+
+.consultantWoman {
+  width: 70px;
+  margin-left: 30px;
+  margin-top: -5px;
+}
+
+.MyInformBox {
+  display: flex;
+  justify-content: left;
+}
+
+.HelloText {
+  display: flex;
+  width: 300px;
+}
+
+.consultantNickname {
+  font-size: 19px;
+  font-family: "Apple_Gothic_Neo_Bold";
+  margin-left: 30px;
+}
+
+.Hello {
+  font-family: "Apple_Gothic_Neo_Light";
+  font-size: 18px;
+  margin-top: 22px;
+  margin-left: 3px;
+}
+
+.consultantEmail {
+  font-family: "Apple_Gothic_Neo_Light";
+  margin-left: 28px;
+  font-size: 17px;
+  margin-top: -30px;
+}
+
+.myinformbtnone {
+  font-family: "Apple_Gothic_Neo_SBold";
+  font-size: 14px;
+  margin-top: -15px;
+  margin-left: 25px;
+  padding-top: 3px;
+  width: 100px;
+  height: 29px;
+  border-radius: 9px;
+  border: 1px solid rgb(26, 26, 26);
+  color: rgb(56, 56, 56);
+  background-color: white;
+  transition: all 0.2s;
+}
+
+.btntwo {
+  margin-left: 5px;
+}
+
+.myinformbtnone:hover {
+  cursor: pointer;
+  border: 1px solid gray;
+  background-color: rgb(240, 240, 240);
+}
+
+.userType {
+  font-family: "Apple_Gothic_Neo_Bold";
+  font-size: 20px;
+  margin-left: 300px;
+  margin-top: 55px;
+}
+
+.Vline {
+  border: 0.5px solid lightgrey;
+  width: 0.1px;
+  height: 80px;
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-top: 30px;
+}
+
+.userTypeDap {
+  font-size: 19px;
+  font-family: "Apple_Gothic_Neo_Mid";
+  margin-top: 56.5px;
+  color: black;
+}
+
+.consultantResumeBox {
+  width: 900px;
+}
+
+.resumetitlebox {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.viewmore {
+  display: inline;
+  font-family: "Apple_Gothic_Neo_Mid";
+  color: rgb(171, 171, 171);
+  cursor: pointer;
+}
+
+.viewmore:hover {
+  color: rgb(26, 26, 26);
+  transition: all 0.15s;
+}
+
+.ResumeBox {
+  display: flex;
+  background-color: rgb(242, 242, 242);
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.ResumeName {
+  margin-left: 30px;
+  font-family: "Apple_Gothic_Neo_SBold";
+  font-size: 20px;
+  width: 60px;
+}
+
+.vline {
+  border: 1px solid rgb(160, 160, 160);
+  width: 0.1px;
+  height: 30px;
+  margin-left: 20px;
+  margin-top: 20px;
+}
+
+.consultantResume {
+  margin-left: 40px;
+  font-family: "Apple_Gothic_Neo_Mid";
+  margin-top: 22px;
+}
+
+.RevieBox {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.ReviewBox {
+  width: 900px;
+  margin-bottom: 30px;
+}
+
+.ReviewOne {
+  display: flex;
+  justify-content: left;
+}
+
+.reviewScore {
+  margin-left: 10px;
+  margin-top: 5px;
+  font-family: "Apple_Gothic_Neo_Light";
+  width: 20px;
+  margin-bottom: 30px;
+}
+
+.userId {
+  font-family: "Apple_Gothic_Neo_SBold";
+  margin-left: 15px;
+  margin-top: 5px;
+  width: 100px;
+}
+
+.userDate {
+  font-family: "Apple_Gothic_Neo_SBold";
+  width: 100px;
+  margin-top: 0px;
+  text-align: right;
+  margin-left: 530px;
+}
+
+.reviewContent {
+  font-family: "Apple_Gothic_Neo_Mid";
+  margin-left: 1px;
+  width: 900px;
+  word-break: break-all;
+  overflow-wrap: break-word;
+  border-bottom: 2px solid lightgray;
+  display: flex;
+  justify-content: space-between;
+}
+
+.reviewContent p:nth-of-type(1) {
+  padding-left: 5px;
+}
+
+.girlface {
+  width: 40px;
+  margin-top: -20px;
+}
+
+.boyface {
+  width: 40px;
+  margin-top: -20px;
+}
