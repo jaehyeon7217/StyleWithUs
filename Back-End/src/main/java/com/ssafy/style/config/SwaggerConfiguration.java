@@ -18,15 +18,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @EnableSwagger2
 public class SwaggerConfiguration {
 
-//    @Bean
-//    public Docket api(){
-//        return new Docket(DocumentationType.SWAGGER_2)
-//                .apiInfo(apiInfo())
-//                .select()
-//                .apis(RequestHandlerSelectors.basePackage("com.ssafy.style"))
-//                .paths(PathSelectors.any())
-//                .build();
-//    }
+    ////////////////////////////////////////////컨트롤러 위치 연결/////////////////////////////////////////
 
     @Bean
     public Docket userApi() {
@@ -36,6 +28,32 @@ public class SwaggerConfiguration {
     public Docket consultantApi() {
         return getDocket("컨설턴트", Predicates.or(PathSelectors.regex("/consultant.*")));
     }
+    @Bean
+    public Docket mailApi() {
+        return getDocket("메일", Predicates.or(PathSelectors.regex("/mail.*")));
+    }
+    @Bean
+    public Docket crawlingApi() {
+        return getDocket("크롤링", Predicates.or(PathSelectors.regex("/crawling.*")));
+    }
+    @Bean
+    public Docket openviduApi() {
+        return getDocket("화상채팅", Predicates.or(PathSelectors.regex("/openvidu.*")));
+    }
+    @Bean
+    public Docket reviewApi() {
+        return getDocket("컨설턴트 리뷰", Predicates.or(PathSelectors.regex("/review.*")));
+    }
+    @Bean
+    public Docket itemApi() {
+        return getDocket("유저 장바구니", Predicates.or(PathSelectors.regex("/item.*")));
+    }
+    @Bean
+    public Docket adminApi() {
+        return getDocket("관리자 처리", Predicates.or(PathSelectors.regex("/admin.*")));
+    }
+
+    //////////////////////////////////////////////////////////////////////////////////////////////////////
 
     public Docket getDocket(String groupName, Predicate<String> predicate) {
         return new Docket(DocumentationType.SWAGGER_2)
@@ -48,7 +66,7 @@ public class SwaggerConfiguration {
                 .build();
     }
 
-    private ApiInfo apiInfo(){
+    private ApiInfo apiInfo() {
         return new ApiInfoBuilder()
                 .title("Style with us, Swagger")
                 .description("Style with us 스웨거 입니다.")

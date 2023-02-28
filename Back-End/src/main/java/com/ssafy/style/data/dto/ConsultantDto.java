@@ -15,19 +15,17 @@ import java.time.LocalDateTime;
 public class ConsultantDto {
     @ApiModelProperty(value = "컨설턴트 아이디")
     private String consultantId;
-    @ApiModelProperty(value = "유저패스워드")
+    @ApiModelProperty(value = "컨설턴트 패스워드")
     private String consultantPw;
-    @ApiModelProperty(value = "유저이름")
+    @ApiModelProperty(value = "컨설턴트이름")
     private String consultantName;
-    @ApiModelProperty(value = "유저닉네임")
+    @ApiModelProperty(value = "컨설턴트 닉네임")
     private String consultantNickname;
-    @ApiModelProperty(value = "유저이메일")
+    @ApiModelProperty(value = "컨설턴트 이메일")
     private String consultantEmail;
-    @ApiModelProperty(value = "유저성별")
+    @ApiModelProperty(value = "컨설턴트 성별")
     private int consultantGender;
-    @ApiModelProperty(value = "유저타입")
-    private int consultantType;
-    @ApiModelProperty(value = "유저가입날짜")
+    @ApiModelProperty(value = "컨설턴트 가입날짜")
     private LocalDateTime consultantRegisterTime;
     @ApiModelProperty(value = "컨설턴트 이력서")
     private String consultantResume;

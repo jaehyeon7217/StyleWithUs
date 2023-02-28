@@ -1,0 +1,26 @@
+.section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    min-height: calc(var(--vh, 1vh) * 100);
+}
+
+.star-type {
+    display: none;
+}
+
+.star-yellow {
+    cursor: pointer;
+    width: 25px;
+    height: 25px;
+    transition: color 200ms;
+}
+
+.star-gray {
+    filter: grayscale(100);
+    cursor: pointer;
+    width: 25px;
+    height: 25px;
+    transition: color 200ms;
+}

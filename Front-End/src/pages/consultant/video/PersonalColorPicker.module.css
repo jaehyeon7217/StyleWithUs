@@ -1,0 +1,49 @@
+.separation img {
+    margin-left: 100px;
+    margin-top: -70px;
+    height: 300px;
+}
+
+.seasons{
+    position: relative;
+    width: 0;
+}
+
+.spring{
+    width: 40px;
+}
+
+.spring:hover{
+    cursor: pointer;
+}
+
+.summer{
+    top: 50px;
+    width: 40px;
+}
+
+.summer:hover{
+    cursor: pointer;
+}
+
+.fall{
+    top: 100px;
+    width: 40px;
+}
+
+.fall:hover{
+    cursor: pointer;
+}
+
+.winter{
+    top: 150px;
+    width: 40px;
+}
+
+.winter:hover{
+    cursor: pointer;
+}
+
+.img-section{
+    width: 0;
+}

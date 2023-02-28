@@ -24,7 +24,7 @@ public class JwtProvider {
 		return instacne;
 	}
 	
-    private long tokenValidTime = Duration.ofMinutes(30).toMillis();
+    private long tokenValidTime = Duration.ofMinutes(300).toMillis();
 
     @PostConstruct
     protected void init() {
@@ -36,7 +36,6 @@ public class JwtProvider {
         Claims claims = Jwts.claims();
         claims.put("userId", userDto.getUserId());
         claims.put("userEmail", userDto.getUserEmail());
-        claims.put("userType", userDto.getUserType());
 
         Date now = new Date();
         return Jwts.builder()
@@ -50,7 +49,19 @@ public class JwtProvider {
         Claims claims = Jwts.claims();
         claims.put("userId", consultantDto.getConsultantId());
         claims.put("userEmail", consultantDto.getConsultantEmail());
-        claims.put("userType", consultantDto.getConsultantType());
+
+        Date now = new Date();
+        return Jwts.builder()
+                .setClaims(claims)
+                .setIssuedAt(now)
+                .setExpiration(new Date(now.getTime() + tokenValidTime))
+                .signWith(SignatureAlgorithm.HS256, secretKey.getBytes())
+                .compact();
+    }
+
+    public String createToken(String admin) {
+        Claims claims = Jwts.claims();
+        claims.put("admin", admin);
 
         Date now = new Date();
         return Jwts.builder()

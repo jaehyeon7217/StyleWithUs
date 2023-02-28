@@ -1,0 +1,41 @@
+@import url('https://fonts.googleapis.com/css2?family=Blinker:wght@100;200;300;400;600;700;800;900&display=swap');
+@font-face {
+  font-family: "Apple_Gothic_Neo_Bold";
+  src: url("../../../fonts/AppleSDGothicNeoB.ttf");
+}
+
+@font-face {
+  font-family: "Apple_Gothic_Neo_Light";
+  src: url("../../../fonts/AppleSDGothicNeoL.ttf");
+}
+
+.shop {
+  width: 100%;
+  height: 100%;
+  display: inline-block;
+}
+
+.h2 {
+  font-family: "Apple_Gothic_Neo_Bold";
+  font-size: 26px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  margin: 20px 0 15px;
+}
+
+.wall {
+  width: 100%;
+  height: 5px;
+  background-color: black;
+  border-radius: 2.5px;
+}
+
+.ul {
+  list-style: none;
+  padding-left: 0px;
+  font-family: "Apple_Gothic_Neo_Light";
+}
+
+.ul li:hover {
+  cursor: pointer;
+}

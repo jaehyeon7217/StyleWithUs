@@ -1,0 +1,385 @@
+@font-face {
+  font-family: "Apple_Gothic_Neo_Hard";
+  src: url("../../fonts/AppleSDGothicNeoH.ttf");
+}
+
+@font-face {
+  font-family: "Apple_Gothic_Neo_Mid";
+  src: url("../../fonts/AppleSDGothicNeoM.ttf");
+}
+
+@font-face {
+  font-family: "Apple_Gothic_Neo_Light";
+  src: url("../../fonts/AppleSDGothicNeoL.ttf");
+}
+
+@font-face {
+  font-family: "Apple_Gothic_Neo_Bold";
+  src: url("../../fonts/AppleSDGothicNeoB.ttf");
+}
+
+@keyframes bounce {
+  0% {
+    transform: translateY(0px);
+  }
+
+  25% {
+    transform: translateY(-20px);
+  }
+
+  50% {
+    transform: translateY(10px);
+  }
+
+  75% {
+    transform: translateY(-20px);
+  }
+
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.background {
+  width: 100%;
+  height: 92vh;
+  height: calc(var(--vh, 1vh) * 92);
+  background: rgb(255,206,206);
+  background: linear-gradient(90deg, rgba(190,187,240,1) 0%, rgba(255,191,244,1) 38%, rgba(245,210,200,1) 100%);  
+  border-bottom: 1px solid rgb(211, 211, 211);
+  padding-top: 150px;
+  position: relative;
+  box-sizing: border-box;
+  opacity: 1;
+  transition: all .5s ease-in-out;
+}
+
+.background.off {
+  opacity: 0;
+}
+
+.words {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding-top: 50px;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 1;
+  transition: all .5s;
+}
+
+.words.off {
+  opacity: 0;
+}
+
+.h1 {
+  font-family: "Apple_Gothic_Neo_Mid";
+  font-size: 50px;
+  margin-bottom: 0;
+  color: rgb(51, 51, 51);
+}
+
+.p {
+  font-family: "Apple_Gothic_Neo_light";
+  font-size: 27px;
+  font-weight: 400;
+  color: rgb(51, 51, 51);
+  margin-top: 8px;
+  transition: font-weight 0.3s linear;
+}
+
+.container {
+  width: 50%;
+  height: 100%;
+  display: flex;
+  align-items: flex-start;
+  overflow: hidden;
+  margin: 0 auto;
+}
+
+
+
+.box {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-right: -100%;
+  transition: all .5s;
+}
+
+.box.off {
+  margin-right: 0;
+  margin-left: -100%;
+}
+
+.box.on {
+  margin-right: 0;
+}
+
+.box img {
+  width: 50%;
+  margin-right: 10px;
+}
+
+.box > button {
+  all: unset;
+  border: 2px solid rgb(97, 97, 97);
+  padding: 7px 20px 5px;
+  margin-top: 38px;
+  color: rgb(97, 97, 97);
+  border-radius: 12px;
+  height: 30px;
+  font-family: "Apple_Gothic_Neo_Light";
+  font-weight: 700;
+  transition: all 0.25s;
+}
+
+.box button:hover {
+  cursor: pointer;
+  border: 2px solid black;
+  color: black;
+}
+
+.container div:nth-of-type(2) .p {
+  margin-bottom: 10px;
+}
+
+.container div:nth-of-type(2) .subP {
+  display: inline-block;
+  margin: 3px;
+  color: rgb(63, 63, 63);
+  font-family: "Apple_Gothic_Neo_Bold";
+  font-size: 20px;
+}
+
+.container div:nth-of-type(2) p:nth-of-type(4) {
+  margin-bottom: 30px;
+}
+
+.container div:nth-of-type(2) .image-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 22vh;
+  width: calc(var(--vh, 1vh) * 22);
+  height: 22vh;
+  height: calc(var(--vh, 1vh) * 22);
+  margin-top: 40px;
+  margin-bottom: 50px;
+}
+
+.container div:nth-of-type(2) .image-container img {
+  width: auto;
+  height: 100%;
+  margin: 0;
+  border-radius: 15px;
+}
+
+.container div:nth-of-type(2) input {
+  display: none;
+}
+
+.btn-upload {
+  margin-top: 10px;
+  border: 2px solid rgb(97, 97, 97);
+  color: rgb(44, 44, 44);
+  padding: 11px 15px 8px;
+  border-radius: 10px;
+  background-color: transparent;
+  font-size: 16px;
+  font-family: "Apple_Gothic_Neo_Bold";
+  transition: all .15s;
+  background-color: white;
+}
+
+.btn-upload:hover {
+  cursor: pointer;
+  border: 2px solid black;
+  color: black;
+}
+
+.readybox{
+  display: flex;
+}
+
+.checkStart {
+  font-family: "Apple_Gothic_Neo_Bold";
+  font-size: 20px;
+  margin-top: 5vh;
+  position: relative;
+  margin-left: -5%;
+}
+
+.checkStart:hover {
+  cursor: pointer;
+}
+
+.checkStart img {
+  margin: 0;
+  position: absolute;
+  top: -43%;
+  right: -55%;
+  width: 50px;
+  height: 50px;
+  animation-name: spin;
+  animation-duration: 15s;
+  animation-iteration-count: infinite;
+}
+
+.container div:nth-of-type(3) {
+  margin-top: 10%;
+}
+
+.container div:nth-of-type(3) > img {
+  width: 250px;
+  height: auto;
+  border-radius: 40px;
+}
+
+.btn-box {
+  margin-top: 15%;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.btn-box button {
+  background-color: transparent;
+  border: none;
+  width: 23%;
+}
+
+.btn-box button img {
+  width: 50%;
+  margin: 0;
+}
+
+.btn-box button:nth-of-type(1) > img {
+  margin-bottom: -25%;
+  transform: rotate(180deg);
+}
+
+.btn-box button:nth-of-type(2) > img {
+  width: 40%;
+}
+
+.btn-box button:hover {
+  border: none;
+  animation-name: bounce;
+  animation-duration: 1s;
+  animation-timing-function: ease-in-out;
+}
+
+.span-box {
+  margin-top: 3.5%;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.span-box div {
+  display: flex;
+  justify-content: center;
+  font-family: "Apple_Gothic_Neo_Light";
+  font-size: 18px;
+  opacity: 0;
+  transition: opacity .25s;
+}
+
+.container .span-box div:nth-of-type(3) {
+  margin: 0;
+}
+
+.span-box div span {
+  display: inline-block;
+  padding: 7px 10px 5px;
+  border-radius: 7px;
+  background-color: rgba(245,245,245,.3);
+}
+
+.span-box div:nth-of-type(1) {
+  width: 23%;
+}
+
+.span-box div:nth-of-type(2) {
+  width: 23%;
+}
+
+.span-box div:nth-of-type(3) {
+  width: 23%;
+}
+
+.container div:nth-of-type(4) {
+  height: 100%;
+  opacity: 0;
+  transition: opacity 1s;
+}
+
+.container div:nth-of-type(4).on4 {
+  opacity: 1;
+}
+
+.container div:nth-of-type(4) .h1 {
+  margin-top: -150px;
+  font-size: 65px;
+}
+
+.container div:nth-of-type(4) .p {
+  position: relative;
+  color: rgb(32, 32, 32);
+  transition: all .25s;
+}
+
+.container div:nth-of-type(4) > .p > img {
+  position: absolute;
+  bottom: -40%;
+  right: -14%;
+  width: 40px;
+  height: auto;
+}
+
+.container div:nth-of-type(4) .p:hover {
+  cursor: pointer;
+  text-shadow: 0px 0px 2px black;
+}
+
+.container div:nth-of-type(4) img {
+  position: absolute;
+  z-index: 0;
+}
+
+.container div:nth-of-type(4) > img:nth-of-type(1) {
+  top: 0;
+  left: 10%;
+  width: 400px;
+}
+
+.container div:nth-of-type(4) img:nth-of-type(2) {
+  bottom: 0;
+  left: 50%;
+  width: 350px;
+  transform: translateX(-50%);
+}
+
+.container div:nth-of-type(4) img:nth-of-type(3) {
+  top: 5%;
+  right: 10%;
+  width: 400px;
+}
+

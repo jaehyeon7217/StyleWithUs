@@ -3,21 +3,35 @@
   src: url("../../fonts/SF-Pro-Display-Regular.otf");
 }
 
-.main{
+.main {
   font-family: "SF";
 }
+
 .header {
-  position: fixed;
+  position: sticky;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 5rem;
+  right: 0;
+  height: 80px;
   background-color: #ffffff;
-  color: white;
-  display: flex;
+  color: rgb(0, 0, 0);
   justify-content: space-between;
   align-items: center;
-  padding: 0 10%;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+  display: flex;
+  padding: 0 2.5% 0 2.5%;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
   z-index: 10;
+}
+
+.header img {
+  width: 100px;
+}
+
+.header img:hover {
+  cursor: pointer;
+}
+
+.header .box {
+  display: block;
+  height: 100%;
 }

@@ -1,7 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="5e03b547-ee4d-429f-a4a9-b974386f7f4e" name="Changes" comment="" />
+    <list default="true" id="5e03b547-ee4d-429f-a4a9-b974386f7f4e" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/Back-End/src/main/java/com/ssafy/style/controller/ItemController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Back-End/src/main/java/com/ssafy/style/controller/ItemController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Back-End/src/main/java/com/ssafy/style/controller/MailController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Back-End/src/main/java/com/ssafy/style/controller/MailController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Back-End/src/main/java/com/ssafy/style/controller/OpenViduController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Back-End/src/main/java/com/ssafy/style/controller/OpenViduController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Back-End/src/main/java/com/ssafy/style/controller/ReviewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Back-End/src/main/java/com/ssafy/style/controller/ReviewController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Back-End/src/main/java/com/ssafy/style/data/dao/ItemDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/Back-End/src/main/java/com/ssafy/style/data/dao/ItemDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Back-End/src/main/java/com/ssafy/style/data/dao/MeetingDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/Back-End/src/main/java/com/ssafy/style/data/dao/MeetingDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Back-End/src/main/java/com/ssafy/style/data/dao/ReviewDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/Back-End/src/main/java/com/ssafy/style/data/dao/ReviewDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Back-End/src/main/java/com/ssafy/style/data/dao/impl/ItemDAOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Back-End/src/main/java/com/ssafy/style/data/dao/impl/ItemDAOImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Back-End/src/main/java/com/ssafy/style/data/dao/impl/MeetingDAOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Back-End/src/main/java/com/ssafy/style/data/dao/impl/MeetingDAOImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Back-End/src/main/java/com/ssafy/style/data/dao/impl/ReviewDAOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Back-End/src/main/java/com/ssafy/style/data/dao/impl/ReviewDAOImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Back-End/src/main/java/com/ssafy/style/service/ItemService.java" beforeDir="false" afterPath="$PROJECT_DIR$/Back-End/src/main/java/com/ssafy/style/service/ItemService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Back-End/src/main/java/com/ssafy/style/service/MeetingService.java" beforeDir="false" afterPath="$PROJECT_DIR$/Back-End/src/main/java/com/ssafy/style/service/MeetingService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Back-End/src/main/java/com/ssafy/style/service/ReviewService.java" beforeDir="false" afterPath="$PROJECT_DIR$/Back-End/src/main/java/com/ssafy/style/service/ReviewService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Back-End/src/main/java/com/ssafy/style/service/impl/ItemServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Back-End/src/main/java/com/ssafy/style/service/impl/ItemServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Back-End/src/main/java/com/ssafy/style/service/impl/MeetingServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Back-End/src/main/java/com/ssafy/style/service/impl/MeetingServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Back-End/src/main/java/com/ssafy/style/service/impl/ReviewServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Back-End/src/main/java/com/ssafy/style/service/impl/ReviewServiceImpl.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -18,12 +38,12 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">

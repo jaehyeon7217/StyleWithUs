@@ -1,0 +1,60 @@
+@font-face {
+  font-family: "Apple_Gothic_Neo_ULight";
+  src: url("../../../fonts/AppleSDGothicNeoUL.ttf");
+}
+
+.font {
+  font-size: 22px;
+  padding-bottom: 20px;
+  padding-left: 10px;
+  margin-bottom: 0;;
+  border-bottom: 1px solid rgb(211, 211, 211);
+  position: relative;
+}
+
+.font span {
+  font-size: 18px;
+  font-family: "Apple_Gothic_Neo_ULight";
+  font-weight: 500;
+  color: rgb(156, 156, 156);
+  margin-left: 5px;
+}
+
+.details {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  transition: all 0.35s ease-in-out;
+  overflow: hidden;
+  margin: 20px 0; 
+}
+
+.details.off {
+  margin: 0;
+  height: 0px;
+}
+
+.font .toggleButton1, .font .toggleButton2 {
+  display: inline-block;
+  background-image: url('../../../assets/minus.png');
+  background-size: cover;
+  margin: 0;
+  width: 38px;
+  height: 38px;
+  position: absolute;
+  top: -4.5px;
+  right: 10px;
+  transition: all .35s;
+}
+
+.toggleButton2 {
+  transform: rotate(90deg);
+}
+
+.toggleButton1.off {
+  transform: rotate(135deg);
+}
+
+.toggleButton2.off {
+  transform: rotate(-135deg);
+}

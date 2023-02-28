@@ -3,23 +3,31 @@
   src: url("../../fonts/SF-Pro-Display-Regular.otf");
 }
 
-.AuthBox{
+.AuthBox {
+  top: 50%;
+  left: 50%;
+  height: calc(100vh - 445px);
+  width: 340px;
+  margin: 0 auto;
+  font-family: "SF_Pro";
+}
+.AuthTitle {
+  padding-bottom: 10px;
+  text-align: center;
+  font-size: 35px;
+  font-style: italic;
+  font-weight: bolder;
+}
+.AuthBody {
+  align-items: center;
+  text-align: center;
+}
+
+.signUpBox {
   top: 50%;
   left: 50%;
   height: auto;
-  width: 300px;
+  width: 340px;
   margin: 0 auto;
-  margin-top: 40px;
-  padding: 60px 0 160px;
   font-family: "SF_Pro";
-}
-.AuthTitle{
-  padding-bottom: 10px;
-  text-align: center;
-  font-size: 10px;
-  border-bottom: 1px solid black;
-}
-.AuthBody{
-  align-items: center;
-  text-align: center;
 }

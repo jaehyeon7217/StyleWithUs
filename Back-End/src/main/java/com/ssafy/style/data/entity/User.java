@@ -15,28 +15,30 @@ import java.time.LocalDateTime;
 @Table(name = "user")
 public class User {
     @Id
+    @Column(length = 20)
     private String userId;
-    @Column(nullable = false)
+    @Column(nullable = false, length = 70)
     private String userPw;
-    @Column(nullable = false)
+    @Column(nullable = false, length = 20)
     private String userName;
-    @Column(nullable = false, unique = true)
+    @Column(nullable = false, unique = true, length = 20)
     private String userNickname;
-    @Column(nullable = false, unique = true)
+    @Column(nullable = false, unique = true, length = 50)
     private String userEmail;
     @Column(nullable = false)
     private Integer userGender;
-    @Column(nullable = false)
-    private Integer userType;
     @CreationTimestamp
     @Column(nullable = false, columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
     private LocalDateTime userRegisterTime;
     private Integer userHeight;
-    private Integer userTop;
-    private Integer userBottom;
+    private Integer userShoulder;
+    private Integer userChest;
+    private Integer userSleeve;
+    private Integer userWaist;
+    private Integer userHip;
+    private Integer userThigh;
+    private Integer userHem;
     private Integer userFoot;
-    private Integer userAge;
-    private Integer userPc;
 
 }
 

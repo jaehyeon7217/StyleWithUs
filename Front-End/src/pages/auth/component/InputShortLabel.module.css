@@ -1,0 +1,71 @@
+@import url("https://fonts.googleapis.com/css2?family=Blinker:wght@100;200;300;400;600;700;800;900&display=swap");
+
+@font-face {
+  font-family: "Apple_Gothic_Neo_Mid";
+  src: url("../../../fonts/AppleSDGothicNeoM.ttf");
+}
+
+@font-face {
+  font-family: "Apple_Gothic_Neo_Light";
+  src: url("../../../fonts/AppleSDGothicNeoL.ttf");
+}
+
+@font-face {
+  font-family: "Apple_Gothic_Neo_Bold";
+  src: url("../../../fonts/AppleSDGothicNeoB.ttf");
+}
+
+.InputShortLabel {
+  width: auto;
+  text-align: left;
+  margin-left: 20px;
+}
+
+.InputShortLabel label p {
+  font-family: "Apple_Gothic_Neo_Mid";
+  font-size: 15px;
+  margin-bottom: 10px;
+  position: relative;
+}
+
+.InputShortLabel label input {
+  font-family: "Apple_Gothic_Neo_Mid";
+  width: 200px;
+  border: none;
+  outline: none;
+  border-bottom: 1.5px solid lightgray;
+  margin-bottom: 5px;
+  padding-bottom: 2.5px;
+}
+
+.InputShortLabel label button {
+  font-family: "Apple_Gothic_Neo_Mid";
+  width: 90px;
+  margin-left: 10px;
+  height: 37px;
+  border: none;
+  border-radius: 9px;
+  font-size: 12.9px;
+  position: relative;
+  margin-top: -12px;
+  cursor: pointer;
+}
+
+.ErrorMessage {
+  font-family: "Apple_Gothic_Neo_SBold";
+  font-size: 10px;
+  color: red;
+  margin-top: -3px;
+  margin-bottom: 8px;
+  margin-left: 2px;
+}
+
+.ErrorMessagehidden {
+  font-family: "Apple_Gothic_Neo_SBold";
+  font-size: 10px;
+  color: red;
+  margin-top: -3px;
+  margin-bottom: 8px;
+  margin-left: 2px;
+  visibility: hidden;
+}

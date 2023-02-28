@@ -1,0 +1,74 @@
+@import url("https://fonts.googleapis.com/css2?family=Blinker:wght@100;200;300;400;600;700;800;900&display=swap");
+@font-face {
+  font-family: "Apple_Gothic_Neo_Hard";
+  src: url("../../fonts/AppleSDGothicNeoH.ttf");
+}
+
+@font-face {
+  font-family: "Apple_Gothic_Neo_Mid";
+  src: url("../../fonts/AppleSDGothicNeoM.ttf");
+}
+
+@font-face {
+  font-family: "Apple_Gothic_Neo_Light";
+  src: url("../../fonts/AppleSDGothicNeoL.ttf");
+}
+
+@font-face {
+  font-family: "Apple_Gothic_Neo_Bold";
+  src: url("../../fonts/AppleSDGothicNeoB.ttf");
+}
+
+.detailBox {
+  width: 100%;
+  text-align: center;
+}
+
+.idBox {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: -5px;
+  margin-bottom: -10px;
+}
+
+.resumeBox {
+  width: 100%;
+  margin-bottom: 30px;
+}
+
+.consultantId {
+  font-family: "Apple_Gothic_Neo_Bold";
+  font-size: 18px;
+  margin-right: 10px;
+}
+
+.consultantResume {
+  font-family: "Apple_Gothic_Neo_Light";
+  font-size: 18px;
+}
+
+.approveButton {
+  font-family: "Apple_Gothic_Neo_Mid";
+  width: 90px;
+  height: 37px;
+  border: none;
+  border-radius: 9px;
+  font-size: 12.9px;
+  position: relative;
+  cursor: pointer;
+}
+
+.hrgrey {
+  border-bottom: solid 2px #dfdfdf;
+  border-top: 0;
+  padding: 0;
+  border-radius: 2.5px;
+}
+
+.hrblack {
+  border-bottom: solid 2px #000000;
+  border-top: 0;
+  padding: 0;
+  border-radius: 2.5px;
+}
