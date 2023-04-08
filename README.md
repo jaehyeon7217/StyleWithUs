@@ -9,7 +9,7 @@
 <br>
 
 ### UCC ➡ [중간 유튜브 링크](링크), [최종 유튜브 링크](https://www.youtube.com/watch?v=F8I9JapLg4k)
-### 발표자료 ➡ [중간 발표자료 링크](/docs/발표자리/D105_중간발표자료.pdf), [최종 발표자료 링크](/docs/발표자리/최종발표.pdf)
+### 발표자료 ➡ [중간 발표자료 링크](/docs/발표자료/D105_중간발표자료.pptx), [최종 발표자료 링크](/docs/발표자료/최종발표.pptx)
 ### Notion ➡ [노션 링크](https://www.notion.so/D105-a32f3c0d0d6644bbaa9afed10fb68d7f)
 
 <br>
@@ -27,7 +27,7 @@
 <br>
 
 ## 기술 스택 & 아키텍쳐
-<img src = "./docs/image/architecture.png">
+<img src = "./docs/image/architecture.jpg">
 <br>
 <br>
 
@@ -47,6 +47,7 @@
     <img src="https://img.shields.io/badge/hibernate-59666C?style=flat&logo=hibernate&logoColor=white" />
 	<img src="https://img.shields.io/badge/jsonwebtokens-000000?style=flat&logo=jsonwebtokens&logoColor=white" />
     <img src="https://img.shields.io/badge/Swagger-85EA2D?style=flat&logo=Swagger&logoColor=white" />
+	<img src="https://img.shields.io/badge/mariadb-003545?style=flat&logo=mariadb&logoColor=white" />
 </div>
 
 ### TEAM Cooperation
@@ -54,6 +55,7 @@
 	<img src="https://img.shields.io/badge/gitlab-FC6D26?style=flat&logo=gitlab&logoColor=white" />
 	<img src="https://img.shields.io/badge/jirasoftware-0052CC?style=flat&logo=jirasoftware&logoColor=white" />
     <img src="https://img.shields.io/badge/notion-000000?style=flat&logo=notion&logoColor=white" />
+	<img src="https://img.shields.io/badge/mattermost-0058CC?style=flat&logo=mattermost&logoColor=white" />
 </div>
 
 <br>
@@ -68,13 +70,15 @@
 <br>
 
 ## 주요 기능
-대충 주요기능
+- 유저 체형에 맞는 옷 추천 서비스
+- 유저-컨설턴트 간의 1:1 실시간 화상 채팅
+- 사진 업로드를 통한 퍼스널 컬러 자가진단
 
 <br>
 
 ## 시나리오
 대략적 시나리오 그림 + 약간의 설명
-##### 시연 시나리오 ➡ [노션 링크](링크)
+##### 시연 시나리오 ➡ [노션 링크](https://www.notion.so/Style-With-US-8902ff3d6a114d15970ea58bfaee6a96)
 
 <br>
 
@@ -83,9 +87,14 @@
 <br>
 
 ## DB ERD
-(DB ERD 그림)
+<img src = "./docs/sql/DBERD.png">
 
 ## 팀원 역할
-대충 표 그려서 역할<br>
-FE - 병수, 서정, 동엽, 현진<br>
-BE - 재현, 성환<br>
+| 이름   | 역할 | 내용                        |
+| ------ | ---- | --------------------------- |
+| 이병수 | FE | 프론트엔드 개발 |
+| 양서정 | FE | 프론트엔드 개발 |
+| 이동엽 | FE | 프론트엔드 개발 |
+| 김현진 | FE | 프론트엔드 개발 |
+| 박재현 | BE | 백앤드 개발, CI/CD |
+| 박성환 | BE | 백앤드 개발, Openvidu |
