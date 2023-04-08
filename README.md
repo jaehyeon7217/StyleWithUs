@@ -1,6 +1,6 @@
 # StyelWithUs
-(로고)<br>
-(메인 페이지)
+<img src = "./docs/image/logo.png"><br>
+<img src = "./docs/image/MainPage.png">
 
 > __아직 배고프조(D105)__  
 이병수, 양서정, 이동엽, 김현진, 박재현, 박성환
