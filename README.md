@@ -1,5 +1,4 @@
 # StyelWithUs
-<img src = "./docs/image/logo.png"><br>
 <img src = "./docs/image/MainPage.png">
 
 > __아직 배고프조(D105)__  
@@ -9,9 +8,9 @@
 
 <br>
 
-### UCC ➡ [중간 유튜브 링크](링크), [최종 유튜브 링크](링크)
-### 발표자료 ➡ [중간 발표자료 링크](링크), [최종 발표자료 링크](링크)
-### Notion ➡ [노션 링크](링크)
+### UCC ➡ [중간 유튜브 링크](링크), [최종 유튜브 링크](https://www.youtube.com/watch?v=F8I9JapLg4k)
+### 발표자료 ➡ [중간 발표자료 링크](/docs/발표자리/D105_중간발표자료.pdf), [최종 발표자료 링크](/docs/발표자리/최종발표.pdf)
+### Notion ➡ [노션 링크](https://www.notion.so/D105-a32f3c0d0d6644bbaa9afed10fb68d7f)
 
 <br>
 
@@ -28,18 +27,34 @@
 <br>
 
 ## 기술 스택 & 아키텍쳐
-(아키텍쳐 그림)
+<img src = "./docs/image/architecture.png">
 <br>
 <br>
 
 ### Front-End
-리액트 기타 등등...
+<div>
+	<img src="https://img.shields.io/badge/React-61DAFB?style=flat&logo=React&logoColor=white" />
+	<img src="https://img.shields.io/badge/Node.js-339933?style=flat&logo=Node.js&logoColor=white" />
+	<img src="https://img.shields.io/badge/Redux-764ABC?style=flat&logo=Redux&logoColor=white" />
+    <img src="https://img.shields.io/badge/axios-5A29E4?style=flat&logo=axios&logoColor=white" />
+	<img src="https://img.shields.io/badge/ReactRouter-CA4245?style=flat&logo=ReactRouter&logoColor=white" />
+</div>
 
 ### Back-end
-스프링 기타 등등...
- 
+<div>
+	<img src="https://img.shields.io/badge/Springboot-6DB33F?style=flat&logo=Springboot&logoColor=white" />
+	<img src="https://img.shields.io/badge/JPA-6DB33F?style=flat&logo=JPA&logoColor=white" />
+    <img src="https://img.shields.io/badge/hibernate-59666C?style=flat&logo=hibernate&logoColor=white" />
+	<img src="https://img.shields.io/badge/jsonwebtokens-000000?style=flat&logo=jsonwebtokens&logoColor=white" />
+    <img src="https://img.shields.io/badge/Swagger-85EA2D?style=flat&logo=Swagger&logoColor=white" />
+</div>
+
 ### TEAM Cooperation
-깃랩, 지라, 노션 기타 등등..
+<div>
+	<img src="https://img.shields.io/badge/gitlab-FC6D26?style=flat&logo=gitlab&logoColor=white" />
+	<img src="https://img.shields.io/badge/jirasoftware-0052CC?style=flat&logo=jirasoftware&logoColor=white" />
+    <img src="https://img.shields.io/badge/notion-000000?style=flat&logo=notion&logoColor=white" />
+</div>
 
 <br>
 
