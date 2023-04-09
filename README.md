@@ -9,7 +9,7 @@
 <br>
 
 ### UCC ➡ [중간 유튜브 링크](링크), [최종 유튜브 링크](https://www.youtube.com/watch?v=F8I9JapLg4k)
-### 발표자료 ➡ [중간 발표자료 링크](/docs/발표자료/D105_중간발표자료.pptx), [최종 발표자료 링크](/docs/발표자료/최종발표.pptx)
+### 발표자료 ➡ [중간 발표자료 링크](/docs/발표자료/D105_중간발표자료.pdf), [최종 발표자료 링크](/docs/발표자료/최종발표.pdf)
 ### Notion ➡ [노션 링크](https://www.notion.so/D105-a32f3c0d0d6644bbaa9afed10fb68d7f)
 
 <br>
