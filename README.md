@@ -1,4 +1,4 @@
-# StyelWithUs
+# StyleWithUs
 <img src = "./docs/image/MainPage.png">
 
 > __아직 배고프조(D105)__  
@@ -19,10 +19,16 @@
 <br>
 
 ## 기획 배경 및 목표
-블라블라
+> 소개팅이 있는 날, 중요한 발표가 있는 날 같이 스타일링이 필요할 때
+> 혹은 매일 같은 옷을 입는다는 소리를 듣거나 공대룩만 입는 다는 소리를 듣는 사람들을 위해
+> 전문가와의 상담을 통해 자신의 체형에 맞는 옷을 실제 상품에 기반하여 추천해 주는 서비스
+
+<br>
 
 ## 기대 효과
-블라블라
+- 유저 체형에 맞는 옷 추천 서비스
+- 유저-컨설턴트 간의 1:1 실시간 화상 채팅
+- 사진 업로드를 통한 퍼스널 컬러 자가진단
 
 <br>
 
@@ -65,19 +71,38 @@
 <br>
 
 ## 서비스 소개
-블라블라
-
-<br>
-
-## 주요 기능
-- 유저 체형에 맞는 옷 추천 서비스
-- 유저-컨설턴트 간의 1:1 실시간 화상 채팅
-- 사진 업로드를 통한 퍼스널 컬러 자가진단
+WebRTC 기술을 활용한 유저-컨설턴트 간의 실시간 옷 추천 서비스
 
 <br>
 
 ## 시나리오
-대략적 시나리오 그림 + 약간의 설명
+
+### 로그인
+<img src = "./docs/image/Login.png">
+회원으로 로그인 합니다.
+
+### SBTI
+<img src = "./docs/image/SBTI01.png">
+<img src = "./docs/image/SBTI02.png">
+<img src = "./docs/image/SBTI03.png">
+SBTI 페이지를 통해 회원의 체형을 입력합니다.
+
+### 추천 페이지
+<img src = "./docs/image/Recommend.png">
+SBTI에 작성한 체형을 바탕으로 옷이 추천됩니다.
+
+### 퍼스널 컬러
+<img src = "./docs/image/PersonalColoer01.png">
+<img src = "./docs/image/PersonalColoer02.png">
+<img src = "./docs/image/PersonalColoer03.png">
+<img src = "./docs/image/PersonalColoer04.png">
+이미지 업로드를 통해 회원의 퍼스널 컬러 자가진단이 가능합니다.
+
+### 컨설턴트 미팅
+<img src = "./docs/image/Meeting01.png">
+<img src = "./docs/image/Meeting02.png">
+미팅 룸을 열어둔 컨설턴트들 중에서 하나의 컨설턴트를 선택하여 화상 채팅방에 입장이 가능합니다.
+
 ##### 시연 시나리오 ➡ [노션 링크](https://www.notion.so/Style-With-US-8902ff3d6a114d15970ea58bfaee6a96)
 
 <br>
@@ -92,9 +117,9 @@
 ## 팀원 역할
 | 이름   | 역할 | 내용                        |
 | ------ | ---- | --------------------------- |
-| 이병수 | FE | 프론트엔드 개발 |
-| 양서정 | FE | 프론트엔드 개발 |
-| 이동엽 | FE | 프론트엔드 개발 |
-| 김현진 | FE | 프론트엔드 개발 |
+| 이병수 | FE | 프론트엔드 개발, 비동기 통신 |
+| 양서정 | FE | 프론트엔드 개발, UI/UX 디자인 |
+| 이동엽 | FE | 프론트엔드 개발. 채팅 기능능 |
+| 김현진 | FE | 프론트엔드 개발, Openvidu |
 | 박재현 | BE | 백앤드 개발, CI/CD |
 | 박성환 | BE | 백앤드 개발, Openvidu |
